@@ -1,0 +1,22 @@
+# Traducciones al inglés para UpdateMe
+msgid ""
+msgstr ""
+"Project-Id-Version: UpdateMe 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-14 15:30+0000\n"
+"PO-Revision-Date: 2025-04-14 15:30+0000\n"
+"Last-Translator: UpdateMe Team <info@updateme.com>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "title_homepage"
+msgstr "Landing Page - UpdateMe"
+
+msgid "This page is under construction"
+msgstr "This page is under construction"
+
+msgid "We're working to provide you with a better experience. Check back soon for our updates!"
+msgstr "We're working to provide you with a better experience. Check back soon for our updates!"

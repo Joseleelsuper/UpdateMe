@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <!-- Incluir Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',    // Azul principal
+                        secondary: '#10B981',  // Verde para acciones secundarias
+                        dark: '#1F2937',       // Color oscuro para fondos
+                        light: '#F9FAFB',      // Color claro para fondos
+                        accent: '#8B5CF6',     // Color de acento para destacados
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    spacing: {
+                        '128': '32rem',
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+    <div class="text-center px-4">
+        <div class="text-6xl md:text-8xl mb-6">
+            🚧 👷‍♂️ 🏗️
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            {{ _('This page is under construction') }}
+        </h1>
+        <p class="text-xl text-gray-600 max-w-lg mx-auto">
+            {{ _('We\'re working to provide you with a better experience. Check back soon for our updates!') }}
+        </p>
+        <div class="mt-10">
+            <div class="inline-block h-1 w-32 bg-primary"></div>
+        </div>
+        <p class="mt-8 text-gray-500">
+            &copy; 2025 UpdateMe
+        </p>
+    </div>
+</body>
+
+</html>
