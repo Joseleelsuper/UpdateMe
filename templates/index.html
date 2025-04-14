@@ -28,18 +28,22 @@
                 </p>
 
                 <div class="flex flex-col md:flex-row justify-center space-y-3 md:space-y-0 md:space-x-3">
-                    <input type="email" placeholder="{{ _('Introduce email...') }}"
+                    <input id="email-input" type="email" placeholder="{{ _('Introduce email...') }}"
                         class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
-                    <button class="bg-primary hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
+                    <button id="subscribe-btn" class="bg-primary hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
                         {{ _('Accept') }}
                     </button>
                 </div>
+                <div id="subscribe-message" class="mt-4 text-center text-lg"></div>
             </div>
         </div>
     </main>
 
     {% from 'components/footer.html' import footer %}
     {{ footer() }}
+
+    <!-- Scripts -->
+    <script type="module" src="{{ url_for('serve_static', path='js/subscribe-form.js') }}"></script>
 </body>
 
 </html>
