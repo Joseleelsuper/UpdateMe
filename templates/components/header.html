@@ -1,0 +1,24 @@
+{% macro header() %}
+<header class="bg-gradient-to-r from-blue-600 to-indigo-800 text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="/" class="text-2xl font-bold hover:text-blue-200 transition">UpdateMe</a>
+        <nav class="flex items-center space-x-6">
+            <a href="#" class="hover:text-blue-200 transition">{{ _('Pricing') }}</a>
+            <!-- Mejorar la separación y estilo de login/register -->
+            <div class="flex items-center space-x-2">
+                <a href="#" class="px-3 py-1 rounded-lg border border-white/30 hover:bg-white/10 transition">{{ _('Login') }}</a>
+                <span class="text-white/40">/</span>
+                <a href="#" class="px-3 py-1 rounded-lg bg-white text-blue-700 font-semibold hover:bg-blue-100 transition">{{ _('Register') }}</a>
+            </div>
+            <!-- Idiomas -->
+            <div class="flex items-center space-x-2 ml-4">
+                <a href="{{ url_for('change_language', language='es') }}"
+                   class="text-sm hover:text-blue-200 transition {% if g.locale == 'es' %}font-bold underline{% endif %}">ES</a>
+                <span>|</span>
+                <a href="{{ url_for('change_language', language='en') }}"
+                   class="text-sm hover:text-blue-200 transition {% if g.locale == 'en' %}font-bold underline{% endif %}">EN</a>
+            </div>
+        </nav>
+    </div>
+</header>
+{% endmacro %}

@@ -13,10 +13,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "title_homepage"
-msgstr "Landing Page - UpdateMe"
+msgstr "UpdateMe - Weekly Technology & AI Newsletter"
 
 msgid "This page is under construction"
 msgstr "This page is under construction"
 
 msgid "We're working to provide you with a better experience. Check back soon for our updates!"
 msgstr "We're working to provide you with a better experience. Check back soon for our updates!"
+
+msgid "Do you want to receive technology and AI content on a weekly basis?"
+msgstr "Do you want to receive technology and AI content on a weekly basis?"
+
+msgid "Subscribe to the newsletter for free"
+msgstr "Subscribe to the newsletter for free"
+
+msgid "Introduce email..."
+msgstr "Enter your email..."
+
+msgid "Accept"
+msgstr "Subscribe"
+
+msgid "An initiative of"
+msgstr "An initiative of"
+
+msgid "Pricing"
+msgstr "Pricing"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Login/Register"
+msgstr "Login/Register"
