@@ -1,0 +1,81 @@
+/* static/css/pages/index.css */
+.hero-section {
+  padding: 4rem 1rem;
+}
+
+.hero-content {
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #4B5563;
+  margin-bottom: 2rem;
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.subscribe-input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #D1D5DB;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.subscribe-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+.subscribe-button {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.subscribe-button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.subscribe-message {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1.125rem;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+  
+  .subscribe-form {
+    flex-direction: row;
+    gap: 0;
+  }
+  
+  .subscribe-input {
+    flex: 1;
+    margin-right: 0.75rem;
+  }
+}
