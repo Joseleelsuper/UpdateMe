@@ -1,0 +1,31 @@
+/* static/css/components/footer.css */
+.site-footer {
+  background-color: #1F2937;
+  color: white;
+  padding: 2rem 0;
+  margin-top: auto;
+}
+
+.site-footer .container {
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-link {
+  color: #93C5FD;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #DBEAFE;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: #9CA3AF;
+}

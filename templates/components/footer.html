@@ -1,10 +1,11 @@
 {% macro footer() %}
-<footer class="bg-gray-800 text-white py-8 mt-auto">
-    <div class="container mx-auto px-4 text-center">
-        <p class="text-sm mb-2">{{ _('An initiative of') }} 
-            <a href="https://joseleelportfolio.vercel.app/" target="_blank" class="text-blue-300 hover:text-blue-200 underline transition">José Gallardo</a>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/footer.css') }}">
+<footer class="site-footer">
+    <div class="container">
+        <p class="footer-text">{{ _('An initiative of') }} 
+            <a href="https://joseleelportfolio.vercel.app/" target="_blank" class="footer-link">José Gallardo</a>
         </p>
-        <p class="text-sm text-gray-400">&copy; 2025 UpdateMe</p>
+        <p class="copyright">&copy; 2025 UpdateMe</p>
     </div>
 </footer>
 {% endmacro %}
