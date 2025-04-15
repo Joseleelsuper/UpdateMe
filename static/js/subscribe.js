@@ -15,7 +15,7 @@ export async function subscribeWithEmail(email) {
 export function showToast(message, type = 'success') {
     let toast = document.createElement('div');
     toast.textContent = message;
-    toast.className = `fixed top-6 left-1/2 transform -translate-x-1/2 z-50 px-6 py-3 rounded-lg shadow-lg text-white text-lg transition-opacity duration-300 ${type === 'success' ? 'bg-green-600' : 'bg-red-600'}`;
+    toast.className = `toast ${type === 'success' ? 'toast-success' : 'toast-error'}`;
     document.body.appendChild(toast);
     setTimeout(() => {
         toast.style.opacity = '0';
