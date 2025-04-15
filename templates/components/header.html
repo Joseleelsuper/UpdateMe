@@ -1,8 +1,18 @@
 {% macro header() %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/components/header.css') }}">
+<script src="{{ url_for('static', filename='js/header-menu.js') }}"></script>
 <header class="site-header">
     <div class="container">
         <a href="/" class="site-logo">UpdateMe</a>
+        
+        <!-- Botón hamburguesa para dispositivos móviles -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Menú para pantallas de escritorio -->
         <nav class="site-nav">
             <a href="#" class="nav-link">{{ _('Pricing') }}</a>
             <div class="auth-links">
@@ -19,6 +29,24 @@
                    class="language-link {% if g.locale == 'en' %}active{% endif %}">EN</a>
             </div>
         </nav>
+
+        <!-- Menú móvil overlay -->
+        <div class="mobile-menu" id="mobile-menu">
+            <nav class="mobile-menu-nav">
+                <a href="#" class="nav-link">{{ _('Pricing') }}</a>
+            </nav>
+            <div class="mobile-auth-links">
+                <a href="#" class="btn-login">{{ _('Login') }}</a>
+                <a href="#" class="btn-register">{{ _('Register') }}</a>
+            </div>
+            <div class="mobile-language-selector">
+                <a href="{{ url_for('change_language', language='es') }}"
+                   class="language-link {% if g.locale == 'es' %}active{% endif %}">ES</a>
+                <span class="language-divider">|</span>
+                <a href="{{ url_for('change_language', language='en') }}"
+                   class="language-link {% if g.locale == 'en' %}active{% endif %}">EN</a>
+            </div>
+        </div>
     </div>
 </header>
 {% endmacro %}
