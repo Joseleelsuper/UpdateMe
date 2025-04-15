@@ -4,46 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ url_for('serve_static', path='img/favicon/favicon.ico') }}">
-    <!-- Incluir Tailwind CSS desde CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración de Tailwind -->
-    <script src="{{ url_for('serve_static', path='js/tailwind-config.js') }}"></script>
+    <title>UpdateMe - Technology and AI Weekly Newsletter</title>
+    <meta name="description"
+        content="Subscribe to the Technology and Artificial Intelligence Newsletter that will notify you every week of the latest updates on what's happening in the world.">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://updatemeai.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="UpdateMe - Technology and AI Weekly Newsletter">
+    <meta property="og:description"
+        content="Subscribe to the Technology and Artificial Intelligence Newsletter that will notify you every week of the latest updates on what's happening in the world.">
+    <meta property="og:image"
+        content="https://opengraph.b-cdn.net/production/images/bfabd6bc-249f-400a-9f99-8b5de217609c.png?token=xYoI1Ww9XbKGGL75Pk7C8GwxqEKiMhKEh1uiZ2twR2M&height=577&width=1200&expires=33280719472">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="updatemeai.vercel.app">
+    <meta property="twitter:url" content="https://updatemeai.vercel.app/">
+    <meta name="twitter:title" content="UpdateMe - Technology and AI Weekly Newsletter">
+    <meta name="twitter:description"
+        content="Subscribe to the Technology and Artificial Intelligence Newsletter that will notify you every week of the latest updates on what's happening in the world.">
+    <meta name="twitter:image"
+        content="https://opengraph.b-cdn.net/production/images/bfabd6bc-249f-400a-9f99-8b5de217609c.png?token=xYoI1Ww9XbKGGL75Pk7C8GwxqEKiMhKEh1uiZ2twR2M&height=577&width=1200&expires=33280719472">
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/index.css') }}">
+    <script type="module" src="{{ url_for('static', filename='js/subscribe-form.js') }}"> defer</script>
 </head>
 
-<body class="flex flex-col min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+<body>
+
     {% from 'components/header.html' import header %}
     {{ header() }}
 
-    <main class="flex-grow">
-        <div class="container mx-auto px-4 py-16">
-            <div class="max-w-3xl mx-auto text-center">
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                    {{ _('Do you want to receive technology and AI content on a weekly basis?') }}
-                </h1>
-                <p class="text-xl text-gray-700 mb-8">
-                    {{ _('Subscribe to the newsletter for free') }}
-                </p>
+    <main>
+        <div class="container">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        {{ _('Do you want to receive technology and AI content on a weekly basis?') }}
+                    </h1>
+                    <p class="hero-subtitle">
+                        {{ _('Subscribe to the newsletter for free') }}
+                    </p>
 
-                <div class="flex flex-col md:flex-row justify-center space-y-3 md:space-y-0 md:space-x-3">
-                    <input id="email-input" type="email" placeholder="{{ _('Introduce email...') }}"
-                        class="px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary">
-                    <button id="subscribe-btn" class="bg-primary hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
-                        {{ _('Accept') }}
-                    </button>
+                    <div class="subscribe-form">
+                        <input id="email-input" type="email" placeholder="{{ _('Introduce email...') }}"
+                            class="subscribe-input">
+                        <button id="subscribe-btn" class="subscribe-button">
+                            {{ _('Accept') }}
+                        </button>
+                    </div>
+                    <div id="subscribe-message" class="subscribe-message"></div>
                 </div>
-                <div id="subscribe-message" class="mt-4 text-center text-lg"></div>
-            </div>
+            </section>
         </div>
     </main>
 
     {% from 'components/footer.html' import footer %}
     {{ footer() }}
 
-    <!-- Scripts -->
-    <script type="module" src="{{ url_for('serve_static', path='js/subscribe-form.js') }}"></script>
 </body>
 
 </html>

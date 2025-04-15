@@ -12,9 +12,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "title_homepage"
-msgstr "UpdateMe - Weekly Technology & AI Newsletter"
-
 msgid "This page is under construction"
 msgstr "This page is under construction"
 
