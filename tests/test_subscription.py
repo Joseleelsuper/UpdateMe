@@ -3,7 +3,7 @@ from unittest.mock import patch
 from conftest import TestBase
 import json
 from bson import ObjectId
-from app import users_collection
+from api.database import users_collection
 
 
 class TestSubscription(TestBase):
