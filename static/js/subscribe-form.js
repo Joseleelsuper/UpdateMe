@@ -1,4 +1,3 @@
-// static/js/subscribe-form.js
 import { validateEmail, subscribeWithEmail, showToast } from './subscribe.js';
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -12,13 +12,13 @@ export async function subscribeWithEmail(email) {
     return response.json();
 }
 
-export function showToast(message, type = 'success') {
+export async function showToast(message, type = 'success') {
     let toast = document.createElement('div');
     toast.textContent = message;
     toast.className = `toast ${type === 'success' ? 'toast-success' : 'toast-error'}`;
     document.body.appendChild(toast);
     setTimeout(() => {
         toast.style.opacity = '0';
-        setTimeout(() => toast.remove(), 300);
+        setTimeout(() => toast.remove(), 500);
     }, 3000);
 }
