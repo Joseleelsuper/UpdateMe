@@ -4,12 +4,54 @@ Este archivo contiene funciones para interactuar con servicios externos como Res
 import os
 import resend
 from dotenv import load_dotenv
+from typing import Dict, Optional
+
+# Importar proveedores de IA
+from .serviceAi.openai_provider import OpenAIProvider
+from .serviceAi.deepseek_provider import DeepSeekProvider
+from .serviceAi.groq_provider import GroqProvider
+from .serviceAi.base import AIProvider
 
 # Cargar variables de entorno si no se han cargado
 load_dotenv()
 
 # Configuración Resend
 resend.api_key = os.environ.get("RESEND_API_KEY")
+
+# Claves API para servicios de IA y búsqueda
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
+DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
+SERPAPI_API_KEY = os.environ.get("SERPAPI_API_KEY", "")
+
+# Diccionario de proveedores disponibles
+ai_providers: Dict[str, AIProvider] = {}
+
+# Inicializar proveedores si las claves están disponibles
+if OPENAI_API_KEY:
+    ai_providers["openai"] = OpenAIProvider(OPENAI_API_KEY, model="gpt-4o-mini")
+
+if DEEPSEEK_API_KEY and SERPAPI_API_KEY:
+    ai_providers["deepseek"] = DeepSeekProvider(DEEPSEEK_API_KEY, serpapi_key=SERPAPI_API_KEY)
+
+if GROQ_API_KEY:
+    # Pasar la clave de SerpAPI a Groq si está disponible
+    ai_providers["groq"] = GroqProvider(GROQ_API_KEY, model="llama3-70b-8192", serpapi_key=SERPAPI_API_KEY)
+
+
+def get_ai_provider(provider_name: str) -> Optional[AIProvider]:
+    """
+    Obtiene una instancia del proveedor de IA solicitado.
+    
+    Args:
+        provider_name: Nombre del proveedor de IA
+        
+    Returns:
+        Instancia del proveedor de IA o None si no está disponible
+    """
+    provider_name = provider_name.lower()
+    return ai_providers.get(provider_name)
+
 
 def send_email(to_email, subject, content):
     """
@@ -30,34 +72,37 @@ def send_email(to_email, subject, content):
         "from": "UpdateMe <onboarding@resend.dev>",
         "to": [to_email],
         "subject": subject,
-        "text": content,
+        "html": content,
     }
     
     return resend.Emails.send(params)
 
+
 def generate_news_summary(email, provider="groq"):
     """
     Genera un resumen de noticias tecnológicas de la última semana usando IA.
-    Por defecto usa Groq, pero se puede cambiar el proveedor fácilmente.
+    Utiliza el proveedor especificado para generar el contenido.
     
     Args:
         email: Email del usuario (para personalizar el mensaje)
-        provider: Proveedor de IA a utilizar (groq, openai, etc.)
+        provider: Proveedor de IA a utilizar ("openai", "deepseek", "groq", etc.)
         
     Returns:
         str: Texto con el resumen de noticias
     """
-    # TODO: Implementar integraciones reales con Groq, OpenAI, etc.
-    # Por ahora, devuelve un texto simulado
-    return f"""Hola {email},
-
-Aquí tienes un resumen de las noticias tecnológicas más importantes de la última semana:
-
-- Noticia 1: La nueva versión de Python 3.13 ha sido lanzada con mejoras significativas en rendimiento.
-- Noticia 2: Microsoft anuncia avances importantes en su modelo de IA generativa.
-- Noticia 3: La UE aprueba una regulación más estricta para la protección de datos en aplicaciones móviles.
-
-¡Gracias por suscribirte a UpdateMe!
-
-Atentamente,
-El equipo de UpdateMe"""
+    # Obtener el proveedor solicitado
+    ai_provider = get_ai_provider(provider)
+    
+    # Si el proveedor no está disponible, intentar con el primero disponible
+    if not ai_provider and ai_providers:
+        provider = next(iter(ai_providers))
+        ai_provider = ai_providers[provider]
+    
+    # Si no hay proveedores disponibles, usar contenido de respaldo
+    if not ai_provider:
+        from .serviceAi.prompts import get_fallback_content
+        username = email.split("@")[0]
+        return get_fallback_content(username)
+    
+    # Generar resumen de noticias usando el proveedor
+    return ai_provider.generate_news_summary(email)

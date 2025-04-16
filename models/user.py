@@ -13,7 +13,8 @@ class User:
     role: Literal["free", "paid", "admin"]
     email_verified: bool
     account_status: Literal["active", "suspended"]
-    billing_address: Optional[ObjectId]
-    last_login: Optional[datetime]
-    subscription: Optional[ObjectId]
+    language: str = "es" 
+    billing_address: Optional[ObjectId] = None
+    last_login: Optional[datetime] = None
+    subscription: Optional[ObjectId] = None
     payment_methods: List[ObjectId] = field(default_factory=list)
