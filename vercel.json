@@ -3,11 +3,7 @@
   "builds": [
     {
       "src": "api/index.py",
-      "use": "@vercel/python",
-      "config": {
-        "installCommand": "pip install -r requirements.txt",
-        "buildCommand": "chmod +x build.sh && ./build.sh"
-      }
+      "use": "@vercel/python"
     }
   ],
   "routes": [
@@ -17,6 +13,6 @@
     }
   ],
   "env": {
-    "BABEL_TRANSLATION_DIRECTORIES": "./translations"
+    "VERCEL": "1"
   }
 }
