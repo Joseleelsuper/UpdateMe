@@ -27,7 +27,7 @@ msgstr "Subscribe to the newsletter for free"
 msgid "Introduce email..."
 msgstr "Enter your email..."
 
-msgid "Accept"
+msgid "Subscribe"
 msgstr "Subscribe"
 
 msgid "An initiative of"
