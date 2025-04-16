@@ -1,4 +1,5 @@
-/* static/css/components/footer.css */
+@import url("../global.css");
+
 .site-footer {
   background-color: #1F2937;
   color: white;
@@ -12,14 +13,17 @@
 }
 
 .footer-text {
+  font-family: var(--font-primary);
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
+  font-weight: 300;
 }
 
 .footer-link {
   color: #93C5FD;
   text-decoration: underline;
   transition: color 0.2s;
+  font-weight: 500;
 }
 
 .footer-link:hover {
@@ -29,6 +33,8 @@
 .copyright {
   font-size: 0.875rem;
   color: #9CA3AF;
+  margin-top: 0.5rem;
+  font-weight: 300;
 }
 
 /* Media queries para asegurar que el footer se mantenga abajo en cualquier dispositivo */

@@ -1,4 +1,5 @@
-/* static/css/pages/index.css */
+@import url("../global.css");
+
 .hero-section {
   padding: 4rem 1rem;
 }
@@ -10,16 +11,20 @@
 }
 
 .hero-title {
-  font-size: 1.875rem;
+  font-family: var(--font-secondary);
+  font-size: 2rem;
   font-weight: 700;
   color: #1F2937;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
   color: #4B5563;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
 }
 
 .subscribe-form {
@@ -30,11 +35,12 @@
 }
 
 .subscribe-input {
-  padding: 0.5rem 1rem;
+  padding: 0.625rem 1.25rem;
   border-radius: 0.5rem;
   border: 1px solid #D1D5DB;
   outline: none;
   transition: all 0.2s ease;
+  font-size: 1rem;
 }
 
 .subscribe-input:focus {
@@ -45,16 +51,25 @@
 .subscribe-button {
   background-color: var(--color-primary);
   color: white;
-  padding: 0.5rem 1.5rem;
+  padding: 0.625rem 1.5rem;
   border-radius: 0.5rem;
-  font-weight: 500;
+  font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
+  font-family: var(--font-secondary);
+  letter-spacing: 0.25px;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
 }
 
 .subscribe-button:hover {
   background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3);
+}
+
+.subscribe-button:active {
+  transform: translateY(0);
 }
 
 .subscribe-message {
@@ -66,7 +81,7 @@
 /* Responsive styles */
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
   }
   
   .subscribe-form {
@@ -77,5 +92,11 @@
   .subscribe-input {
     flex: 1;
     margin-right: 0.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 2.75rem;
   }
 }

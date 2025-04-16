@@ -1,4 +1,3 @@
-/* static/css/global.css */
 :root {
   /* Colores principales de la aplicación */
   --color-primary: #3B82F6;    /* Azul principal */
@@ -12,6 +11,10 @@
   --color-text-dark: #111827;  /* Texto oscuro */
   --color-text-light: #F9FAFB; /* Texto claro */
   --color-text-muted: #6B7280; /* Texto gris */
+
+  /* Fuentes */
+  --font-primary: 'Poppins', sans-serif;     /* Fuente principal para texto */
+  --font-secondary: 'Montserrat', sans-serif;  /* Fuente para títulos/headers */
 }
 
 /* Estilos base */
@@ -22,7 +25,7 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-primary);
   line-height: 1.5;
   background: linear-gradient(to bottom right, #EBF4FF, #E0E7FF);
   min-height: 100vh;
@@ -150,6 +153,10 @@ input, button, textarea, select {
 
 .font-bold {
   font-weight: 700;
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
 }
 
 .text-lg {
