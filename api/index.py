@@ -14,15 +14,6 @@ from api.routes import register_routes
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, root_dir)
 
-# Importar y ejecutar el script de compilación de traducciones en Vercel
-if os.environ.get("VERCEL") == "1":
-    try:
-        print("Entorno Vercel detectado, compilando traducciones...")
-        import preVercel
-        preVercel.compile_translations()
-    except Exception as e:
-        print(f"Error al ejecutar preVercel: {e}")
-
 # Cargar variables de entorno
 load_dotenv()
 

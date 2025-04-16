@@ -52,7 +52,8 @@ coverage.xml
 cover/
 
 # Translations
-*.mo
+# Permitir archivos .mo para el despliegue en Vercel
+# *.mo
 *.pot
 
 # Django stuff:
