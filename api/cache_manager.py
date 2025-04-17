@@ -5,7 +5,7 @@ Reduce el número de llamadas a APIs externas reutilizando respuestas recientes.
 import hashlib
 import json
 from datetime import datetime, timedelta
-from typing import Dict, Any, Optional, Union
+from typing import Dict, Any, Optional, Union, List
 from bson import ObjectId
 from pymongo import IndexModel, ASCENDING
 
@@ -34,7 +34,7 @@ class CacheManager:
         # Crear índices para mejorar el rendimiento de búsquedas
         indices = [
             IndexModel([("cache_key", ASCENDING)], unique=True),
-            IndexModel([("created_at", ASCENDING)]),
+            IndexModel([("created_date", ASCENDING)]),
             IndexModel([("provider_type", ASCENDING)])
         ]
         
@@ -48,11 +48,11 @@ class CacheManager:
     @staticmethod
     def generate_cache_key(query: str, provider_type: str, additional_params: Optional[Dict] = None) -> str:
         """
-        Genera una clave única para la caché basada en la consulta y otros parámetros.
+        Genera una clave única para la caché basada en la consulta, proveedor y fecha actual.
         
         Args:
             query: La consulta o prompt que se está procesando
-            provider_type: El tipo de proveedor (ej. "openai", "groq", "serpapi")
+            provider_type: El tipo de proveedor (ej. "openai", "groq", "serpapi", "tavily")
             additional_params: Parámetros adicionales para diferenciar consultas (opcional)
             
         Returns:
@@ -61,10 +61,14 @@ class CacheManager:
         # Normalizar la consulta: eliminar espacios extras y convertir a minúsculas
         normalized_query = query.strip().lower()
         
+        # Obtener fecha actual (solo día, mes y año)
+        today_date = datetime.now().strftime("%Y-%m-%d")
+        
         # Crear un diccionario con todos los parámetros para generar el hash
         hash_data = {
             "query": normalized_query,
-            "provider": provider_type
+            "provider": provider_type,
+            "date": today_date
         }
         
         # Añadir parámetros adicionales si existen
@@ -78,27 +82,49 @@ class CacheManager:
     @staticmethod
     def get_from_cache(cache_key: str) -> Optional[Dict[str, Any]]:
         """
-        Recupera una respuesta de la caché si existe y no ha expirado.
+        Recupera una respuesta de la caché si existe y es del día actual.
         
         Args:
             cache_key: La clave generada para identificar la consulta
             
         Returns:
-            El resultado cacheado o None si no existe o ha expirado
+            El resultado cacheado o None si no existe o no es de hoy
         """
-        # Obtener la fecha actual (solo el día)
-        today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+        # Obtener la fecha actual (solo día, mes y año)
+        today_date = datetime.now().strftime("%Y-%m-%d")
         
         # Buscar en la caché
         cached_item = cache_collection.find_one({
             "cache_key": cache_key,
-            "created_at": {"$gte": today}  # Solo del día actual
+            "created_date": today_date
         })
         
         if cached_item:
             return cached_item.get("response")
         
         return None
+    
+    @staticmethod
+    def get_today_cache_by_provider(provider_type: str) -> List[Dict[str, Any]]:
+        """
+        Recupera todas las entradas de caché del día actual para un proveedor específico.
+        
+        Args:
+            provider_type: El tipo de proveedor (ej. "openai", "groq", "serpapi", "tavily")
+            
+        Returns:
+            Lista de resultados cacheados del día de hoy para ese proveedor
+        """
+        # Obtener la fecha actual (solo día, mes y año)
+        today_date = datetime.now().strftime("%Y-%m-%d")
+        
+        # Buscar todas las entradas para ese proveedor de hoy
+        cached_items = list(cache_collection.find({
+            "provider_type": provider_type,
+            "created_date": today_date
+        }))
+        
+        return cached_items
     
     @staticmethod
     def save_to_cache(cache_key: str, response: Union[Dict[str, Any], str], provider_type: str = "generic", query: Optional[str] = None, ttl_days: int = 1) -> None:
@@ -115,12 +141,17 @@ class CacheManager:
         # Eliminar entradas antiguas con la misma clave (si existen)
         cache_collection.delete_many({"cache_key": cache_key})
         
+        # Obtener la fecha actual
+        now = datetime.now()
+        today_date = now.strftime("%Y-%m-%d")
+        
         # Crear una nueva entrada de caché usando el modelo
         cache_entry = CacheEntry(
             _id=ObjectId(),
             cache_key=cache_key,
             response=response,
-            created_at=datetime.now(),
+            created_at=now,
+            created_date=today_date,
             provider_type=provider_type,
             query=query,
             tags=[provider_type],
