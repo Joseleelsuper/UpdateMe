@@ -14,6 +14,8 @@ class User:
     email_verified: bool
     account_status: Literal["active", "suspended"]
     language: str = "es" 
+    search_provider: Literal["serpapi", "tavily"] = "tavily"  # Proveedor de búsqueda web por defecto
+    ai_provider: Literal["openai", "deepseek", "groq"] = "groq"  # Proveedor de IA por defecto
     billing_address: Optional[ObjectId] = None
     last_login: Optional[datetime] = None
     subscription: Optional[ObjectId] = None

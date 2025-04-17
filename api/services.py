@@ -141,18 +141,27 @@ def send_welcome_email(to_email):
     return resend.Emails.send(params)
 
 
-def generate_news_summary(email, provider="groq"):
+def generate_news_summary(email, provider=None):
     """
     Genera un resumen de noticias tecnológicas de la última semana usando IA.
-    Utiliza el proveedor especificado para generar el contenido.
+    Utiliza el proveedor especificado por el usuario o el que se pase como parámetro.
     
     Args:
         email: Email del usuario (para personalizar el mensaje)
-        provider: Proveedor de IA a utilizar ("openai", "deepseek", "groq", etc.)
+        provider: Proveedor de IA a utilizar (opcional, si no se especifica se usa el del usuario)
         
     Returns:
         str: Texto con el resumen de noticias
     """
+    # Buscar al usuario en la base de datos para obtener su proveedor de IA preferido
+    user_data = db.users.find_one({"email": email})
+    
+    # Si no se especifica un proveedor, usar el del usuario (o 'groq' por defecto)
+    if not provider and user_data:
+        provider = user_data.get("ai_provider", "groq")
+    elif not provider:
+        provider = "groq"  # Valor por defecto si no hay usuario ni proveedor especificado
+    
     # Obtener el proveedor solicitado
     ai_provider = get_ai_provider(provider)
     

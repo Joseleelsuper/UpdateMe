@@ -56,7 +56,7 @@ def register_routes(app):
         # Obtener el idioma actual del usuario desde la sesión
         current_language = session.get("language", g.get("locale", "es"))
 
-        # Preparar usuario para BD con el idioma correcto
+        # Preparar usuario para BD con el idioma correcto y los proveedores predeterminados
         user_doc = User(
             _id=ObjectId(),
             username=email.split("@")[0],  # Default username based on email
@@ -67,6 +67,8 @@ def register_routes(app):
             email_verified=False,
             account_status="active",
             language=current_language,  # Usar el idioma actual
+            search_provider="tavily",   # Proveedor de búsqueda por defecto
+            ai_provider="groq",         # Proveedor de IA por defecto
             billing_address=None,
             last_login=None,
             subscription=None,
