@@ -44,3 +44,47 @@ msgstr "Register"
 
 msgid "Login/Register"
 msgstr "Login/Register"
+
+# New translations for JavaScript messages
+msgid "Please enter a valid email."
+msgstr "Please enter a valid email."
+
+msgid "Network error. Please try again later."
+msgstr "Network error. Please try again later."
+
+msgid "Processing..."
+msgstr "Processing..."
+
+msgid "Subscription successful! We have sent you a welcome email and you will receive your first summary shortly."
+msgstr "Subscription successful! We have sent you a welcome email and you will receive your first summary shortly."
+
+# Error and exception message translations
+msgid "An unexpected error occurred. Please try again."
+msgstr "An unexpected error occurred. Please try again."
+
+msgid "The requested resource was not found."
+msgstr "The requested resource was not found."
+
+msgid "Server error. Please try again later."
+msgstr "Server error. Please try again later."
+
+msgid "You are not authorized to perform this action."
+msgstr "You are not authorized to perform this action."
+
+msgid "Access forbidden."
+msgstr "Access forbidden."
+
+msgid "Please check the form for errors."
+msgstr "Please check the form for errors."
+
+msgid "This email is already subscribed."
+msgstr "This email is already subscribed."
+
+msgid "The request timed out. Please try again."
+msgstr "The request timed out. Please try again."
+
+msgid "The provided data is invalid."
+msgstr "The provided data is invalid."
+
+msgid "Payment is required to access this feature."
+msgstr "Payment is required to access this feature."

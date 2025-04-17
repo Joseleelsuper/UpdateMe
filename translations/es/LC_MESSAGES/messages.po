@@ -44,3 +44,47 @@ msgstr "Iniciar sesión"
 
 msgid "Register"
 msgstr "Regístrate"
+
+# Nuevas traducciones para mensajes JavaScript
+msgid "Please enter a valid email."
+msgstr "Por favor, introduce un correo válido."
+
+msgid "Network error. Please try again later."
+msgstr "Error de red. Inténtalo de nuevo más tarde."
+
+msgid "Processing..."
+msgstr "Procesando..."
+
+msgid "Subscription successful! We have sent you a welcome email and you will receive your first summary shortly."
+msgstr "¡Suscripción exitosa! Te hemos enviado un correo de bienvenida y en breve recibirás tu primer resumen."
+
+# Traducciones para mensajes de error y excepciones
+msgid "An unexpected error occurred. Please try again."
+msgstr "Ocurrió un error inesperado. Por favor, inténtalo de nuevo."
+
+msgid "The requested resource was not found."
+msgstr "El recurso solicitado no se ha encontrado."
+
+msgid "Server error. Please try again later."
+msgstr "Error del servidor. Por favor, inténtalo más tarde."
+
+msgid "You are not authorized to perform this action."
+msgstr "No estás autorizado para realizar esta acción."
+
+msgid "Access forbidden."
+msgstr "Acceso prohibido."
+
+msgid "Please check the form for errors."
+msgstr "Por favor, revisa el formulario para encontrar errores."
+
+msgid "This email is already subscribed."
+msgstr "Este correo ya está suscrito."
+
+msgid "The request timed out. Please try again."
+msgstr "La solicitud ha excedido el tiempo de espera. Por favor, inténtalo de nuevo."
+
+msgid "The provided data is invalid."
+msgstr "Los datos proporcionados no son válidos."
+
+msgid "Payment is required to access this feature."
+msgstr "Se requiere pago para acceder a esta función."
