@@ -76,13 +76,10 @@ def register_routes(app):
         ).__dict__
 
         try:
-            # 1. Guardar usuario en la BD inmediatamente
-            users_collection.insert_one(user_doc)
-
-            # 2. Enviar correo de bienvenida ligero (no generado por IA)
+            # 1. Enviar correo de bienvenida ligero (no generado por IA)
             send_welcome_email(email)
 
-            # 3. Iniciar un hilo separado para generar y enviar el resumen completo
+            # 2. Iniciar un hilo separado para generar y enviar el resumen completo
             def send_full_summary():
                 try:
                     summary = generate_news_summary(email)
@@ -96,6 +93,8 @@ def register_routes(app):
 
             # Iniciar el proceso en segundo plano
             threading.Thread(target=send_full_summary).start()
+
+            users_collection.insert_one(user_doc)
 
             return jsonify(
                 {
