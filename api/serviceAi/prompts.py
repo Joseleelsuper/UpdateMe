@@ -28,7 +28,7 @@ def get_current_date_formatted(language="es"):
     return datetime.now().strftime(DATE_FORMAT[language])
 
 # Plantilla para emails de resumen
-def get_email_template(username, content, language="es", current_date=None):
+def get_email_template(username, content, language="es"):
     """
     Genera una plantilla de email con el contenido proporcionado.
     
@@ -41,23 +41,10 @@ def get_email_template(username, content, language="es", current_date=None):
     Returns:
         str: Email formateado
     """
-    if current_date is None:
-        current_date = get_current_date_formatted(language)
     
     if language.lower() == "en":
         return f"""Hello {username},
-
 {content}
-
-Thank you for subscribing to UpdateMe. We will continue to keep you informed about the latest in technology and AI.
-
-Best regards,
-The UpdateMe Team
-
----
-Date sent: {current_date}
-This email was automatically generated. Please do not reply to this message.
-If you wish to unsubscribe, click the unsubscribe link on our website.
 """
     else:  # Español por defecto
         return f"""Hola {username},
@@ -241,8 +228,6 @@ def get_fallback_content(username, language="es"):
     Returns:
         str: Contenido de respaldo formateado
     """
-    current_date = get_current_date_formatted(language)
-    
     if language.lower() == "en":
         return f"""Hello {username},
 
@@ -264,14 +249,6 @@ Here is a summary of the most important tech news from the past week:
    Source: Google Blog (April 11, 2025)
 
 Thank you for subscribing to UpdateMe!
-
-Best regards,
-The UpdateMe Team
-
----
-Date sent: {current_date}
-This email was automatically generated. Do not reply to this message.
-If you wish to unsubscribe, click the unsubscribe link on our website.
 """
     else:  # Español por defecto
         return f"""Hola {username},

@@ -25,6 +25,7 @@ OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY", "")
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
 SERPAPI_API_KEY = os.environ.get("SERPAPI_API_KEY", "")
+TAVILY_API_KEY = os.environ.get("TAVILY_API_KEY", "")
 
 # Diccionario de proveedores disponibles
 ai_providers: Dict[str, AIProvider] = {}
@@ -33,12 +34,37 @@ ai_providers: Dict[str, AIProvider] = {}
 if OPENAI_API_KEY:
     ai_providers["openai"] = OpenAIProvider(OPENAI_API_KEY, model="gpt-4o-mini")
 
-if DEEPSEEK_API_KEY and SERPAPI_API_KEY:
-    ai_providers["deepseek"] = DeepSeekProvider(DEEPSEEK_API_KEY, serpapi_key=SERPAPI_API_KEY)
+if DEEPSEEK_API_KEY:
+    # Configurar DeepSeek para usar Tavily como proveedor de búsqueda por defecto
+    # Si no está disponible Tavily, usar SerpAPI como respaldo
+    if TAVILY_API_KEY:
+        ai_providers["deepseek"] = DeepSeekProvider(
+            DEEPSEEK_API_KEY, 
+            tavily_key=TAVILY_API_KEY,
+            search_provider="tavily"
+        )
+    elif SERPAPI_API_KEY:
+        ai_providers["deepseek"] = DeepSeekProvider(
+            DEEPSEEK_API_KEY, 
+            serpapi_key=SERPAPI_API_KEY
+        )
 
 if GROQ_API_KEY:
-    # Pasar la clave de SerpAPI a Groq si está disponible
-    ai_providers["groq"] = GroqProvider(GROQ_API_KEY, model="llama3-70b-8192", serpapi_key=SERPAPI_API_KEY)
+    # Configurar Groq para usar Tavily como proveedor de búsqueda por defecto
+    # Si no está disponible Tavily, usar SerpAPI como respaldo
+    if TAVILY_API_KEY:
+        ai_providers["groq"] = GroqProvider(
+            GROQ_API_KEY, 
+            model="llama3-70b-8192", 
+            tavily_key=TAVILY_API_KEY,
+            search_provider="tavily"
+        )
+    elif SERPAPI_API_KEY:
+        ai_providers["groq"] = GroqProvider(
+            GROQ_API_KEY, 
+            model="llama3-70b-8192", 
+            serpapi_key=SERPAPI_API_KEY
+        )
 
 
 def get_ai_provider(provider_name: str) -> Optional[AIProvider]:
