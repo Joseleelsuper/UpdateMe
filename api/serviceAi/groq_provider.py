@@ -2,6 +2,7 @@
 Implementación de Groq como proveedor de IA.
 """
 import json
+import re
 from typing import Dict, Any
 from openai import OpenAI
 from bson.regex import Regex
@@ -11,6 +12,7 @@ from .serpapi_provider import SerpAPIProvider
 from .prompts import get_news_summary_prompt, get_web_search_prompt, get_keyword_extraction_prompt
 from .prompts import get_current_date_formatted, get_fallback_content, get_email_template
 from ..database import db
+from ..cache_manager import CacheManager
 
 class GroqProvider(AIProvider):
     """
@@ -50,10 +52,23 @@ class GroqProvider(AIProvider):
         Returns:
             El contenido generado como string
         """
+        # Verificar caché para prompts generales
+        system_content = kwargs.get("system_content", "")
+        temperature = kwargs.get("temperature", 0.7)
+        
+        cache_params = {
+            "system_content": system_content,
+            "temperature": temperature
+        }
+        
+        cache_key = CacheManager.generate_cache_key(prompt, "groq_content", cache_params)
+        cached_content = CacheManager.get_from_cache(cache_key)
+        
+        if cached_content:
+            print("Contenido recuperado de caché para prompt similar")
+            return str(cached_content)
+        
         try:
-            temperature = kwargs.get("temperature", 0.7)
-            system_content = kwargs.get("system_content", "")
-            
             messages = []
             if system_content:
                 messages.append({"role": "system", "content": system_content})
@@ -67,7 +82,17 @@ class GroqProvider(AIProvider):
             )
             
             content = response.choices[0].message.content
-            return content if content is not None else ""
+            result = content if content is not None else ""
+            
+            # Guardar en caché
+            CacheManager.save_to_cache(
+                cache_key=cache_key, 
+                response=result, 
+                provider_type="groq_content", 
+                query=prompt
+            )
+            
+            return result
         except Exception as e:
             print(f"Error generando contenido con Groq: {str(e)}")
             return f"Error: {str(e)}"
@@ -86,6 +111,13 @@ class GroqProvider(AIProvider):
         if not self.search_provider:
             return self._simulate_web_search(query)
         
+        # Verificar caché primero
+        cache_key = CacheManager.generate_cache_key(query, "groq_web_search")
+        cached_result = CacheManager.get_from_cache(cache_key)
+        if cached_result:
+            print(f"Resultado recuperado de caché para: {query}")
+            return cached_result
+        
         try:
             # Extraer la keyword con Groq
             system_prompt = get_keyword_extraction_prompt()
@@ -99,17 +131,40 @@ class GroqProvider(AIProvider):
             )
             content_str = keyword_response.choices[0].message.content or ""
             
-            # Validar que content_str contiene un JSON válido
+            # Extraer el JSON de la respuesta usando regex - puede contener texto antes o después
             try:
-                keyword_json = json.loads(content_str)
-                keyword = keyword_json.get("keyword", query)
-            except json.JSONDecodeError:
-                # Si no podemos parsear el JSON, usamos la consulta original
+                # Buscar un objeto JSON válido en la cadena
+                json_match = re.search(r'\{[\s\S]*?\}', content_str)
+                if json_match:
+                    json_str = json_match.group(0)
+                    keyword_json = json.loads(json_str)
+                    keyword = keyword_json.get("keyword", query)
+                else:
+                    print(f"No se encontró un objeto JSON válido en: {content_str}")
+                    keyword = query
+            except (json.JSONDecodeError, ValueError) as e:
                 print(f"Error decodificando JSON de respuesta keyword: {content_str}")
+                print(f"Error detallado: {str(e)}")
                 keyword = query
             
-            # Realizar búsqueda con SerpAPI
-            search_results = self.search_provider.search(keyword)
+            # Verificar caché para la keyword específica
+            keyword_cache_key = CacheManager.generate_cache_key(keyword, "serpapi_search")
+            cached_search = CacheManager.get_from_cache(keyword_cache_key)
+            
+            if cached_search:
+                search_results = cached_search
+                print(f"Resultado de búsqueda recuperado de caché para keyword: {keyword}")
+            else:
+                # Realizar búsqueda con SerpAPI
+                search_results = self.search_provider.search(keyword)
+                # Guardar resultados de búsqueda en caché
+                if search_results and "error" not in search_results:
+                    CacheManager.save_to_cache(
+                        cache_key=keyword_cache_key, 
+                        response=search_results, 
+                        provider_type="serpapi_search", 
+                        query=keyword
+                    )
             
             # Verificar si hay resultados
             if not search_results or "error" in search_results:
@@ -145,11 +200,21 @@ class GroqProvider(AIProvider):
                 ]
             )
             
-            return {
+            result = {
                 "content": final_response.choices[0].message.content,
                 "success": True,
                 "search_results": search_results
             }
+            
+            # Guardar resultado final en caché
+            CacheManager.save_to_cache(
+                cache_key=cache_key, 
+                response=result, 
+                provider_type="groq_web_search", 
+                query=query
+            )
+            
+            return result
             
         except Exception as e:
             print(f"Error en búsqueda web con Groq y SerpAPI: {str(e)}")
@@ -166,6 +231,13 @@ class GroqProvider(AIProvider):
         Returns:
             Resultados simulados de la búsqueda
         """
+        # Verificar caché primero
+        cache_key = CacheManager.generate_cache_key(query, "groq_simulate_search")
+        cached_result = CacheManager.get_from_cache(cache_key)
+        if cached_result:
+            print(f"Resultado simulado recuperado de caché para: {query}")
+            return cached_result
+        
         try:
             system_prompt = get_web_search_prompt()
             
@@ -177,10 +249,20 @@ class GroqProvider(AIProvider):
                 ]
             )
             
-            return {
+            result = {
                 "content": response.choices[0].message.content,
                 "success": True
             }
+            
+            # Guardar en caché
+            CacheManager.save_to_cache(
+                cache_key=cache_key, 
+                response=result, 
+                provider_type="groq_simulate_search", 
+                query=query
+            )
+            
+            return result
             
         except Exception as e:
             print(f"Error en búsqueda simulada con Groq: {str(e)}")
@@ -203,6 +285,24 @@ class GroqProvider(AIProvider):
         user_data = db.users.find_one({"email": Regex(f"^{email}$", "i")})
         language = user_data.get("language", "es") if user_data else "es"
         
+        # Verificar caché para el resumen de noticias (por día y lenguaje)
+        cache_key = CacheManager.generate_cache_key(
+            "weekly_news_summary", 
+            "groq_news", 
+            {"language": language}
+        )
+        cached_content = CacheManager.get_from_cache(cache_key)
+        
+        if cached_content:
+            print(f"Resumen de noticias recuperado de caché para idioma: {language}")
+            # Solo personalizamos el saludo para el usuario
+            return get_email_template(
+                username, 
+                cached_content, 
+                language, 
+                get_current_date_formatted(language)
+            )
+        
         # Obtener la fecha actual para el saludo
         current_date = get_current_date_formatted(language)
         
@@ -223,6 +323,14 @@ class GroqProvider(AIProvider):
             news_content = self.generate_content(
                 prompt=search_result.get("content", ""),
                 system_content=system_prompt
+            )
+            
+            # Guardar el contenido generado en caché
+            CacheManager.save_to_cache(
+                cache_key=cache_key, 
+                response=news_content, 
+                provider_type="groq_news", 
+                ttl_days=1  # Las noticias se actualizan diariamente
             )
             
             # Formatear el email final con el contenido generado

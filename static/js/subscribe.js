@@ -12,7 +12,7 @@ export async function subscribeWithEmail(email) {
     return response.json();
 }
 
-export async function showToast(message, type = 'success') {
+export async function showToast(message, type = 'success', duration = 3000) {
     // Crear el toast
     let toast = document.createElement('div');
     toast.textContent = message;
@@ -31,7 +31,7 @@ export async function showToast(message, type = 'success') {
     
     // Variables para manejar el timer
     let timer;
-    let remainingTime = 3000; // 3 segundos
+    let remainingTime = duration; // Duración personalizable
     let startTime;
     
     // Mostrar el toast con animación (en el siguiente frame para que la transición funcione)

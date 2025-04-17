@@ -63,17 +63,83 @@ If you wish to unsubscribe, click the unsubscribe link on our website.
         return f"""Hola {username},
 
 {content}
-
-Gracias por suscribirte a UpdateMe. Seguiremos manteniéndote informado sobre las últimas novedades en tecnología e IA.
-
-Atentamente,
-El equipo de UpdateMe
-
----
-Fecha de envío: {current_date}
-Este correo ha sido generado automáticamente. No responda a este mensaje.
-Si desea darse de baja, haga clic en el enlace de cancelación de suscripción en nuestro sitio web.
 """
+
+def get_welcome_email_template(username, language="es"):
+    """
+    Genera una plantilla de email de bienvenida estática y ligera.
+    
+    Args:
+        username: Nombre de usuario (extraído del email)
+        language: Idioma del email ('es' o 'en')
+        
+    Returns:
+        str: Email de bienvenida formateado
+    """
+    current_date = get_current_date_formatted(language)
+    
+    if language.lower() == "en":
+        return f"""
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
+            <h2 style="color: #3B82F6;">Welcome to UpdateMe!</h2>
+            
+            <p>Hello {username},</p>
+            
+            <p>Thank you for subscribing to UpdateMe! We're thrilled to have you join our community of technology and AI enthusiasts.</p>
+            
+            <p>What you can expect from us:</p>
+            <ul>
+                <li>Weekly summaries of the most important tech and AI news</li>
+                <li>Curated content from reliable sources</li>
+                <li>Clear and concise information to keep you up-to-date</li>
+            </ul>
+            
+            <p><strong>Your first complete weekly summary will arrive in your inbox shortly.</strong></p>
+            
+            <p>If you have any questions or feedback, feel free to reply to this email.</p>
+            
+            <p>Best regards,<br>
+            The UpdateMe Team</p>
+            
+            <hr style="border: 1px solid #eee; margin: 20px 0;">
+            <p style="font-size: 12px; color: #666;">
+                Date sent: {current_date}<br>
+                This email was automatically generated. Please do not reply to this message.<br>
+                If you wish to unsubscribe, click the unsubscribe link on our website.
+            </p>
+        </div>
+        """
+    else:  # Español por defecto
+        return f"""
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
+            <h2 style="color: #3B82F6;">¡Bienvenido a UpdateMe!</h2>
+            
+            <p>Hola {username},</p>
+            
+            <p>¡Gracias por suscribirte a UpdateMe! Estamos encantados de que te unas a nuestra comunidad de entusiastas de la tecnología e IA.</p>
+            
+            <p>Lo que puedes esperar de nosotros:</p>
+            <ul>
+                <li>Resúmenes semanales de las noticias más importantes de tecnología e IA</li>
+                <li>Contenido seleccionado de fuentes confiables</li>
+                <li>Información clara y concisa para mantenerte al día</li>
+            </ul>
+            
+            <p><strong>Tu primer resumen semanal completo llegará a tu bandeja de entrada en breve.</strong></p>
+            
+            <p>Si tienes alguna pregunta o comentario, no dudes en responder a este correo.</p>
+            
+            <p>Saludos cordiales,<br>
+            El equipo de UpdateMe</p>
+            
+            <hr style="border: 1px solid #eee; margin: 20px 0;">
+            <p style="font-size: 12px; color: #666;">
+                Fecha de envío: {current_date}<br>
+                Este correo ha sido generado automáticamente. No responda a este mensaje.<br>
+                Si desea darse de baja, haga clic en el enlace de cancelación de suscripción en nuestro sitio web.
+            </p>
+        </div>
+        """
 
 # Prompt para la generación de resúmenes de noticias de tecnología e IA
 def get_news_summary_prompt(language="es"):
@@ -226,14 +292,4 @@ Aquí tienes un resumen de las noticias tecnológicas más importantes de la úl
 
 5. Google implementa cambios revolucionarios en su algoritmo de búsqueda utilizando IA avanzada.
    Fuente: Google Blog (11 de abril de 2025)
-
-¡Gracias por suscribirte a UpdateMe!
-
-Atentamente,
-El equipo de UpdateMe
-
----
-Fecha de envío: {current_date}
-Este correo ha sido generado automáticamente. No responda a este mensaje.
-Si desea darse de baja, haga clic en el enlace de cancelación de suscripción en nuestro sitio web.
 """

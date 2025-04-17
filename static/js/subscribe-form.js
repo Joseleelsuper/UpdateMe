@@ -12,11 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         subscribeBtn.disabled = true;
-        subscribeBtn.textContent = 'Enviando...';
+        subscribeBtn.textContent = 'Procesando...';
         try {
             const data = await subscribeWithEmail(email);
             if (data.success) {
-                showToast(data.message, 'success');
+                // Mostrar un mensaje más informativo
+                showToast(data.message, 'success', 5000); // Aumentar tiempo a 5 segundos
                 emailInput.value = '';
             } else {
                 showToast(data.message, 'error');

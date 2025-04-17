@@ -9,6 +9,7 @@ from flask import session
 from flask_babel import Babel
 from dotenv import load_dotenv
 from api.routes import register_routes
+from api.cache_manager import CacheManager
 
 # Asegurar que el directorio raíz está en el path
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -42,6 +43,9 @@ def get_locale():
         return session["language"]
     # Si no hay idioma en la sesión, usa el del navegador
     return request.accept_languages.best_match(["es", "en"])
+
+# Inicializar la caché
+CacheManager.initialize_cache()
 
 # Registrar las rutas
 register_routes(app)

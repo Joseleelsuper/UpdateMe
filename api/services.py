@@ -11,6 +11,7 @@ from .serviceAi.openai_provider import OpenAIProvider
 from .serviceAi.deepseek_provider import DeepSeekProvider
 from .serviceAi.groq_provider import GroqProvider
 from .serviceAi.base import AIProvider
+from .serviceAi.prompts import get_welcome_email_template
 
 # Cargar variables de entorno si no se han cargado
 load_dotenv()
@@ -72,6 +73,37 @@ def send_email(to_email, subject, content):
         "from": "UpdateMe <onboarding@resend.dev>",
         "to": [to_email],
         "subject": subject,
+        "html": content,
+    }
+    
+    return resend.Emails.send(params)
+
+
+def send_welcome_email(to_email):
+    """
+    Envía un correo electrónico de bienvenida ligero y estático sin generación de IA.
+    
+    Args:
+        to_email: Dirección de correo del destinatario
+        
+    Returns:
+        dict: Respuesta de la API de Resend
+        
+    Raises:
+        Exception: Si hay algún error al enviar el correo
+    """
+    username = to_email.split("@")[0]
+    
+    # Obtener idioma del correo (podría obtenerse de la base de datos si está disponible)
+    language = "es"  # Por defecto español
+    
+    # Obtener plantilla de bienvenida (contenido estático)
+    content = get_welcome_email_template(username, language)
+    
+    params: resend.Emails.SendParams = {
+        "from": "UpdateMe <onboarding@resend.dev>",
+        "to": [to_email],
+        "subject": "¡Bienvenido a UpdateMe!",
         "html": content,
     }
     

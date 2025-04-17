@@ -5,9 +5,11 @@ from bson import ObjectId
 from flask import request, jsonify, render_template, send_from_directory, session, redirect, url_for
 from flask_babel import gettext as _
 from datetime import datetime, timezone
+import threading
 from api.database import users_collection
 from api.utils import is_valid_email
-from api.services import send_email, generate_news_summary
+from api.services import send_email, generate_news_summary, send_welcome_email
+from api.cache_manager import CacheManager
 from models.user import User
 
 def register_routes(app):
@@ -32,16 +34,14 @@ def register_routes(app):
         email = data.get("email", "").strip().lower()
         if not is_valid_email(email):
             return jsonify({"success": False, "message": "Correo inválido."}), 400
+        
         # Comprobar si ya existe
         if users_collection.find_one({"email": email}):
             return jsonify(
                 {"success": False, "message": "Este correo ya está suscrito."}
             ), 409
 
-        # Generar resumen IA
-        summary = generate_news_summary(email)
-
-        # Preparar usuario para BD (pero aún no guardarlo)
+        # Preparar usuario para BD
         user_doc = User(
             _id=ObjectId(),
             username=email.split("@")[0],  # Default username based on email
@@ -58,21 +58,44 @@ def register_routes(app):
         ).__dict__
 
         try:
-            # Intentar enviar el correo
-            send_email(
-                email,
-                "¡Bienvenido a UpdateMe! Resumen semanal de tecnología",
-                summary
-            )
-            # Si llegamos aquí, el correo se envió correctamente,
-            # ahora sí guardamos el usuario en la BD
+            # 1. Guardar usuario en la BD inmediatamente
             users_collection.insert_one(user_doc)
+            
+            # 2. Enviar correo de bienvenida ligero (no generado por IA)
+            send_welcome_email(email)
+            
+            # 3. Iniciar un hilo separado para generar y enviar el resumen completo
+            def send_full_summary():
+                try:
+                    summary = generate_news_summary(email)
+                    send_email(
+                        email,
+                        "UpdateMe: Tu resumen semanal de tecnología e IA",
+                        summary
+                    )
+                except Exception as e:
+                    print(f"Error enviando resumen completo: {str(e)}")
+            
+            # Iniciar el proceso en segundo plano
+            threading.Thread(target=send_full_summary).start()
 
             return jsonify(
-                {"success": True, "message": "¡Suscripción exitosa! Revisa tu correo."}
+                {"success": True, "message": "¡Suscripción exitosa! Te hemos enviado un correo de bienvenida y en breve recibirás tu primer resumen."}
             )
         except Exception as e:
-            print(f"Error al enviar correo: {str(e)}")
+            print(f"Error en el proceso de suscripción: {str(e)}")
             return jsonify(
-                {"success": False, "message": f"Error enviando el correo: {str(e)}"}
+                {"success": False, "message": "Hubo un problema con tu suscripción. Por favor, inténtalo de nuevo."}
             ), 500
+
+    @app.route("/admin/clear_cache", methods=["POST"])
+    def clear_cache():
+        """Ruta administrativa para limpiar la caché manualmente."""
+        # En un entorno real, añadir autenticación de administrador
+        data = request.get_json(silent=True) or {}
+        days = data.get("days", 7)
+        deleted_count = CacheManager.clear_expired_cache(days)
+        return jsonify({
+            "success": True, 
+            "message": f"Se eliminaron {deleted_count} entradas de caché más antiguas de {days} días."
+        })
