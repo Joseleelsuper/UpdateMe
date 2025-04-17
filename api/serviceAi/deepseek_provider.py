@@ -112,6 +112,18 @@ class DeepSeekProvider(BaseAIProvider):
         Returns:
             Resultados procesados de la búsqueda
         """
+        # Inicializar el proveedor de búsqueda si no está configurado o si ha cambiado el tipo
+        if self.search_provider_type == "tavily" and self.tavily_key and not isinstance(self.search_provider, TavilyProvider):
+            self.search_provider = TavilyProvider(
+                self.tavily_key,
+                search_depth=self.tavily_search_depth,
+                topic=self.tavily_topic,
+                time_range=self.tavily_time_range,
+                include_raw_content=self.tavily_include_raw_content
+            )
+        elif self.search_provider_type == "serpapi" and self.serpapi_key and not isinstance(self.search_provider, SerpAPIProvider):
+            self.search_provider = SerpAPIProvider(self.serpapi_key)
+        
         if not self.search_provider:
             return {
                 "error": "No se ha configurado un proveedor de búsqueda",

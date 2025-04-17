@@ -73,12 +73,25 @@ class BaseAIProvider(AIProvider):
         user_data = db.users.find_one({"email": Regex(f"^{email}$", "i")})
         language = user_data.get("language", "es") if user_data else "es"
         
+        # Obtener el proveedor de búsqueda preferido del usuario
+        search_provider_pref = user_data.get("search_provider", "tavily") if user_data else "tavily"
+        
         # Crear consulta para buscar noticias de tecnología e IA
         query = "Latest technology and AI news this week, top 5 most important news"
         
         try:
+            # Si el usuario prefiere un proveedor de búsqueda específico, configurarlo temporalmente
+            original_search_provider = self.search_provider_type
+            if search_provider_pref == "tavily" and self.tavily_key:
+                self.search_provider_type = "tavily"
+            elif search_provider_pref == "serpapi" and self.serpapi_key:
+                self.search_provider_type = "serpapi"
+            
             # Realizar la búsqueda web
             search_result = self.search_web(query)
+            
+            # Restaurar el proveedor original
+            self.search_provider_type = original_search_provider
             
             if not search_result.get("success", False):
                 return get_fallback_content(username, language)
