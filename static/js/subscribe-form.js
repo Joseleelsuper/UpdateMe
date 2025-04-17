@@ -1,6 +1,9 @@
-import { validateEmail, subscribeWithEmail, showToast } from './subscribe.js';
+import { validateEmail, subscribeWithEmail, showToast, loadTranslations, __ } from './subscribe.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // Cargar traducciones antes de configurar el formulario
+    await loadTranslations();
+    
     const emailInput = document.getElementById('email-input');
     const subscribeBtn = document.getElementById('subscribe-btn');
 
@@ -8,11 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const email = emailInput.value.trim().toLowerCase();
         if (!validateEmail(email)) {
-            showToast('Por favor, introduce un correo válido.', 'error');
+            showToast(__('validEmail', 'Por favor, introduce un correo válido.'), 'error');
             return;
         }
         subscribeBtn.disabled = true;
-        subscribeBtn.textContent = 'Procesando...';
+        subscribeBtn.textContent = __('processing', 'Procesando...');
         try {
             const data = await subscribeWithEmail(email);
             if (data.success) {
@@ -23,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 showToast(data.message, 'error');
             }
         } catch (err) {
-            showToast('Error de red. Inténtalo de nuevo más tarde.', 'error');
+            showToast(__('networkError', 'Error de red. Inténtalo de nuevo más tarde.'), 'error');
         }
         subscribeBtn.disabled = false;
-        subscribeBtn.textContent = 'Suscribirse';
+        subscribeBtn.textContent = __('subscribeButton', 'Suscribirse');
     });
 });

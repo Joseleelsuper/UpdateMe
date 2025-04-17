@@ -1,3 +1,25 @@
+// Objeto que contendrá las traducciones
+let translations = {};
+
+// Cargar traducciones del servidor
+export async function loadTranslations() {
+    try {
+        const response = await fetch('/api/translations');
+        if (response.ok) {
+            translations = await response.json();
+        } else {
+            console.error('Error cargando traducciones:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error cargando traducciones:', error);
+    }
+}
+
+// Función para obtener una traducción por clave
+export function __(key, defaultText = '') {
+    return translations[key] || defaultText;
+}
+
 export function validateEmail(email) {
     // Debe coincidir con la expresión regular del backend
     return /^[\w\.-]+@[\w\.-]+\.\w+$/.test(email);

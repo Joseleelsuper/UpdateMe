@@ -2,14 +2,13 @@
 Este archivo contiene las rutas (endpoints) de la API.
 """
 from bson import ObjectId
-from flask import request, jsonify, render_template, send_from_directory, session, redirect, url_for
+from flask import request, jsonify, render_template, send_from_directory, session, redirect, url_for, g
 from flask_babel import gettext as _
 from datetime import datetime, timezone
 import threading
 from api.database import users_collection
 from api.utils import is_valid_email
 from api.services import send_email, generate_news_summary, send_welcome_email
-from api.cache_manager import CacheManager
 from models.user import User
 
 def register_routes(app):
@@ -33,15 +32,18 @@ def register_routes(app):
         data = request.get_json()
         email = data.get("email", "").strip().lower()
         if not is_valid_email(email):
-            return jsonify({"success": False, "message": "Correo inválido."}), 400
+            return jsonify({"success": False, "message": _("Please enter a valid email.")}), 400
         
         # Comprobar si ya existe
         if users_collection.find_one({"email": email}):
             return jsonify(
-                {"success": False, "message": "Este correo ya está suscrito."}
+            {"success": False, "message": _("This email is already subscribed.")}
             ), 409
 
-        # Preparar usuario para BD
+        # Obtener el idioma actual del usuario desde la sesión
+        current_language = session.get('language', g.get('locale', 'es'))
+        
+        # Preparar usuario para BD con el idioma correcto
         user_doc = User(
             _id=ObjectId(),
             username=email.split("@")[0],  # Default username based on email
@@ -51,6 +53,7 @@ def register_routes(app):
             role="free",
             email_verified=False,
             account_status="active",
+            language=current_language,  # Usar el idioma actual
             billing_address=None,
             last_login=None,
             subscription=None,
@@ -80,22 +83,37 @@ def register_routes(app):
             threading.Thread(target=send_full_summary).start()
 
             return jsonify(
-                {"success": True, "message": "¡Suscripción exitosa! Te hemos enviado un correo de bienvenida y en breve recibirás tu primer resumen."}
+                {"success": True, "message": _("Subscription successful! We have sent you a welcome email and you will receive your first summary shortly.")}
             )
         except Exception as e:
             print(f"Error en el proceso de suscripción: {str(e)}")
             return jsonify(
-                {"success": False, "message": "Hubo un problema con tu suscripción. Por favor, inténtalo de nuevo."}
+                {"success": False, "message": _("An unexpected error occurred. Please try again.")}
             ), 500
 
-    @app.route("/admin/clear_cache", methods=["POST"])
-    def clear_cache():
-        """Ruta administrativa para limpiar la caché manualmente."""
-        # En un entorno real, añadir autenticación de administrador
-        data = request.get_json(silent=True) or {}
-        days = data.get("days", 7)
-        deleted_count = CacheManager.clear_expired_cache(days)
-        return jsonify({
-            "success": True, 
-            "message": f"Se eliminaron {deleted_count} entradas de caché más antiguas de {days} días."
-        })
+    @app.route("/api/translations", methods=["GET"])
+    def get_translations():
+        """Endpoint para obtener traducciones para JavaScript."""
+        translations = {
+            # Traducciones existentes
+            "validEmail": _("Please enter a valid email."),
+            "networkError": _("Network error. Please try again later."),
+            "processing": _("Processing..."),
+            "subscribeButton": _("Subscribe"),
+            "subscriptionSuccess": _("Subscription successful! We have sent you a welcome email and you will receive your first summary shortly."),
+            
+            # Excepciones y mensajes de error
+            "errors": {
+                "general": _("An unexpected error occurred. Please try again."),
+                "notFound": _("The requested resource was not found."),
+                "serverError": _("Server error. Please try again later."),
+                "unauthorized": _("You are not authorized to perform this action."),
+                "forbidden": _("Access forbidden."),
+                "validation": _("Please check the form for errors."),
+                "duplicateEmail": _("This email is already subscribed."),
+                "timeout": _("The request timed out. Please try again."),
+                "invalidData": _("The provided data is invalid."),
+                "paymentRequired": _("Payment is required to access this feature.")
+            }
+        }
+        return jsonify(translations)
