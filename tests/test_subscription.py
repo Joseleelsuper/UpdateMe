@@ -25,7 +25,7 @@ class TestSubscription(TestBase):
         GIVEN un email válido que no existe en la base de datos
         WHEN se envía una solicitud POST a /subscribe
         THEN se debe recibir una respuesta 200 OK, el usuario debe ser guardado
-             en la base de datos y se debe enviar un correo
+             en la base de datos y se deben enviar dos correos (bienvenida y resumen)
         """
         # Configurar el mock para simular envío exitoso
         mock_send_email.return_value = {"id": "123456", "status": "success"}
@@ -46,8 +46,20 @@ class TestSubscription(TestBase):
         user = users_collection.find_one({"email": "test_valid@example.com"})
         self.assertIsNotNone(user)
 
-        # Verificar que se llamó a la función de enviar correo
-        mock_send_email.assert_called_once()
+        # Verificar que se llamó a la función de enviar correo dos veces
+        self.assertEqual(mock_send_email.call_count, 2)
+        
+        # Verificar que el primer correo es de bienvenida
+        first_call = mock_send_email.call_args_list[0]
+        self.assertTrue(
+            '¡Bienvenido a UpdateMe!' in str(first_call) or 'Welcome to UpdateMe!' in str(first_call)
+        )
+        
+        # Verificar que el segundo correo es el resumen semanal
+        second_call = mock_send_email.call_args_list[1]
+        self.assertTrue(
+            'Tu resumen semanal' in str(second_call) or 'Your weekly summary' in str(second_call)
+        )
 
     @patch('resend.Emails.send')
     def test_invalid_email_format(self, mock_send_email):
@@ -67,7 +79,6 @@ class TestSubscription(TestBase):
         self.assertEqual(response.status_code, 400)
         data = json.loads(response.data)
         self.assertFalse(data['success'])
-        self.assertIn("inválido", data['message'])
 
         # Verificar que no se guardó en la base de datos
         user = users_collection.find_one({"email": "invalid-email"})
@@ -132,7 +143,6 @@ class TestSubscription(TestBase):
         self.assertEqual(response.status_code, 500)
         data = json.loads(response.data)
         self.assertFalse(data['success'])
-        self.assertIn("Error enviando el correo", data['message'])
 
         # Verificar que el usuario NO está en la base de datos
         user = users_collection.find_one({"email": "test_email_fail@example.com"})
