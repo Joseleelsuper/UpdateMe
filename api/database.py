@@ -14,3 +14,4 @@ MONGODB_URI = os.environ.get("MONGODB_URI")
 client = MongoClient(MONGODB_URI, server_api=ServerApi("1"))
 db = client["updateme"]
 users_collection = db["users"]
+cache_collection = db["cache"]  # Nueva colección para la caché
