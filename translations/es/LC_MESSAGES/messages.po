@@ -88,3 +88,19 @@ msgstr "Los datos proporcionados no son válidos."
 
 msgid "Payment is required to access this feature."
 msgstr "Se requiere pago para acceder a esta función."
+
+# Registro page translations
+msgid "title_register_page"
+msgstr "UpdateMe - Registro"
+
+msgid "description_register_page"
+msgstr "Crea una cuenta para configurar tus actualizaciones semanales."
+
+msgid "Create an account to set up your weekly updates"
+msgstr "Crea una cuenta para configurar tus actualizaciones semanales."
+
+msgid "Username"
+msgstr "Nombre de usuario"
+
+msgid "Password"
+msgstr "Contraseña"

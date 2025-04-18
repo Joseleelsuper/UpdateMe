@@ -88,3 +88,19 @@ msgstr "The provided data is invalid."
 
 msgid "Payment is required to access this feature."
 msgstr "Payment is required to access this feature."
+
+# Register page translations
+msgid "title_register_page"
+msgstr "UpdateMe - Register"
+
+msgid "description_register_page"
+msgstr "Create an account to set up your weekly updates."
+
+msgid "Create an account to set up your weekly updates"
+msgstr "Create an account to set up your weekly updates."
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Password"
+msgstr "Password"
