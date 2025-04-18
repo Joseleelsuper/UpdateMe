@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const messageDiv = document.getElementById('register-message');
 
     if (registerBtn) {
-        registerBtn.addEventListener('click', async () => {
+        // Función para procesar el registro
+        const handleRegister = async () => {
             // Validar campos
             const username = usernameInput.value.trim();
             const email = emailInput.value.trim().toLowerCase();
@@ -106,6 +107,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 registerBtn.disabled = false;
                 registerBtn.textContent = __('Register', 'Registrarse');
             }
+        };
+
+        // Asignar evento de clic al botón de registro
+        registerBtn.addEventListener('click', handleRegister);
+        
+        // Añadir evento keydown a los campos de entrada
+        const formInputs = [usernameInput, emailInput, passwordInput];
+        formInputs.forEach(input => {
+            input.addEventListener('keydown', function(e) {
+                // Verificar si la tecla presionada es Enter
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleRegister();
+                }
+            });
         });
     }
 });
