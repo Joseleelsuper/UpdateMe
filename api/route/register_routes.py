@@ -6,6 +6,7 @@ import bcrypt
 from flask_babel import gettext as _
 from api.database import users_collection
 from api.utils import is_valid_email
+from api.services import send_email, generate_news_summary, send_welcome_email
 from models.user import User
 
 
@@ -118,7 +119,29 @@ def register_register_routes(app):
                     payment_methods=[],
                 ).__dict__
 
-                # Insertar usuario en la base de datos
+                # Insertar usuario en la base de datos solo si los correos se envían correctamente
+                try:
+                    send_welcome_email(email)
+                    try:
+                        summary = generate_news_summary(email)
+                        send_email(
+                            email,
+                            "UpdateMe: Tu resumen semanal de tecnología e IA",
+                            summary,
+                        )
+                    except Exception as e:
+                        print(f"Error enviando resumen completo al nuevo usuario: {str(e)}")
+                        return jsonify({
+                            "success": False,
+                            "message": _("An unexpected error occurred. Please try again.")
+                        }), 500
+                except Exception as e:
+                    print(f"Error enviando correos de bienvenida al nuevo usuario: {str(e)}")
+                    return jsonify({
+                        "success": False,
+                        "message": _("An unexpected error occurred. Please try again.")
+                    }), 500
+
                 users_collection.insert_one(user_doc)
 
                 return jsonify({
