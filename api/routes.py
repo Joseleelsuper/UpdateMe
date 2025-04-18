@@ -15,7 +15,6 @@ from flask import (
 )
 from flask_babel import gettext as _
 from datetime import datetime, timezone
-import threading
 from api.database import users_collection
 from api.utils import is_valid_email
 from api.services import send_email, generate_news_summary, send_welcome_email
@@ -76,23 +75,19 @@ def register_routes(app):
         ).__dict__
 
         try:
-            # 1. Enviar correo de bienvenida ligero (no generado por IA)
+            # 1. Enviar correo de bienvenida ligero
             send_welcome_email(email)
 
-            # 2. Iniciar un hilo separado para generar y enviar el resumen completo
-            def send_full_summary():
-                try:
-                    summary = generate_news_summary(email)
-                    send_email(
-                        email,
-                        "UpdateMe: Tu resumen semanal de tecnología e IA",
-                        summary,
-                    )
-                except Exception as e:
-                    print(f"Error enviando resumen completo: {str(e)}")
-
-            # Iniciar el proceso en segundo plano
-            threading.Thread(target=send_full_summary).start()
+            # 2. Enviar resumen completo
+            try:
+                summary = generate_news_summary(email)
+                send_email(
+                    email,
+                    "UpdateMe: Tu resumen semanal de tecnología e IA",
+                    summary,
+                )
+            except Exception as e:
+                print(f"Error enviando resumen completo: {str(e)}")
 
             users_collection.insert_one(user_doc)
 
