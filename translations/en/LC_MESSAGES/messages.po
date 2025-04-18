@@ -104,3 +104,34 @@ msgstr "Username"
 
 msgid "Password"
 msgstr "Password"
+
+# Registration form validation messages
+msgid "invalidUsername"
+msgstr "Username can only contain letters, numbers, and spaces."
+
+msgid "invalidEmail"
+msgstr "Please enter a valid email address."
+
+msgid "passwordLength"
+msgstr "Password must be at least 6 characters long."
+
+msgid "passwordUppercase"
+msgstr "Password must contain at least one uppercase letter."
+
+msgid "passwordLowercase"
+msgstr "Password must contain at least one lowercase letter."
+
+msgid "passwordNumber"
+msgstr "Password must contain at least one number."
+
+msgid "passwordSpecial"
+msgstr "Password must contain at least one special character (_,.!@#$%^&*)."
+
+msgid "networkError"
+msgstr "Network error. Please try again later."
+
+msgid "registrationSuccessful"
+msgstr "Registration successful! You can now log in with your credentials."
+
+msgid "emailExists" 
+msgstr "This email is already registered."

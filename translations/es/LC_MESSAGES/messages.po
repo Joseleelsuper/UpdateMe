@@ -104,3 +104,34 @@ msgstr "Nombre de usuario"
 
 msgid "Password"
 msgstr "Contraseña"
+
+# Registration form validation messages
+msgid "invalidUsername"
+msgstr "El nombre de usuario solo puede contener letras, números y espacios."
+
+msgid "invalidEmail"
+msgstr "Por favor, introduce un correo electrónico válido."
+
+msgid "passwordLength"
+msgstr "La contraseña debe tener al menos 6 caracteres."
+
+msgid "passwordUppercase"
+msgstr "La contraseña debe contener al menos una letra mayúscula."
+
+msgid "passwordLowercase"
+msgstr "La contraseña debe contener al menos una letra minúscula."
+
+msgid "passwordNumber"
+msgstr "La contraseña debe contener al menos un número."
+
+msgid "passwordSpecial"
+msgstr "La contraseña debe contener al menos un carácter especial (_,.!@#$%^&*)."
+
+msgid "networkError"
+msgstr "Error de red. Inténtalo de nuevo más tarde."
+
+msgid "registrationSuccessful"
+msgstr "¡Registro exitoso! Ya puedes iniciar sesión con tus credenciales."
+
+msgid "emailExists"
+msgstr "Este correo electrónico ya está registrado."
