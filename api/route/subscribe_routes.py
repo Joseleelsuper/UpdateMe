@@ -31,7 +31,7 @@ def register_subscribe_routes(app):
             _id=ObjectId(),
             username=email.split("@")[0],
             email=email,
-            password="",
+            password=None,
             created_at=datetime.now(timezone.utc),
             role="free",
             email_verified=False,

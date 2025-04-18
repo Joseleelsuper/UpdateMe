@@ -5,6 +5,7 @@ Este archivo contiene las rutas (endpoints) de la API.
 from api.route.page_routes import register_page_routes
 from api.route.subscribe_routes import register_subscribe_routes
 from api.route.translations_routes import register_translations_routes
+from api.route.register_routes import register_register_routes
 
 
 def register_routes(app):
@@ -12,3 +13,4 @@ def register_routes(app):
     register_page_routes(app)
     register_subscribe_routes(app)
     register_translations_routes(app)
+    register_register_routes(app)

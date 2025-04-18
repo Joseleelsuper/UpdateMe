@@ -15,6 +15,18 @@ def register_translations_routes(app):
             "subscriptionSuccess": _(
                 "Subscription successful! We have sent you a welcome email and you will receive your first summary shortly."
             ),
+            
+            "invalidUsername": _("invalidUsername"),
+            "invalidEmail": _("invalidEmail"),  
+            "passwordLength": _("passwordLength"),
+            "passwordUppercase": _("passwordUppercase"),
+            "passwordLowercase": _("passwordLowercase"),
+            "passwordNumber": _("passwordNumber"),
+            "passwordSpecial": _("passwordSpecial"),
+            "registrationSuccessful": _("registrationSuccessful"),
+            "emailExists": _("emailExists"),
+            "Register": _("Register"),
+            
             "errors": {
                 "general": _("An unexpected error occurred. Please try again."),
                 "notFound": _("The requested resource was not found."),
