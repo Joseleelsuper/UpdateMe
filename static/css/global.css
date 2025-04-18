@@ -79,17 +79,101 @@ input, button, textarea, select {
   font-size: inherit;
 }
 
-.form-input {
+.form-input, input[type="text"], input[type="email"], input[type="password"], .subscribe-input {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   border: 1px solid #D1D5DB;
   outline: none;
   transition: all 0.2s ease;
+  position: relative;
 }
 
-.form-input:focus {
+/* Estilo de focus para todos los inputs */
+.form-input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, .subscribe-input:focus {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+/* Animación del borde en hover para todos los inputs */
+.form-input, input[type="text"], input[type="email"], input[type="password"], .subscribe-input {
+  position: relative;
+}
+
+/* Borde superior que se expande desde el centro */
+.form-input::before, input[type="text"]::before, input[type="email"]::before, input[type="password"]::before, .subscribe-input::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  height: 1px;
+  background: var(--color-primary);
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  z-index: 1;
+}
+
+/* Borde inferior que se expande desde el centro */
+.form-input::after, input[type="text"]::after, input[type="email"]::after, input[type="password"]::after, .subscribe-input::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 1px;
+  background: var(--color-primary);
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  z-index: 1;
+}
+
+/* Animación al pasar el ratón o enfocar */
+.form-input:hover::before, input[type="text"]:hover::before, input[type="email"]:hover::before, input[type="password"]:hover::before, .subscribe-input:hover::before,
+.form-input:focus::before, input[type="text"]:focus::before, input[type="email"]:focus::before, input[type="password"]:focus::before, .subscribe-input:focus::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.form-input:hover::after, input[type="text"]:hover::after, input[type="email"]:hover::after, input[type="password"]:hover::after, .subscribe-input:hover::after,
+.form-input:focus::after, input[type="text"]:focus::after, input[type="email"]:focus::after, input[type="password"]:focus::after, .subscribe-input:focus::after {
+  left: 0;
+  right: 0;
+  opacity: 1;
+  transition-delay: 0.6s; /* Retraso para que termine después de los bordes laterales */
+}
+
+/* Clase para los bordes laterales añadidos por JS */
+.input-border-left, .input-border-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-primary);
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  z-index: 1;
+  transform: scaleY(0);
+}
+
+.input-border-left {
+  left: 0;
+  transform-origin: top;
+  transition-delay: 0.3s; /* Comienza después del borde superior */
+}
+
+.input-border-right {
+  right: 0;
+  transform-origin: top;
+  transition-delay: 0.3s; /* Comienza después del borde superior */
+}
+
+.form-input:hover .input-border-left, input[type="text"]:hover .input-border-left, input[type="email"]:hover .input-border-left, input[type="password"]:hover .input-border-left, .subscribe-input:hover .input-border-left,
+.form-input:hover .input-border-right, input[type="text"]:hover .input-border-right, input[type="email"]:hover .input-border-right, input[type="password"]:hover .input-border-right, .subscribe-input:hover .input-border-right,
+.form-input:focus .input-border-left, input[type="text"]:focus .input-border-left, input[type="email"]:focus .input-border-left, input[type="password"]:focus .input-border-left, .subscribe-input:focus .input-border-left,
+.form-input:focus .input-border-right, input[type="text"]:focus .input-border-right, input[type="email"]:focus .input-border-right, input[type="password"]:focus .input-border-right, .subscribe-input:focus .input-border-right {
+  transform: scaleY(1);
+  opacity: 1;
 }
 
 /* Utilidades flexbox */

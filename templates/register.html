@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ _('description_register_page') }}">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/register.css') }}">
+    <script type="module" src="{{ url_for('static', filename='js/register-form.js') }}" defer></script>
+    <script type="module" src="{{ url_for('static', filename='js/input-animation.js') }}" defer></script>
+</head>
+
+<body>
+
+    {% from 'components/header.html' import header %}
+    {{ header() }}
+
+    <main>
+        <div class="container">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">{{ _('Register') }}</h1>
+                    <p class="hero-subtitle">{{ _('Create an account to receive weekly updates.') }}</p>
+
+                    <div class="subscribe-form">
+                        <input id="username-input" type="text" placeholder="{{ _('Username') }}" class="subscribe-input">
+                        <input id="email-input" type="email" placeholder="{{ _('Introduce email...') }}" class="subscribe-input">
+                        <input id="password-input" type="password" placeholder="{{ _('Password') }}" class="subscribe-input">
+                        <button id="register-btn" class="subscribe-button">{{ _('Register') }}</button>
+                    </div>
+                    <div id="register-message" class="subscribe-message"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    {% from 'components/footer.html' import footer %}
+    {{ footer() }}
+
+</body>
+
+</html>
