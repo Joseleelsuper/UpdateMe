@@ -17,11 +17,11 @@
                 "command": "npx",
                 "args": [
                     "-y",
-                    "mcp-mongo-server"
+                    "mcp-mongo-server",
+                    "-r"
                 ],
                 "env": {
-                    "MCP_MONGODB_URI": "${env:MONGODB_URI}",
-                    "MCP_MONGODB_READONLY": "${env:MCP_MONGODB_READONLY:true}"
+                    "MCP_MONGODB_URI": "",
                 }
             },
             "github": {
@@ -31,7 +31,7 @@
                     "@modelcontextprotocol/server-github"
                 ],
                 "env": {
-                    "GITHUB_PERSONAL_ACCESS_TOKEN": "${env:GITHUB_PERSONAL_ACCESS_TOKEN}",
+                    "GITHUB_PERSONAL_ACCESS_TOKEN": "",
                 }
             },
             "playwright": {
