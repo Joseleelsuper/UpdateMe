@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ _('description_login_page') }}">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://updatemeai.vercel.app/login">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="UpdateMe - Technology and AI Weekly Newsletter">
+    <meta property="og:description"
+        content="Subscribe to the Technology and Artificial Intelligence Newsletter that will notify you every week of the latest updates on what's happening in the world.">
+    <meta property="og:image"
+        content="https://opengraph.b-cdn.net/production/images/bfabd6bc-249f-400a-9f99-8b5de217609c.png?token=xYoI1Ww9XbKGGL75Pk7C8GwxqEKiMhKEh1uiZ2twR2M&height=577&width=1200&expires=33280719472">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="updatemeai.vercel.app">
+    <meta property="twitter:url" content="https://updatemeai.vercel.app/login">
+    <meta name="twitter:title" content="UpdateMe - Technology and AI Weekly Newsletter">
+    <meta name="twitter:description"
+        content="Subscribe to the Technology and Artificial Intelligence Newsletter that will notify you every week of the latest updates on what's happening in the world.">
+    <meta name="twitter:image"
+        content="https://opengraph.b-cdn.net/production/images/bfabd6bc-249f-400a-9f99-8b5de217609c.png?token=xYoI1Ww9XbKGGL75Pk7C8GwxqEKiMhKEh1uiZ2twR2M&height=577&width=1200&expires=33280719472">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/login.css') }}">
+    <script type="module" src="{{ url_for('static', filename='js/login-form.js') }}" defer></script>
+</head>
+
+<body>
+
+    {% from 'components/header.html' import header %}
+    {{ header() }}
+
+    <main>
+        <div class="container">
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-title">{{ _('Login') }}</h1>
+                    <p class="hero-subtitle">{{ _('Sign in to access your weekly updates') }}</p>
+
+                    <div class="subscribe-form">
+                        <input id="email-input" type="email" placeholder="{{ _('Email') }}" class="subscribe-input">
+                        <input id="password-input" type="password" placeholder="{{ _('Password') }}" class="subscribe-input">
+                        <button id="login-btn" class="subscribe-button">{{ _('Sign in') }}</button>
+                        <div class="login-links">
+                            <a href="/register" class="register-link">{{ _('Need an account? Register') }}</a>
+                            <a href="/reset-password" class="forgot-password-link">{{ _('Forgot password?') }}</a>
+                        </div>
+                    </div>
+                    <div id="login-message" class="subscribe-message"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    {% from 'components/footer.html' import footer %}
+    {{ footer() }}
+
+</body>
+
+</html>
