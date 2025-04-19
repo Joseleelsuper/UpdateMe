@@ -22,6 +22,15 @@ class TestRoutes(TestBase):
         response = self.client.get('/register')
         self.assertEqual(response.status_code, 200)
 
+    def test_login_page(self):
+        """
+        GIVEN la aplicación configurada para pruebas
+        WHEN se solicita la página de login '/login'
+        THEN se debe recibir una respuesta 200 OK
+        """
+        response = self.client.get('/login')
+        self.assertEqual(response.status_code, 200)
+
     def test_static_files_route(self):
         """
         GIVEN la aplicación configurada para pruebas
@@ -34,13 +43,14 @@ class TestRoutes(TestBase):
     def test_language_change(self):
         """
         GIVEN la aplicación configurada para pruebas
-        WHEN se cambia el idioma
+        WHEN se cambia el idioma usando la nueva estructura de blueprints
         THEN se debe actualizar el idioma en la sesión y redireccionar
         """
         # Primero verificamos el idioma español (predeterminado)
         response = self.client.get('/')
         
         # Cambiamos a inglés y verificamos la redirección
+        # Usamos la ruta con el nombre completo del blueprint
         response = self.client.get('/change_language/en', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
