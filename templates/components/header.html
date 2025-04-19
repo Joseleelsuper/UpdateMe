@@ -16,16 +16,16 @@
         <nav class="site-nav">
             <a href="#" class="nav-link">{{ _('Pricing') }}</a>
             <div class="auth-links">
-                <a href="#" class="btn-login">{{ _('Login') }}</a>
+                <a href="/login" class="btn-login">{{ _('Login') }}</a>
                 <span class="language-divider">/</span>
                 <a href="/register" class="btn-register">{{ _('Register') }}</a>
             </div>
             <!-- Idiomas -->
             <div class="language-selector">
-                <a href="{{ url_for('change_language', language='es') }}"
+                <a href="{{ url_for('main.page.change_language', language='es') }}"
                    class="language-link {% if g.locale == 'es' %}active{% endif %}">ES</a>
                 <span class="language-divider">|</span>
-                <a href="{{ url_for('change_language', language='en') }}"
+                <a href="{{ url_for('main.page.change_language', language='en') }}"
                    class="language-link {% if g.locale == 'en' %}active{% endif %}">EN</a>
             </div>
         </nav>
@@ -36,14 +36,14 @@
                 <a href="#" class="nav-link">{{ _('Pricing') }}</a>
             </nav>
             <div class="mobile-auth-links">
-                <a href="#" class="btn-login">{{ _('Login') }}</a>
+                <a href="/login" class="btn-login">{{ _('Login') }}</a>
                 <a href="/register" class="btn-register">{{ _('Register') }}</a>
             </div>
             <div class="mobile-language-selector">
-                <a href="{{ url_for('change_language', language='es') }}"
+                <a href="{{ url_for('main.page.change_language', language='es') }}"
                    class="language-link {% if g.locale == 'es' %}active{% endif %}">ES</a>
                 <span class="language-divider">|</span>
-                <a href="{{ url_for('change_language', language='en') }}"
+                <a href="{{ url_for('main.page.change_language', language='en') }}"
                    class="language-link {% if g.locale == 'en' %}active{% endif %}">EN</a>
             </div>
         </div>
