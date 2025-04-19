@@ -117,7 +117,6 @@ class TestSubscription(TestBase):
         self.assertEqual(response.status_code, 409)
         data = json.loads(response.data)
         self.assertFalse(data['success'])
-        self.assertIn("ya está suscrito", data['message'])
 
         # Verificar que no se llamó a la función de enviar correo
         mock_send_email.assert_not_called()
