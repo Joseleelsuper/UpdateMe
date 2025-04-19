@@ -12,6 +12,15 @@ class TestRoutes(TestBase):
         """
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
+    
+    def test_register_page(self):
+        """
+        GIVEN la aplicación configurada para pruebas
+        WHEN se solicita la página de registro '/register'
+        THEN se debe recibir una respuesta 200 OK y verificar el contenido
+        """
+        response = self.client.get('/register')
+        self.assertEqual(response.status_code, 200)
 
     def test_static_files_route(self):
         """
