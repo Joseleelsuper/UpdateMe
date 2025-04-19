@@ -135,3 +135,56 @@ msgstr "Registration successful! You can now log in with your credentials."
 
 msgid "emailExists" 
 msgstr "This email is already registered."
+
+# Login page translations
+msgid "title_login_page"
+msgstr "UpdateMe - Login"
+
+msgid "description_login_page"
+msgstr "Sign in to access your weekly technology and AI updates."
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Sign in to access your weekly updates"
+msgstr "Sign in to access your weekly updates"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Sign in"
+msgstr "Sign in"
+
+msgid "Need an account? Register"
+msgstr "Need an account? Register"
+
+msgid "Forgot password?"
+msgstr "Forgot password?"
+
+# Login form validation messages
+msgid "emptyPassword"
+msgstr "Please enter your password."
+
+msgid "loginSuccessful"
+msgstr "Login successful!"
+
+msgid "loginError"
+msgstr "Email or password incorrect."
+
+msgid "Invalid request data."
+msgstr "Invalid request data."
+
+msgid "Email or password incorrect."
+msgstr "Email or password incorrect."
+
+msgid "Login successful."
+msgstr "Login successful."
+
+msgid "An error occurred during login. Please try again."
+msgstr "An error occurred during login. Please try again."
+
+msgid "UpdateMe - Login"
+msgstr "UpdateMe - Login"

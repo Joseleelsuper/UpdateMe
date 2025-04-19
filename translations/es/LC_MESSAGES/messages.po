@@ -135,3 +135,53 @@ msgstr "¡Registro exitoso! Ya puedes iniciar sesión con tus credenciales."
 
 msgid "emailExists"
 msgstr "Este correo electrónico ya está registrado."
+
+# Traducciones para la página de login
+msgid "title_login_page"
+msgstr "UpdateMe - Iniciar sesión"
+
+msgid "description_login_page"
+msgstr "Inicia sesión para acceder a tus actualizaciones semanales de tecnología e IA."
+
+msgid "Login"
+msgstr "Iniciar sesión"
+
+msgid "Sign in to access your weekly updates"
+msgstr "Inicia sesión para acceder a tus actualizaciones semanales"
+
+msgid "Email"
+msgstr "Correo electrónico"
+
+msgid "Sign in"
+msgstr "Iniciar sesión"
+
+msgid "Need an account? Register"
+msgstr "¿Necesitas una cuenta? Regístrate"
+
+msgid "Forgot password?"
+msgstr "¿Olvidaste tu contraseña?"
+
+# Mensajes de validación del formulario de login
+msgid "emptyPassword"
+msgstr "Por favor, introduce tu contraseña."
+
+msgid "loginSuccessful"
+msgstr "¡Inicio de sesión exitoso!"
+
+msgid "loginError"
+msgstr "Correo electrónico o contraseña incorrectos."
+
+msgid "Invalid request data."
+msgstr "Datos de solicitud inválidos."
+
+msgid "Email or password incorrect."
+msgstr "Correo electrónico o contraseña incorrectos."
+
+msgid "Login successful."
+msgstr "Inicio de sesión exitoso."
+
+msgid "An error occurred during login. Please try again."
+msgstr "Ocurrió un error durante el inicio de sesión. Por favor, inténtalo de nuevo."
+
+msgid "UpdateMe - Login"
+msgstr "UpdateMe - Iniciar sesión"
