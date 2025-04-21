@@ -1,6 +1,96 @@
 @import url('../global.css');
-@import url('./header.css');
+/* Ya no necesitamos importar header.css, para evitar conflictos definimos los estilos propios */
 
+/* Aseguramos que se usen las mismas fuentes que en header.css */
+.site-header {
+  background: linear-gradient(to right, #3B82F6, #4F46E5);
+  color: white;
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo {
+  font-family: var(--font-secondary);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  z-index: 20;
+  position: relative;
+}
+
+.site-logo:hover {
+  color: rgba(219, 234, 254, 1);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-weight: 500;
+}
+
+.nav-link {
+  color: white;
+  transition: color 0.2s;
+  position: relative;
+  font-family: var(--font-primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: rgba(219, 234, 254, 1);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  font-family: var(--font-primary);
+}
+
+.language-link {
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.language-link:hover {
+  color: rgba(219, 234, 254, 1);
+}
+
+.language-link.active {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.language-divider {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Perfil y menú desplegable */
 .profile-menu {
     position: relative;
     display: inline-block;
@@ -9,7 +99,7 @@
 
 .profile-icon {
     font-size: 2rem;
-    color: #3B82F6;
+    color: #FFFFFF;
     vertical-align: middle;
 }
 
@@ -20,16 +110,27 @@
     background-color: white;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 100;
     border-radius: 4px;
     margin-top: 5px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.profile-dropdown.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .profile-dropdown a {
-    color: black;
+    color: #333;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    font-family: var(--font-primary);
+    font-size: 0.9rem;
 }
 
 .profile-dropdown hr {
@@ -42,6 +143,113 @@
     background-color: #f1f1f1;
 }
 
-.profile-menu:hover .profile-dropdown {
-    display: block;
+/* Hamburger menu styles */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 20;
+}
+
+.hamburger-btn span {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #3B82F6, #4F46E5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  padding: 2rem;
+  visibility: hidden; /* Añadido para asegurar que está oculto */
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+  visibility: visible; /* Se hace visible cuando está activo */
+}
+
+.mobile-menu-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.mobile-menu-nav a {
+  font-size: 1.25rem;
+  color: white;
+  text-align: center;
+  font-family: var(--font-primary);
+}
+
+.mobile-auth-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.mobile-auth-links a {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  text-align: center;
+  width: 100%;
+  font-family: var(--font-primary);
+}
+
+.mobile-language-selector {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobile-language-selector .language-link {
+  font-size: 1rem;
+}
+
+/* Hamburger button animation */
+.hamburger-btn.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .site-nav {
+    display: none;
+  }
+  
+  .hamburger-btn {
+    display: flex;
+  }
 }

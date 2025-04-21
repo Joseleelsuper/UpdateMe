@@ -1,7 +1,16 @@
 {% macro headerLogued() %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/components/headerLogued.css') }}">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
+<!-- Importamos la misma fuente de iconos que en el header original -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<!-- Importamos las mismas fuentes de texto para garantizar consistencia -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Scripts necesarios -->
 <script src="{{ url_for('static', filename='js/header-menu.js') }}"></script>
+<script src="{{ url_for('static', filename='js/profile-menu.js') }}"></script>
+
 <header class="site-header">
     <div class="container">
         <a href="/dashboard" class="site-logo">UpdateMe</a>
@@ -16,11 +25,11 @@
         <!-- Menú para pantallas de escritorio -->
         <nav class="site-nav">
             <a href="/dashboard" class="nav-link">{{ _('Dashboard') }}</a>
-            <a href="/settings" class="nav-link">{{ _('Settings') }}</a>
+            <a href="#" class="nav-link">{{ _('Pricing') }}</a>
             <div class="auth-links">
                 <!-- Reemplazamos los botones de login/register con el icono de perfil -->
                 <div class="profile-menu">
-                    <span class="material-symbols-outlined profile-icon" id="profile-icon">account_circle</span>
+                    <span class="material-symbols-rounded profile-icon" id="profile-icon">account_circle</span>
                     <div class="profile-dropdown" id="profile-dropdown">
                         <a href="/profile">{{ _('Profile') }}</a>
                         <a href="/settings">{{ _('Settings') }}</a>

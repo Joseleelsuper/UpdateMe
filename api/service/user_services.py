@@ -131,7 +131,6 @@ def create_prompts_document(user_id, prompts_id, language="es"):
     
     return Prompts(
         _id=prompts_id,
-        user_id=user_id,
         openai_prompt=news_summary_prompt,
         groq_prompt=news_summary_prompt,
         deepseek_prompt=news_summary_prompt,
