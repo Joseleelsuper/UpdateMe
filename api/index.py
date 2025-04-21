@@ -4,12 +4,14 @@ Configura la aplicación Flask y registra todas las rutas y middleware.
 """
 import os
 import sys
-from flask import Flask, request
+from flask import Flask, g
 from flask import session
 from flask_babel import Babel
 from dotenv import load_dotenv
 from api.routes import register_routes
 from api.cache_manager import CacheManager
+from api.session_middleware import session_middleware
+from api.service.session_service import create_session_indexes
 
 # Asegurar que el directorio raíz está en el path
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,23 +35,31 @@ app.config["BABEL_DEFAULT_LOCALE"] = "es"
 translations_path = os.path.join(root_dir, "translations")
 app.config["BABEL_TRANSLATION_DIRECTORIES"] = translations_path
 
-# Configurar Babel para internacionalización
+# Inicializar Babel para internacionalización
 babel = Babel(app)
+
+# Inicializar el sistema de caché
+CacheManager.initialize_cache()
+
+# Inicializar los índices para las sesiones
+create_session_indexes()
 
 @babel.localeselector
 def get_locale():
-    # Primero intenta obtener el idioma de la sesión
-    if "language" in session:
-        return session["language"]
-    # Si no hay idioma en la sesión, usa el del navegador
-    return request.accept_languages.best_match(["es", "en"])
+    # Obtener locale de la sesión, o usar valor por defecto (es)
+    if getattr(g, 'locale', None) is None:
+        g.locale = session.get('language', 'es')
+    return g.locale
 
-# Inicializar la caché
-CacheManager.initialize_cache()
+# Middleware para verificar sesiones en cada petición
+app.before_request(session_middleware())
 
-# Registrar las rutas
+# Registrar todas las rutas
 register_routes(app)
 
-# Para ejecución directa y compatibilidad con Vercel
+# Punto de entrada para WSGI
+def entrypoint(environ, start_response):
+    return app(environ, start_response)
+
 if __name__ == "__main__":
     app.run(debug=True)

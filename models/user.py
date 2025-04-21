@@ -20,3 +20,4 @@ class User:
     last_login: Optional[datetime] = None
     subscription: Optional[ObjectId] = None
     payment_methods: List[ObjectId] = field(default_factory=list)
+    prompts: Optional[ObjectId] = None  # Reference to user's custom prompts
