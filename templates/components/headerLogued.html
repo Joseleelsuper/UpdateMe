@@ -1,0 +1,62 @@
+{% macro headerLogued() %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/headerLogued.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=account_circle" />
+<script src="{{ url_for('static', filename='js/header-menu.js') }}"></script>
+<header class="site-header">
+    <div class="container">
+        <a href="/dashboard" class="site-logo">UpdateMe</a>
+        
+        <!-- Botón hamburguesa para dispositivos móviles -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Menú para pantallas de escritorio -->
+        <nav class="site-nav">
+            <a href="/dashboard" class="nav-link">{{ _('Dashboard') }}</a>
+            <a href="/settings" class="nav-link">{{ _('Settings') }}</a>
+            <div class="auth-links">
+                <!-- Reemplazamos los botones de login/register con el icono de perfil -->
+                <div class="profile-menu">
+                    <span class="material-symbols-outlined profile-icon" id="profile-icon">account_circle</span>
+                    <div class="profile-dropdown" id="profile-dropdown">
+                        <a href="/profile">{{ _('Profile') }}</a>
+                        <a href="/settings">{{ _('Settings') }}</a>
+                        <hr>
+                        <a href="/logout">{{ _('Logout') }}</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Idiomas -->
+            <div class="language-selector">
+                <a href="{{ url_for('main.page.change_language', language='es') }}"
+                   class="language-link {% if g.locale == 'es' %}active{% endif %}">ES</a>
+                <span class="language-divider">|</span>
+                <a href="{{ url_for('main.page.change_language', language='en') }}"
+                   class="language-link {% if g.locale == 'en' %}active{% endif %}">EN</a>
+            </div>
+        </nav>
+
+        <!-- Menú móvil overlay -->
+        <div class="mobile-menu" id="mobile-menu">
+            <nav class="mobile-menu-nav">
+                <a href="/dashboard" class="nav-link">{{ _('Dashboard') }}</a>
+                <a href="/settings" class="nav-link">{{ _('Settings') }}</a>
+            </nav>
+            <div class="mobile-auth-links">
+                <a href="/profile">{{ _('Profile') }}</a>
+                <a href="/logout">{{ _('Logout') }}</a>
+            </div>
+            <div class="mobile-language-selector">
+                <a href="{{ url_for('main.page.change_language', language='es') }}"
+                   class="language-link {% if g.locale == 'es' %}active{% endif %}">ES</a>
+                <span class="language-divider">|</span>
+                <a href="{{ url_for('main.page.change_language', language='en') }}"
+                   class="language-link {% if g.locale == 'en' %}active{% endif %}">EN</a>
+            </div>
+        </div>
+    </div>
+</header>
+{% endmacro %}
