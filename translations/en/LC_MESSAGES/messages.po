@@ -188,3 +188,108 @@ msgstr "An error occurred during login. Please try again."
 
 msgid "UpdateMe - Login"
 msgstr "UpdateMe - Login"
+
+# Dashboard translations
+msgid "Dashboard - UpdateMe"
+msgstr "Dashboard - UpdateMe"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Account Summary"
+msgstr "Account Summary"
+
+msgid "Subscription"
+msgstr "Subscription"
+
+msgid "Free Plan"
+msgstr "Free Plan"
+
+msgid "Premium Plan"
+msgstr "Premium Plan"
+
+msgid "Spanish"
+msgstr "Spanish"
+
+msgid "English"
+msgstr "English"
+
+msgid "AI Provider"
+msgstr "AI Provider"
+
+msgid "Select your preferred AI provider for content generation"
+msgstr "Select your preferred AI provider for content generation"
+
+msgid "Search Provider"
+msgstr "Search Provider"
+
+msgid "Select your preferred search provider for web searches"
+msgstr "Select your preferred search provider for web searches"
+
+msgid "Customize Prompts"
+msgstr "Customize Prompts"
+
+msgid "Personalize the prompts used by AI providers to generate content tailored to your preferences."
+msgstr "Personalize the prompts used by AI providers to generate content tailored to your preferences."
+
+msgid "Enter your custom prompt for OpenAI..."
+msgstr "Enter your custom prompt for OpenAI..."
+
+msgid "Enter your custom prompt for Groq..."
+msgstr "Enter your custom prompt for Groq..."
+
+msgid "Enter your custom prompt for DeepSeek..."
+msgstr "Enter your custom prompt for DeepSeek..."
+
+msgid "Enter your custom prompt for Tavily..."
+msgstr "Enter your custom prompt for Tavily..."
+
+msgid "Enter your custom prompt for SerpAPI..."
+msgstr "Enter your custom prompt for SerpAPI..."
+
+msgid "Reset to Default"
+msgstr "Reset to Default"
+
+msgid "Save Changes"
+msgstr "Save Changes"
+
+# Toast and notification messages
+msgid "preferenceUpdated"
+msgstr "Preference updated successfully"
+
+msgid "errorUpdatingPreference"
+msgstr "Error updating preference: "
+
+msgid "promptsSaved"
+msgstr "Prompts saved successfully"
+
+msgid "errorSavingPrompts"
+msgstr "Error saving prompts: "
+
+msgid "promptsReset"
+msgstr "Prompts reset successfully"
+
+msgid "errorResettingPrompts"
+msgstr "Error resetting prompts: "
+
+msgid "connectionError"
+msgstr "Connection error: "
+
+msgid "confirmResetPrompts"
+msgstr "Are you sure you want to reset all prompts to default values?"
+
+# API messages
+msgid "No valid fields to update"
+msgstr "No valid fields to update"
+
+msgid "Preferences updated successfully"
+msgstr "Preferences updated successfully"
+
+msgid "No valid prompts to update"
+msgstr "No valid prompts to update"
+
+msgid "User or prompts not found"
+msgstr "User or prompts not found"
+
+msgid "Prompts updated successfully"
+msgstr "Prompts updated successfully"
