@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     emailInput.value = '';
                     passwordInput.value = '';
                     // Opcional: redirigir al usuario a otra página después de un registro exitoso
-                    // setTimeout(() => { window.location.href = '/'; }, 2000);
+                    setTimeout(() => { window.location.href = '/dashboard'; }, 2000);
                 } else {
                     // Error en el registro
                     showToast(data.message || __('An unexpected error occurred. Please try again.', 'Ocurrió un error inesperado. Por favor, inténtalo de nuevo.'), 'error');

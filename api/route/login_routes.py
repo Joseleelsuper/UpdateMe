@@ -1,10 +1,11 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, session, redirect, url_for
 from api.database import users_collection
 import bcrypt
 import jwt
 import os
 from datetime import datetime, timedelta, timezone
 from flask_babel import gettext as _
+from api.service.session_service import create_session, invalidate_session
 
 # Crear el blueprint para las rutas de login
 login_bp = Blueprint('login', __name__)
@@ -43,6 +44,7 @@ def login():
     # Verificar la contraseña
     try:
         if bcrypt.checkpw(password.encode('utf-8'), user['password'].encode('utf-8')):
+            # Crear un JWT (aunque ahora usaremos nuestras sesiones personalizadas)
             expiration = datetime.now(timezone.utc) + timedelta(days=1)
             
             payload = {
@@ -54,6 +56,9 @@ def login():
             
             token = jwt.encode(payload, JWT_SECRET, algorithm='HS256')
             
+            # Crear sesión persistente (guardada en MongoDB)
+            session_token, session_id = create_session(user['_id'])
+            
             # Actualizar fecha de último inicio de sesión
             users_collection.update_one(
                 {'_id': user['_id']},
@@ -63,8 +68,8 @@ def login():
             return jsonify({
                 'success': True,
                 'message': _('Login successful.'),
-                'token': token,
-                'redirect': '#'
+                'token': token,  # Seguimos enviando el JWT para mantener compatibilidad
+                'redirect': '/dashboard'
             }), 200
         else:
             return jsonify({
@@ -78,3 +83,18 @@ def login():
             'success': False,
             'message': _('An error occurred during login. Please try again.')
         }), 500
+
+@login_bp.route('/logout')
+def logout():
+    """
+    Cierra la sesión del usuario y redirige a la página de inicio.
+    """
+    # Invalidar la sesión en la base de datos si existe
+    if 'session_token' in session:
+        invalidate_session(session['session_token'])
+    
+    # Eliminar datos de sesión de Flask
+    session.pop('user_id', None)
+    session.pop('session_token', None)
+    
+    return redirect(url_for('main.page.index'))

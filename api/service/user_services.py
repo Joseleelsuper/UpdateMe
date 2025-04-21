@@ -4,10 +4,11 @@ from datetime import datetime, timezone
 import re
 import bcrypt
 from flask_babel import gettext as _
-from api.database import users_collection
+from api.database import users_collection, db
 from api.utils import is_valid_email
 from api.services import send_email, generate_news_summary, send_welcome_email
 from models.user import User
+from models.prompts import Prompts
 
 def validate_email(email):
     """Validar formato de correo electrónico"""
@@ -87,6 +88,9 @@ def create_user_document(email, username=None, password=None):
     if password:
         hashed_password = hash_password(password)
     
+    # Create a new ObjectId for the user's prompts
+    prompts_id = ObjectId()
+    
     return User(
         _id=ObjectId(),
         username=username,
@@ -103,6 +107,36 @@ def create_user_document(email, username=None, password=None):
         last_login=None,
         subscription=None,
         payment_methods=[],
+        prompts=prompts_id
+    ).__dict__
+
+def create_prompts_document(user_id, prompts_id, language="es"):
+    """
+    Crear documento de prompts personalizado para un usuario
+    
+    Args:
+        user_id: ID del usuario
+        prompts_id: ID asignado al documento de prompts
+        language: Idioma del usuario para los prompts por defecto
+        
+    Returns:
+        dict: Documento de prompts listo para insertar
+    """
+    # Importar los prompts predeterminados
+    from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt
+    
+    # Obtener prompts predeterminados según el idioma
+    news_summary_prompt = get_news_summary_prompt(language)
+    web_search_prompt = get_web_search_prompt(language)
+    
+    return Prompts(
+        _id=prompts_id,
+        user_id=user_id,
+        openai_prompt=news_summary_prompt,
+        groq_prompt=news_summary_prompt,
+        deepseek_prompt=news_summary_prompt,
+        tavily_prompt=web_search_prompt,
+        serpapi_prompt=web_search_prompt
     ).__dict__
 
 def send_welcome_emails(email):
@@ -138,6 +172,10 @@ def create_new_user(email, username=None, password=None, send_emails=True):
     """
     try:
         user_doc = create_user_document(email, username, password)
+        
+        # Crear y guardar el documento de prompts personalizado
+        prompts_doc = create_prompts_document(user_doc["_id"], user_doc["prompts"])
+        db.prompts.insert_one(prompts_doc)
         
         # Enviar correos si se solicita
         if send_emails:
