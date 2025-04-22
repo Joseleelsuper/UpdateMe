@@ -24,8 +24,16 @@ def index():
         user = verify_session(token)
         if user:
             return redirect(url_for('main.page.dashboard'))
+        
+    title = _('UpdateMe - Weekly Tech & AI Newsletter')
+    # Metadatos SEO para la página principal
+    meta = {
+        'meta_description': _('UpdateMe: La newsletter semanal que te mantiene al día con la tecnología y la IA. Recibe los resúmenes más relevantes en tu correo.'),
+        'meta_keywords': 'newsletter, tecnología, IA, inteligencia artificial, noticias tech, resumen semanal',
+        'canonical_url': url_for('main.page.index', _external=True),
+    }
     
-    return render_template("index.html", title=_("title_homepage"))
+    return render_template("index.html", title=title, **meta)
 
 @page_bp.route("/static/<path:path>")
 def serve_static(path):
@@ -53,20 +61,40 @@ def terms_and_conditions():
     """
     Renderiza la página de términos y condiciones.
     """
-    title = _('Terms & Conditions - UpdateMe')
-    return render_template('terms-and-conditions.html', title=title)
+    title = _('UpdateMe - Terms & Conditions')
+    # Metadatos SEO para términos y condiciones
+    meta = {
+        'meta_description': _('Términos y condiciones de uso de UpdateMe. Información legal sobre el uso de nuestra newsletter y servicios.'),
+        'meta_keywords': 'términos, condiciones, legal, servicios, newsletter',
+        'canonical_url': url_for('main.page.terms_and_conditions', _external=True),
+        'meta_robots': 'index, nofollow'
+    }
+    return render_template('terms-and-conditions.html', title=title, **meta)
 
 @page_bp.route("/privacy-policy")
 def privacy_policy():
     """
     Renderiza la página de política de privacidad.
     """
-    title = _('Privacy Policy - UpdateMe')
-    return render_template('privacy-policy.html', title=title)
+    title = _('UpdateMe - Privacy Policy')
+    # Metadatos SEO para política de privacidad
+    meta = {
+        'meta_description': _('Política de privacidad de UpdateMe. Conoce cómo gestionamos y protegemos tus datos personales.'),
+        'meta_keywords': 'privacidad, protección de datos, política, newsletter, RGPD',
+        'canonical_url': url_for('main.page.privacy_policy', _external=True),
+        'meta_robots': 'index, nofollow'
+    }
+    return render_template('privacy-policy.html', title=title, **meta)
 
 @page_bp.route("/register")
 def register():
-    return render_template("register.html", title=_("title_register_page"))
+    # Metadatos SEO para la página de registro
+    meta = {
+        'meta_description': _('Regístrate en UpdateMe y recibe resúmenes semanales de tecnología e IA personalizados para ti.'),
+        'meta_keywords': 'registro, cuenta, newsletter tecnología, IA personalizada',
+        'canonical_url': url_for('main.page.register', _external=True),
+    }
+    return render_template("register.html", title=_("title_register_page"), **meta)
 
 @page_bp.route("/login")
 def login():
@@ -74,7 +102,13 @@ def login():
     Renderiza la página de inicio de sesión.
     """
     title = _('UpdateMe - Login')
-    return render_template('login.html', title=title)
+    # Metadatos SEO para la página de login
+    meta = {
+        'meta_description': _('Accede a tu cuenta de UpdateMe y gestiona tu newsletter personalizada de tecnología e IA.'),
+        'meta_keywords': 'login, acceso, cuenta, newsletter tecnología',
+        'canonical_url': url_for('main.page.login', _external=True),
+    }
+    return render_template('login.html', title=title, **meta)
 
 @page_bp.route("/dashboard")
 @login_required
@@ -94,5 +128,13 @@ def dashboard():
         "news_summary": get_news_summary_prompt(user.get("language", "es")),
         "web_search": get_web_search_prompt(user.get("language", "es"))
     }
+
+    title = _('UpdateMe - Dashboard')
     
-    return render_template("dashboard.html", user=user, user_prompts=user_prompts, default_prompts=default_prompts)
+    # Metadatos SEO para el dashboard (noindex para áreas privadas)
+    meta = {
+        'meta_description': _('Panel de control de UpdateMe. Gestiona tu newsletter personalizada y preferencias.'),
+        'meta_robots': 'noindex, nofollow',  # No indexar zonas privadas
+    }
+    
+    return render_template("dashboard.html", user=user, user_prompts=user_prompts, default_prompts=default_prompts, **meta, title=title)

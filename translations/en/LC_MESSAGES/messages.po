@@ -12,11 +12,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "This page is under construction"
-msgstr "This page is under construction"
-
-msgid "We're working to provide you with a better experience. Check back soon for our updates!"
-msgstr "We're working to provide you with a better experience. Check back soon for our updates!"
+msgid "UpdateMe - Weekly Tech & AI Newsletter"
+msgstr "UpdateMe - Weekly Tech & AI Newsletter"
 
 msgid "Do you want to receive technology and AI content on a weekly basis?"
 msgstr "Do you want to receive technology and AI content on a weekly basis?"
@@ -190,8 +187,8 @@ msgid "UpdateMe - Login"
 msgstr "UpdateMe - Login"
 
 # Dashboard translations
-msgid "Dashboard - UpdateMe"
-msgstr "Dashboard - UpdateMe"
+msgid "UpdateMe - Dashboard"
+msgstr "UpdateMe - Dashboard"
 
 msgid "Welcome"
 msgstr "Welcome"
@@ -323,11 +320,11 @@ msgstr "Terms & Conditions"
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-msgid "Privacy Policy - UpdateMe"
-msgstr "Privacy Policy - UpdateMe"
+msgid "UpdateMe - Privacy Policy"
+msgstr "UpdateMe - Privacy Policy"
 
-msgid "Terms & Conditions - UpdateMe"
-msgstr "Terms & Conditions - UpdateMe"
+msgid "UpdateMe - Terms & Conditions"
+msgstr "UpdateMe - Terms & Conditions"
 
 msgid "Last updated"
 msgstr "Last updated"

@@ -1,0 +1,58 @@
+<!-- SEO Metadata Component -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- Title -->
+<title>{{ title }}</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="{{ meta_description }}">
+<meta name="keywords" content="{{ meta_keywords }}">
+<meta name="author" content="José Gallardo Caballero">
+<meta name="robots" content="{{ meta_robots|default('index, follow') }}">
+<link rel="canonical" href="{{ canonical_url|default(request.url) }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ canonical_url|default(request.url) }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ meta_description }}">
+<meta property="og:image" content="{{ meta_image|default(url_for('static', filename='img/og-image.png', _external=True)) }}">
+<meta property="og:locale" content="{{ 'es_ES' if request.cookies.get('language', 'es') == 'es' else 'en_US' }}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ canonical_url|default(request.url) }}">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ meta_description }}">
+<meta name="twitter:image" content="{{ meta_image|default(url_for('static', filename='img/twitter-card.png', _external=True)) }}">
+
+<!-- Favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='img/favicon/apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='img/favicon/favicon-32x32.png') }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='img/favicon/favicon-16x16.png') }}">
+<link rel="manifest" href="{{ url_for('static', filename='img/favicon/site.webmanifest') }}">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Schema.org markup for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "UpdateMe",
+  "url": "https://updateme.dev",
+  "logo": "{{ url_for('static', filename='img/logo.png', _external=True) }}",
+  "description": "Newsletter semanal sobre tecnología e IA",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "info@updateme.dev",
+    "contactType": "customer service"
+  },
+  "sameAs": [
+    "https://twitter.com/updateme_dev",
+    "https://www.linkedin.com/company/updateme-dev"
+  ]
+}
+</script>
