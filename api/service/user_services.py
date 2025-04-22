@@ -91,12 +91,16 @@ def create_user_document(email, username=None, password=None):
     # Create a new ObjectId for the user's prompts
     prompts_id = ObjectId()
     
+    # Cuando se crea un usuario nuevo, establecemos la fecha actual como último envío
+    # para que se le envíe el primer resumen regular después de una semana
+    current_time = datetime.now(timezone.utc)
+    
     return User(
         _id=ObjectId(),
         username=username,
         email=email,
         password=hashed_password,
-        created_at=datetime.now(timezone.utc),
+        created_at=current_time,
         role="free",
         email_verified=False,
         account_status="active",
@@ -107,7 +111,8 @@ def create_user_document(email, username=None, password=None):
         last_login=None,
         subscription=None,
         payment_methods=[],
-        prompts=prompts_id
+        prompts=prompts_id,
+        last_email_sent=current_time
     ).__dict__
 
 def create_prompts_document(user_id, prompts_id, language="es"):

@@ -2,11 +2,11 @@
 Este archivo contiene las rutas (endpoints) de la API.
 """
 
-from flask import Blueprint, jsonify, request, session, g
+from flask import Blueprint, jsonify, request, g
 from api.database import db, users_collection
 from flask_babel import gettext as _
-from bson import ObjectId
 from api.auth import login_required
+import os
 
 from api.route.page_routes import page_bp
 from api.route.subscribe_routes import subscribe_bp
@@ -128,3 +128,31 @@ def reset_user_prompts():
         return jsonify({"success": True, "message": _("promptsReset")})
     except Exception as e:
         return jsonify({"success": False, "message": str(e)}), 500
+
+@api_bp.route('/maintenance/send-weekly-emails', methods=['POST'])
+def trigger_weekly_emails():
+    """
+    Endpoint para activar el envío de correos semanales.
+    Debe estar protegido por una clave de API o token para evitar acceso no autorizado.
+    """
+    # Verificar autenticación
+    api_key = request.headers.get('X-API-Key')
+    if not api_key or api_key != os.environ.get('MAINTENANCE_API_KEY'):
+        return jsonify({"success": False, "message": "Unauthorized"}), 401
+    
+    try:
+        from maintenance import process_pending_emails
+        
+        # Procesar correos pendientes con un intervalo de 7 días
+        total, success, errors = process_pending_emails(days_interval=7)
+        
+        return jsonify({
+            "success": True,
+            "message": f"Proceso completado: {total} usuarios procesados, {success} éxitos, {errors} errores"
+        })
+    except Exception as e:
+        print(f"Error en el proceso de envío de correos: {str(e)}")
+        return jsonify({
+            "success": False, 
+            "message": f"Error: {str(e)}"
+        }), 500

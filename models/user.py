@@ -21,3 +21,4 @@ class User:
     subscription: Optional[ObjectId] = None
     payment_methods: List[ObjectId] = field(default_factory=list)
     prompts: Optional[ObjectId] = None  # Reference to user's custom prompts
+    last_email_sent: Optional[datetime] = None  # Fecha del último correo enviado
