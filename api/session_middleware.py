@@ -35,7 +35,7 @@ def session_middleware():
         
         # Si es una ruta que requiere autenticación, redirigir al login
         if request.path in ['/dashboard'] or request.path.startswith('/api/user/'):
-            return redirect(url_for('main.page.index'))
+            return redirect(url_for('main.page.login'))
         
         # Para otras rutas, permitir el acceso sin autenticación
         return None

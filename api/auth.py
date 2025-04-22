@@ -22,7 +22,7 @@ def login_required(f):
                 g.user = user
                 return f(*args, **kwargs)
         
-        # Si no hay sesión válida, redirigir a la página principal
-        return redirect(url_for('main.page.index'))
+        # Si no hay sesión válida, redirigir a la página de login
+        return redirect(url_for('main.page.login'))
     
     return decorated_function
