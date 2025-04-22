@@ -32,10 +32,9 @@ load_dotenv()
 
 # Conectar a la base de datos
 MONGODB_URI = os.environ.get("MONGODB_URI")
-DB_NAME = os.environ.get("DB_NAME", "updatemeprod")
 
 client = MongoClient(MONGODB_URI)
-db = client[DB_NAME]
+db = client["updateme"]
 users_collection = db["users"]
 
 def send_weekly_email(user):
