@@ -48,6 +48,22 @@ def change_language(language):
     next_page = request.referrer or url_for('main.page.index')
     return redirect(next_page)
 
+@page_bp.route("/terms-and-conditions")
+def terms_and_conditions():
+    """
+    Renderiza la página de términos y condiciones.
+    """
+    title = _('Terms & Conditions - UpdateMe')
+    return render_template('terms-and-conditions.html', title=title)
+
+@page_bp.route("/privacy-policy")
+def privacy_policy():
+    """
+    Renderiza la página de política de privacidad.
+    """
+    title = _('Privacy Policy - UpdateMe')
+    return render_template('privacy-policy.html', title=title)
+
 @page_bp.route("/register")
 def register():
     return render_template("register.html", title=_("title_register_page"))

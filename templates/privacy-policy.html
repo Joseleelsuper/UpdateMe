@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('Privacy Policy') }} - UpdateMe</title>
+    <meta name="description" content="{{ _('Privacy policy for UpdateMe newsletter service') }}">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://updateme.dev/privacy-policy">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ _('Privacy Policy') }} - UpdateMe">
+    <meta property="og:description"
+        content="{{ _('Privacy policy for UpdateMe newsletter service') }}">
+    <meta property="og:image"
+        content="https://opengraph.b-cdn.net/production/images/bfabd6bc-249f-400a-9f99-8b5de217609c.png?token=xYoI1Ww9XbKGGL75Pk7C8GwxqEKiMhKEh1uiZ2twR2M&height=577&width=1200&expires=33280719472">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/privacy-policy.css') }}">
+</head>
+
+<body>
+
+    {% from 'components/header.html' import header %}
+    {{ header() }}
+
+    <main>
+        <div class="container">
+            <section class="content-section">
+                <div class="content-wrapper">
+                    <h1 class="page-title">{{ _('Privacy Policy') }}</h1>
+                    <p class="last-updated">{{ _('Last updated') }}: {{ _('April 22, 2025') }}</p>
+                    
+                    <div class="section-block">
+                        <h2>1. {{ _('Introduction') }}</h2>
+                        <p>{{ _('Introduction Policy p1') }}</p>
+                        <p>{{ _('Introduction Policy p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>2. {{ _('Definitions and Key Terms') }}</h2>
+                        <p>{{ _('Definitions and Key Terms p1') }}</p>
+                        <ul class="policy-list">
+                            <li><strong>{{ _('Cookie') }}:</strong> {{ _('Definitions Cookie') }}</li>
+                            <li><strong>{{ _('Company') }}:</strong> {{ _('Definitions Company') }}</li>
+                            <li><strong>{{ _('Country') }}:</strong> {{ _('Definitions Country') }}</li>
+                            <li><strong>{{ _('Customer') }}:</strong> {{ _('Definitions Customer') }}</li>
+                            <li><strong>{{ _('Device') }}:</strong> {{ _('Definitions Device') }}</li>
+                            <li><strong>{{ _('IP address') }}:</strong> {{ _('Definitions IP address') }}</li>
+                            <li><strong>{{ _('Personal Data') }}:</strong> {{ _('Definitions Personal Data') }}</li>
+                            <li><strong>{{ _('Service') }}:</strong> {{ _('Definitions Service') }}</li>
+                            <li><strong>{{ _('Third-party service') }}:</strong> {{ _('Definitions Third-party service') }}</li>
+                            <li><strong>{{ _('Website') }}:</strong> {{ _('Definitions Website') }}</li>
+                            <li><strong>{{ _('You') }}:</strong> {{ _('Definitions You') }}</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>3. {{ _('Information We Collect') }}</h2>
+                        <p>{{ _('Information We Collect p1') }}</p>
+                        <ul class="policy-list">
+                            <li><strong>{{ _('Personal Information') }}:</strong> {{ _('Information Personal') }}</li>
+                            <li><strong>{{ _('Usage Data') }}:</strong> {{ _('Information Usage') }}</li>
+                            <li><strong>{{ _('Tracking & Cookies Data') }}:</strong> {{ _('Information Tracking') }}</li>
+                            <li><strong>{{ _('Custom Prompt Data') }}:</strong> {{ _('Information Custom') }}</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>4. {{ _('How We Use Your Information') }}</h2>
+                        <p>{{ _('How We Use Your Information p1') }}</p>
+                        <ul class="policy-list">
+                            <li>{{ _('Use Info Point1') }}</li>
+                            <li>{{ _('Use Info Point2') }}</li>
+                            <li>{{ _('Use Info Point3') }}</li>
+                            <li>{{ _('Use Info Point4') }}</li>
+                            <li>{{ _('Use Info Point5') }}</li>
+                            <li>{{ _('Use Info Point6') }}</li>
+                            <li>{{ _('Use Info Point7') }}</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>5. {{ _('Log Files') }}</h2>
+                        <p>{{ _('Log Files p1') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>6. {{ _('Cookies and Web Beacons') }}</h2>
+                        <p>{{ _('Cookies and Web Beacons p1') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>7. {{ _('Third-Party Services') }}</h2>
+                        <p>{{ _('Third-Party Services p1') }}</p>
+                        <ul class="policy-list">
+                            <li>{{ _('Third-Party Point1') }}</li>
+                            <li>{{ _('Third-Party Point2') }}</li>
+                            <li>{{ _('Third-Party Point3') }}</li>
+                            <li>{{ _('Third-Party Point4') }}</li>
+                        </ul>
+                        <p>{{ _('Third-Party Services p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>8. {{ _('AI Providers') }}</h2>
+                        <p>{{ _('AI Providers p1') }}</p>
+                        <p>{{ _('AI Providers p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>9. {{ _('Security') }}</h2>
+                        <p>{{ _('Security p1') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>10. {{ _('Children\'s Privacy') }}</h2>
+                        <p>{{ _('Children\'s Privacy p1') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>11. {{ _('Changes to This Privacy Policy') }}</h2>
+                        <p>{{ _('Changes to This Privacy Policy p1') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>12. {{ _('Your Rights') }}</h2>
+                        <p>{{ _('Your Rights p1') }}</p>
+                        <ul class="policy-list">
+                            <li>{{ _('Rights Point1') }}</li>
+                            <li>{{ _('Rights Point2') }}</li>
+                            <li>{{ _('Rights Point3') }}</li>
+                            <li>{{ _('Rights Point4') }}</li>
+                            <li>{{ _('Rights Point5') }}</li>
+                            <li>{{ _('Rights Point6') }}</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="section-block">
+                        <h2>13. {{ _('Contact Us') }}</h2>
+                        <p>{{ _('Contact Us Policy p1') }}</p>
+                        <p><a href="mailto:privacy@updateme.dev" class="contact-link">privacy@updateme.dev</a></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    {% from 'components/footer.html' import footer %}
+    {{ footer() }}
+
+</body>
+
+</html>

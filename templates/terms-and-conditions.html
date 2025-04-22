@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('Terms & Conditions') }} - UpdateMe</title>
+    <meta name="description" content="{{ _('Terms and conditions for using UpdateMe newsletter service') }}">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://updateme.dev/terms-and-conditions">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ _('Terms & Conditions') }} - UpdateMe">
+    <meta property="og:description"
+        content="{{ _('Terms and conditions for using UpdateMe newsletter service') }}">
+    <meta property="og:image"
+        content="https://opengraph.b-cdn.net/production/images/bfabd6bc-249f-400a-9f99-8b5de217609c.png?token=xYoI1Ww9XbKGGL75Pk7C8GwxqEKiMhKEh1uiZ2twR2M&height=577&width=1200&expires=33280719472">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/terms-and-conditions.css') }}">
+</head>
+
+<body>
+
+    {% from 'components/header.html' import header %}
+    {{ header() }}
+
+    <main>
+        <div class="container">
+            <section class="content-section">
+                <div class="content-wrapper">
+                    <h1 class="page-title">{{ _('Terms & Conditions') }}</h1>
+                    <p class="last-updated">{{ _('Last updated') }}: {{ _('April 22, 2025') }}</p>
+                    
+                    <div class="section-block">
+                        <h2>1. {{ _('Introduction') }}</h2>
+                        <p>{{ _('Introduction p1') }}</p>
+                        <p>{{ _('Introduction p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>2. {{ _('Communications') }}</h2>
+                        <p>{{ _('Communications p1') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>3. {{ _('Subscriptions') }}</h2>
+                        <p>{{ _('Subscriptions p1') }}</p>
+                        <p>{{ _('Subscriptions p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>4. {{ _('Content') }}</h2>
+                        <p>{{ _('Content p1') }}</p>
+                        <p>{{ _('Content p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>5. {{ _('Free Trial') }}</h2>
+                        <p>{{ _('Free Trial p1') }}</p>
+                        <p>{{ _('Free Trial p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>6. {{ _('Fee Changes') }}</h2>
+                        <p>{{ _('Fee Changes p1') }}</p>
+                        <p>{{ _('Fee Changes p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>7. {{ _('Refunds') }}</h2>
+                        <p>{{ _('Refunds p1') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>8. {{ _('Accounts') }}</h2>
+                        <p>{{ _('Accounts p1') }}</p>
+                        <p>{{ _('Accounts p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>9. {{ _('Intellectual Property') }}</h2>
+                        <p>{{ _('Intellectual Property p1') }}</p>
+                        <p>{{ _('Intellectual Property p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>10. {{ _('Links To Other Web Sites') }}</h2>
+                        <p>{{ _('Links To Other Web Sites p1') }}</p>
+                        <p>{{ _('Links To Other Web Sites p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>11. {{ _('Termination') }}</h2>
+                        <p>{{ _('Termination p1') }}</p>
+                        <p>{{ _('Termination p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>12. {{ _('Limitation Of Liability') }}</h2>
+                        <p>{{ _('Limitation Of Liability p1') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>13. {{ _('Disclaimer') }}</h2>
+                        <p>{{ _('Disclaimer p1') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>14. {{ _('Governing Law') }}</h2>
+                        <p>{{ _('Governing Law p1') }}</p>
+                        <p>{{ _('Governing Law p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>15. {{ _('Changes to Terms') }}</h2>
+                        <p>{{ _('Changes to Terms p1') }}</p>
+                        <p>{{ _('Changes to Terms p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>16. {{ _('Contact Us') }}</h2>
+                        <p>{{ _('Contact Us p1') }}</p>
+                        <p><a href="mailto:support@updateme.dev" class="contact-link">support@updateme.dev</a></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    {% from 'components/footer.html' import footer %}
+    {{ footer() }}
+
+</body>
+
+</html>

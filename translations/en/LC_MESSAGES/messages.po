@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-04-14 15:30+0000\n"
 "PO-Revision-Date: 2025-04-14 15:30+0000\n"
-"Last-Translator: UpdateMe Team <info@updateme.com>\n"
+"Last-Translator: UpdateMe Team <info@updateme.dev>\n"
 "Language-Team: English\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -295,4 +295,531 @@ msgid "Prompts updated successfully"
 msgstr "Prompts updated successfully"
 
 msgid "Language"
-msgid "Language"
+msgstr "Language"
+
+# English translations for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-03-24 22:49+0100\n"
+"PO-Revision-Date: 2023-03-24 22:49+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+msgid "Terms & Conditions"
+msgstr "Terms & Conditions"
+
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+msgid "Privacy Policy - UpdateMe"
+msgstr "Privacy Policy - UpdateMe"
+
+msgid "Terms & Conditions - UpdateMe"
+msgstr "Terms & Conditions - UpdateMe"
+
+msgid "Last updated"
+msgstr "Last updated"
+
+msgid "Introduction"
+msgstr "Introduction"
+
+msgid "Definitions and Key Terms"
+msgstr "Definitions and Key Terms"
+
+msgid "Communications"
+msgstr "Communications"
+
+msgid "Subscriptions"
+msgstr "Subscriptions"
+
+msgid "Content"
+msgstr "Content"
+
+msgid "Free Trial"
+msgstr "Free Trial"
+
+msgid "Fee Changes"
+msgstr "Fee Changes"
+
+msgid "Refunds"
+msgstr "Refunds"
+
+msgid "Accounts"
+msgstr "Accounts"
+
+msgid "Intellectual Property"
+msgstr "Intellectual Property"
+
+msgid "Links To Other Web Sites"
+msgstr "Links To Other Web Sites"
+
+msgid "Termination"
+msgstr "Termination"
+
+msgid "Limitation Of Liability"
+msgstr "Limitation Of Liability"
+
+msgid "Disclaimer"
+msgstr "Disclaimer"
+
+msgid "Governing Law"
+msgstr "Governing Law"
+
+msgid "Changes to Terms"
+msgstr "Changes to Terms"
+
+msgid "Contact Us"
+msgstr "Contact Us"
+
+msgid "Information We Collect"
+msgstr "Information We Collect"
+
+msgid "How We Use Your Information"
+msgstr "How We Use Your Information"
+
+msgid "Log Files"
+msgstr "Log Files"
+
+msgid "Cookies and Web Beacons"
+msgstr "Cookies and Web Beacons"
+
+msgid "Third-Party Services"
+msgstr "Third-Party Services"
+
+msgid "AI Providers"
+msgstr "AI Providers"
+
+msgid "Security"
+msgstr "Security"
+
+msgid "Children's Privacy"
+msgstr "Children's Privacy"
+
+msgid "Changes to This Privacy Policy"
+msgstr "Changes to This Privacy Policy"
+
+msgid "Your Rights"
+msgstr "Your Rights"
+
+msgid "April 22, 2025"
+msgstr "April 22, 2025"
+
+msgid "An initiative of"
+msgstr "An initiative of"
+
+# Traducciones específicas para términos y condiciones
+msgid "Welcome to UpdateMe (\"we\", \"our\", \"us\"). These Terms and Conditions govern your use of our website located at updatemeai.vercel.app (the \"Service\") and any related services offered by UpdateMe."
+msgstr "Welcome to UpdateMe (\"we\", \"our\", \"us\"). These Terms and Conditions govern your use of our website located at updatemeai.vercel.app (the \"Service\") and any related services offered by UpdateMe."
+
+msgid "By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you do not have permission to access the Service."
+msgstr "By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you do not have permission to access the Service."
+
+msgid "By creating an account on our service, you agree to subscribe to newsletters, marketing or promotional materials, and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link in any email we send."
+msgstr "By creating an account on our service, you agree to subscribe to newsletters, marketing or promotional materials, and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link in any email we send."
+
+# Nuevas traducciones para meta etiquetas
+msgid "Terms and conditions for using UpdateMe newsletter service"
+msgstr "Terms and conditions for using UpdateMe newsletter service"
+
+msgid "Privacy policy for UpdateMe newsletter service"
+msgstr "Privacy policy for UpdateMe newsletter service"
+
+# Traducciones para elementos de las páginas de términos y condiciones y política de privacidad
+msgid "Cookie"
+msgstr "Cookie"
+
+msgid "Company"
+msgstr "Company"
+
+msgid "Country"
+msgstr "Country"
+
+msgid "Customer"
+msgstr "Customer"
+
+msgid "Device"
+msgstr "Device"
+
+msgid "IP address"
+msgstr "IP address"
+
+msgid "Personal Data"
+msgstr "Personal Data"
+
+msgid "Service"
+msgstr "Service"
+
+msgid "Third-party service"
+msgstr "Third-party service"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "You"
+msgstr "You"
+
+msgid "Personal Information"
+msgstr "Personal Information"
+
+msgid "Usage Data"
+msgstr "Usage Data"
+
+msgid "Tracking & Cookies Data"
+msgstr "Tracking & Cookies Data"
+
+msgid "Custom Prompt Data"
+msgstr "Custom Prompt Data"
+
+msgid "For this Privacy Policy:"
+msgstr "For this Privacy Policy:"
+
+msgid "A small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, and remember information about you such as your language preference or login information."
+msgstr "A small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, and remember information about you such as your language preference or login information."
+
+msgid "when this policy mentions \"Company,\" \"we,\" \"us,\" or \"our,\" it refers to UpdateMe, which is responsible for your information under this Privacy Policy."
+msgstr "when this policy mentions \"Company,\" \"we,\" \"us,\" or \"our,\" it refers to UpdateMe, which is responsible for your information under this Privacy Policy."
+
+msgid "where UpdateMe or the owners/founders of UpdateMe are based, in this case is Spain."
+msgstr "where UpdateMe or the owners/founders of UpdateMe are based, in this case is Spain."
+
+msgid "refers to the company, organization, or person that signs up to use the UpdateMe Service."
+msgstr "refers to the company, organization, or person that signs up to use the UpdateMe Service."
+
+msgid "any internet-connected device such as a phone, tablet, computer, or any other device that can be used to visit UpdateMe and use the services."
+msgstr "any internet-connected device such as a phone, tablet, computer, or any other device that can be used to visit UpdateMe and use the services."
+
+msgid "Every device connected to the Internet is assigned a number known as an Internet protocol (IP) address. These numbers are usually assigned in geographic blocks. An IP address can often be used to identify the location from which a device is connecting to the Internet."
+msgstr "Every device connected to the Internet is assigned a number known as an Internet protocol (IP) address. These numbers are usually assigned in geographic blocks. An IP address can often be used to identify the location from which a device is connecting to the Internet."
+
+msgid "any information that directly, indirectly, or in connection with other information — including a personal identification number — allows for the identification or identifiability of a natural person."
+msgstr "any information that directly, indirectly, or in connection with other information — including a personal identification number — allows for the identification or identifiability of a natural person."
+
+msgid "refers to the website, application, and any related services offered by UpdateMe."
+msgstr "refers to the website, application, and any related services offered by UpdateMe."
+
+msgid "refers to advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you."
+msgstr "refers to advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you."
+
+msgid "UpdateMe's site, which can be accessed via this URL: updateme.dev"
+msgstr "UpdateMe's site, which can be accessed via this URL: updateme.dev"
+
+msgid "a person or entity that is registered with UpdateMe to use the Services."
+msgstr "a person or entity that is registered with UpdateMe to use the Services."
+
+msgid "support@updateme.dev"
+msgstr "support@updateme.dev"
+
+msgid "privacy@updateme.dev"
+msgstr "privacy@updateme.dev"
+
+# Traducciones para textos específicos de Your Rights
+msgid "The right to access – You have the right to request copies of your personal data."
+msgstr "The right to access – You have the right to request copies of your personal data."
+
+msgid "The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete information you believe is incomplete."
+msgstr "The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete information you believe is incomplete."
+
+msgid "The right to erasure – You have the right to request that we erase your personal data, under certain conditions."
+msgstr "The right to erasure – You have the right to request that we erase your personal data, under certain conditions."
+
+msgid "The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions."
+msgstr "The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions."
+
+msgid "The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions."
+msgstr "The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions."
+
+msgid "The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions."
+msgstr "The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions."
+
+msgid "If you are a European citizen, you have the following rights under GDPR:"
+msgstr "If you are a European citizen, you have the following rights under GDPR:"
+
+msgid "We collect information from you when you visit our website, register on our site, subscribe to our newsletter, respond to a survey, or fill out a form."
+msgstr "We collect information from you when you visit our website, register on our site, subscribe to our newsletter, respond to a survey, or fill out a form."
+
+msgid "Name, Email address, Username."
+msgstr "Name, Email address, Username."
+
+msgid "Information about how you use our website, such as the pages you visit, the time and date of your visit, the time spent on those pages, and other diagnostic data."
+msgstr "Information about how you use our website, such as the pages you visit, the time and date of your visit, the time spent on those pages, and other diagnostic data."
+
+msgid "We use cookies and similar tracking technologies to track activity on our Service and hold certain information."
+msgstr "We use cookies and similar tracking technologies to track activity on our Service and hold certain information."
+
+msgid "The prompts you create and save for AI content generation."
+msgstr "The prompts you create and save for AI content generation."
+
+msgid "We use the information we collect in various ways, including to:"
+msgstr "We use the information we collect in various ways, including to:"
+
+msgid "Provide, operate, and maintain our website"
+msgstr "Provide, operate, and maintain our website"
+
+msgid "Improve, personalize, and expand our website"
+msgstr "Improve, personalize, and expand our website"
+
+msgid "Understand and analyze how you use our website"
+msgstr "Understand and analyze how you use our website"
+
+msgid "Develop new products, services, features, and functionality"
+msgstr "Develop new products, services, features, and functionality"
+
+msgid "Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes"
+msgstr "Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes"
+
+msgid "Send you the weekly newsletter based on your preferences"
+msgstr "Send you the weekly newsletter based on your preferences"
+
+msgid "Find and prevent fraud"
+msgstr "Find and prevent fraud"
+
+msgid "If you have any questions about these Terms, please contact us at:"
+msgstr "If you have any questions about these Terms, please contact us at:"
+
+msgid "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:"
+msgstr "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:"
+
+msgid "Some parts of the Service are offered on a subscription basis. You will be billed in advance on a recurring and periodic basis (weekly, monthly, or annually), depending on the type of subscription plan you select."
+msgstr "Some parts of the Service are offered on a subscription basis. You will be billed in advance on a recurring and periodic basis (weekly, monthly, or annually), depending on the type of subscription plan you select."
+
+msgid "At the end of each period, your subscription will automatically renew under the same conditions unless you cancel it or UpdateMe cancels it."
+msgstr "At the end of each period, your subscription will automatically renew under the same conditions unless you cancel it or UpdateMe cancels it."
+
+# Traducciones para párrafos de términos y condiciones siguiendo el nuevo formato
+msgid "Introduction p1"
+msgstr "Welcome to UpdateMe (\"we\", \"our\", \"us\"). These Terms and Conditions govern your use of our website located at updateme.dev (the \"Service\") and any related services offered by UpdateMe."
+
+msgid "Introduction p2"
+msgstr "By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you do not have permission to access the Service."
+
+msgid "Communications p1"
+msgstr "By creating an account on our service, you agree to subscribe to newsletters, marketing or promotional materials, and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link in any email we send."
+
+msgid "Subscriptions p1"
+msgstr "Some parts of the Service are offered on a subscription basis. You will be billed in advance on a recurring and periodic basis (weekly, monthly, or annually), depending on the type of subscription plan you select."
+
+msgid "Subscriptions p2"
+msgstr "At the end of each period, your subscription will automatically renew under the same conditions unless you cancel it or UpdateMe cancels it."
+
+msgid "Content p1"
+msgstr "Our Service allows you to customize prompts that generate content using artificial intelligence technologies. You understand that you are responsible for any prompts you create, and that UpdateMe has no responsibility for the nature or content of those prompts."
+
+msgid "Content p2"
+msgstr "The content generated by our AI providers is for informational purposes only. We do not guarantee its accuracy, completeness, or reliability."
+
+msgid "Free Trial p1"
+msgstr "UpdateMe may, at its sole discretion, offer a subscription with a free trial for a limited period."
+
+msgid "Free Trial p2"
+msgstr "At any time and without notice, UpdateMe reserves the right to (i) modify the terms and conditions of the free trial offer, or (ii) cancel such free trial offer."
+
+msgid "Fee Changes p1"
+msgstr "UpdateMe, in its sole discretion and at any time, may modify the subscription fees. Any subscription fee change will become effective at the end of the then-current billing cycle."
+
+msgid "Fee Changes p2"
+msgstr "UpdateMe will provide you with reasonable prior notice of any change in subscription fees to give you an opportunity to terminate your subscription before such change becomes effective."
+
+msgid "Refunds p1"
+msgstr "Certain refund requests may be considered by UpdateMe on a case-by-case basis and granted at the sole discretion of UpdateMe."
+
+msgid "Accounts p1"
+msgstr "When you create an account with us, you guarantee that the information you provide us is accurate, complete, and current at all times. Inaccurate, incomplete, or obsolete information may result in the immediate termination of your account on the Service."
+
+msgid "Accounts p2"
+msgstr "You are responsible for maintaining the confidentiality of your account and password, including but not limited to the restriction of access to your computer and/or account. You agree to accept responsibility for any and all activities or actions that occur under your account and/or password."
+
+msgid "Intellectual Property p1"
+msgstr "The Service and its original content (excluding content provided by users), features, and functionality are and will remain the exclusive property of UpdateMe and its licensors. The Service is protected by copyright, trademark, and other laws of both Spain and foreign countries."
+
+msgid "Intellectual Property p2"
+msgstr "Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of UpdateMe."
+
+msgid "Links To Other Web Sites p1"
+msgstr "Our Service may contain links to third-party websites or services that are not owned or controlled by UpdateMe."
+
+msgid "Links To Other Web Sites p2"
+msgstr "UpdateMe has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third-party websites or services. We do not warrant the offerings of any of these entities/individuals or their websites."
+
+msgid "Termination p1"
+msgstr "We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms."
+
+msgid "Termination p2"
+msgstr "If you wish to terminate your account, you may simply discontinue using the Service, or contact us for account deletion."
+
+msgid "Limitation Of Liability p1"
+msgstr "In no event shall UpdateMe, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage."
+
+msgid "Disclaimer p1"
+msgstr "Your use of the Service is at your sole risk. The Service is provided on an \"AS IS\" and \"AS AVAILABLE\" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance."
+
+msgid "Governing Law p1"
+msgstr "These Terms shall be governed and construed in accordance with the laws of Spain, without regard to its conflict of law provisions."
+
+msgid "Governing Law p2"
+msgstr "Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect."
+
+msgid "Changes to Terms p1"
+msgstr "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion."
+
+msgid "Changes to Terms p2"
+msgstr "By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Service."
+
+msgid "Contact Us p1"
+msgstr "If you have any questions about these Terms, please contact us at:"
+
+# Traducciones para párrafos de política de privacidad siguiendo el nuevo formato
+msgid "Introduction Policy p1"
+msgstr "UpdateMe (\"we\", \"our\", or \"us\") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by UpdateMe."
+
+msgid "Introduction Policy p2"
+msgstr "This Privacy Policy applies to our website, and its associated subdomains (collectively, our \"Service\") alongside our application, UpdateMe. By accessing or using our Service, you signify that you have read, understood, and agree to our collection, storage, use, and disclosure of your personal information as described in this Privacy Policy."
+
+msgid "Definitions and Key Terms p1"
+msgstr "For this Privacy Policy:"
+
+msgid "Definitions Cookie"
+msgstr "A small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, and remember information about you such as your language preference or login information."
+
+msgid "Definitions Company"
+msgstr "when this policy mentions \"Company,\" \"we,\" \"us,\" or \"our,\" it refers to UpdateMe, which is responsible for your information under this Privacy Policy."
+
+msgid "Definitions Country"
+msgstr "where UpdateMe or the owners/founders of UpdateMe are based, in this case is Spain."
+
+msgid "Definitions Customer"
+msgstr "refers to the company, organization, or person that signs up to use the UpdateMe Service."
+
+msgid "Definitions Device"
+msgstr "any internet-connected device such as a phone, tablet, computer, or any other device that can be used to visit UpdateMe and use the services."
+
+msgid "Definitions IP address"
+msgstr "Every device connected to the Internet is assigned a number known as an Internet protocol (IP) address. These numbers are usually assigned in geographic blocks. An IP address can often be used to identify the location from which a device is connecting to the Internet."
+
+msgid "Definitions Personal Data"
+msgstr "any information that directly, indirectly, or in connection with other information — including a personal identification number — allows for the identification or identifiability of a natural person."
+
+msgid "Definitions Service"
+msgstr "refers to the website, application, and any related services offered by UpdateMe."
+
+msgid "Definitions Third-party service"
+msgstr "refers to advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you."
+
+msgid "Definitions Website"
+msgstr "UpdateMe's site, which can be accessed via this URL: updateme.dev"
+
+msgid "Definitions You"
+msgstr "a person or entity that is registered with UpdateMe to use the Services."
+
+msgid "Information We Collect p1"
+msgstr "We collect information from you when you visit our website, register on our site, subscribe to our newsletter, respond to a survey, or fill out a form."
+
+msgid "Information Personal"
+msgstr "Name, Email address, Username."
+
+msgid "Information Usage"
+msgstr "Information about how you use our website, such as the pages you visit, the time and date of your visit, the time spent on those pages, and other diagnostic data."
+
+msgid "Information Tracking"
+msgstr "We use cookies and similar tracking technologies to track activity on our Service and hold certain information."
+
+msgid "Information Custom"
+msgstr "The prompts you create and save for AI content generation."
+
+msgid "How We Use Your Information p1"
+msgstr "We use the information we collect in various ways, including to:"
+
+msgid "Use Info Point1"
+msgstr "Provide, operate, and maintain our website"
+
+msgid "Use Info Point2"
+msgstr "Improve, personalize, and expand our website"
+
+msgid "Use Info Point3"
+msgstr "Understand and analyze how you use our website"
+
+msgid "Use Info Point4"
+msgstr "Develop new products, services, features, and functionality"
+
+msgid "Use Info Point5"
+msgstr "Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes"
+
+msgid "Use Info Point6"
+msgstr "Send you the weekly newsletter based on your preferences"
+
+msgid "Use Info Point7"
+msgstr "Find and prevent fraud"
+
+msgid "Log Files p1"
+msgstr "UpdateMe follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information."
+
+msgid "Cookies and Web Beacons p1"
+msgstr "Like any other website, UpdateMe uses "cookies". These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information."
+
+msgid "Third-Party Services p1"
+msgstr "We may employ third-party companies and individuals due to the following reasons:"
+
+msgid "Third-Party Point1"
+msgstr "To facilitate our Service;"
+
+msgid "Third-Party Point2"
+msgstr "To provide the Service on our behalf;"
+
+msgid "Third-Party Point3"
+msgstr "To perform Service-related services; or"
+
+msgid "Third-Party Point4"
+msgstr "To assist us in analyzing how our Service is used."
+
+msgid "Third-Party Services p2"
+msgstr "We want to inform users of this Service that these third parties have access to your Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose."
+
+msgid "AI Providers p1"
+msgstr "Our service integrates with various AI providers such as OpenAI, Groq, DeepSeek, Tavily, and SerpAPI to generate content. While we transmit your custom prompts to these services, we ensure that no personally identifiable information is included in these transmissions unless explicitly provided by you within your prompt text."
+
+msgid "AI Providers p2"
+msgstr "These third-party AI services may have their own privacy policies, and we encourage you to review them. We have no responsibility or liability for the content and activities of these AI providers."
+
+msgid "Security p1"
+msgstr "We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100 percent secure and reliable, and we cannot guarantee its absolute security."
+
+msgid "Children's Privacy p1"
+msgstr "Our Services are not intended for use by children under the age of 13 (\"Children\"). We do not knowingly collect personally identifiable information from Children under 13. If you become aware that a Child has provided us with Personal Information, please contact us. If we become aware that we have collected Personal Information from Children without verification of parental consent, we take steps to remove that information from our servers."
+
+msgid "Changes to This Privacy Policy p1"
+msgstr "We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last updated\" date at the top of this Privacy Policy. These changes are effective immediately after they are posted on this page."
+
+msgid "Your Rights p1"
+msgstr "If you are a European citizen, you have the following rights under GDPR:"
+
+msgid "Rights Point1"
+msgstr "The right to access – You have the right to request copies of your personal data."
+
+msgid "Rights Point2"
+msgstr "The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete information you believe is incomplete."
+
+msgid "Rights Point3"
+msgstr "The right to erasure – You have the right to request that we erase your personal data, under certain conditions."
+
+msgid "Rights Point4"
+msgstr "The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions."
+
+msgid "Rights Point5"
+msgstr "The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions."
+
+msgid "Rights Point6"
+msgstr "The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions."
+
+msgid "Contact Us Policy p1"
+msgstr "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:"

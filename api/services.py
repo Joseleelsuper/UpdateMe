@@ -6,6 +6,8 @@ import resend
 from dotenv import load_dotenv
 from typing import Dict, Optional
 
+import resend.contacts
+
 # Importar proveedores de IA
 from .serviceAi.openai_provider import OpenAIProvider
 from .serviceAi.deepseek_provider import DeepSeekProvider
@@ -131,13 +133,22 @@ def send_welcome_email(to_email):
     # Asunto según el idioma
     subject = "Welcome to UpdateMe!" if language == "en" else "¡Bienvenido a UpdateMe!"
     
+    contact_params: resend.Contacts.CreateParams = {
+        "email": to_email,
+        "first_name": username,
+        "unsubscribed": False,
+        "audience_id": "d9811e04-dd4c-4843-8ae4-27d3ac0524e5",
+    }
+
+    resend.Contacts.create(contact_params)
+
     params: resend.Emails.SendParams = {
         "from": "UpdateMe <welcome@updateme.dev>",
         "to": [to_email],
         "subject": subject,
         "html": content,
     }
-    
+
     return resend.Emails.send(params)
 
 
