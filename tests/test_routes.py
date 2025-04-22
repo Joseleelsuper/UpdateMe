@@ -22,6 +22,17 @@ class TestRoutes(TestBase):
         response = self.client.get('/register')
         self.assertEqual(response.status_code, 200)
 
+    def test_dashboard_page_without_auth(self):
+        """
+        GIVEN la aplicación configurada para pruebas
+        WHEN se solicita la página del dashboard '/dashboard' sin estar autenticado
+        THEN se debe recibir una redirección (302) a la página de login
+        """
+        response = self.client.get('/dashboard', follow_redirects=False)
+        self.assertEqual(response.status_code, 302)  # Redirección
+        # Verificar que redirecciona a la página de login o inicio
+        self.assertTrue('/login' in response.location or '/' in response.location)
+
     def test_login_page(self):
         """
         GIVEN la aplicación configurada para pruebas
@@ -51,7 +62,7 @@ class TestRoutes(TestBase):
         
         # Cambiamos a inglés y verificamos la redirección
         # Usamos la ruta con el nombre completo del blueprint
-        response = self.client.get('/change_language/en', follow_redirects=True)
+        response = self.client.get('/change-language/en', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
 if __name__ == '__main__':

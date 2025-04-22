@@ -290,3 +290,6 @@ msgstr "Usuario o prompts no encontrados"
 
 msgid "Prompts updated successfully"
 msgstr "Prompts actualizados correctamente"
+
+msgid "Language"
+msgstr "Idioma"

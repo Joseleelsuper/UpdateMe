@@ -1,4 +1,4 @@
-import unittest
+from datetime import datetime
 from unittest.mock import patch
 from conftest import TestBase
 import json
@@ -422,6 +422,255 @@ class TestRegister(TestBase):
         user = users_collection.find_one({"email": register_data["email"]})
         self.assertIsNone(user)
 
+class TestLogin(TestBase):
+    """Pruebas para la funcionalidad de inicio de sesión."""
 
-if __name__ == '__main__':
-    unittest.main()
+    def setUp(self):
+        super().setUp()
+        # Crear un usuario de prueba con contraseña hasheada para las pruebas de login
+        from datetime import datetime
+        
+        self.test_email = "test_login@example.com"
+        self.test_password = "Test123_login"
+        self.test_username = "testlogin"
+        self.hashed_pw = bcrypt.hashpw(self.test_password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+        
+        # Insertar un usuario de prueba con ID como string para compatibilidad con los tests
+        self.test_user_id = ObjectId()
+        users_collection.insert_one({
+            "_id": self.test_user_id,
+            "email": self.test_email,
+            "username": self.test_username,
+            "created_at": datetime.now().isoformat(),
+            "role": "free",
+            "email_verified": False,
+            "account_status": "active",
+            "password": self.hashed_pw
+        })
+
+    def tearDown(self):
+        super().tearDown()
+        # Limpiar usuarios de test después de cada prueba
+        users_collection.delete_many({"email": {"$regex": "test.*@example.com"}})
+
+    def test_successful_login(self):
+        """
+        GIVEN credenciales válidas para un usuario existente
+        WHEN se envía una solicitud POST a /login
+        THEN se debe recibir una respuesta 200 OK y un token JWT
+        """
+        # Mock para crear_session
+        with patch('api.route.login_routes.create_session') as mock_create_session:
+            # Configurar el mock para simular la creación de sesión exitosa
+            mock_session_token = "mock_session_token"
+            mock_session_id = ObjectId()
+            mock_create_session.return_value = (mock_session_token, mock_session_id)
+
+            # Datos de login válidos
+            login_data = {
+                "email": self.test_email,
+                "password": self.test_password
+            }
+
+            # Mock de _() para asegurar respuestas en inglés durante las pruebas
+            with patch('api.route.login_routes._') as mock_gettext:
+                mock_gettext.side_effect = lambda x: {
+                    'Login successful.': 'Login successful.',
+                    'Email or password incorrect.': 'Email or password incorrect.',
+                    'Invalid request data.': 'Invalid request data.',
+                    'An error occurred during login. Please try again.': 'An error occurred during login. Please try again.'
+                }.get(x, x)  # Devuelve el texto en inglés o el original si no está mapeado
+                
+                # Enviar solicitud de login
+                response = self.client.post(
+                    '/login',
+                    data=json.dumps(login_data),
+                    content_type='application/json'
+                )
+
+                # Verificar respuesta exitosa
+                self.assertEqual(response.status_code, 200)
+                data = json.loads(response.data)
+                self.assertTrue(data['success'])
+                self.assertEqual(data['message'], 'Login successful.')
+                self.assertIn('token', data)  # Debe contener un token JWT
+                self.assertEqual(data['redirect'], '/dashboard')
+
+                # Verificar que se llamó a create_session con el ID correcto del usuario
+                mock_create_session.assert_called_once_with(self.test_user_id)
+
+    def test_login_wrong_password(self):
+        """
+        GIVEN un email válido pero contraseña incorrecta
+        WHEN se envía una solicitud POST a /login
+        THEN se debe recibir un código 401 y no se debe crear una sesión
+        """
+        login_data = {
+            "email": self.test_email,
+            "password": "WrongPassword123_"  # Contraseña incorrecta
+        }
+
+        # Mock de _() para asegurar respuestas en inglés durante las pruebas
+        with patch('api.route.login_routes._') as mock_gettext:
+            mock_gettext.return_value = 'Email or password incorrect.'
+            
+            response = self.client.post(
+                '/login',
+                data=json.dumps(login_data),
+                content_type='application/json'
+            )
+
+            self.assertEqual(response.status_code, 401)
+            data = json.loads(response.data)
+            self.assertFalse(data['success'])
+            self.assertEqual(data['message'], 'Email or password incorrect.')
+
+    def test_login_nonexistent_user(self):
+        """
+        GIVEN credenciales con un email que no existe en la base de datos
+        WHEN se envía una solicitud POST a /login
+        THEN se debe recibir un código 401 y no se debe crear una sesión
+        """
+        login_data = {
+            "email": "nonexistent@example.com",  # Email que no existe
+            "password": "SomePassword123_"
+        }
+
+        # Mock de _() para asegurar respuestas en inglés durante las pruebas
+        with patch('api.route.login_routes._') as mock_gettext:
+            mock_gettext.return_value = 'Email or password incorrect.'
+            
+            response = self.client.post(
+                '/login',
+                data=json.dumps(login_data),
+                content_type='application/json'
+            )
+
+            self.assertEqual(response.status_code, 401)
+            data = json.loads(response.data)
+            self.assertFalse(data['success'])
+            self.assertEqual(data['message'], 'Email or password incorrect.')
+
+    def test_login_subscriber_no_password(self):
+        """
+        GIVEN un usuario que solo es suscriptor (sin contraseña)
+        WHEN se envía una solicitud POST a /login
+        THEN se debe recibir un código 401 y no se debe crear una sesión
+        """
+        
+        subscriber_email = "test_subscriber@example.com"
+        users_collection.insert_one({
+            "_id": ObjectId(),
+            "email": subscriber_email,
+            "username": subscriber_email.split("@")[0],
+            "created_at": datetime.now().isoformat(),
+            "role": "free",
+            "email_verified": False,
+            "account_status": "active",
+            "password": None  # Sin contraseña
+        })
+
+        login_data = {
+            "email": subscriber_email,
+            "password": "AnyPassword123_"
+        }
+
+        # Mock de _() para asegurar respuestas en inglés durante las pruebas
+        with patch('api.route.login_routes._') as mock_gettext:
+            mock_gettext.return_value = 'Email or password incorrect.'
+            
+            response = self.client.post(
+                '/login',
+                data=json.dumps(login_data),
+                content_type='application/json'
+            )
+
+            self.assertEqual(response.status_code, 401)
+            data = json.loads(response.data)
+            self.assertFalse(data['success'])
+            self.assertEqual(data['message'], 'Email or password incorrect.')
+
+    def test_login_missing_fields(self):
+        """
+        GIVEN datos de login incompletos (falta email o contraseña)
+        WHEN se envía una solicitud POST a /login
+        THEN se debe recibir un código 400 y un mensaje de error adecuado
+        """
+        # Mock de _() para asegurar respuestas en inglés durante las pruebas
+        with patch('api.route.login_routes._') as mock_gettext:
+            mock_gettext.return_value = 'Invalid request data.'
+            
+            # Probar sin email
+            login_data = {
+                "password": "SomePassword123_"
+            }
+
+            response = self.client.post(
+                '/login',
+                data=json.dumps(login_data),
+                content_type='application/json'
+            )
+
+            self.assertEqual(response.status_code, 400)
+            data = json.loads(response.data)
+            self.assertFalse(data['success'])
+            self.assertEqual(data['message'], 'Invalid request data.')
+
+            # Probar sin contraseña
+            login_data = {
+                "email": self.test_email
+            }
+
+            response = self.client.post(
+                '/login',
+                data=json.dumps(login_data),
+                content_type='application/json'
+            )
+
+            self.assertEqual(response.status_code, 400)
+            data = json.loads(response.data)
+            self.assertFalse(data['success'])
+            self.assertEqual(data['message'], 'Invalid request data.')
+
+    @patch('bcrypt.checkpw')
+    def test_login_bcrypt_error(self, mock_checkpw):
+        """
+        GIVEN un error durante la verificación de la contraseña con bcrypt
+        WHEN se envía una solicitud POST a /login
+        THEN se debe recibir un código 500 y un mensaje de error adecuado
+        """
+        # Simular un error en bcrypt.checkpw
+        mock_checkpw.side_effect = Exception("Error de bcrypt simulado")
+
+        # Mock de _() para asegurar respuestas en inglés durante las pruebas
+        with patch('api.route.login_routes._') as mock_gettext:
+            mock_gettext.return_value = 'An error occurred during login. Please try again.'
+            
+            login_data = {
+                "email": self.test_email,
+                "password": self.test_password
+            }
+
+            response = self.client.post(
+                '/login',
+                data=json.dumps(login_data),
+                content_type='application/json'
+            )
+
+            self.assertEqual(response.status_code, 500)
+            data = json.loads(response.data)
+            self.assertFalse(data['success'])
+            self.assertEqual(data['message'], 'An error occurred during login. Please try again.')
+
+    def test_logout(self):
+        """
+        GIVEN un usuario con una sesión activa
+        WHEN se hace una solicitud GET a /logout
+        THEN la sesión debe ser invalidada y se debe redirigir a la página principal
+        """
+        with self.client.session_transaction() as flask_session:
+            flask_session['user_id'] = str(ObjectId())
+            flask_session['session_token'] = "test_session_token"
+        response = self.client.get('/logout', follow_redirects=True)
+        # Verificar la redirección
+        self.assertEqual(response.status_code, 200)
