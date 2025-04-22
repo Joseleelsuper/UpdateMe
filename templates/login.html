@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UpdateMe - Technology and AI Weekly Newsletter</title>
-    <meta name="description"
-        content="Subscribe to the Technology and Artificial Intelligence Newsletter that will notify you every week of the latest updates on what's happening in the world.">
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ _('description_login_page') }}">
 
     <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://updatemeai.vercel.app/">
+    <meta property="og:url" content="https://updatemeai.vercel.app/login">
     <meta property="og:type" content="website">
     <meta property="og:title" content="UpdateMe - Technology and AI Weekly Newsletter">
     <meta property="og:description"
@@ -20,7 +19,7 @@
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="updatemeai.vercel.app">
-    <meta property="twitter:url" content="https://updatemeai.vercel.app/">
+    <meta property="twitter:url" content="https://updatemeai.vercel.app/login">
     <meta name="twitter:title" content="UpdateMe - Technology and AI Weekly Newsletter">
     <meta name="twitter:description"
         content="Subscribe to the Technology and Artificial Intelligence Newsletter that will notify you every week of the latest updates on what's happening in the world.">
@@ -33,8 +32,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/index.css') }}">
-    <script type="module" src="{{ url_for('static', filename='js/subscribe-form.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/login.css') }}">
+    <script type="module" src="{{ url_for('static', filename='js/login-form.js') }}" defer></script>
 </head>
 
 <body>
@@ -46,21 +45,19 @@
         <div class="container">
             <section class="hero-section">
                 <div class="hero-content">
-                    <h1 class="hero-title">
-                        {{ _('Do you want to receive technology and AI content on a weekly basis?') }}
-                    </h1>
-                    <p class="hero-subtitle">
-                        {{ _('Subscribe to the newsletter for free') }}
-                    </p>
+                    <h1 class="hero-title">{{ _('Login') }}</h1>
+                    <p class="hero-subtitle">{{ _('Sign in to access your weekly updates') }}</p>
 
                     <div class="subscribe-form">
-                        <input id="email-input" type="email" placeholder="{{ _('Introduce email...') }}"
-                            class="subscribe-input">
-                        <button id="subscribe-btn" class="subscribe-button">
-                            {{ _('Subscribe') }}
-                        </button>
+                        <input id="email-input" type="email" placeholder="{{ _('Email') }}" class="subscribe-input">
+                        <input id="password-input" type="password" placeholder="{{ _('Password') }}" class="subscribe-input">
+                        <button id="login-btn" class="subscribe-button">{{ _('Sign in') }}</button>
+                        <div class="login-links">
+                            <a href="/register" class="register-link">{{ _('Need an account? Register') }}</a>
+                            <a href="#" class="forgot-password-link">{{ _('Forgot password?') }}</a>
+                        </div>
                     </div>
-                    <div id="subscribe-message" class="subscribe-message"></div>
+                    <div id="login-message" class="subscribe-message"></div>
                 </div>
             </section>
         </div>

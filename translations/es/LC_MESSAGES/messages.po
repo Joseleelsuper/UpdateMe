@@ -12,11 +12,284 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "title_homepage"
-msgstr "Landing Page - UpdateMe"
-
 msgid "This page is under construction"
 msgstr "Esta página está en modo construcción"
 
 msgid "We're working to provide you with a better experience. Check back soon for our updates!"
 msgstr "Estamos trabajando para ofrecerte una mejor experiencia. ¡Vuelve pronto para ver nuestras novedades!"
+
+msgid "Do you want to receive technology and AI content on a weekly basis?"
+msgstr "¿Quieres recibir contenido de tecnología e IA semanalmente?"
+
+msgid "Subscribe to the newsletter for free"
+msgstr "Suscríbete al boletín gratis"
+
+msgid "Introduce email..."
+msgstr "Introduce tu email..."
+
+msgid "Subscribe"
+msgstr "Suscribirse"
+
+msgid "An initiative of"
+msgstr "Una iniciativa de"
+
+msgid "Pricing"
+msgstr "Precios"
+
+msgid "Login/Register"
+msgstr "Iniciar sesión/Registrarse"
+
+msgid "Login"
+msgstr "Iniciar sesión"
+
+msgid "Register"
+msgstr "Regístrate"
+
+# Nuevas traducciones para mensajes JavaScript
+msgid "Please enter a valid email."
+msgstr "Por favor, introduce un correo válido."
+
+msgid "Network error. Please try again later."
+msgstr "Error de red. Inténtalo de nuevo más tarde."
+
+msgid "Processing..."
+msgstr "Procesando..."
+
+msgid "Subscription successful! We have sent you a welcome email and you will receive your first summary shortly."
+msgstr "¡Suscripción exitosa! Te hemos enviado un correo de bienvenida y en breve recibirás tu primer resumen."
+
+# Traducciones para mensajes de error y excepciones
+msgid "An unexpected error occurred. Please try again."
+msgstr "Ocurrió un error inesperado. Por favor, inténtalo de nuevo."
+
+msgid "The requested resource was not found."
+msgstr "El recurso solicitado no se ha encontrado."
+
+msgid "Server error. Please try again later."
+msgstr "Error del servidor. Por favor, inténtalo más tarde."
+
+msgid "You are not authorized to perform this action."
+msgstr "No estás autorizado para realizar esta acción."
+
+msgid "Access forbidden."
+msgstr "Acceso prohibido."
+
+msgid "Please check the form for errors."
+msgstr "Por favor, revisa el formulario para encontrar errores."
+
+msgid "This email is already subscribed."
+msgstr "Este correo ya está suscrito."
+
+msgid "The request timed out. Please try again."
+msgstr "La solicitud ha excedido el tiempo de espera. Por favor, inténtalo de nuevo."
+
+msgid "The provided data is invalid."
+msgstr "Los datos proporcionados no son válidos."
+
+msgid "Payment is required to access this feature."
+msgstr "Se requiere pago para acceder a esta función."
+
+# Registro page translations
+msgid "title_register_page"
+msgstr "UpdateMe - Registro"
+
+msgid "description_register_page"
+msgstr "Crea una cuenta para configurar tus actualizaciones semanales."
+
+msgid "Create an account to set up your weekly updates"
+msgstr "Crea una cuenta para configurar tus actualizaciones semanales."
+
+msgid "Username"
+msgstr "Nombre de usuario"
+
+msgid "Password"
+msgstr "Contraseña"
+
+# Registration form validation messages
+msgid "invalidUsername"
+msgstr "El nombre de usuario solo puede contener letras, números y espacios."
+
+msgid "invalidEmail"
+msgstr "Por favor, introduce un correo electrónico válido."
+
+msgid "passwordLength"
+msgstr "La contraseña debe tener al menos 6 caracteres."
+
+msgid "passwordUppercase"
+msgstr "La contraseña debe contener al menos una letra mayúscula."
+
+msgid "passwordLowercase"
+msgstr "La contraseña debe contener al menos una letra minúscula."
+
+msgid "passwordNumber"
+msgstr "La contraseña debe contener al menos un número."
+
+msgid "passwordSpecial"
+msgstr "La contraseña debe contener al menos un carácter especial (_,.!@#$%^&*)."
+
+msgid "networkError"
+msgstr "Error de red. Inténtalo de nuevo más tarde."
+
+msgid "registrationSuccessful"
+msgstr "¡Registro exitoso! Ya puedes iniciar sesión con tus credenciales."
+
+msgid "emailExists"
+msgstr "Este correo electrónico ya está registrado."
+
+# Traducciones para la página de login
+msgid "title_login_page"
+msgstr "UpdateMe - Iniciar sesión"
+
+msgid "description_login_page"
+msgstr "Inicia sesión para acceder a tus actualizaciones semanales de tecnología e IA."
+
+msgid "Login"
+msgstr "Iniciar sesión"
+
+msgid "Sign in to access your weekly updates"
+msgstr "Inicia sesión para acceder a tus actualizaciones semanales"
+
+msgid "Email"
+msgstr "Correo electrónico"
+
+msgid "Sign in"
+msgstr "Iniciar sesión"
+
+msgid "Need an account? Register"
+msgstr "¿Necesitas una cuenta? Regístrate"
+
+msgid "Forgot password?"
+msgstr "¿Olvidaste tu contraseña?"
+
+# Mensajes de validación del formulario de login
+msgid "emptyPassword"
+msgstr "Por favor, introduce tu contraseña."
+
+msgid "loginSuccessful"
+msgstr "¡Inicio de sesión exitoso!"
+
+msgid "loginError"
+msgstr "Correo electrónico o contraseña incorrectos."
+
+msgid "Invalid request data."
+msgstr "Datos de solicitud inválidos."
+
+msgid "Email or password incorrect."
+msgstr "Correo electrónico o contraseña incorrectos."
+
+msgid "Login successful."
+msgstr "Inicio de sesión exitoso."
+
+msgid "An error occurred during login. Please try again."
+msgstr "Ocurrió un error durante el inicio de sesión. Por favor, inténtalo de nuevo."
+
+msgid "UpdateMe - Login"
+msgstr "UpdateMe - Iniciar sesión"
+
+# Traducciones para el Dashboard
+msgid "Dashboard - UpdateMe"
+msgstr "Panel de Control - UpdateMe"
+
+msgid "Welcome"
+msgstr "Bienvenido"
+
+msgid "Account Summary"
+msgstr "Resumen de Cuenta"
+
+msgid "Subscription"
+msgstr "Suscripción"
+
+msgid "Free Plan"
+msgstr "Plan Gratuito"
+
+msgid "Premium Plan"
+msgstr "Plan Premium"
+
+msgid "Spanish"
+msgstr "Español"
+
+msgid "English"
+msgstr "Inglés"
+
+msgid "AI Provider"
+msgstr "Proveedor de IA"
+
+msgid "Select your preferred AI provider for content generation"
+msgstr "Selecciona tu proveedor de IA preferido para la generación de contenido"
+
+msgid "Search Provider"
+msgstr "Proveedor de Búsqueda"
+
+msgid "Select your preferred search provider for web searches"
+msgstr "Selecciona tu proveedor de búsqueda preferido para búsquedas web"
+
+msgid "Customize Prompts"
+msgstr "Personalizar Prompts"
+
+msgid "Personalize the prompts used by AI providers to generate content tailored to your preferences."
+msgstr "Personaliza los prompts utilizados por los proveedores de IA para generar contenido adaptado a tus preferencias."
+
+msgid "Enter your custom prompt for OpenAI..."
+msgstr "Ingresa tu prompt personalizado para OpenAI..."
+
+msgid "Enter your custom prompt for Groq..."
+msgstr "Ingresa tu prompt personalizado para Groq..."
+
+msgid "Enter your custom prompt for DeepSeek..."
+msgstr "Ingresa tu prompt personalizado para DeepSeek..."
+
+msgid "Enter your custom prompt for Tavily..."
+msgstr "Ingresa tu prompt personalizado para Tavily..."
+
+msgid "Enter your custom prompt for SerpAPI..."
+msgstr "Ingresa tu prompt personalizado para SerpAPI..."
+
+msgid "Reset to Default"
+msgstr "Restablecer a Valores Predeterminados"
+
+msgid "Save Changes"
+msgstr "Guardar Cambios"
+
+# Mensajes para toasts y notificaciones
+msgid "preferenceUpdated"
+msgstr "Preferencia actualizada correctamente"
+
+msgid "errorUpdatingPreference"
+msgstr "Error actualizando preferencia: "
+
+msgid "promptsSaved"
+msgstr "Prompts guardados correctamente"
+
+msgid "errorSavingPrompts"
+msgstr "Error guardando prompts: "
+
+msgid "promptsReset"
+msgstr "Prompts restablecidos correctamente"
+
+msgid "errorResettingPrompts"
+msgstr "Error restableciendo prompts: "
+
+msgid "connectionError"
+msgstr "Error de conexión: "
+
+msgid "confirmResetPrompts"
+msgstr "¿Estás seguro de que quieres restablecer todos los prompts a los valores predeterminados?"
+
+# Mensajes para API
+msgid "No valid fields to update"
+msgstr "No hay campos válidos para actualizar"
+
+msgid "Preferences updated successfully"
+msgstr "Preferencias actualizadas correctamente"
+
+msgid "No valid prompts to update"
+msgstr "No hay prompts válidos para actualizar"
+
+msgid "User or prompts not found"
+msgstr "Usuario o prompts no encontrados"
+
+msgid "Prompts updated successfully"
+msgstr "Prompts actualizados correctamente"
+
+msgid "Language"
+msgstr "Idioma"

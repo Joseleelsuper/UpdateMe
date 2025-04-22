@@ -1,0 +1,295 @@
+:root {
+  /* Colores principales de la aplicación */
+  --color-primary: #3B82F6;    /* Azul principal */
+  --color-primary-dark: #2563EB;  /* Azul oscuro para hover */
+  --color-secondary: #10B981;  /* Verde para acciones secundarias */
+  --color-dark: #1F2937;       /* Color oscuro para fondos */
+  --color-light: #F9FAFB;      /* Color claro para fondos */
+  --color-accent: #8B5CF6;     /* Color de acento para destacados */
+  --color-error: #EF4444;      /* Rojo para errores */
+  --color-success: #10B981;    /* Verde para éxito */
+  --color-text-dark: #111827;  /* Texto oscuro */
+  --color-text-light: #F9FAFB; /* Texto claro */
+  --color-text-muted: #6B7280; /* Texto gris */
+
+  /* Fuentes */
+  --font-primary: 'Poppins', sans-serif;     /* Fuente principal para texto */
+  --font-secondary: 'Montserrat', sans-serif;  /* Fuente para títulos/headers */
+}
+
+/* Estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.5;
+  background: linear-gradient(to bottom right, #EBF4FF, #E0E7FF);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Layout */
+main {
+  flex-grow: 1;
+  padding: 2rem 0;
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* Formularios */
+input, button, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Nueva implementación de la animación de borde para inputs */
+.form-input, input[type="text"], input[type="email"], input[type="password"], .subscribe-input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #D1D5DB;
+  outline: none;
+  transition: all 0.2s ease;
+  position: relative;
+  background-image: 
+    linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary) 100%),
+    linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary) 100%),
+    linear-gradient(0deg, var(--color-primary) 0%, var(--color-primary) 100%),
+    linear-gradient(0deg, var(--color-primary) 0%, var(--color-primary) 100%);
+  background-position: 
+    50% 0,     /* top */
+    50% 100%,  /* bottom */
+    0 50%,     /* left */
+    100% 50%;  /* right */
+  background-size: 
+    0 1px,     /* top */
+    0 1px,     /* bottom */
+    1px 0,     /* left */
+    1px 0;     /* right */
+  background-repeat: no-repeat;
+}
+
+/* Animación en hover */
+.form-input:hover, input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, .subscribe-input:hover {
+  background-size: 
+    100% 1px,  /* top */
+    100% 1px,  /* bottom */
+    1px 100%,  /* left */
+    1px 100%;  /* right */
+  background-position: 
+    0 0,       /* top */
+    0 100%,    /* bottom */
+    0 0,       /* left */
+    100% 0;    /* right */
+  transition: 
+    background-size 0.3s ease-out 0s,
+    background-position 0s ease-out 0.3s;
+}
+
+/* Estilo de focus para todos los inputs */
+.form-input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, .subscribe-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+}
+
+/* Utilidades flexbox */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+/* Espaciado */
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+/* Texto */
+.text-center {
+  text-align: center;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-secondary {
+  font-family: var(--font-secondary);
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+/* Toast notifications */
+.toast {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  z-index: 50;
+  padding: 0.75rem 2.5rem 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  color: white;
+  font-size: 1.125rem;
+  transition: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toast-success {
+  background-color: var(--color-success);
+}
+
+.toast-error {
+  background-color: var(--color-error);
+}
+
+.toast-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.toast:hover .toast-close {
+  opacity: 1;
+}
+
+.toast-close:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .md-flex-row {
+    flex-direction: row;
+  }
+  
+  .md-space-x-3 > * + * {
+    margin-left: 0.75rem;
+  }
+  
+  .md-space-y-0 > * + * {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .flex-col > * + * {
+    margin-top: 0.75rem;
+  }
+}

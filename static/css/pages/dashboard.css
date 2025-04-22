@@ -1,0 +1,204 @@
+@import url("../global.css");
+
+.dashboard-container {
+    padding: 2rem 0;
+}
+
+.dashboard-container h1 {
+    color: #3B82F6;
+    margin-bottom: 1.5rem;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.dashboard-card h2 {
+    color: #3B82F6;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Account summary styles */
+.account-details .detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #eee;
+}
+
+.account-details .detail-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: #4B5563;
+}
+
+.detail-value {
+    color: #111827;
+}
+
+/* Provider selection styles */
+.provider-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.provider-option {
+    border: 2px solid #E5E7EB;
+    border-radius: 6px;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.provider-option:hover {
+    border-color: #93C5FD;
+}
+
+.provider-option.selected {
+    border-color: #3B82F6;
+    background-color: #EFF6FF;
+}
+
+/* Prompts section styles */
+.prompts-section {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.prompts-section h2 {
+    color: #3B82F6;
+    margin-top: 0;
+}
+
+.prompt-tabs {
+    margin-top: 1.5rem;
+}
+
+.tab-headers {
+    display: flex;
+    overflow-x: auto;
+    border-bottom: 2px solid #E5E7EB;
+    margin-bottom: 1rem;
+}
+
+.tab-header {
+    padding: 0.8rem 1.2rem;
+    background: none;
+    border: none;
+    font-weight: 500;
+    color: #4B5563;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+}
+
+.tab-header:hover {
+    color: #3B82F6;
+}
+
+.tab-header.active {
+    color: #3B82F6;
+    border-bottom-color: #3B82F6;
+}
+
+.tab-content {
+    background-color: #F9FAFB;
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.tab-pane textarea {
+    width: 100%;
+    min-height: 200px;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    padding: 0.8rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    resize: vertical;
+}
+
+.prompt-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.btn-primary {
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #2563EB;
+}
+
+.btn-secondary {
+    background-color: #E5E7EB;
+    color: #4B5563;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #D1D5DB;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-headers {
+        flex-wrap: wrap;
+    }
+    
+    .tab-header {
+        flex-grow: 1;
+        text-align: center;
+    }
+}

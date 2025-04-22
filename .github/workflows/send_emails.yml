@@ -1,0 +1,16 @@
+name: Send Weekly Emails
+
+on:
+  schedule:
+    # Ejecutar todos los días a las 9:00 AM UTC
+    - cron: '0 9 * * *'
+
+jobs:
+  send-emails:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger email sending
+        run: |
+          curl -X POST \
+            https://tu-dominio.vercel.app/api/maintenance/send-weekly-emails \
+            -H "X-API-Key: ${{ secrets.MAINTENANCE_API_KEY }}"

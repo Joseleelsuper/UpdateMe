@@ -12,11 +12,287 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "title_homepage"
-msgstr "Landing Page - UpdateMe"
-
 msgid "This page is under construction"
 msgstr "This page is under construction"
 
 msgid "We're working to provide you with a better experience. Check back soon for our updates!"
 msgstr "We're working to provide you with a better experience. Check back soon for our updates!"
+
+msgid "Do you want to receive technology and AI content on a weekly basis?"
+msgstr "Do you want to receive technology and AI content on a weekly basis?"
+
+msgid "Subscribe to the newsletter for free"
+msgstr "Subscribe to the newsletter for free"
+
+msgid "Introduce email..."
+msgstr "Enter your email..."
+
+msgid "Subscribe"
+msgstr "Subscribe"
+
+msgid "An initiative of"
+msgstr "An initiative of"
+
+msgid "Pricing"
+msgstr "Pricing"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Login/Register"
+msgstr "Login/Register"
+
+# New translations for JavaScript messages
+msgid "Please enter a valid email."
+msgstr "Please enter a valid email."
+
+msgid "Network error. Please try again later."
+msgstr "Network error. Please try again later."
+
+msgid "Processing..."
+msgstr "Processing..."
+
+msgid "Subscription successful! We have sent you a welcome email and you will receive your first summary shortly."
+msgstr "Subscription successful! We have sent you a welcome email and you will receive your first summary shortly."
+
+# Error and exception message translations
+msgid "An unexpected error occurred. Please try again."
+msgstr "An unexpected error occurred. Please try again."
+
+msgid "The requested resource was not found."
+msgstr "The requested resource was not found."
+
+msgid "Server error. Please try again later."
+msgstr "Server error. Please try again later."
+
+msgid "You are not authorized to perform this action."
+msgstr "You are not authorized to perform this action."
+
+msgid "Access forbidden."
+msgstr "Access forbidden."
+
+msgid "Please check the form for errors."
+msgstr "Please check the form for errors."
+
+msgid "This email is already subscribed."
+msgstr "This email is already subscribed."
+
+msgid "The request timed out. Please try again."
+msgstr "The request timed out. Please try again."
+
+msgid "The provided data is invalid."
+msgstr "The provided data is invalid."
+
+msgid "Payment is required to access this feature."
+msgstr "Payment is required to access this feature."
+
+# Register page translations
+msgid "title_register_page"
+msgstr "UpdateMe - Register"
+
+msgid "description_register_page"
+msgstr "Create an account to set up your weekly updates."
+
+msgid "Create an account to set up your weekly updates"
+msgstr "Create an account to set up your weekly updates."
+
+msgid "Username"
+msgstr "Username"
+
+msgid "Password"
+msgstr "Password"
+
+# Registration form validation messages
+msgid "invalidUsername"
+msgstr "Username can only contain letters, numbers, and spaces."
+
+msgid "invalidEmail"
+msgstr "Please enter a valid email address."
+
+msgid "passwordLength"
+msgstr "Password must be at least 6 characters long."
+
+msgid "passwordUppercase"
+msgstr "Password must contain at least one uppercase letter."
+
+msgid "passwordLowercase"
+msgstr "Password must contain at least one lowercase letter."
+
+msgid "passwordNumber"
+msgstr "Password must contain at least one number."
+
+msgid "passwordSpecial"
+msgstr "Password must contain at least one special character (_,.!@#$%^&*)."
+
+msgid "networkError"
+msgstr "Network error. Please try again later."
+
+msgid "registrationSuccessful"
+msgstr "Registration successful! You can now log in with your credentials."
+
+msgid "emailExists" 
+msgstr "This email is already registered."
+
+# Login page translations
+msgid "title_login_page"
+msgstr "UpdateMe - Login"
+
+msgid "description_login_page"
+msgstr "Sign in to access your weekly technology and AI updates."
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Sign in to access your weekly updates"
+msgstr "Sign in to access your weekly updates"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Sign in"
+msgstr "Sign in"
+
+msgid "Need an account? Register"
+msgstr "Need an account? Register"
+
+msgid "Forgot password?"
+msgstr "Forgot password?"
+
+# Login form validation messages
+msgid "emptyPassword"
+msgstr "Please enter your password."
+
+msgid "loginSuccessful"
+msgstr "Login successful!"
+
+msgid "loginError"
+msgstr "Email or password incorrect."
+
+msgid "Invalid request data."
+msgstr "Invalid request data."
+
+msgid "Email or password incorrect."
+msgstr "Email or password incorrect."
+
+msgid "Login successful."
+msgstr "Login successful."
+
+msgid "An error occurred during login. Please try again."
+msgstr "An error occurred during login. Please try again."
+
+msgid "UpdateMe - Login"
+msgstr "UpdateMe - Login"
+
+# Dashboard translations
+msgid "Dashboard - UpdateMe"
+msgstr "Dashboard - UpdateMe"
+
+msgid "Welcome"
+msgstr "Welcome"
+
+msgid "Account Summary"
+msgstr "Account Summary"
+
+msgid "Subscription"
+msgstr "Subscription"
+
+msgid "Free Plan"
+msgstr "Free Plan"
+
+msgid "Premium Plan"
+msgstr "Premium Plan"
+
+msgid "Spanish"
+msgstr "Spanish"
+
+msgid "English"
+msgstr "English"
+
+msgid "AI Provider"
+msgstr "AI Provider"
+
+msgid "Select your preferred AI provider for content generation"
+msgstr "Select your preferred AI provider for content generation"
+
+msgid "Search Provider"
+msgstr "Search Provider"
+
+msgid "Select your preferred search provider for web searches"
+msgstr "Select your preferred search provider for web searches"
+
+msgid "Customize Prompts"
+msgstr "Customize Prompts"
+
+msgid "Personalize the prompts used by AI providers to generate content tailored to your preferences."
+msgstr "Personalize the prompts used by AI providers to generate content tailored to your preferences."
+
+msgid "Enter your custom prompt for OpenAI..."
+msgstr "Enter your custom prompt for OpenAI..."
+
+msgid "Enter your custom prompt for Groq..."
+msgstr "Enter your custom prompt for Groq..."
+
+msgid "Enter your custom prompt for DeepSeek..."
+msgstr "Enter your custom prompt for DeepSeek..."
+
+msgid "Enter your custom prompt for Tavily..."
+msgstr "Enter your custom prompt for Tavily..."
+
+msgid "Enter your custom prompt for SerpAPI..."
+msgstr "Enter your custom prompt for SerpAPI..."
+
+msgid "Reset to Default"
+msgstr "Reset to Default"
+
+msgid "Save Changes"
+msgstr "Save Changes"
+
+# Toast and notification messages
+msgid "preferenceUpdated"
+msgstr "Preference updated successfully"
+
+msgid "errorUpdatingPreference"
+msgstr "Error updating preference: "
+
+msgid "promptsSaved"
+msgstr "Prompts saved successfully"
+
+msgid "errorSavingPrompts"
+msgstr "Error saving prompts: "
+
+msgid "promptsReset"
+msgstr "Prompts reset successfully"
+
+msgid "errorResettingPrompts"
+msgstr "Error resetting prompts: "
+
+msgid "connectionError"
+msgstr "Connection error: "
+
+msgid "confirmResetPrompts"
+msgstr "Are you sure you want to reset all prompts to default values?"
+
+# API messages
+msgid "No valid fields to update"
+msgstr "No valid fields to update"
+
+msgid "Preferences updated successfully"
+msgstr "Preferences updated successfully"
+
+msgid "No valid prompts to update"
+msgstr "No valid prompts to update"
+
+msgid "User or prompts not found"
+msgstr "User or prompts not found"
+
+msgid "Prompts updated successfully"
+msgstr "Prompts updated successfully"
+
+msgid "Language"
+msgid "Language"

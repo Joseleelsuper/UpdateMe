@@ -1,0 +1,131 @@
+{% from "components/headerLogued.html" import headerLogued %}
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('Dashboard - UpdateMe') }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/dashboard.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
+    <script type="module">
+        // Traducciones globales para JavaScript
+        window.translations = {
+            'preferenceUpdated': "{{ _('preferenceUpdated') }}",
+            'errorUpdatingPreference': "{{ _('errorUpdatingPreference') }}",
+            'promptsSaved': "{{ _('promptsSaved') }}",
+            'errorSavingPrompts': "{{ _('errorSavingPrompts') }}",
+            'promptsReset': "{{ _('promptsReset') }}",
+            'errorResettingPrompts': "{{ _('errorResettingPrompts') }}",
+            'connectionError': "{{ _('connectionError') }}",
+            'confirmResetPrompts': "{{ _('confirmResetPrompts') }}"
+        };
+    </script>
+    <script type="module" src="{{ url_for('static', filename='js/subscribe.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</head>
+<body>
+    {{ headerLogued() }}
+    
+    <main class="dashboard-container">
+        <div class="container">
+            <h1>{{ _('Welcome') }}, {{ user.username }}!</h1>
+            
+            <div class="dashboard-grid">
+                <!-- Account summary card -->
+                <section class="dashboard-card account-summary">
+                    <h2>{{ _('Account Summary') }}</h2>
+                    <div class="account-details">
+                        <div class="detail-item">
+                            <span class="detail-label">{{ _('Email') }}:</span>
+                            <span class="detail-value">{{ user.email }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">{{ _('Subscription') }}:</span>
+                            <span class="detail-value">{{ _('Free Plan') if user.role == 'free' else _('Premium Plan') }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">{{ _('Language') }}:</span>
+                            <span class="detail-value">{{ _('Spanish') if user.language == 'es' else _('English') }}</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- AI Provider selection -->
+                <section class="dashboard-card ai-provider">
+                    <h2>{{ _('AI Provider') }}</h2>
+                    <p>{{ _('Select your preferred AI provider for content generation') }}</p>
+                    <div class="provider-selection">
+                        <div class="provider-option {% if user.ai_provider == 'openai' %}selected{% endif %}" data-provider="openai">
+                            <span class="provider-name">OpenAI</span>
+                        </div>
+                        <div class="provider-option {% if user.ai_provider == 'groq' %}selected{% endif %}" data-provider="groq">
+                            <span class="provider-name">Groq</span>
+                        </div>
+                        <div class="provider-option {% if user.ai_provider == 'deepseek' %}selected{% endif %}" data-provider="deepseek">
+                            <span class="provider-name">DeepSeek</span>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Search Provider selection -->
+                <section class="dashboard-card search-provider">
+                    <h2>{{ _('Search Provider') }}</h2>
+                    <p>{{ _('Select your preferred search provider for web searches') }}</p>
+                    <div class="provider-selection">
+                        <div class="provider-option {% if user.search_provider == 'serpapi' %}selected{% endif %}" data-provider="serpapi">
+                            <span class="provider-name">SerpAPI</span>
+                        </div>
+                        <div class="provider-option {% if user.search_provider == 'tavily' %}selected{% endif %}" data-provider="tavily">
+                            <span class="provider-name">Tavily</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Prompts customization -->
+            <section class="prompts-section">
+                <h2>{{ _('Customize Prompts') }}</h2>
+                <p>{{ _('Personalize the prompts used by AI providers to generate content tailored to your preferences.') }}</p>
+                
+                <div class="prompt-tabs">
+                    <div class="tab-headers">
+                        <button class="tab-header active" data-tab="openai-tab">OpenAI</button>
+                        <button class="tab-header" data-tab="groq-tab">Groq</button>
+                        <button class="tab-header" data-tab="deepseek-tab">DeepSeek</button>
+                        <button class="tab-header" data-tab="tavily-tab">Tavily</button>
+                        <button class="tab-header" data-tab="serpapi-tab">SerpAPI</button>
+                    </div>
+                    
+                    <div class="tab-content">
+                        <div id="openai-tab" class="tab-pane active">
+                            <textarea id="openai-prompt" placeholder="{{ _('Enter your custom prompt for OpenAI...') }}">{{ user_prompts.openai_prompt or default_prompts.news_summary }}</textarea>
+                        </div>
+                        <div id="groq-tab" class="tab-pane">
+                            <textarea id="groq-prompt" placeholder="{{ _('Enter your custom prompt for Groq...') }}">{{ user_prompts.groq_prompt or default_prompts.news_summary }}</textarea>
+                        </div>
+                        <div id="deepseek-tab" class="tab-pane">
+                            <textarea id="deepseek-prompt" placeholder="{{ _('Enter your custom prompt for DeepSeek...') }}">{{ user_prompts.deepseek_prompt or default_prompts.news_summary }}</textarea>
+                        </div>
+                        <div id="tavily-tab" class="tab-pane">
+                            <textarea id="tavily-prompt" placeholder="{{ _('Enter your custom prompt for Tavily...') }}">{{ user_prompts.tavily_prompt or default_prompts.web_search }}</textarea>
+                        </div>
+                        <div id="serpapi-tab" class="tab-pane">
+                            <textarea id="serpapi-prompt" placeholder="{{ _('Enter your custom prompt for SerpAPI...') }}">{{ user_prompts.serpapi_prompt or default_prompts.web_search }}</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="prompt-actions">
+                        <button id="reset-prompts" class="btn-secondary">{{ _('Reset to Default') }}</button>
+                        <button id="save-prompts" class="btn-primary">{{ _('Save Changes') }}</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    {% from 'components/footer.html' import footer %}
+    {{ footer() }}
+    
+</body>
+</html>
