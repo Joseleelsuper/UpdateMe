@@ -60,6 +60,37 @@ def get_translations():
             "yourRights": _("Your Rights"),
         },
         
+        # Traducciones específicas para SEO
+        "seo": {
+            # Títulos SEO para cada página
+            "title_homepage": _("UpdateMe - Newsletter Semanal de Tecnología e IA"),
+            "title_register_page": _("Regístrate - UpdateMe Newsletter de Tecnología"),
+            "title_login_page": _("Inicia Sesión - UpdateMe"),
+            "title_terms_page": _("Términos y Condiciones - UpdateMe"),
+            "title_privacy_page": _("Política de Privacidad - UpdateMe"),
+            
+            # Meta descripciones SEO para cada página
+            "meta_desc_homepage": _("UpdateMe: La newsletter semanal que te mantiene al día con la tecnología y la IA. Recibe los resúmenes más relevantes en tu correo."),
+            "meta_desc_register": _("Regístrate en UpdateMe y recibe resúmenes semanales de tecnología e IA personalizados para ti."),
+            "meta_desc_login": _("Accede a tu cuenta de UpdateMe y gestiona tu newsletter personalizada de tecnología e IA."),
+            "meta_desc_terms": _("Términos y condiciones de uso de UpdateMe. Información legal sobre el uso de nuestra newsletter y servicios."),
+            "meta_desc_privacy": _("Política de privacidad de UpdateMe. Conoce cómo gestionamos y protegemos tus datos personales."),
+            
+            # Palabras clave SEO para cada página
+            "meta_keywords_home": _("newsletter, tecnología, IA, inteligencia artificial, noticias tech, resumen semanal"),
+            "meta_keywords_register": _("registro, cuenta, newsletter tecnología, IA personalizada"),
+            "meta_keywords_login": _("login, acceso, cuenta, newsletter tecnología"),
+            "meta_keywords_terms": _("términos, condiciones, legal, servicios, newsletter"),
+            "meta_keywords_privacy": _("privacidad, protección de datos, política, newsletter, RGPD"),
+            
+            # Otros textos SEO importantes
+            "breadcrumb_home": _("Inicio"),
+            "breadcrumb_register": _("Registro"),
+            "breadcrumb_login": _("Acceso"),
+            "breadcrumb_terms": _("Términos"),
+            "breadcrumb_privacy": _("Privacidad"),
+        },
+        
         "errors": {
             "general": _("An unexpected error occurred. Please try again."),
             "notFound": _("The requested resource was not found."),

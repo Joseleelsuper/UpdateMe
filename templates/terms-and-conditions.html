@@ -2,27 +2,15 @@
 <html lang="{{ g.locale }}">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ _('Terms & Conditions') }} - UpdateMe</title>
-    <meta name="description" content="{{ _('Terms and conditions for using UpdateMe newsletter service') }}">
-
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://updateme.dev/terms-and-conditions">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ _('Terms & Conditions') }} - UpdateMe">
-    <meta property="og:description"
-        content="{{ _('Terms and conditions for using UpdateMe newsletter service') }}">
-    <meta property="og:image"
-        content="https://opengraph.b-cdn.net/production/images/bfabd6bc-249f-400a-9f99-8b5de217609c.png?token=xYoI1Ww9XbKGGL75Pk7C8GwxqEKiMhKEh1uiZ2twR2M&height=577&width=1200&expires=33280719472">
-
+    {% include 'components/seo-meta.html' %}
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/terms-and-conditions.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/legal.css') }}">
 </head>
 
 <body>
@@ -32,7 +20,7 @@
 
     <main>
         <div class="container">
-            <section class="content-section">
+                        <section class="content-section">
                 <div class="content-wrapper">
                     <h1 class="page-title">{{ _('Terms & Conditions') }}</h1>
                     <p class="last-updated">{{ _('Last updated') }}: {{ _('April 22, 2025') }}</p>
