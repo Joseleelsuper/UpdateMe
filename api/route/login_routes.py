@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request, session, redirect, url_for
 from api.database import users_collection
 import bcrypt
-import jwt
+import jwt as PyJWT
 import os
 from datetime import datetime, timedelta, timezone
 from flask_babel import gettext as _
@@ -54,10 +54,10 @@ def login():
                 'exp': expiration
             }
             
-            token = jwt.encode(payload, JWT_SECRET, algorithm='HS256')
+            token = PyJWT.encode(payload, JWT_SECRET, algorithm='HS256')
             
             # Crear sesión persistente (guardada en MongoDB)
-            session_token, session_id = create_session(user['_id'])
+            create_session(user['_id'])
             
             # Actualizar fecha de último inicio de sesión
             users_collection.update_one(
