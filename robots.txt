@@ -1,0 +1,64 @@
+# robots.txt for UpdateMe.dev - Weekly Tech & AI Newsletter
+
+# Reglas generales para todos los robots
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /register
+Allow: /login
+Allow: /terms-and-conditions
+Allow: /privacy-policy
+Allow: /static/css/
+Allow: /static/img/
+Allow: /static/js/
+Disallow: /api/
+Disallow: /dashboard
+Disallow: /settings
+Disallow: /profile
+
+# Reglas específicas para Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Reglas para Google Images
+User-agent: Googlebot-Image
+Allow: /static/img/
+
+# Reglas para Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Reglas para Yahoo
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Reglas para Facebook
+User-agent: Facebot
+Allow: /
+Allow: /index.html
+Allow: /register
+Allow: /login
+
+# Reglas para Twitter/X
+User-agent: Twitterbot
+Allow: /
+Allow: /index.html
+
+# Bloquear bots agresivos/maliciosos
+User-agent: PetalBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+# Ubicación del sitemap
+Sitemap: https://updateme.dev/sitemap.xml
