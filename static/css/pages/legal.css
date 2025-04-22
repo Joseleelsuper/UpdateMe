@@ -1,52 +1,52 @@
 @import url("../global.css");
 
 .content-section {
-    padding: 2rem 0;
+    padding: 20px 0 60px;
 }
 
 .content-wrapper {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .page-title {
     font-family: var(--font-secondary);
-    font-size: 2.25rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    color: var(--color-dark);
-    margin-bottom: 0.5rem;
+    color: #333;
+    margin-bottom: 10px;
     text-align: center;
 }
 
 .last-updated {
     text-align: center;
-    color: var(--color-text-muted);
-    margin-bottom: 2.5rem;
+    color: #777;
+    margin-bottom: 30px;
     font-size: 0.9rem;
     font-style: italic;
 }
 
 .section-block {
-    margin-bottom: 2.5rem;
+    margin-bottom: 30px;
 }
 
 .section-block h2 {
     font-family: var(--font-secondary);
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #E5E7EB;
+    color: #444;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
 }
 
 .section-block p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
+    margin-bottom: 15px;
+    line-height: 1.7;
     color: var(--color-text-dark);
 }
 
@@ -70,14 +70,13 @@
 }
 
 .contact-link {
-    color: var(--color-primary);
+    color: #007bff;
     font-weight: 500;
-    text-decoration: underline;
-    transition: color 0.2s;
+    text-decoration: none;
 }
 
 .contact-link:hover {
-    color: var(--color-primary-dark);
+    text-decoration: underline;
 }
 
 /* Responsive styles */
@@ -88,11 +87,11 @@
     }
     
     .page-title {
-        font-size: 1.75rem;
+        font-size: 1.8rem;
     }
     
     .section-block h2 {
-        font-size: 1.25rem;
+        font-size: 1.3rem;
     }
 }
 
