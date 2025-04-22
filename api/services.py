@@ -97,7 +97,7 @@ def send_email(to_email, subject, content):
         Exception: Si hay algún error al enviar el correo
     """
     params: resend.Emails.SendParams = {
-        "from": "UpdateMe <tory002254@gmail.com>",
+        "from": "UpdateMe <newsletter@updateme.dev>",
         "to": [to_email],
         "subject": subject,
         "html": content,
@@ -132,7 +132,7 @@ def send_welcome_email(to_email):
     subject = "Welcome to UpdateMe!" if language == "en" else "¡Bienvenido a UpdateMe!"
     
     params: resend.Emails.SendParams = {
-        "from": "UpdateMe <tory002254@gmail.com>",
+        "from": "UpdateMe <welcome@updateme.dev>",
         "to": [to_email],
         "subject": subject,
         "html": content,
