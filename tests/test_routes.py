@@ -42,6 +42,24 @@ class TestRoutes(TestBase):
         response = self.client.get('/login')
         self.assertEqual(response.status_code, 200)
 
+    def test_terms_page(self):
+        """
+        GIVEN la aplicación configurada para pruebas
+        WHEN se solicita la página de términos '/terms-and-conditions'
+        THEN se debe recibir una respuesta 200 OK y verificar el contenido
+        """
+        response = self.client.get('/terms-and-conditions')
+        self.assertEqual(response.status_code, 200)
+
+    def test_privacy_page(self):
+        """
+        GIVEN la aplicación configurada para pruebas
+        WHEN se solicita la página de privacidad '/privacy-policy'
+        THEN se debe recibir una respuesta 200 OK y verificar el contenido
+        """
+        response = self.client.get('/privacy-policy')
+        self.assertEqual(response.status_code, 200)
+
     def test_static_files_route(self):
         """
         GIVEN la aplicación configurada para pruebas
