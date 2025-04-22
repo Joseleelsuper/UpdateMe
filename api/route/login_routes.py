@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request, session, redirect, url_for
 from api.database import users_collection
 import bcrypt
-import jwt
+import jwt as PyJWT
 import os
 from datetime import datetime, timedelta, timezone
 from flask_babel import gettext as _
@@ -53,11 +53,15 @@ def login():
                 'username': user['username'],
                 'exp': expiration
             }
+
+            token = PyJWT.encode(payload, JWT_SECRET, algorithm='HS256')
             
-            token = jwt.encode(payload, JWT_SECRET, algorithm='HS256')
+            # Crear sesión persistente
+            session_token, __ = create_session(user['_id'])
             
-            # Crear sesión persistente (guardada en MongoDB)
-            session_token, session_id = create_session(user['_id'])
+            # Guardar token en sesión Flask
+            session['user_id'] = str(user['_id'])
+            session['session_token'] = session_token
             
             # Actualizar fecha de último inicio de sesión
             users_collection.update_one(
@@ -78,7 +82,7 @@ def login():
             }), 401
             
     except Exception as e:
-        print(f"Error during login: {e}")
+        print(f"Error during login: {str(e)}")
         return jsonify({
             'success': False,
             'message': _('An error occurred during login. Please try again.')
