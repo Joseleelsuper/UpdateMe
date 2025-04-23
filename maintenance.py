@@ -19,7 +19,7 @@ from api.services import generate_news_summary, send_email
 # Configuración de logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levellevel)s - %(message)s',
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler("email_sender.log"),
         logging.StreamHandler()
