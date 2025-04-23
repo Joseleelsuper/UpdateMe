@@ -1,7 +1,9 @@
 @import url("../global.css");
 
+/* Estilos para la sección del dashboard */
 .dashboard-container {
     padding: 2rem 0;
+    min-height: calc(100vh - 200px); /* Ajustar según altura del header/footer */
 }
 
 .dashboard-container h1 {
@@ -11,11 +13,12 @@
 
 .dashboard-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
+/* Cards del dashboard */
 .dashboard-card {
     background-color: white;
     border-radius: 8px;
@@ -26,52 +29,53 @@
 .dashboard-card h2 {
     color: #3B82F6;
     margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
 }
 
-/* Account summary styles */
-.account-details .detail-item {
+/* Estilos para detalles de la cuenta */
+.account-details {
+    margin-top: 1rem;
+}
+
+.detail-item {
+    margin-bottom: 0.75rem;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.8rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid #eee;
-}
-
-.account-details .detail-item:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
+    border-bottom: 1px solid #F3F4F6;
+    padding-bottom: 0.5rem;
 }
 
 .detail-label {
     font-weight: 500;
-    color: #4B5563;
+    color: #6B7280;
 }
 
 .detail-value {
     color: #111827;
 }
 
-/* Provider selection styles */
+/* Estilos para selección de proveedor */
 .provider-selection {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+    gap: 1rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
 .provider-option {
+    padding: 0.8rem 1.5rem;
     border: 2px solid #E5E7EB;
-    border-radius: 6px;
-    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 100px;
+    position: relative;
+    font-weight: 500;
 }
 
 .provider-option:hover {
-    border-color: #93C5FD;
+    border-color: #BFDBFE;
+    background-color: #F9FAFB;
 }
 
 .provider-option.selected {
@@ -126,21 +130,23 @@
 
 .tab-headers {
     display: flex;
+    border-bottom: 1px solid #E5E7EB;
+    gap: 0.25rem;
     overflow-x: auto;
-    border-bottom: 2px solid #E5E7EB;
     margin-bottom: 1rem;
+    padding-bottom: 1px;
 }
 
 .tab-header {
-    padding: 0.8rem 1.2rem;
-    background: none;
+    padding: 0.75rem 1.25rem;
+    background-color: transparent;
+    color: #6B7280;
     border: none;
-    font-weight: 500;
-    color: #4B5563;
+    border-bottom: 2px solid transparent;
     cursor: pointer;
     transition: all 0.2s;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
 .tab-header:hover {
@@ -153,9 +159,8 @@
 }
 
 .tab-content {
-    background-color: #F9FAFB;
-    border-radius: 6px;
-    padding: 1rem;
+    position: relative;
+    min-height: 300px;
 }
 
 .tab-pane {
@@ -168,7 +173,7 @@
 
 .tab-pane textarea {
     width: 100%;
-    min-height: 200px;
+    height: 300px;
     border: 1px solid #D1D5DB;
     border-radius: 4px;
     padding: 0.8rem;
@@ -212,20 +217,79 @@
 
 .btn-secondary:hover {
     background-color: #D1D5DB;
+    color: #374151;
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .dashboard-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
     }
     
-    .tab-headers {
-        flex-wrap: wrap;
+    .account-summary {
+        grid-column: 1 / -1;
     }
-    
-    .tab-header {
-        flex-grow: 1;
-        text-align: center;
+}
+
+/* Estilos para configuración de búsqueda */
+.search-config-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.search-config-prompt {
+    width: 100%;
+}
+
+.search-config-prompt label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #4B5563;
+}
+
+.search-config-prompt textarea {
+    height: 200px;
+}
+
+.search-config-settings {
+    background-color: #F9FAFB;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #E5E7EB;
+}
+
+.search-config-settings h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: #4B5563;
+    margin-bottom: 1rem;
+}
+
+.config-field {
+    margin-bottom: 1rem;
+}
+
+.config-field label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: #4B5563;
+    font-size: 0.9rem;
+}
+
+.config-field select,
+.config-field input[type="number"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+    .search-config-grid {
+        grid-template-columns: 3fr 2fr;
     }
 }

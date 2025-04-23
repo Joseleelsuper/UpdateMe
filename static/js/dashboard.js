@@ -1,94 +1,133 @@
-import { showToast } from './subscribe.js';
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Tab functionality
+    // Selecciona los elementos del DOM
+    const providerOptions = document.querySelectorAll('.provider-option');
+    const savePromptsBtn = document.getElementById('save-prompts');
+    const resetPromptsBtn = document.getElementById('reset-prompts');
     const tabHeaders = document.querySelectorAll('.tab-header');
-    const tabPanes = document.querySelectorAll('.tab-pane');
     
+    // Traducciones
+    const translations = window.translations || {
+        preferenceUpdated: 'Preference updated successfully',
+        errorUpdatingPreference: 'Error updating preference: ',
+        promptsSaved: 'Prompts saved successfully',
+        errorSavingPrompts: 'Error saving prompts: ',
+        promptsReset: 'Prompts reset successfully',
+        errorResettingPrompts: 'Error resetting prompts: ',
+        connectionError: 'Connection error: ',
+        confirmResetPrompts: 'Are you sure you want to reset all prompts to default values?',
+        openaiSearchDisabled: 'OpenAI uses its own integrated search provider, it is not possible to change this option.'
+    };
+    
+    // Toast notification system
+    function showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+        toast.textContent = message;
+        
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.classList.add('show');
+        }, 10);
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 300);
+        }, 3000);
+    }
+    
+    // Maneja los clics en las opciones de proveedor
+    providerOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Si el elemento está deshabilitado, no hacer nada
+            if (this.classList.contains('disabled')) {
+                showToast(translations.openaiSearchDisabled, 'warning');
+                return;
+            }
+            
+            const parentSection = this.closest('section');
+            const providerType = parentSection.classList.contains('ai-provider') ? 'ai_provider' : 'search_provider';
+            const provider = this.dataset.provider;
+            
+            // Actualizar visualmente
+            parentSection.querySelectorAll('.provider-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            this.classList.add('selected');
+            
+            // Si se selecciona OpenAI como proveedor de IA, deshabilitar la selección de proveedor de búsqueda
+            if (providerType === 'ai_provider' && provider === 'openai') {
+                const searchProviderSection = document.querySelector('.search-provider');
+                searchProviderSection.classList.add('disabled');
+                searchProviderSection.querySelectorAll('.provider-option').forEach(opt => {
+                    opt.classList.add('disabled');
+                });
+            } else if (providerType === 'ai_provider') {
+                // Si se selecciona otro proveedor de IA, habilitar la selección de proveedor de búsqueda
+                const searchProviderSection = document.querySelector('.search-provider');
+                searchProviderSection.classList.remove('disabled');
+                searchProviderSection.querySelectorAll('.provider-option').forEach(opt => {
+                    opt.classList.remove('disabled');
+                });
+            }
+            
+            // Enviar la preferencia al servidor
+            updatePreference(providerType, provider);
+        });
+    });
+    
+    // Función para actualizar preferencias en el servidor
+    function updatePreference(preferenceType, value) {
+        fetch('/api/user/preferences', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ [preferenceType]: value })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (data.success) {
+                showToast(translations.preferenceUpdated);
+            } else {
+                showToast(`${translations.errorUpdatingPreference} ${data.message}`, 'error');
+            }
+        })
+        .catch(error => {
+            showToast(`${translations.connectionError} ${error.message}`, 'error');
+        });
+    }
+    
+    // Maneja las pestañas de prompts
     tabHeaders.forEach(header => {
-        header.addEventListener('click', () => {
-            // Remove active class from all headers and panes
-            tabHeaders.forEach(h => h.classList.remove('active'));
-            tabPanes.forEach(p => p.classList.remove('active'));
+        header.addEventListener('click', function() {
+            const tabId = this.dataset.tab;
             
-            // Add active class to clicked header
-            header.classList.add('active');
+            // Actualizar clases activas en encabezados
+            document.querySelectorAll('.tab-header').forEach(h => {
+                h.classList.remove('active');
+            });
+            this.classList.add('active');
             
-            // Show corresponding pane
-            const tabId = header.getAttribute('data-tab');
+            // Mostrar el contenido de la pestaña seleccionada
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
             document.getElementById(tabId).classList.add('active');
         });
     });
     
-    // Provider selection
-    const aiProviderOptions = document.querySelectorAll('.ai-provider .provider-option');
-    const searchProviderOptions = document.querySelectorAll('.search-provider .provider-option');
-    const searchProviderSection = document.querySelector('.search-provider');
-    
-    // Función para comprobar si se debe deshabilitar el proveedor de búsqueda
-    function checkAndDisableSearchProvider() {
-        const openaiSelected = Array.from(aiProviderOptions).some(
-            option => option.classList.contains('selected') && option.getAttribute('data-provider') === 'openai'
-        );
-        
-        if (openaiSelected) {
-            // Deshabilitar la sección de búsqueda
-            searchProviderSection.classList.add('disabled');
-            searchProviderOptions.forEach(option => {
-                option.classList.add('disabled');
-            });
-        } else {
-            // Habilitar la sección de búsqueda
-            searchProviderSection.classList.remove('disabled');
-            searchProviderOptions.forEach(option => {
-                option.classList.remove('disabled');
-            });
-        }
-    }
-    
-    // Comprobar el estado inicial al cargar la página
-    checkAndDisableSearchProvider();
-    
-    aiProviderOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            // Remove selected class from all options
-            aiProviderOptions.forEach(o => o.classList.remove('selected'));
-            
-            // Add selected class to clicked option
-            option.classList.add('selected');
-            
-            // Send provider update to server
-            const provider = option.getAttribute('data-provider');
-            updateUserPreference('ai_provider', provider);
-            
-            // Check if search provider should be disabled/enabled
-            checkAndDisableSearchProvider();
-        });
-    });
-    
-    searchProviderOptions.forEach(option => {
-        option.addEventListener('click', () => {
-            // Comprobar si el selector está deshabilitado (OpenAI seleccionado)
-            if (searchProviderSection.classList.contains('disabled')) {
-                showToast(__('openaiSearchDisabled', 'OpenAI utiliza su propio proveedor de búsqueda, no es posible cambiar esta opción.'), 'info');
-                return; // Detener la ejecución
-            }
-            
-            // Remove selected class from all options
-            searchProviderOptions.forEach(o => o.classList.remove('selected'));
-            
-            // Add selected class to clicked option
-            option.classList.add('selected');
-            
-            // Send provider update to server
-            const provider = option.getAttribute('data-provider');
-            updateUserPreference('search_provider', provider);
-        });
-    });
-    
-    // Save prompts
-    document.getElementById('save-prompts').addEventListener('click', () => {
-        const promptsData = {
+    // Guardar los prompts personalizados
+    savePromptsBtn.addEventListener('click', function() {
+        // Recopilar los valores de los prompts
+        const promptData = {
             openai_prompt: document.getElementById('openai-prompt').value,
             groq_prompt: document.getElementById('groq-prompt').value,
             deepseek_prompt: document.getElementById('deepseek-prompt').value,
@@ -96,102 +135,80 @@ document.addEventListener('DOMContentLoaded', function() {
             serpapi_prompt: document.getElementById('serpapi-prompt').value
         };
         
-        savePrompts(promptsData);
-    });
-    
-    // Reset prompts to defaults
-    document.getElementById('reset-prompts').addEventListener('click', () => {
-        if (confirm(__('confirmResetPrompts', '¿Estás seguro de que quieres restablecer todos los prompts a los valores predeterminados?'))) {
-            resetPrompts();
+        // Recopilar las configuraciones de búsqueda
+        if (document.getElementById('tavily-max-results')) {
+            promptData.tavily_config = {
+                max_results: parseInt(document.getElementById('tavily-max-results').value) || 5,
+                topic: document.getElementById('tavily-topic').value,
+                search_depth: document.getElementById('tavily-search-depth').value,
+                time_range: document.getElementById('tavily-time-range').value,
+                include_raw_content: true,
+                include_domains: [],
+                exclude_domains: []
+            };
         }
-    });
-    
-    // Helper functions
-    function updateUserPreference(key, value) {
-        fetch('/api/user/preferences', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ [key]: value }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                showToast(__('preferenceUpdated', 'Preferencia actualizada correctamente'), 'success');
-            } else {
-                showToast(__('errorUpdatingPreference', 'Error actualizando preferencia: ') + data.message, 'error');
-            }
-        })
-        .catch(error => {
-            showToast(__('connectionError', 'Error de conexión: ') + error.message, 'error');
-        });
-    }
-    
-    function savePrompts(promptsData) {
+        
+        if (document.getElementById('serpapi-max-results')) {
+            promptData.serpapi_config = {
+                max_results: parseInt(document.getElementById('serpapi-max-results').value) || 5,
+                search_type: document.getElementById('serpapi-search-type').value,
+                safe_search: document.getElementById('serpapi-safe-search').value,
+                time_range: document.getElementById('serpapi-time-range').value,
+                include_domains: [],
+                exclude_domains: []
+            };
+        }
+        
+        // Enviar los datos al servidor
         fetch('/api/user/prompts', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(promptsData),
+            body: JSON.stringify(promptData)
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             if (data.success) {
-                showToast(__('promptsSaved', 'Prompts guardados correctamente'), 'success');
+                showToast(translations.promptsSaved);
             } else {
-                showToast(__('errorSavingPrompts', 'Error guardando prompts: ') + data.message, 'error');
+                showToast(`${translations.errorSavingPrompts} ${data.message}`, 'error');
             }
         })
         .catch(error => {
-            showToast(__('connectionError', 'Error de conexión: ') + error.message, 'error');
+            showToast(`${translations.connectionError} ${error.message}`, 'error');
         });
-    }
+    });
     
-    function resetPrompts() {
-        fetch('/api/user/prompts/reset', {
-            method: 'POST',
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                showToast(__('promptsReset', 'Prompts restablecidos correctamente'), 'success');
-                // Reload page to show default prompts
-                window.location.reload();
-            } else {
-                showToast(__('errorResettingPrompts', 'Error restableciendo prompts: ') + data.message, 'error');
-            }
-        })
-        .catch(error => {
-            showToast(__('connectionError', 'Error de conexión: ') + error.message, 'error');
-        });
-    }
-    
-    // Handle profile dropdown for mobile and desktop
-    const profileIcon = document.getElementById('profile-icon');
-    const profileDropdown = document.getElementById('profile-dropdown');
-    
-    if (profileIcon && profileDropdown) {
-        // Toggle dropdown on icon click (for mobile)
-        profileIcon.addEventListener('click', (e) => {
-            e.stopPropagation();
-            profileDropdown.classList.toggle('show');
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', () => {
-            profileDropdown.classList.remove('show');
-        });
-    }
-    
-    // Translation helper function (similar to the one in other JS files)
-    function __(key, fallback) {
-        // Try to get the translation from the window.translations object that's populated by the template
-        if (window.translations && window.translations[key]) {
-            return window.translations[key];
+    // Restablecer los prompts a los valores predeterminados
+    resetPromptsBtn.addEventListener('click', function() {
+        if (confirm(translations.confirmResetPrompts)) {
+            fetch('/api/user/prompts/reset', {
+                method: 'POST'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    showToast(translations.promptsReset);
+                    // Recargar la página para mostrar los valores predeterminados
+                    window.location.reload();
+                } else {
+                    showToast(`${translations.errorResettingPrompts} ${data.message}`, 'error');
+                }
+            })
+            .catch(error => {
+                showToast(`${translations.connectionError} ${error.message}`, 'error');
+            });
         }
-        // Return fallback text if no translation is found
-        return fallback;
-    }
+    });
 });
