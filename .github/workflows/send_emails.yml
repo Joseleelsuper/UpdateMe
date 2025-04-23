@@ -12,5 +12,5 @@ jobs:
       - name: Trigger email sending
         run: |
           curl -X POST \
-            https://tu-dominio.vercel.app/api/maintenance/send-weekly-emails \
+            https://updateme.dev/api/maintenance/send-weekly-emails \
             -H "X-API-Key: ${{ secrets.MAINTENANCE_API_KEY }}"

@@ -6,6 +6,7 @@ from flask import Blueprint, jsonify, request, g
 from api.database import db, users_collection
 from flask_babel import gettext as _
 from api.auth import login_required
+from maintenance import process_pending_emails
 import os
 
 from api.route.page_routes import page_bp
@@ -141,8 +142,6 @@ def trigger_weekly_emails():
         return jsonify({"success": False, "message": "Unauthorized"}), 401
     
     try:
-        from maintenance import process_pending_emails
-        
         # Procesar correos pendientes con un intervalo de 7 días
         total, success, errors = process_pending_emails(days_interval=7)
         
