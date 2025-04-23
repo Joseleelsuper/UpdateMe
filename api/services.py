@@ -5,15 +5,16 @@ import os
 import resend
 from dotenv import load_dotenv
 from typing import Dict, Optional
-
-import resend.contacts
+from datetime import datetime, timedelta
+from .cache_manager import CacheManager
+from .serviceAi.prompts import get_fallback_content
 
 # Importar proveedores de IA
 from .serviceAi.openai_provider import OpenAIProvider
 from .serviceAi.deepseek_provider import DeepSeekProvider
 from .serviceAi.groq_provider import GroqProvider
 from .serviceAi.base import AIProvider
-from .serviceAi.prompts import get_welcome_email_template
+from .serviceAi.prompts import get_welcome_email_template, get_email_template
 from .database import db
 
 # Cargar variables de entorno si no se han cargado
@@ -164,8 +165,13 @@ def generate_news_summary(email, provider=None):
     Returns:
         str: Texto con el resumen de noticias
     """
+    
     # Buscar al usuario en la base de datos para obtener su proveedor de IA preferido
     user_data = db.users.find_one({"email": email})
+    
+    # Extraer username e idioma para fallback
+    username = email.split("@")[0]
+    language = user_data.get("language", "es") if user_data else "es"
     
     # Si no se especifica un proveedor, usar el del usuario (o 'groq' por defecto)
     if not provider and user_data:
@@ -173,19 +179,51 @@ def generate_news_summary(email, provider=None):
     elif not provider:
         provider = "groq"  # Valor por defecto si no hay usuario ni proveedor especificado
     
-    # Obtener el proveedor solicitado
-    ai_provider = get_ai_provider(provider)
+    # Lista de proveedores a intentar, comenzando por el preferido del usuario
+    providers_to_try = [provider]
     
-    # Si el proveedor no está disponible, intentar con el primero disponible
-    if not ai_provider and ai_providers:
-        provider = next(iter(ai_providers))
-        ai_provider = ai_providers[provider]
+    # Añadir el resto de proveedores disponibles a la lista
+    for p in ai_providers:
+        if p not in providers_to_try:
+            providers_to_try.append(p)
     
-    # Si no hay proveedores disponibles, usar contenido de respaldo
-    if not ai_provider:
-        from .serviceAi.prompts import get_fallback_content
-        username = email.split("@")[0]
-        return get_fallback_content(username)
+    # Intentar con cada proveedor disponible
+    for current_provider in providers_to_try:
+        try:
+            ai_provider = ai_providers.get(current_provider)
+            if ai_provider:
+                return ai_provider.generate_news_summary(email)
+        except Exception as e:
+            print(f"Error con proveedor {current_provider}: {str(e)}")
+            continue
     
-    # Generar resumen de noticias usando el proveedor
-    return ai_provider.generate_news_summary(email)
+    # Si llegamos aquí, ningún proveedor funcionó
+    # Buscar en la caché de días anteriores (hasta 2 días)
+    
+    # Obtener fechas de hoy, ayer y anteayer
+    today = datetime.now()
+    dates_to_check = [
+        today.strftime("%Y-%m-%d"),
+        (today - timedelta(days=1)).strftime("%Y-%m-%d"),
+        (today - timedelta(days=2)).strftime("%Y-%m-%d")
+    ]
+    
+    # Primero intentar con el proveedor preferido del usuario
+    for date in dates_to_check:
+        cached_items = list(CacheManager.get_provider_cache_by_date(provider, date))
+        if cached_items:
+            print(f"Usando caché del {date} para proveedor {provider}")
+            # Usar el primer resultado disponible
+            return get_email_template(username, cached_items[0]["response"], language)
+    
+    # Si no hay caché del proveedor preferido, intentar con otros proveedores
+    for current_provider in providers_to_try:
+        if current_provider != provider:  # Evitamos comprobar de nuevo el proveedor preferido
+            for date in dates_to_check:
+                cached_items = list(CacheManager.get_provider_cache_by_date(current_provider, date))
+                if cached_items:
+                    print(f"Usando caché del {date} para proveedor {current_provider}")
+                    return get_email_template(username, cached_items[0]["response"], language)
+    
+    # Si no hay resultados en caché, usar fallback
+    return get_fallback_content(username, language)

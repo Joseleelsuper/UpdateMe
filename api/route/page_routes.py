@@ -110,31 +110,30 @@ def login():
     }
     return render_template('login.html', title=title, **meta)
 
-@page_bp.route("/dashboard")
+@page_bp.route('/dashboard')
 @login_required
 def dashboard():
     """
-    Renderiza la página del dashboard para usuarios autenticados.
+    Ruta para la página del panel de control del usuario
     """
-    # Obtener el usuario desde g.user (ya establecido por el decorador login_required)
-    user = g.user
+    from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt
+    
+    # Obtener idioma actual
+    language = g.user.get("language", "es")
+    
+    # Obtener los prompts predeterminados
+    default_prompts = {
+        "news_summary": get_news_summary_prompt(language),
+        "web_search": get_web_search_prompt(language)
+    }
     
     # Obtener los prompts personalizados del usuario
-    user_prompts = db.prompts.find_one({"_id": user.get("prompts")}) if user.get("prompts") else {}
+    prompts_id = g.user.get("prompts")
+    user_prompts = db.prompts.find_one({"_id": prompts_id}) if prompts_id else {}
     
-    # Obtener los prompts por defecto del sistema
-    from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt
-    default_prompts = {
-        "news_summary": get_news_summary_prompt(user.get("language", "es")),
-        "web_search": get_web_search_prompt(user.get("language", "es"))
-    }
-
-    title = _('UpdateMe - Dashboard')
-    
-    # Metadatos SEO para el dashboard (noindex para áreas privadas)
-    meta = {
-        'meta_description': _('Panel de control de UpdateMe. Gestiona tu newsletter personalizada y preferencias.'),
-        'meta_robots': 'noindex, nofollow',  # No indexar zonas privadas
-    }
-    
-    return render_template("dashboard.html", user=user, user_prompts=user_prompts, default_prompts=default_prompts, **meta, title=title)
+    return render_template(
+        "dashboard.html", 
+        user=g.user, 
+        user_prompts=user_prompts,
+        default_prompts=default_prompts
+    )

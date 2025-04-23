@@ -11,20 +11,34 @@ garantizar que todos los usuarios reciban su resumen semanal.
 import os
 import time
 import logging
+import sys
 from datetime import datetime, timedelta, timezone
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from api.services import generate_news_summary, send_email
 
 # Configuración de logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levellevel)s - %(message)s',
-    handlers=[
-        logging.FileHandler("email_sender.log"),
-        logging.StreamHandler()
-    ]
-)
+# Verificar si estamos en Vercel (entorno de producción)
+if os.environ.get("VERCEL") == "1":
+    # En Vercel, solo usar StreamHandler para evitar errores de escritura en filesystem
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.StreamHandler(sys.stdout)
+        ]
+    )
+else:
+    # En entorno local, usar FileHandler y StreamHandler
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler("email_sender.log"),
+            logging.StreamHandler()
+        ]
+    )
+
 logger = logging.getLogger("email_sender")
 
 # Cargar variables de entorno

@@ -6,6 +6,7 @@ from flask import Blueprint, jsonify, request, g
 from api.database import db, users_collection
 from flask_babel import gettext as _
 from api.auth import login_required
+from maintenance import process_pending_emails
 import os
 
 from api.route.page_routes import page_bp
@@ -57,7 +58,7 @@ def update_user_preferences():
     try:
         # Actualizar preferencias en la base de datos
         users_collection.update_one(
-            {"_id": g.user_id},  # Usar g.user_id en lugar de ObjectId(session['user_id'])
+            {"_id": g.user["_id"]},  # Usar g.user["_id"] para consistencia
             {"$set": update_data}
         )
         return jsonify({"success": True, "message": _("Preferences updated successfully")})
@@ -68,10 +69,14 @@ def update_user_preferences():
 @login_required
 def update_user_prompts():
     """
-    Actualiza los prompts personalizados del usuario
+    Actualiza los prompts personalizados del usuario y las configuraciones de búsqueda web
     """
     data = request.get_json()
-    allowed_fields = ['openai_prompt', 'groq_prompt', 'deepseek_prompt', 'tavily_prompt', 'serpapi_prompt']
+    allowed_fields = [
+        'openai_prompt', 'groq_prompt', 'deepseek_prompt', 
+        'tavily_prompt', 'serpapi_prompt',
+        'tavily_config', 'serpapi_config'
+    ]
     
     # Filtrar solo los campos permitidos
     update_data = {k: v for k, v in data.items() if k in allowed_fields}
@@ -90,8 +95,10 @@ def update_user_prompts():
             {"_id": user["prompts"]},
             {"$set": update_data}
         )
+        
         return jsonify({"success": True, "message": _("Prompts updated successfully")})
     except Exception as e:
+        print(f"Error al actualizar prompts: {str(e)}")
         return jsonify({"success": False, "message": str(e)}), 500
 
 @api_bp.route('/user/prompts/reset', methods=['POST'])
@@ -107,18 +114,21 @@ def reset_user_prompts():
             return jsonify({"success": False, "message": _("User or prompts not found")}), 404
         
         # Obtener los prompts predeterminados según el idioma del usuario
-        from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt
+        from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt, get_default_search_configs
         language = user.get("language", "es")
         news_summary = get_news_summary_prompt(language)
         web_search = get_web_search_prompt(language)
+        default_configs = get_default_search_configs()
         
-        # Restablecer todos los prompts a valores predeterminados
+        # Restablecer todos los prompts y configuraciones a valores predeterminados
         reset_data = {
             "openai_prompt": news_summary,
             "groq_prompt": news_summary,
             "deepseek_prompt": news_summary,
             "tavily_prompt": web_search,
-            "serpapi_prompt": web_search
+            "serpapi_prompt": web_search,
+            "tavily_config": default_configs["tavily"],
+            "serpapi_config": default_configs["serpapi"]
         }
         
         db.prompts.update_one(
@@ -141,8 +151,6 @@ def trigger_weekly_emails():
         return jsonify({"success": False, "message": "Unauthorized"}), 401
     
     try:
-        from maintenance import process_pending_emails
-        
         # Procesar correos pendientes con un intervalo de 7 días
         total, success, errors = process_pending_emails(days_interval=7)
         

@@ -18,7 +18,8 @@
             'promptsReset': "{{ _('promptsReset') }}",
             'errorResettingPrompts': "{{ _('errorResettingPrompts') }}",
             'connectionError': "{{ _('connectionError') }}",
-            'confirmResetPrompts': "{{ _('confirmResetPrompts') }}"
+            'confirmResetPrompts': "{{ _('confirmResetPrompts') }}",
+            'openaiSearchDisabled': "{{ _('openaiSearchDisabled') }}"
         };
     </script>
     <script type="module" src="{{ url_for('static', filename='js/subscribe.js') }}"></script>
@@ -69,17 +70,22 @@
                 </section>
                 
                 <!-- Search Provider selection -->
-                <section class="dashboard-card search-provider">
+                <section class="dashboard-card search-provider {% if user.ai_provider == 'openai' %}disabled{% endif %}">
                     <h2>{{ _('Search Provider') }}</h2>
                     <p>{{ _('Select your preferred search provider for web searches') }}</p>
                     <div class="provider-selection">
-                        <div class="provider-option {% if user.search_provider == 'serpapi' %}selected{% endif %}" data-provider="serpapi">
+                        <div class="provider-option {% if user.search_provider == 'serpapi' %}selected{% endif %} {% if user.ai_provider == 'openai' %}disabled{% endif %}" data-provider="serpapi">
                             <span class="provider-name">SerpAPI</span>
                         </div>
-                        <div class="provider-option {% if user.search_provider == 'tavily' %}selected{% endif %}" data-provider="tavily">
+                        <div class="provider-option {% if user.search_provider == 'tavily' %}selected{% endif %} {% if user.ai_provider == 'openai' %}disabled{% endif %}" data-provider="tavily">
                             <span class="provider-name">Tavily</span>
                         </div>
                     </div>
+                    {% if user.ai_provider == 'openai' %}
+                    <p class="info-text" style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                        <i>{{ _('OpenAI uses its own integrated search provider') }}</i>
+                    </p>
+                    {% endif %}
                 </section>
             </div>
             
@@ -108,10 +114,83 @@
                             <textarea id="deepseek-prompt" placeholder="{{ _('Enter your custom prompt for DeepSeek...') }}">{{ user_prompts.deepseek_prompt or default_prompts.news_summary }}</textarea>
                         </div>
                         <div id="tavily-tab" class="tab-pane">
-                            <textarea id="tavily-prompt" placeholder="{{ _('Enter your custom prompt for Tavily...') }}">{{ user_prompts.tavily_prompt or default_prompts.web_search }}</textarea>
+                            <div class="search-config-grid">
+                                <div class="search-config-prompt">
+                                    <label for="tavily-prompt">{{ _('Processing Prompt') }}</label>
+                                    <textarea id="tavily-prompt" placeholder="{{ _('Enter your custom prompt for Tavily...') }}">{{ user_prompts.tavily_prompt or default_prompts.web_search }}</textarea>
+                                </div>
+                                <div class="search-config-settings">
+                                    <h3>{{ _('Search Settings') }}</h3>
+                                    <div class="config-field">
+                                        <label for="tavily-max-results">{{ _('Maximum Results') }}</label>
+                                        <input type="number" id="tavily-max-results" min="1" max="20" value="{{ user_prompts.tavily_config.max_results if user_prompts.tavily_config and user_prompts.tavily_config.max_results else 5 }}">
+                                    </div>
+                                    <div class="config-field">
+                                        <label for="tavily-topic">{{ _('Search Topic') }}</label>
+                                        <select id="tavily-topic">
+                                            <option value="news" {% if user_prompts.tavily_config and user_prompts.tavily_config.topic == 'news' %}selected{% endif %}>{{ _('News') }}</option>
+                                            <option value="general" {% if user_prompts.tavily_config and user_prompts.tavily_config.topic == 'general' %}selected{% endif %}>{{ _('General') }}</option>
+                                            <option value="academic" {% if user_prompts.tavily_config and user_prompts.tavily_config.topic == 'academic' %}selected{% endif %}>{{ _('Academic') }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="config-field">
+                                        <label for="tavily-search-depth">{{ _('Search Depth') }}</label>
+                                        <select id="tavily-search-depth">
+                                            <option value="basic" {% if user_prompts.tavily_config and user_prompts.tavily_config.search_depth == 'basic' %}selected{% endif %}>{{ _('Basic') }}</option>
+                                            <option value="moderate" {% if not user_prompts.tavily_config or not user_prompts.tavily_config.search_depth or user_prompts.tavily_config.search_depth == 'moderate' %}selected{% endif %}>{{ _('Moderate') }}</option>
+                                            <option value="comprehensive" {% if user_prompts.tavily_config and user_prompts.tavily_config.search_depth == 'comprehensive' %}selected{% endif %}>{{ _('Comprehensive') }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="config-field">
+                                        <label for="tavily-time-range">{{ _('Time Range') }}</label>
+                                        <select id="tavily-time-range">
+                                            <option value="day" {% if user_prompts.tavily_config and user_prompts.tavily_config.time_range == 'day' %}selected{% endif %}>{{ _('Last 24 hours') }}</option>
+                                            <option value="week" {% if not user_prompts.tavily_config or not user_prompts.tavily_config.time_range or user_prompts.tavily_config.time_range == 'week' %}selected{% endif %}>{{ _('Last week') }}</option>
+                                            <option value="month" {% if user_prompts.tavily_config and user_prompts.tavily_config.time_range == 'month' %}selected{% endif %}>{{ _('Last month') }}</option>
+                                            <option value="year" {% if user_prompts.tavily_config and user_prompts.tavily_config.time_range == 'year' %}selected{% endif %}>{{ _('Last year') }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div id="serpapi-tab" class="tab-pane">
-                            <textarea id="serpapi-prompt" placeholder="{{ _('Enter your custom prompt for SerpAPI...') }}">{{ user_prompts.serpapi_prompt or default_prompts.web_search }}</textarea>
+                            <div class="search-config-grid">
+                                <div class="search-config-prompt">
+                                    <label for="serpapi-prompt">{{ _('Processing Prompt') }}</label>
+                                    <textarea id="serpapi-prompt" placeholder="{{ _('Enter your custom prompt for SerpAPI...') }}">{{ user_prompts.serpapi_prompt or default_prompts.web_search }}</textarea>
+                                </div>
+                                <div class="search-config-settings">
+                                    <h3>{{ _('Search Settings') }}</h3>
+                                    <div class="config-field">
+                                        <label for="serpapi-max-results">{{ _('Maximum Results') }}</label>
+                                        <input type="number" id="serpapi-max-results" min="1" max="20" value="{{ user_prompts.serpapi_config.max_results if user_prompts.serpapi_config and user_prompts.serpapi_config.max_results else 5 }}">
+                                    </div>
+                                    <div class="config-field">
+                                        <label for="serpapi-search-type">{{ _('Search Type') }}</label>
+                                        <select id="serpapi-search-type">
+                                            <option value="news" {% if not user_prompts.serpapi_config or not user_prompts.serpapi_config.search_type or user_prompts.serpapi_config.search_type == 'news' %}selected{% endif %}>{{ _('News') }}</option>
+                                            <option value="web" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.search_type == 'web' %}selected{% endif %}>{{ _('Web') }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="config-field">
+                                        <label for="serpapi-safe-search">{{ _('Safe Search') }}</label>
+                                        <select id="serpapi-safe-search">
+                                            <option value="off" {% if not user_prompts.serpapi_config or not user_prompts.serpapi_config.safe_search or user_prompts.serpapi_config.safe_search == 'off' %}selected{% endif %}>{{ _('Off') }}</option>
+                                            <option value="medium" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.safe_search == 'medium' %}selected{% endif %}>{{ _('Medium') }}</option>
+                                            <option value="high" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.safe_search == 'high' %}selected{% endif %}>{{ _('High') }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="config-field">
+                                        <label for="serpapi-time-range">{{ _('Time Range') }}</label>
+                                        <select id="serpapi-time-range">
+                                            <option value="day" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.time_range == 'day' %}selected{% endif %}>{{ _('Last 24 hours') }}</option>
+                                            <option value="week" {% if not user_prompts.serpapi_config or not user_prompts.serpapi_config.time_range or user_prompts.serpapi_config.time_range == 'week' %}selected{% endif %}>{{ _('Last week') }}</option>
+                                            <option value="month" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.time_range == 'month' %}selected{% endif %}>{{ _('Last month') }}</option>
+                                            <option value="year" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.time_range == 'year' %}selected{% endif %}>{{ _('Last year') }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     

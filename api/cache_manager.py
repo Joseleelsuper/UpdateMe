@@ -127,7 +127,27 @@ class CacheManager:
         return cached_items
     
     @staticmethod
-    def save_to_cache(cache_key: str, response: Union[Dict[str, Any], str], provider_type: str = "generic", query: Optional[str] = None, ttl_days: int = 1) -> None:
+    def get_provider_cache_by_date(provider_type: str, date_str: str) -> List[Dict[str, Any]]:
+        """
+        Recupera todas las entradas de caché para un proveedor en una fecha específica.
+        
+        Args:
+            provider_type: El tipo de proveedor (ej. "openai", "groq", "serpapi", "tavily")
+            date_str: La fecha en formato "YYYY-MM-DD"
+            
+        Returns:
+            Lista de resultados cacheados para ese proveedor en la fecha indicada
+        """
+        # Buscar todas las entradas para ese proveedor en la fecha dada
+        cached_items = list(cache_collection.find({
+            "provider_type": provider_type,
+            "created_date": date_str
+        }))
+        
+        return cached_items
+    
+    @staticmethod
+    def save_to_cache(cache_key: str, response: Union[Dict[str, Any], str], provider_type: str = "generic", query: Optional[str] = None, ttl_days: int = 7) -> None:
         """
         Guarda una respuesta en la caché utilizando el modelo CacheEntry.
         
@@ -136,7 +156,7 @@ class CacheManager:
             response: La respuesta de la API que se guardará
             provider_type: Tipo de proveedor que generó la respuesta
             query: Consulta original (opcional)
-            ttl_days: Tiempo de vida en días (por defecto 1 día)
+            ttl_days: Tiempo de vida en días (por defecto 7 días)
         """
         # Eliminar entradas antiguas con la misma clave (si existen)
         cache_collection.delete_many({"cache_key": cache_key})

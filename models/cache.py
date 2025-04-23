@@ -19,4 +19,4 @@ class CacheEntry:
     provider_type: str  # Tipo de proveedor (ej. "openai", "groq", "serpapi", "tavily")
     query: Optional[str] = None
     tags: List[str] = field(default_factory=list)
-    ttl_days: int = 1  # Tiempo de vida en días (por defecto 1 día)
+    ttl_days: int = 7  # Tiempo de vida en días (por defecto 7 días)

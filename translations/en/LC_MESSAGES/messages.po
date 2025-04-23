@@ -275,6 +275,129 @@ msgstr "Connection error: "
 msgid "confirmResetPrompts"
 msgstr "Are you sure you want to reset all prompts to default values?"
 
+msgid "openaiSearchDisabled"
+msgstr "OpenAI uses its own integrated search provider, it is not possible to change this option."
+
+# Search provider configuration translations
+msgid "Search Provider Configuration"
+msgstr "Search Provider Configuration"
+
+msgid "Configure your search provider settings to customize your search results"
+msgstr "Configure your search provider settings to customize your search results"
+
+# Tavily specific translations
+msgid "Tavily Configuration"
+msgstr "Tavily Configuration"
+
+msgid "Maximum Results"
+msgstr "Maximum Results"
+
+msgid "Number of search results to return (1-10)"
+msgstr "Number of search results to return (1-10)"
+
+msgid "Search Topic"
+msgstr "Search Topic"
+
+msgid "General"
+msgstr "General"
+
+msgid "Tech"
+msgstr "Tech"
+
+msgid "Finance"
+msgstr "Finance"
+
+msgid "Healthcare"
+msgstr "Healthcare"
+
+msgid "Science"
+msgstr "Science"
+
+msgid "Search Depth"
+msgstr "Search Depth"
+
+msgid "Basic"
+msgstr "Basic"
+
+msgid "Moderate"
+msgstr "Moderate"
+
+msgid "Comprehensive"
+msgstr "Comprehensive"
+
+msgid "Advanced"
+msgstr "Advanced"
+
+msgid "Time Range"
+msgstr "Time Range"
+
+msgid "Last hour"
+msgstr "Last hour"
+
+msgid "Last day"
+msgstr "Last day"
+
+msgid "Last week"
+msgstr "Last week"
+
+msgid "Last month"
+msgstr "Last month"
+
+msgid "Last year"
+msgstr "Last year"
+
+msgid "Any time"
+msgstr "Any time"
+
+msgid "Include Raw Content"
+msgstr "Include Raw Content"
+
+msgid "Include Domains"
+msgstr "Include Domains"
+
+msgid "Add domains to include in search (comma separated)"
+msgstr "Add domains to include in search (comma separated)"
+
+msgid "Exclude Domains"
+msgstr "Exclude Domains"
+
+msgid "Add domains to exclude from search (comma separated)"
+msgstr "Add domains to exclude from search (comma separated)"
+
+# SerpAPI specific translations
+msgid "SerpAPI Configuration"
+msgstr "SerpAPI Configuration"
+
+msgid "Search Type"
+msgstr "Search Type"
+
+msgid "All"
+msgstr "All"
+
+msgid "News"
+msgstr "News"
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Videos"
+msgstr "Videos"
+
+msgid "Safe Search"
+msgstr "Safe Search"
+
+msgid "Off"
+msgstr "Off"
+
+msgid "Medium"
+msgstr "Medium"
+
+msgid "High"
+msgstr "High"
+
+msgid "Include only trusted sources"
+msgstr "Include only trusted sources"
+
 # API messages
 msgid "No valid fields to update"
 msgstr "No valid fields to update"

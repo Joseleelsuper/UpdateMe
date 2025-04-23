@@ -1,51 +1,97 @@
 """
-Implementación de Tavily como proveedor de búsqueda web.
+Implementación del proveedor Tavily para búsquedas web.
 """
-from typing import Dict, Any
-from tavily import TavilyClient
 
-from .base import WebSearchProvider
+import requests
+import json
+from typing import Dict, Any, Optional
 
-
-class TavilyProvider(WebSearchProvider):
+class TavilyProvider:
     """
-    Implementación del proveedor de búsqueda Tavily.
-    """
+    Proveedor de servicio de búsqueda web usando la API de Tavily.
     
-    def __init__(self, api_key: str, **kwargs):
+    Tavily ofrece una API de búsqueda web especializada para IA y LLM,
+    permitiendo búsquedas actualizadas en tiempo real.
+    """
+
+    def __init__(
+        self, 
+        api_key: str, 
+        search_depth: str = "moderate", 
+        topic: str = "news", 
+        time_range: str = "week", 
+        include_raw_content: bool = True
+    ):
         """
         Inicializa el proveedor de búsqueda Tavily.
         
         Args:
-            api_key: La clave API de Tavily
-            kwargs: Parámetros adicionales específicos para Tavily
+            api_key: Clave API de Tavily
+            search_depth: Profundidad de la búsqueda ('basic', 'moderate', 'comprehensive')
+            topic: Tema de búsqueda ('general', 'news', 'coding', 'academic', 'legal', 'medical', etc.)
+            time_range: Rango de tiempo para resultados ('day', 'week', 'month', 'year')
+            include_raw_content: Si se debe incluir el contenido completo de las páginas
         """
         self.api_key = api_key
-        self.client = TavilyClient(api_key)
-        self.search_depth = kwargs.get("search_depth", "advanced")
-        self.topic = kwargs.get("topic", "news")
-        self.time_range = kwargs.get("time_range", "week")
-        self.include_raw_content = kwargs.get("include_raw_content", True)
+        self.base_url = "https://api.tavily.com/search"
+        self.search_depth = search_depth
+        self.topic = topic
+        self.time_range = time_range
+        self.include_raw_content = include_raw_content
     
-    def search(self, query: str) -> Dict[str, Any]:
+    def search(self, query: str, user_config: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
-        Realiza una búsqueda web con Tavily.
+        Realiza una búsqueda web usando Tavily.
         
         Args:
-            query: La consulta de búsqueda
+            query: Consulta de búsqueda
+            user_config: Configuración personalizada opcional (sobreescribe los valores por defecto)
             
         Returns:
-            Resultados de la búsqueda en formato de diccionario
+            dict: Resultados de búsqueda
         """
         try:
-            response = self.client.search(
-                query=query,
-                topic=self.topic,
-                search_depth=self.search_depth,
-                time_range=self.time_range,
-                include_raw_content=self.include_raw_content
-            )
-            return response
-        except Exception as e:
-            print(f"Error en búsqueda Tavily: {str(e)}")
-            return {"error": str(e)}
+            # Configuración base
+            config = {
+                "max_results": 5,
+                "search_depth": self.search_depth,
+                "topic": self.topic,
+                "time_range": self.time_range,
+                "include_raw_content": self.include_raw_content,
+                "include_domains": [],
+                "exclude_domains": []
+            }
+            
+            # Aplicar configuración personalizada del usuario si existe
+            if user_config:
+                config.update({k: v for k, v in user_config.items() if k in config})
+                
+            # Construir los parámetros de la solicitud
+            params = {
+                "api_key": self.api_key,
+                "query": query,
+                "search_depth": config["search_depth"],
+                "topic": config["topic"],
+                "max_results": config["max_results"],
+                "include_raw_content": config["include_raw_content"],
+                "time_range": config["time_range"]
+            }
+            
+            # Añadir dominios para incluir/excluir si están presentes
+            if config["include_domains"]:
+                params["include_domains"] = config["include_domains"]
+            if config["exclude_domains"]:
+                params["exclude_domains"] = config["exclude_domains"]
+            
+            # Realizar la solicitud
+            response = requests.post(self.base_url, json=params)
+            response.raise_for_status()
+            
+            return response.json()
+            
+        except requests.exceptions.RequestException as e:
+            print(f"Error en la solicitud a Tavily: {str(e)}")
+            return {"error": str(e), "results": [], "success": False}
+        except json.JSONDecodeError:
+            print("Error decodificando la respuesta JSON de Tavily")
+            return {"error": "Error decodificando respuesta", "results": [], "success": False}
