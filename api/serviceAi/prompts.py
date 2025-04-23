@@ -140,7 +140,6 @@ def get_news_summary_prompt(language="es"):
     Returns:
         str: Prompt para generar resumen de noticias
     """
-    current_date = get_current_date_formatted(language)
     
     return f"""
     Eres un asistente especializado en crear boletines informativos profesionales.
@@ -164,11 +163,11 @@ def get_news_summary_prompt(language="es"):
     Usa un tono profesional pero accesible. NO incluyas hiperenlaces en tu respuesta, 
     solo menciona las fuentes.
     
-    La fecha actual es {current_date}. Hazlo compatible con formato HTML para correos electrónicos.
+    Hazlo compatible con formato HTML para correos electrónicos.
     
     Aunque sea un mensaje profesional, no incluyas saludo ni despedida.
     
-    IMPORTANTE: Genera el contenido en {language.upper()} ({"español" if language.lower() == "es" else "inglés"}).
+    IMPORTANTE: Genera el contenido en {language.upper()} ({"español" if language.lower() == "es" else "English"}).
     """
 
 # Prompt para la búsqueda web simulada

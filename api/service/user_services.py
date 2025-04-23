@@ -9,6 +9,7 @@ from api.utils import is_valid_email
 from api.services import send_email, generate_news_summary, send_welcome_email
 from models.user import User
 from models.prompts import Prompts
+from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt
 
 def validate_email(email):
     """Validar formato de correo electrónico"""
@@ -127,8 +128,6 @@ def create_prompts_document(user_id, prompts_id, language="es"):
     Returns:
         dict: Documento de prompts listo para insertar
     """
-    # Importar los prompts predeterminados
-    from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt
     
     # Obtener prompts predeterminados según el idioma
     news_summary_prompt = get_news_summary_prompt(language)
