@@ -58,7 +58,7 @@ def update_user_preferences():
     try:
         # Actualizar preferencias en la base de datos
         users_collection.update_one(
-            {"_id": g.user_id},  # Usar g.user_id en lugar de ObjectId(session['user_id'])
+            {"_id": g.user["_id"]},  # Usar g.user["_id"] para consistencia
             {"$set": update_data}
         )
         return jsonify({"success": True, "message": _("Preferences updated successfully")})
@@ -95,8 +95,10 @@ def update_user_prompts():
             {"_id": user["prompts"]},
             {"$set": update_data}
         )
+        
         return jsonify({"success": True, "message": _("Prompts updated successfully")})
     except Exception as e:
+        print(f"Error al actualizar prompts: {str(e)}")
         return jsonify({"success": False, "message": str(e)}), 500
 
 @api_bp.route('/user/prompts/reset', methods=['POST'])
