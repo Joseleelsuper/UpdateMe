@@ -170,8 +170,6 @@
                                         <select id="serpapi-search-type">
                                             <option value="news" {% if not user_prompts.serpapi_config or not user_prompts.serpapi_config.search_type or user_prompts.serpapi_config.search_type == 'news' %}selected{% endif %}>{{ _('News') }}</option>
                                             <option value="web" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.search_type == 'web' %}selected{% endif %}>{{ _('Web') }}</option>
-                                            <option value="images" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.search_type == 'images' %}selected{% endif %}>{{ _('Images') }}</option>
-                                            <option value="videos" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.search_type == 'videos' %}selected{% endif %}>{{ _('Videos') }}</option>
                                         </select>
                                     </div>
                                     <div class="config-field">

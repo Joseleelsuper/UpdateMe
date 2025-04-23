@@ -868,3 +868,123 @@ msgstr "El derecho a la portabilidad de datos – Tienes derecho a solicitar que
 
 msgid "Contact Us Policy p1"
 msgstr "Si tienes alguna pregunta o sugerencia sobre nuestra Política de Privacidad, no dudes en contactarnos en:"
+
+# Traducciones para configuración de proveedores de búsqueda
+msgid "Search Provider Configuration"
+msgstr "Configuración del Proveedor de Búsqueda"
+
+msgid "Configure your search provider settings to customize your search results"
+msgstr "Configura los ajustes de tu proveedor de búsqueda para personalizar tus resultados de búsqueda"
+
+# Traducciones específicas para Tavily
+msgid "Tavily Configuration"
+msgstr "Configuración de Tavily"
+
+msgid "Maximum Results"
+msgstr "Resultados Máximos"
+
+msgid "Number of search results to return (1-10)"
+msgstr "Número de resultados de búsqueda a devolver (1-10)"
+
+msgid "Search Topic"
+msgstr "Tema de Búsqueda"
+
+msgid "General"
+msgstr "General"
+
+msgid "Tech"
+msgstr "Tecnología"
+
+msgid "Finance"
+msgstr "Finanzas"
+
+msgid "Healthcare"
+msgstr "Salud"
+
+msgid "Science"
+msgstr "Ciencia"
+
+msgid "Search Depth"
+msgstr "Profundidad de Búsqueda"
+
+msgid "Basic"
+msgstr "Básica"
+
+msgid "Moderate"
+msgstr "Moderada"
+
+msgid "Comprehensive"
+msgstr "Exhaustiva"
+
+msgid "Advanced"
+msgstr "Avanzada"
+
+msgid "Time Range"
+msgstr "Rango de Tiempo"
+
+msgid "Last hour"
+msgstr "Última hora"
+
+msgid "Last day"
+msgstr "Último día"
+
+msgid "Last week"
+msgstr "Última semana"
+
+msgid "Last month"
+msgstr "Último mes"
+
+msgid "Last year"
+msgstr "Último año"
+
+msgid "Any time"
+msgstr "Cualquier tiempo"
+
+msgid "Include Raw Content"
+msgstr "Incluir Contenido Sin Procesar"
+
+msgid "Include Domains"
+msgstr "Incluir Dominios"
+
+msgid "Add domains to include in search (comma separated)"
+msgstr "Añadir dominios a incluir en la búsqueda (separados por comas)"
+
+msgid "Exclude Domains"
+msgstr "Excluir Dominios"
+
+msgid "Add domains to exclude from search (comma separated)"
+msgstr "Añadir dominios a excluir de la búsqueda (separados por comas)"
+
+# Traducciones específicas para SerpAPI
+msgid "SerpAPI Configuration"
+msgstr "Configuración de SerpAPI"
+
+msgid "Search Type"
+msgstr "Tipo de Búsqueda"
+
+msgid "All"
+msgstr "Todo"
+
+msgid "News"
+msgstr "Noticias"
+
+msgid "Images"
+msgstr "Imágenes"
+
+msgid "Videos"
+msgstr "Vídeos"
+
+msgid "Safe Search"
+msgstr "Búsqueda Segura"
+
+msgid "Off"
+msgstr "Desactivado"
+
+msgid "Medium"
+msgstr "Medio"
+
+msgid "High"
+msgstr "Alto"
+
+msgid "Include only trusted sources"
+msgstr "Incluir solo fuentes confiables"
