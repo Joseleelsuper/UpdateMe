@@ -9,7 +9,7 @@ from api.utils import is_valid_email
 from api.services import send_email, generate_news_summary, send_welcome_email
 from models.user import User
 from models.prompts import Prompts
-from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt
+from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt, get_default_search_configs
 
 def validate_email(email):
     """Validar formato de correo electrónico"""
@@ -132,6 +132,7 @@ def create_prompts_document(user_id, prompts_id, language="es"):
     # Obtener prompts predeterminados según el idioma
     news_summary_prompt = get_news_summary_prompt(language)
     web_search_prompt = get_web_search_prompt(language)
+    default_configs = get_default_search_configs()
     
     return Prompts(
         _id=prompts_id,
@@ -139,7 +140,9 @@ def create_prompts_document(user_id, prompts_id, language="es"):
         groq_prompt=news_summary_prompt,
         deepseek_prompt=news_summary_prompt,
         tavily_prompt=web_search_prompt,
-        serpapi_prompt=web_search_prompt
+        serpapi_prompt=web_search_prompt,
+        tavily_config=default_configs["tavily"],
+        serpapi_config=default_configs["serpapi"]
     ).__dict__
 
 def send_welcome_emails(email):

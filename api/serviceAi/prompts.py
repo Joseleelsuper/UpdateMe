@@ -173,27 +173,63 @@ def get_news_summary_prompt(language="es"):
 # Prompt para la búsqueda web simulada
 def get_web_search_prompt(language="es"):
     """
-    Obtiene el prompt para simulación de búsqueda web.
+    Obtiene el prompt para el procesamiento de resultados de búsqueda web.
+    Este prompt se utiliza para dar formato a los resultados de búsqueda
+    y no para realizar la búsqueda en sí.
     
     Args:
         language: Idioma del prompt ('es' o 'en')
         
     Returns:
-        str: Prompt para simulación de búsqueda web
+        str: Prompt para procesamiento de resultados de búsqueda web
     """
     return f"""
-    Actúa como un servicio de búsqueda web actualizado. El usuario te dará una consulta
-    de búsqueda, y debes proporcionar información relevante y actualizada como si hubieras
-    buscado en la web. Incluye:
+    Combina y resume los resultados de búsqueda web a continuación para proporcionar
+    una respuesta completa y coherente a la consulta del usuario.
     
-    1. Información relevante y actualizada sobre el tema
-    2. Datos de fuentes que podrían ser relevantes (menciona fuentes creíbles)
-    3. Para temas de tecnología y noticias, asume la fecha actual
+    Debes:
+    1. Extraer información relevante y actualizada de los resultados proporcionados
+    2. Citar las fuentes correctamente cuando menciones información específica
+    3. Asegurarte de que la información proporcionada sea precisa y esté respaldada por los resultados
+    4. Organizar la respuesta de manera lógica y coherente
     
-    No inventes enlaces pero sí menciona fuentes creíbles que podrían tener esta información.
+    Utiliza un tono informativo y objetivo. Cuando corresponda, incluye fechas para mostrar
+    la actualidad de la información.
+    
+    Si los resultados de la búsqueda no contienen información suficiente para responder
+    a la consulta, indica claramente las limitaciones de la respuesta.
     
     IMPORTANTE: Genera el contenido en {language.upper()} ({"español" if language.lower() == "es" else "inglés"}).
     """
+
+# Configuraciones predeterminadas para los servicios de búsqueda web
+def get_default_search_configs():
+    """
+    Obtiene las configuraciones predeterminadas para los proveedores de búsqueda.
+    
+    Returns:
+        dict: Configuraciones predeterminadas para cada proveedor de búsqueda
+    """
+    return {
+        "tavily": {
+            "max_results": 5,
+            "topic": "news",
+            "search_depth": "moderate",  # "basic", "moderate", o "comprehensive"
+            "time_range": "week",        # "day", "week", "month", o "year"
+            "include_raw_content": True,
+            "include_domains": [],
+            "exclude_domains": [],
+            "days": 7,                # Número de días para buscar en el pasado
+        },
+        "serpapi": {
+            "max_results": 5,
+            "search_type": "news",       # "news", "web", "images", o "videos"
+            "safe_search": "off",
+            "time_range": "week",        # "day", "week", "month", o "year"
+            "include_domains": [],
+            "exclude_domains": []
+        }
+    }
 
 # Prompt para extracción de palabras clave (usado por DeepSeek)
 def get_keyword_extraction_prompt():

@@ -26,3 +26,14 @@ def login_required(f):
         return redirect(url_for('main.page.login'))
     
     return decorated_function
+
+def get_current_user_id():
+    """
+    Obtiene el ID del usuario actualmente autenticado.
+    
+    Returns:
+        str|None: El ID del usuario autenticado o None si no hay usuario autenticado
+    """
+    if hasattr(g, 'user') and g.user and '_id' in g.user:
+        return str(g.user['_id'])
+    return None
