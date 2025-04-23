@@ -111,6 +111,10 @@ class GroqProvider(BaseAIProvider):
         Returns:
             Resultados procesados de la búsqueda
         """
+        from api.database import db
+        from api.auth import get_current_user_id
+        from bson import ObjectId
+        
         # Inicializar el proveedor de búsqueda si no está configurado o si ha cambiado el tipo
         if self.search_provider_type == "tavily" and self.tavily_key and not isinstance(self.search_provider, TavilyProvider):
             self.search_provider = TavilyProvider(
@@ -135,6 +139,22 @@ class GroqProvider(BaseAIProvider):
             return cached_result
 
         try:
+            # Obtener la configuración personalizada del usuario si está disponible
+            user_config = None
+            user_id = None
+            try:
+                user_id = get_current_user_id()
+                if user_id:
+                    user = db.users.find_one({"_id": ObjectId(user_id)})
+                    if user and "prompts" in user:
+                        prompts = db.prompts.find_one({"_id": user["prompts"]})
+                        if prompts:
+                            config_key = f"{self.search_provider_type}_config"
+                            if config_key in prompts and prompts[config_key]:
+                                user_config = prompts[config_key]
+            except Exception as e:
+                print(f"Error al obtener la configuración del usuario: {str(e)}")
+            
             # Extraer la keyword con Groq
             system_prompt = get_keyword_extraction_prompt()
 
@@ -177,9 +197,8 @@ class GroqProvider(BaseAIProvider):
                 search_results = cached_search
                 print(f"Resultado de búsqueda recuperado de caché para keyword: {keyword}")
             else:
-                # Realizar búsqueda con el proveedor configurado solo si no hay caché del día de hoy
-                # o si se trata de un tipo de proveedor diferente
-                search_results = self.search_provider.search(keyword)
+                # Realizar búsqueda con el proveedor configurado y la configuración del usuario
+                search_results = self.search_provider.search(keyword, user_config)
                 
                 # Guardar resultados de búsqueda en caché
                 if search_results and "error" not in search_results:
@@ -212,8 +231,33 @@ class GroqProvider(BaseAIProvider):
                     "success": False,
                 }
 
-            # Procesar los resultados con Groq
-            system_content = f"Answer the question from user with the provided search information: {content_to_process}"
+            # Obtener el prompt personalizado del usuario para procesar resultados
+            custom_prompt = None
+            try:
+                if user_id:
+                    user = db.users.find_one({"_id": ObjectId(user_id)})
+                    if user and "prompts" in user:
+                        prompts = db.prompts.find_one({"_id": user["prompts"]})
+                        if prompts:
+                            prompt_key = f"{self.search_provider_type}_prompt"
+                            if prompt_key in prompts and prompts[prompt_key]:
+                                custom_prompt = prompts[prompt_key]
+            except Exception as e:
+                print(f"Error al obtener el prompt personalizado: {str(e)}")
+            
+            # Usar el prompt personalizado o el predeterminado
+            from api.serviceAi.prompts import get_web_search_prompt
+            language = "es"  # Valor predeterminado
+            try:
+                if user_id:
+                    user = db.users.find_one({"_id": ObjectId(user_id)})
+                    if user:
+                        language = user.get("language", "es")
+            except Exception:
+                pass
+                
+            system_content = custom_prompt or get_web_search_prompt(language)
+            system_content = f"{system_content}\n\nResultados de búsqueda:\n{content_to_process}"
 
             final_response = self.client.chat.completions.create(
                 model=self.model,
