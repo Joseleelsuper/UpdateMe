@@ -6,6 +6,7 @@ import os
 import sys
 from flask import Flask, g
 from flask import session
+from flask import send_from_directory
 from flask_babel import Babel
 from dotenv import load_dotenv
 from api.routes import register_routes
@@ -50,6 +51,23 @@ def get_locale():
     if getattr(g, 'locale', None) is None:
         g.locale = session.get('language', 'es')
     return g.locale
+
+# Rutas para archivos en la raíz del proyecto
+@app.route('/robots.txt')
+def robots():
+    return send_from_directory(root_dir, 'robots.txt')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory(root_dir, 'sitemap.xml')
+
+@app.route('/favicon.ico')
+def favicon_ico():
+    return send_from_directory(root_dir, 'favicon.ico')
+
+@app.route('/favicon.png')
+def favicon_png():
+    return send_from_directory(root_dir, 'favicon.png')
 
 # Middleware para verificar sesiones en cada petición
 app.before_request(session_middleware())
