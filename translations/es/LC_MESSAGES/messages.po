@@ -272,6 +272,9 @@ msgstr "Error de conexión: "
 msgid "confirmResetPrompts"
 msgstr "¿Estás seguro de que quieres restablecer todos los prompts a los valores predeterminados?"
 
+msgid "openaiSearchDisabled"
+msgstr "OpenAI utiliza su propio proveedor de búsqueda integrado, no es posible cambiar esta opción."
+
 # Mensajes para API
 msgid "No valid fields to update"
 msgstr "No hay campos válidos para actualizar"

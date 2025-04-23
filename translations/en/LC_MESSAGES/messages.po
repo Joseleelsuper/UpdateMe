@@ -275,6 +275,9 @@ msgstr "Connection error: "
 msgid "confirmResetPrompts"
 msgstr "Are you sure you want to reset all prompts to default values?"
 
+msgid "openaiSearchDisabled"
+msgstr "OpenAI uses its own integrated search provider, it is not possible to change this option."
+
 # API messages
 msgid "No valid fields to update"
 msgstr "No valid fields to update"
