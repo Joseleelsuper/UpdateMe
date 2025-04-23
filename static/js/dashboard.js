@@ -23,6 +23,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Provider selection
     const aiProviderOptions = document.querySelectorAll('.ai-provider .provider-option');
     const searchProviderOptions = document.querySelectorAll('.search-provider .provider-option');
+    const searchProviderSection = document.querySelector('.search-provider');
+    
+    // Función para comprobar si se debe deshabilitar el proveedor de búsqueda
+    function checkAndDisableSearchProvider() {
+        const openaiSelected = Array.from(aiProviderOptions).some(
+            option => option.classList.contains('selected') && option.getAttribute('data-provider') === 'openai'
+        );
+        
+        if (openaiSelected) {
+            // Deshabilitar la sección de búsqueda
+            searchProviderSection.classList.add('disabled');
+            searchProviderOptions.forEach(option => {
+                option.classList.add('disabled');
+            });
+        } else {
+            // Habilitar la sección de búsqueda
+            searchProviderSection.classList.remove('disabled');
+            searchProviderOptions.forEach(option => {
+                option.classList.remove('disabled');
+            });
+        }
+    }
+    
+    // Comprobar el estado inicial al cargar la página
+    checkAndDisableSearchProvider();
     
     aiProviderOptions.forEach(option => {
         option.addEventListener('click', () => {
@@ -35,11 +60,20 @@ document.addEventListener('DOMContentLoaded', function() {
             // Send provider update to server
             const provider = option.getAttribute('data-provider');
             updateUserPreference('ai_provider', provider);
+            
+            // Check if search provider should be disabled/enabled
+            checkAndDisableSearchProvider();
         });
     });
     
     searchProviderOptions.forEach(option => {
         option.addEventListener('click', () => {
+            // Comprobar si el selector está deshabilitado (OpenAI seleccionado)
+            if (searchProviderSection.classList.contains('disabled')) {
+                showToast(__('openaiSearchDisabled', 'OpenAI utiliza su propio proveedor de búsqueda, no es posible cambiar esta opción.'), 'info');
+                return; // Detener la ejecución
+            }
+            
             // Remove selected class from all options
             searchProviderOptions.forEach(o => o.classList.remove('selected'));
             

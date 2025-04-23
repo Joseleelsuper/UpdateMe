@@ -79,6 +79,33 @@
     background-color: #EFF6FF;
 }
 
+.provider-option.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #E5E7EB !important;
+    background-color: #F9FAFB;
+}
+
+.provider-option.disabled:hover {
+    border-color: #E5E7EB;
+}
+
+.search-provider.disabled {
+    opacity: 0.7;
+    position: relative;
+}
+
+.search-provider.disabled::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+}
+
 /* Prompts section styles */
 .prompts-section {
     background-color: white;

@@ -69,17 +69,22 @@
                 </section>
                 
                 <!-- Search Provider selection -->
-                <section class="dashboard-card search-provider">
+                <section class="dashboard-card search-provider {% if user.ai_provider == 'openai' %}disabled{% endif %}">
                     <h2>{{ _('Search Provider') }}</h2>
                     <p>{{ _('Select your preferred search provider for web searches') }}</p>
                     <div class="provider-selection">
-                        <div class="provider-option {% if user.search_provider == 'serpapi' %}selected{% endif %}" data-provider="serpapi">
+                        <div class="provider-option {% if user.search_provider == 'serpapi' %}selected{% endif %} {% if user.ai_provider == 'openai' %}disabled{% endif %}" data-provider="serpapi">
                             <span class="provider-name">SerpAPI</span>
                         </div>
-                        <div class="provider-option {% if user.search_provider == 'tavily' %}selected{% endif %}" data-provider="tavily">
+                        <div class="provider-option {% if user.search_provider == 'tavily' %}selected{% endif %} {% if user.ai_provider == 'openai' %}disabled{% endif %}" data-provider="tavily">
                             <span class="provider-name">Tavily</span>
                         </div>
                     </div>
+                    {% if user.ai_provider == 'openai' %}
+                    <p class="info-text" style="margin-top: 10px; font-size: 0.9em; color: #666;">
+                        <i>{{ _('OpenAI uses its own integrated search provider') }}</i>
+                    </p>
+                    {% endif %}
                 </section>
             </div>
             
