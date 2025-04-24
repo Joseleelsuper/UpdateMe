@@ -8,6 +8,7 @@
   --color-accent: #8B5CF6;     /* Color de acento para destacados */
   --color-error: #EF4444;      /* Rojo para errores */
   --color-success: #10B981;    /* Verde para éxito */
+  --color-warning: #FBBF24;    /* Amarillo para advertencias */
   --color-text-dark: #111827;  /* Texto oscuro */
   --color-text-light: #F9FAFB; /* Texto claro */
   --color-text-muted: #6B7280; /* Texto gris */
@@ -246,6 +247,10 @@ input, button, textarea, select {
 /* Color específico para toast de error */
 .toast.toast-error {
   background-color: var(--color-error) !important;
+}
+
+.toast.toast-warning {
+  background-color: var(--color-warning) !important;
 }
 
 /* Botón de cierre del toast */

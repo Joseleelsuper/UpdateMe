@@ -16,7 +16,7 @@ export function showToast(message, type = 'success', duration = 3000) {
     } else if (type === 'error') {
         toast.classList.add('toast-error');
     } else if (type === 'warning') {
-        toast.style.backgroundColor = '#F59E0B'; // Color naranja para advertencias
+        toast.classList.add('toast-warning');
     }
     
     // Crear botón de cierre
