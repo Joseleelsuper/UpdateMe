@@ -988,3 +988,103 @@ msgstr "Alto"
 
 msgid "Include only trusted sources"
 msgstr "Incluir solo fuentes confiables"
+
+# Traducciones para la página de precios
+msgid "pricing.choose_plan"
+msgstr "Elige tu plan"
+
+msgid "pricing.select_plan"
+msgstr "Selecciona el plan que mejor se adapte a tus necesidades y saca el máximo provecho de UpdateMe."
+
+msgid "pricing.free"
+msgstr "Gratuito"
+
+msgid "pricing.month"
+msgstr "mes"
+
+msgid "pricing.year"
+msgstr "año"
+
+msgid "pricing.basic_access"
+msgstr "Acceso básico al boletín de UpdateMe"
+
+msgid "pricing.full_access_monthly"
+msgstr "Acceso completo con facturación mensual"
+
+msgid "pricing.full_access_yearly"
+msgstr "Acceso completo con facturación anual"
+
+msgid "pricing.weekly_newsletter"
+msgstr "Boletín semanal de tecnología generado por IA"
+
+msgid "pricing.default_ai_provider"
+msgstr "Proveedor de IA predeterminado para procesamiento"
+
+msgid "pricing.default_search_settings"
+msgstr "Configuración de búsqueda predeterminada"
+
+msgid "pricing.customizable_ai"
+msgstr "Proveedores de IA personalizables"
+
+msgid "pricing.customizable_prompts"
+msgstr "Prompts de procesamiento personalizables"
+
+msgid "pricing.configurable_search"
+msgstr "Opciones de búsqueda configurables"
+
+msgid "pricing.priority_processing"
+msgstr "Procesamiento prioritario"
+
+msgid "pricing.sign_up_free"
+msgstr "Regístrate gratis"
+
+msgid "pricing.subscribe_now"
+msgstr "Suscríbete ahora"
+
+msgid "pricing.subscribe_save"
+msgstr "Suscríbete y ahorra"
+
+msgid "pricing.most_popular"
+msgstr "Más popular"
+
+msgid "pricing.best_value"
+msgstr "Mejor valor"
+
+msgid "pricing.save"
+msgstr "Ahorro"
+
+msgid "pricing.monthly"
+msgstr "Mensual"
+
+msgid "pricing.annual"
+msgstr "Anual"
+
+msgid "pricing.faq_title"
+msgstr "Preguntas frecuentes"
+
+msgid "pricing.faq_what_included"
+msgstr "¿Qué incluyen todos los planes?"
+
+msgid "pricing.faq_included_answer"
+msgstr "Todos los planes incluyen nuestro boletín semanal de noticias de tecnología e IA curado por IA y entregado en tu bandeja de entrada."
+
+msgid "pricing.faq_differences"
+msgstr "¿Cuáles son las diferencias entre los planes?"
+
+msgid "pricing.faq_differences_answer"
+msgstr "Los planes Premium (Mensual y Anual) te permiten personalizar completamente tu experiencia seleccionando diferentes proveedores de IA, personalizando prompts y configurando ajustes de búsqueda para adaptar tu boletín exactamente como quieres."
+
+msgid "pricing.faq_upgrade"
+msgstr "¿Puedo actualizar en cualquier momento?"
+
+msgid "pricing.faq_upgrade_answer"
+msgstr "Sí, puedes actualizar de un plan Gratuito a un plan Premium en cualquier momento desde tu panel de control."
+
+msgid "pricing.faq_cancel"
+msgstr "¿Cómo cancelo mi suscripción?"
+
+msgid "pricing.faq_cancel_answer"
+msgstr "Puedes cancelar tu suscripción en cualquier momento desde la configuración de tu cuenta. Tus características premium seguirán activas hasta el final de tu período de facturación actual."
+
+msgid "UpdateMe - Pricing"
+msgstr "UpdateMe - Precios"

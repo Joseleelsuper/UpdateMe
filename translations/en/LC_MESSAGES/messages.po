@@ -130,7 +130,7 @@ msgstr "Network error. Please try again later."
 msgid "registrationSuccessful"
 msgstr "Registration successful! You can now log in with your credentials."
 
-msgid "emailExists" 
+msgid "emailExists"
 msgstr "This email is already registered."
 
 # Login page translations
@@ -716,6 +716,106 @@ msgstr "Some parts of the Service are offered on a subscription basis. You will 
 
 msgid "At the end of each period, your subscription will automatically renew under the same conditions unless you cancel it or UpdateMe cancels it."
 msgstr "At the end of each period, your subscription will automatically renew under the same conditions unless you cancel it or UpdateMe cancels it."
+
+# Traducciones para la página de precios
+msgid "pricing.choose_plan"
+msgstr "Choose Your Plan"
+
+msgid "pricing.select_plan"
+msgstr "Select the plan that best fits your needs and get the most out of UpdateMe."
+
+msgid "pricing.free"
+msgstr "Free"
+
+msgid "pricing.month"
+msgstr "month"
+
+msgid "pricing.year"
+msgstr "year"
+
+msgid "pricing.basic_access"
+msgstr "Basic access to UpdateMe newsletter"
+
+msgid "pricing.full_access_monthly"
+msgstr "Full access with monthly billing"
+
+msgid "pricing.full_access_yearly"
+msgstr "Full access with yearly billing"
+
+msgid "pricing.weekly_newsletter"
+msgstr "Weekly AI-generated tech newsletter"
+
+msgid "pricing.default_ai_provider"
+msgstr "Default AI provider for processing"
+
+msgid "pricing.default_search_settings"
+msgstr "Default search settings"
+
+msgid "pricing.customizable_ai"
+msgstr "Customizable AI providers"
+
+msgid "pricing.customizable_prompts"
+msgstr "Customizable processing prompts"
+
+msgid "pricing.configurable_search"
+msgstr "Configurable search options"
+
+msgid "pricing.priority_processing"
+msgstr "Priority processing"
+
+msgid "pricing.sign_up_free"
+msgstr "Sign Up for Free"
+
+msgid "pricing.subscribe_now"
+msgstr "Subscribe Now"
+
+msgid "pricing.subscribe_save"
+msgstr "Subscribe & Save"
+
+msgid "pricing.most_popular"
+msgstr "Most Popular"
+
+msgid "pricing.best_value"
+msgstr "Best Value"
+
+msgid "pricing.save"
+msgstr "Save"
+
+msgid "pricing.monthly"
+msgstr "Monthly"
+
+msgid "pricing.annual"
+msgstr "Annual"
+
+msgid "pricing.faq_title"
+msgstr "Frequently Asked Questions"
+
+msgid "pricing.faq_what_included"
+msgstr "What is included in all plans?"
+
+msgid "pricing.faq_included_answer"
+msgstr "All plans include our weekly AI-curated tech and AI news newsletter delivered to your inbox."
+
+msgid "pricing.faq_differences"
+msgstr "What are the differences between plans?"
+
+msgid "pricing.faq_differences_answer"
+msgstr "Premium plans (Monthly and Annual) allow you to fully customize your experience by selecting different AI providers, customizing prompts, and configuring search settings to tailor your newsletter exactly how you want it."
+
+msgid "pricing.faq_upgrade"
+msgstr "Can I upgrade anytime?"
+
+msgid "pricing.faq_upgrade_answer"
+msgstr "Yes, you can upgrade from a Free plan to a Premium plan at any time from your dashboard."
+
+msgid "pricing.faq_cancel"
+msgstr "How do I cancel my subscription?"
+
+msgid "pricing.faq_cancel_answer"
+msgstr "You can cancel your subscription anytime from your account settings. Your premium features will remain active until the end of your current billing period."
+
+msgid "UpdateMe - Pricing"
+msgstr "UpdateMe - Pricing"
 
 # Traducciones para párrafos de términos y condiciones siguiendo el nuevo formato
 msgid "Introduction p1"
