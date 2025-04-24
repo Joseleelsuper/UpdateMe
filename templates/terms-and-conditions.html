@@ -14,9 +14,13 @@
 </head>
 
 <body>
-
-    {% from 'components/header.html' import header %}
-    {{ header() }}
+    {% if 'user_id' in session %}
+        {% from 'components/headerLogued.html' import headerLogued %}
+        {{ headerLogued() }}
+    {% else %}
+        {% from 'components/header.html' import header %}
+        {{ header() }}
+    {% endif %}
 
     <main>
         <div class="container">

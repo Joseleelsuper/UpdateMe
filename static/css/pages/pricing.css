@@ -274,22 +274,92 @@
     }
     
     .pricing-plans {
-        grid-template-columns: 1fr;
-        max-width: 450px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
         margin-left: auto;
         margin-right: auto;
+        gap: 1rem;
+    }
+    
+    .pricing-card {
+        margin-bottom: 0;
+    }
+
+    /* Ajustar tamaño de las tarjetas */
+    .pricing-card-header {
+        padding: 1.2rem 1rem;
+    }
+
+    .pricing-card-body {
+        padding: 1.2rem 1rem;
+    }
+
+    .pricing-card-footer {
+        padding: 1rem;
+    }
+    
+    .price-amount {
+        font-size: 2rem;
+    }
+
+    .features-list li {
+        font-size: 0.85rem;
+        margin-bottom: 0.7rem;
+        padding-left: 1.5rem;
+    }
+
+    /* Reordenar las tarjetas */
+    .pricing-card:nth-child(1) {
+        order: 1; /* Gratuito primero */
+    }
+
+    .pricing-card:nth-child(2) {
+        order: 2; /* Mensual segundo */
+    }
+
+    .pricing-card:nth-child(3) {
+        order: 3; /* Anual tercero */
     }
     
     .pricing-card.recommended {
         transform: scale(1);
-        order: -1;
     }
     
     .pricing-card.recommended:hover {
         transform: translateY(-5px);
     }
     
-    .pricing-card {
-        margin-bottom: 1.5rem;
+    .btn-primary, .btn-secondary {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .pricing-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-plans {
+        grid-template-columns: 1fr;
+        max-width: 90%;
+    }
+
+    .price-description {
+        font-size: 0.8rem;
+    }
+    
+    /* Mantener el orden en pantallas muy pequeñas */
+    .pricing-card:nth-child(1) {
+        order: 1; /* Gratuito primero */
+    }
+
+    .pricing-card:nth-child(2) {
+        order: 2; /* Mensual segundo */
+    }
+
+    .pricing-card:nth-child(3) {
+        order: 3; /* Anual tercero */
     }
 }
