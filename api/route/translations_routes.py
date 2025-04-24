@@ -68,6 +68,7 @@ def get_translations():
             "title_login_page": _("Inicia Sesión - UpdateMe"),
             "title_terms_page": _("Términos y Condiciones - UpdateMe"),
             "title_privacy_page": _("Política de Privacidad - UpdateMe"),
+            "title_pricing_page": _("Planes y Precios - UpdateMe"),
             
             # Meta descripciones SEO para cada página
             "meta_desc_homepage": _("UpdateMe: La newsletter semanal que te mantiene al día con la tecnología y la IA. Recibe los resúmenes más relevantes en tu correo."),
@@ -75,6 +76,7 @@ def get_translations():
             "meta_desc_login": _("Accede a tu cuenta de UpdateMe y gestiona tu newsletter personalizada de tecnología e IA."),
             "meta_desc_terms": _("Términos y condiciones de uso de UpdateMe. Información legal sobre el uso de nuestra newsletter y servicios."),
             "meta_desc_privacy": _("Política de privacidad de UpdateMe. Conoce cómo gestionamos y protegemos tus datos personales."),
+            "meta_desc_pricing": _("Conoce nuestros planes y precios para recibir resúmenes semanales de tecnología e IA. Escoge el que mejor se adapte a ti."),
             
             # Palabras clave SEO para cada página
             "meta_keywords_home": _("newsletter, tecnología, IA, inteligencia artificial, noticias tech, resumen semanal"),
@@ -82,6 +84,7 @@ def get_translations():
             "meta_keywords_login": _("login, acceso, cuenta, newsletter tecnología"),
             "meta_keywords_terms": _("términos, condiciones, legal, servicios, newsletter"),
             "meta_keywords_privacy": _("privacidad, protección de datos, política, newsletter, RGPD"),
+            "meta_keywords_pricing": _("precios, planes, suscripción, newsletter tecnología, IA"),
             
             # Otros textos SEO importantes
             "breadcrumb_home": _("Inicio"),
@@ -89,6 +92,7 @@ def get_translations():
             "breadcrumb_login": _("Acceso"),
             "breadcrumb_terms": _("Términos"),
             "breadcrumb_privacy": _("Privacidad"),
+            "breadcrumb_pricing": _("Precios"),
         },
         
         "errors": {
@@ -103,5 +107,41 @@ def get_translations():
             "invalidData": _("The provided data is invalid."),
             "paymentRequired": _("Payment is required to access this feature."),
         },
+        
+        # Traducciones específicas para la página de precios
+        "pricing": {
+            "choose_plan": _("Choose Your Plan"),
+            "select_plan": _("Select the plan that best fits your needs and get the most out of UpdateMe."),
+            "free": _("Free"),
+            "month": _("month"),
+            "year": _("year"),
+            "basic_access": _("Basic access to UpdateMe newsletter"),
+            "full_access_monthly": _("Full access with monthly billing"),
+            "full_access_yearly": _("Full access with yearly billing"),
+            "weekly_newsletter": _("Weekly AI-generated tech newsletter"),
+            "default_ai_provider": _("Default AI provider for processing"),
+            "default_search_settings": _("Default search settings"),
+            "customizable_ai": _("Customizable AI providers"),
+            "customizable_prompts": _("Customizable processing prompts"),
+            "configurable_search": _("Configurable search options"),
+            "priority_processing": _("Priority processing"),
+            "sign_up_free": _("Sign Up for Free"),
+            "subscribe_now": _("Subscribe Now"),
+            "subscribe_save": _("Subscribe & Save"),
+            "most_popular": _("Most Popular"),
+            "best_value": _("Best Value"),
+            "save": _("Save"),
+            "monthly": _("Monthly"),
+            "annual": _("Annual"),
+            "faq_title": _("Frequently Asked Questions"),
+            "faq_what_included": _("What is included in all plans?"),
+            "faq_included_answer": _("All plans include our weekly AI-curated tech and AI news newsletter delivered to your inbox."),
+            "faq_differences": _("What are the differences between plans?"),
+            "faq_differences_answer": _("Premium plans (Monthly and Annual) allow you to fully customize your experience by selecting different AI providers, customizing prompts, and configuring search settings to tailor your newsletter exactly how you want it."),
+            "faq_upgrade": _("Can I upgrade anytime?"),
+            "faq_upgrade_answer": _("Yes, you can upgrade from a Free plan to a Premium plan at any time from your dashboard."),
+            "faq_cancel": _("How do I cancel my subscription?"),
+            "faq_cancel_answer": _("You can cancel your subscription anytime from your account settings. Your premium features will remain active until the end of your current billing period.")
+        }
     }
     return jsonify(translations)
