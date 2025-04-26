@@ -1,0 +1,111 @@
+@import url("../global.css");
+
+.subscription-result {
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.subscription-message {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.icon-container {
+    margin-bottom: 1.5rem;
+}
+
+.icon-container i {
+    font-size: 4rem;
+    color: var(--color-success);
+}
+
+.subscription-message.cancel .icon-container i {
+    color: var(--color-error);
+}
+
+.subscription-message h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 1rem;
+}
+
+.subscription-message p {
+    font-size: 1.1rem;
+    color: #4B5563;
+    margin-bottom: 0.75rem;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-buttons .btn-primary,
+.action-buttons .btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.action-buttons .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+}
+
+.action-buttons .btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-buttons .btn-secondary {
+    background-color: #F3F4F6;
+    color: #4B5563;
+    border: 1px solid #E5E7EB;
+}
+
+.action-buttons .btn-secondary:hover {
+    background-color: #E5E7EB;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    .subscription-message {
+        padding: 2rem 1.5rem;
+    }
+    
+    .subscription-message h1 {
+        font-size: 1.6rem;
+    }
+    
+    .subscription-message p {
+        font-size: 1rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .icon-container i {
+        font-size: 3.5rem;
+    }
+}
