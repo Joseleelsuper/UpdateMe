@@ -1,0 +1,25 @@
+{% extends "components/baseTemplate.html" %}
+
+{% block title %}{{ _('Subscription Canceled') }} - UpdateMe{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container">
+        <section class="subscription-result">
+            <div class="subscription-message cancel">
+                <div class="icon-container">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+                <h1>{{ _('Subscription Checkout Canceled') }}</h1>
+                <p>{{ _('You have canceled the subscription checkout process.') }}</p>
+                <p>{{ _('Don\'t worry, you can subscribe anytime you\'re ready.') }}</p>
+                
+                <div class="action-buttons">
+                    <a href="{{ url_for('main.page.pricing') }}" class="btn-primary">{{ _('Subscription Plans') }}</a>
+                    <a href="{{ url_for('main.page.dashboard') }}" class="btn-secondary">{{ _('Return to Dashboard') }}</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock %}

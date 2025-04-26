@@ -86,6 +86,12 @@ msgstr "Los datos proporcionados no son válidos."
 msgid "Payment is required to access this feature."
 msgstr "Se requiere pago para acceder a esta función."
 
+msgid "Reset"
+msgstr "Restablecer"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
 # Registro page translations
 msgid "title_register_page"
 msgstr "UpdateMe - Registro"
@@ -390,8 +396,11 @@ msgstr "Cambios en Esta Política de Privacidad"
 msgid "Your Rights"
 msgstr "Tus Derechos"
 
-msgid "April 22, 2025"
-msgstr "22 de abril de 2025"
+msgid "Last updated terms and conditions"
+msgstr "23 de abril de 2025"
+
+msgid "Last updated privacy policy"
+msgstr "23 de abril de 2025"
 
 msgid "An initiative of"
 msgstr "Una iniciativa de"
@@ -848,6 +857,9 @@ msgstr "Podemos actualizar nuestra Política de Privacidad de vez en cuando. Por
 msgid "Your Rights p1"
 msgstr "Si eres ciudadano europeo, tienes los siguientes derechos bajo el RGPD:"
 
+msgid "Your Rights Under GDPR"
+msgstr "Tus Derechos bajo el RGPD"
+
 msgid "Rights Point1"
 msgstr "El derecho de acceso – Tienes derecho a solicitar copias de tus datos personales."
 
@@ -988,3 +1000,297 @@ msgstr "Alto"
 
 msgid "Include only trusted sources"
 msgstr "Incluir solo fuentes confiables"
+
+# Traducciones para la página de precios
+msgid "pricing.choose_plan"
+msgstr "Elige tu plan"
+
+msgid "pricing.select_plan"
+msgstr "Selecciona el plan que mejor se adapte a tus necesidades y saca el máximo provecho de UpdateMe."
+
+msgid "pricing.free"
+msgstr "Gratuito"
+
+msgid "pricing.month"
+msgstr "mes"
+
+msgid "pricing.year"
+msgstr "año"
+
+msgid "pricing.basic_access"
+msgstr "Acceso básico al boletín de UpdateMe"
+
+msgid "pricing.full_access_monthly"
+msgstr "Acceso completo con facturación mensual"
+
+msgid "pricing.full_access_yearly"
+msgstr "Acceso completo con facturación anual"
+
+msgid "pricing.weekly_newsletter"
+msgstr "Boletín semanal de tecnología generado por IA"
+
+msgid "pricing.default_ai_provider"
+msgstr "Proveedor de IA predeterminado para procesamiento"
+
+msgid "pricing.default_search_settings"
+msgstr "Configuración de búsqueda predeterminada"
+
+msgid "pricing.customizable_ai"
+msgstr "Proveedores de IA personalizables"
+
+msgid "pricing.customizable_prompts"
+msgstr "Prompts de procesamiento personalizables"
+
+msgid "pricing.configurable_search"
+msgstr "Opciones de búsqueda configurables"
+
+msgid "pricing.priority_processing"
+msgstr "Procesamiento prioritario"
+
+msgid "pricing.sign_up_free"
+msgstr "Regístrate gratis"
+
+msgid "pricing.subscribe_now"
+msgstr "Suscríbete ahora"
+
+msgid "pricing.subscribe_save"
+msgstr "Suscríbete y ahorra"
+
+msgid "pricing.most_popular"
+msgstr "Más popular"
+
+msgid "pricing.best_value"
+msgstr "Mejor valor"
+
+msgid "pricing.save"
+msgstr "Ahorro"
+
+msgid "pricing.monthly"
+msgstr "Mensual"
+
+msgid "pricing.annual"
+msgstr "Anual"
+
+msgid "pricing.faq_title"
+msgstr "Preguntas frecuentes"
+
+msgid "pricing.faq_what_included"
+msgstr "¿Qué incluyen todos los planes?"
+
+msgid "pricing.faq_included_answer"
+msgstr "Todos los planes incluyen nuestro boletín semanal de noticias de tecnología e IA curado por IA y entregado en tu bandeja de entrada."
+
+msgid "pricing.faq_differences"
+msgstr "¿Cuáles son las diferencias entre los planes?"
+
+msgid "pricing.faq_differences_answer"
+msgstr "Los planes Premium (Mensual y Anual) te permiten personalizar completamente tu experiencia seleccionando diferentes proveedores de IA, personalizando prompts y configurando ajustes de búsqueda para adaptar tu boletín exactamente como quieres."
+
+msgid "pricing.faq_upgrade"
+msgstr "¿Puedo actualizar en cualquier momento?"
+
+msgid "pricing.faq_upgrade_answer"
+msgstr "Sí, puedes actualizar de un plan Gratuito a un plan Premium en cualquier momento desde tu panel de control."
+
+msgid "pricing.faq_cancel"
+msgstr "¿Cómo cancelo mi suscripción?"
+
+msgid "pricing.faq_cancel_answer"
+msgstr "Puedes cancelar tu suscripción en cualquier momento desde la configuración de tu cuenta. Tus características premium seguirán activas hasta el final de tu período de facturación actual."
+
+msgid "UpdateMe - Pricing"
+msgstr "UpdateMe - Precios"
+
+# Nuevas traducciones para términos y condiciones adicionales
+msgid "Indemnification"
+msgstr "Indemnización"
+
+msgid "Force Majeure"
+msgstr "Fuerza Mayor"
+
+msgid "Age and Legal Requirements"
+msgstr "Requisitos de Edad y Uso Legal"
+
+msgid "Assignment"
+msgstr "Cesión"
+
+msgid "Dispute Resolution"
+msgstr "Resolución de Disputas"
+
+msgid "Indemnification p1"
+msgstr "Usted acepta defender, indemnizar y mantener indemne a UpdateMe y a sus licenciantes, afiliados, funcionarios, agentes, empleados, coautores, licenciatarios y proveedores de cualquier reclamo, responsabilidad, daño, pérdida y gasto, incluidos, entre otros, honorarios y costos legales razonables, que surjan o estén relacionados con su uso del Servicio o su violación de estos Términos."
+
+msgid "Force Majeure p1"
+msgstr "Ni UpdateMe ni usted será responsable ante la otra parte por cualquier retraso o falta de cumplimiento de cualquier obligación bajo estos Términos si dicho retraso o falta de cumplimiento se debe a eventos que están fuera del control razonable de esa parte, incluyendo pero no limitado a, actos de Dios, huelgas, bloqueos, disturbios, actos de guerra, epidemias, pandemias, leyes o acciones gubernamentales, desastres naturales o cualquier otra eventualidad fuera del control de dicha parte."
+
+msgid "Age and Legal Requirements p1"
+msgstr "Al utilizar este Servicio, usted declara y garantiza que tiene al menos 18 años de edad o la mayoría de edad legal en su jurisdicción, lo que sea mayor, o que tiene el consentimiento de un padre o tutor legal. También garantiza que su uso del Servicio no violará ninguna ley o regulación aplicable."
+
+msgid "Age and Legal Requirements p2"
+msgstr "Si representas a una entidad, organización o empresa, garantizas que tienes la autoridad para vincular a dicha organización a estos Términos y aceptas estos Términos en nombre de dicha organización."
+
+msgid "Assignment p1"
+msgstr "UpdateMe puede asignar o transferir estos Términos y Condiciones, en su totalidad o en parte, sin restricciones. Usted no puede asignar o transferir sus derechos bajo estos Términos, o subcontratar sus obligaciones, sin el consentimiento previo por escrito de UpdateMe."
+
+msgid "Assignment p2"
+msgstr "UpdateMe también puede, sin restricciones, subcontratar cualquiera de sus obligaciones bajo estos Términos a terceros o afiliados."
+
+msgid "Dispute Resolution p1"
+msgstr "Cualquier disputa, controversia o reclamo que surja de o en relación con estos Términos, incluida su validez, interpretación, ejecución, violación, terminación o nulidad, será sometida primero a mediación de acuerdo con las reglas de mediación de la Cámara de Comercio Internacional. Si dicha disputa no ha sido resuelta dentro de los 60 días siguientes a la solicitud de mediación, será finalmente resuelta por los tribunales competentes de Madrid, España."
+
+msgid "Dispute Resolution p2"
+msgstr "No obstante, en caso de que la ley aplicable no permita restricciones sobre un tribunal o foro para resolver disputas, estas disposiciones serán aplicables en la máxima medida permitida por la ley."
+
+# Nuevas traducciones para la política de privacidad mejorada
+msgid "Legal Basis for Processing (GDPR)"
+msgstr "Base Legal para el Procesamiento (RGPD)"
+
+msgid "Legal Basis p1"
+msgstr "Para cumplir con el Reglamento General de Protección de Datos (RGPD), procesamos sus datos personales bajo las siguientes bases legales:"
+
+msgid "Consent"
+msgstr "Consentimiento"
+
+msgid "Legal Basis Consent"
+msgstr "Procesamos datos personales cuando usted ha dado su consentimiento explícito para que los usemos con fines específicos, como el envío de boletines informativos o la personalización de contenido."
+
+msgid "Contract Performance"
+msgstr "Ejecución de Contrato"
+
+msgid "Legal Basis Contract"
+msgstr "Procesamos sus datos personales cuando es necesario para cumplir con un contrato al que usted es parte, como cuando se suscribe a nuestro servicio premium."
+
+msgid "Legal Obligations"
+msgstr "Obligaciones Legales"
+
+msgid "Legal Basis Obligations"
+msgstr "Procesamos sus datos cuando es necesario para cumplir con una obligación legal, como obligaciones fiscales o requisitos de retención de registros."
+
+msgid "Legitimate Interests"
+msgstr "Intereses Legítimos"
+
+msgid "Legal Basis Legitimate"
+msgstr "Procesamos sus datos cuando es necesario para nuestros intereses legítimos y sus intereses, derechos fundamentales y libertades no prevalecen sobre esos intereses, como la mejora de nuestros servicios y la prevención del fraude."
+
+msgid "Data Retention Period"
+msgstr "Período de Conservación de Datos"
+
+msgid "Data Retention p1"
+msgstr "Conservamos sus datos personales solo durante el tiempo necesario para cumplir con los fines para los que fueron recopilados, incluidos los requisitos legales, contables y de informes. Los períodos de retención para diferentes tipos de datos son los siguientes:"
+
+msgid "Account Information"
+msgstr "Información de Cuenta"
+
+msgid "Data Retention Account"
+msgstr "Conservamos su información de cuenta mientras mantenga una cuenta activa con nosotros. Si solicita la eliminación de su cuenta, eliminaremos sus datos personales dentro de los 30 días, excepto la información que debamos conservar por obligaciones legales."
+
+msgid "Usage Data"
+msgstr "Datos de Uso"
+
+msgid "Data Retention Usage"
+msgstr "Los datos de uso se conservan por un máximo de 12 meses desde su recopilación, después de lo cual se anonimizan para análisis estadísticos."
+
+msgid "Custom Prompts"
+msgstr "Prompts Personalizados"
+
+msgid "Data Retention Prompts"
+msgstr "Sus prompts personalizados se almacenan mientras mantenga una cuenta activa y se eliminan cuando se elimina su cuenta."
+
+msgid "Communications"
+msgstr "Comunicaciones"
+
+msgid "Data Retention Communications"
+msgstr "Las comunicaciones por correo electrónico y otras correspondencias se conservan por un período de hasta 2 años después de nuestra última interacción."
+
+msgid "International Data Transfers"
+msgstr "Transferencias Internacionales de Datos"
+
+msgid "International Transfers p1"
+msgstr "Podemos transferir, almacenar y procesar su información en países distintos a su país de residencia. Nuestros servidores están ubicados principalmente en la Unión Europea, pero algunos de nuestros proveedores de servicios y socios pueden procesar datos fuera del Espacio Económico Europeo (EEE)."
+
+msgid "International Transfers p2"
+msgstr "Cuando transferimos datos personales desde el EEE a países que la Comisión Europea no ha reconocido como que proporcionan un nivel adecuado de protección de datos, nos aseguramos de que existan garantías adecuadas, como la inclusión de cláusulas contractuales estándar aprobadas por la UE en nuestros acuerdos con esos terceros, o nos basamos en otros mecanismos de transferencia válidos según el RGPD."
+
+msgid "Types of Cookies We Use"
+msgstr "Tipos de Cookies que Utilizamos"
+
+msgid "Essential Cookies"
+msgstr "Cookies Esenciales"
+
+msgid "Cookies Essential"
+msgstr "Necesarias para el funcionamiento básico del sitio web. Estas cookies no almacenan ninguna información de identificación personal."
+
+msgid "Functional Cookies"
+msgstr "Cookies Funcionales"
+
+msgid "Cookies Functional"
+msgstr "Estas cookies permiten que el sitio web recuerde elecciones que usted realiza (como su nombre de usuario, idioma o la región en la que se encuentra) y proporcionan características mejoradas y más personalizadas."
+
+msgid "Analytical Cookies"
+msgstr "Cookies Analíticas"
+
+msgid "Cookies Analytical"
+msgstr "Estas cookies nos permiten contar visitas y fuentes de tráfico para medir y mejorar el rendimiento de nuestro sitio. Nos ayudan a saber qué páginas son las más y menos populares y a ver cómo se mueven los visitantes por el sitio."
+
+msgid "Marketing Cookies"
+msgstr "Cookies de Marketing"
+
+msgid "Cookies Marketing"
+msgstr "Estas cookies rastrean a los visitantes en los sitios web y recopilan información para proporcionar anuncios personalizados. UpdateMe no utiliza cookies de marketing de terceros sin su consentimiento explícito."
+
+msgid "Cookies Management p1"
+msgstr "Puede configurar su navegador para rechazar todas o algunas cookies, o para alertarle cuando los sitios web establezcan o accedan a las cookies. Si deshabilita o rechaza las cookies, tenga en cuenta que algunas partes de este sitio web pueden volverse inaccesibles o no funcionar correctamente."
+
+msgid "Manage Cookie Settings"
+msgstr "Administrar Configuración de Cookies"
+
+msgid "Data Breach Notifications"
+msgstr "Notificaciones de Brechas de Datos"
+
+msgid "Data Breach p1"
+msgstr "En caso de una violación de seguridad que conduzca a la destrucción, pérdida, alteración, divulgación no autorizada o acceso accidental o ilegal a sus datos personales, seguiremos todos los requisitos aplicables de notificación de violación de datos."
+
+msgid "Data Breach p2"
+msgstr "Si se determina que la violación es probable que resulte en un alto riesgo para sus derechos y libertades, se lo notificaremos directamente sin demora indebida, pero no más tarde de 72 horas después de conocer la violación, con información sobre las medidas tomadas para mitigar los posibles efectos adversos."
+
+msgid "Automated Decision Making"
+msgstr "Toma de Decisiones Automatizada"
+
+msgid "Automated Decision p1"
+msgstr "No utilizamos procesos automatizados, incluida la elaboración de perfiles, para tomar decisiones que tengan efectos legales o significativos similares sobre usted. Nuestro servicio utiliza algoritmos para generar contenido basado en sus preferencias, pero estos no dan lugar a decisiones automatizadas que afecten sus derechos y libertades."
+
+msgid "Additional Rights Based on Location"
+msgstr "Derechos Adicionales Según la Ubicación"
+
+msgid "California Consumer Privacy Act (CCPA)"
+msgstr "Ley de Privacidad del Consumidor de California (CCPA)"
+
+msgid "CCPA p1"
+msgstr "Si es residente de California, la Ley de Privacidad del Consumidor de California (CCPA) le otorga derechos específicos con respecto a sus datos personales, incluidos:"
+
+msgid "CCPA Right1"
+msgstr "Derecho a saber qué información personal recopilamos, utilizamos, compartimos o vendemos."
+
+msgid "CCPA Right2"
+msgstr "Derecho a eliminar información personal almacenada por nosotros."
+
+msgid "CCPA Right3"
+msgstr "Derecho a excluirse de la venta de información personal."
+
+msgid "CCPA Right4"
+msgstr "Derecho a la no discriminación por ejercer sus derechos de privacidad."
+
+msgid "Other Jurisdictions"
+msgstr "Otras Jurisdicciones"
+
+msgid "Other Jurisdictions p1"
+msgstr "Si reside en otras jurisdicciones con leyes específicas de privacidad (como Brasil con la LGPD o Canadá con PIPEDA), también puede tener derechos adicionales específicos. Por favor contáctenos si necesita información sobre cómo cumplimos con las leyes de privacidad en su jurisdicción específica."
+
+msgid "Exercise Rights p1"
+msgstr "Para ejercer cualquiera de sus derechos, puede enviarnos un correo electrónico a privacy@updateme.dev o utilizar el formulario de contacto disponible en nuestro sitio web. Para proteger su privacidad y seguridad, podemos tomar medidas razonables para verificar su identidad antes de conceder acceso o hacer correcciones."
+
+msgid "Exercise Rights p2"
+msgstr "Respondemos a todas las solicitudes que recibimos de personas que desean ejercer sus derechos de protección de datos de acuerdo con las leyes de protección de datos aplicables. El plazo de respuesta es generalmente de un mes, pero puede extenderse hasta dos meses adicionales cuando sea necesario, teniendo en cuenta la complejidad y el número de solicitudes."
+
+msgid "premiumUserOnly"
+msgstr "Esta función solo está disponible para usuarios premium."

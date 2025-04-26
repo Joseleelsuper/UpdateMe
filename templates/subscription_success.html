@@ -1,0 +1,59 @@
+{% extends "components/baseTemplate.html" %}
+
+{% block title %}{{ _('Subscription Successful') }} - UpdateMe{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container">
+        <section class="subscription-result">
+            <div class="subscription-message success">
+                <div class="icon-container">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h1>{{ _('Thank you for subscribing!') }}</h1>
+                <p>{{ _('Your subscription has been processed successfully.') }}</p>
+                <p>{{ _('You now have full access to all premium features.') }}</p>
+                
+                <div class="action-buttons">
+                    <a href="{{ url_for('main.page.dashboard') }}" class="btn-primary">{{ _('Go to Dashboard') }}</a>
+                    <button id="manage-subscription" class="btn-secondary">{{ _('Manage Subscription') }}</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sessionId = "{{ session_id }}";
+    const manageSubscriptionBtn = document.getElementById('manage-subscription');
+    
+    manageSubscriptionBtn.addEventListener('click', async function() {
+        try {
+            const response = await fetch('/api/subscription/portal', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ session_id: sessionId })
+            });
+            
+            const data = await response.json();
+            if (data.success) {
+                window.location.href = data.portalUrl;
+            } else {
+                // Show error using toast
+                import('/static/js/utils/toasts.js').then(module => {
+                    module.toast.error(data.error || 'Error creating portal session');
+                });
+            }
+        } catch (error) {
+            // Show error using toast
+            import('/static/js/utils/toasts.js').then(module => {
+                module.toast.error('Error connecting to server');
+            });
+        }
+    });
+});
+</script>
+{% endblock %}

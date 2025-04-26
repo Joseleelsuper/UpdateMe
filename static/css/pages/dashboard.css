@@ -293,3 +293,17 @@
         grid-template-columns: 3fr 2fr;
     }
 }
+
+.premium-only-msg {
+    color: #f59e42;
+    background: #fff7ed;
+    border-left: 4px solid #f59e42;
+    padding: 0.25em 0.75em;
+    font-size: 0.95em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    border-radius: 3px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    display: inline-block;
+}

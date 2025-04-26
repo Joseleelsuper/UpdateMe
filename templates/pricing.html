@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
+
+<head>
+    {% include 'components/seo-meta.html' %}
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/pricing.css') }}">
+    
+    <!-- Stripe configuration -->
+    <meta name="stripe-public-key" content="{{ stripe_public_key }}">
+    <meta name="user-logged-in" content="{{ 'true' if 'user_id' in session else 'false' }}">
+    <script type="module" src="{{ url_for('static', filename='js/subscription.js') }}"></script>
+    <script>
+        // URL for login redirection if needed
+        const loginUrl = "{{ url_for('main.page.login') }}";
+    </script>
+</head>
+
+<body>
+    
+    {% if 'user_id' in session %}
+        {% from 'components/headerLogued.html' import headerLogued %}
+        {{ headerLogued() }}
+    {% else %}
+        {% from 'components/header.html' import header %}
+        {{ header() }}
+    {% endif %}
+
+    <main>
+        <div class="container">
+            <section class="pricing-section">
+                <div class="pricing-header">
+                    <h1>{{ _('pricing.choose_plan') }}</h1>
+                    <p>{{ _('pricing.select_plan') }}</p>
+                </div>
+
+                <div class="pricing-plans">
+                    <!-- Free Plan -->
+                    <div class="pricing-card">
+                        <div class="pricing-card-header">
+                            <h2>{{ _('pricing.free') }}</h2>
+                            <div class="price">
+                                <span class="price-amount">€0</span>
+                                <span class="price-period">/ {{ _('pricing.month') }}</span>
+                            </div>
+                            <p class="price-description">{{ _('pricing.basic_access') }}</p>
+                        </div>
+                        <div class="pricing-card-body">
+                            <ul class="features-list">
+                                <li class="feature-included">{{ _('pricing.weekly_newsletter') }}</li>
+                                <li class="feature-included">{{ _('pricing.default_ai_provider') }}</li>
+                                <li class="feature-included">{{ _('pricing.default_search_settings') }}</li>
+                                <li class="feature-not-included">{{ _('pricing.customizable_ai') }}</li>
+                                <li class="feature-not-included">{{ _('pricing.customizable_prompts') }}</li>
+                                <li class="feature-not-included">{{ _('pricing.configurable_search') }}</li>
+                                <li class="feature-not-included">{{ _('pricing.priority_processing') }}</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-card-footer">
+                            <a href="{{ url_for('main.register.register_user') }}" class="btn-secondary">{{ _('pricing.sign_up_free') }}</a>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Plan -->
+                    <div class="pricing-card recommended">
+                        <div class="pricing-badge">{{ _('pricing.most_popular') }}</div>
+                        <div class="pricing-card-header">
+                            <h2>{{ _('pricing.monthly') }}</h2>
+                            <div class="price">
+                                <span class="price-amount">€2</span>
+                                <span class="price-period">/ {{ _('pricing.month') }}</span>
+                            </div>
+                            <p class="price-description">{{ _('pricing.full_access_monthly') }}</p>
+                        </div>
+                        <div class="pricing-card-body">
+                            <ul class="features-list">
+                                <li class="feature-included">{{ _('pricing.weekly_newsletter') }}</li>
+                                <li class="feature-included">{{ _('pricing.default_ai_provider') }}</li>
+                                <li class="feature-included">{{ _('pricing.default_search_settings') }}</li>
+                                <li class="feature-included">{{ _('pricing.customizable_ai') }}</li>
+                                <li class="feature-included">{{ _('pricing.customizable_prompts') }}</li>
+                                <li class="feature-included">{{ _('pricing.configurable_search') }}</li>
+                                <li class="feature-included">{{ _('pricing.priority_processing') }}</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-card-footer">
+                            <button class="btn-primary subscribe-monthly">{{ _('pricing.subscribe_now') }}</button>
+                        </div>
+                    </div>
+
+                    <!-- Annual Plan -->
+                    <div class="pricing-card">
+                        <div class="pricing-badge">{{ _('pricing.best_value') }}</div>
+                        <div class="pricing-card-header">
+                            <h2>{{ _('pricing.annual') }}</h2>
+                            <div class="price">
+                                <span class="price-amount">€20</span>
+                                <span class="price-period">/ {{ _('pricing.year') }}</span>
+                            </div>
+                            <div class="price-discount">
+                                <span class="save-label">{{ _('pricing.save') }}</span>
+                                <span class="save-amount">16.7%</span>
+                            </div>
+                            <p class="price-description">{{ _('pricing.full_access_yearly') }}</p>
+                        </div>
+                        <div class="pricing-card-body">
+                            <ul class="features-list">
+                                <li class="feature-included">{{ _('pricing.weekly_newsletter') }}</li>
+                                <li class="feature-included">{{ _('pricing.default_ai_provider') }}</li>
+                                <li class="feature-included">{{ _('pricing.default_search_settings') }}</li>
+                                <li class="feature-included">{{ _('pricing.customizable_ai') }}</li>
+                                <li class="feature-included">{{ _('pricing.customizable_prompts') }}</li>
+                                <li class="feature-included">{{ _('pricing.configurable_search') }}</li>
+                                <li class="feature-included">{{ _('pricing.priority_processing') }}</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-card-footer">
+                            <button class="btn-primary subscribe-yearly">{{ _('pricing.subscribe_save') }}</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-faq">
+                    <h2>{{ _('pricing.faq_title') }}</h2>
+                    
+                    <div class="faq-item">
+                        <h3>{{ _('pricing.faq_what_included') }}</h3>
+                        <p>{{ _('pricing.faq_included_answer') }}</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>{{ _('pricing.faq_differences') }}</h3>
+                        <p>{{ _('pricing.faq_differences_answer') }}</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>{{ _('pricing.faq_upgrade') }}</h3>
+                        <p>{{ _('pricing.faq_upgrade_answer') }}</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3>{{ _('pricing.faq_cancel') }}</h3>
+                        <p>{{ _('pricing.faq_cancel_answer') }}</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    {% from 'components/footer.html' import footer %}
+    {{ footer() }}
+</body>
+
+</html>

@@ -9,6 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const resetPromptsBtn = document.getElementById('reset-prompts');
         const tabHeaders = document.querySelectorAll('.tab-header');
         
+        // Referencias al modal y sus elementos
+        const resetModal = document.getElementById('reset-prompts-modal');
+        const closeModalBtn = resetModal.querySelector('.modal-close');
+        const cancelModalBtn = resetModal.querySelector('.modal-cancel');
+        const confirmModalBtn = resetModal.querySelector('.modal-confirm');
+        
         // Traducciones
         const translations = window.translations || {
             preferenceUpdated: 'Preference updated successfully',
@@ -19,13 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
             errorResettingPrompts: 'Error resetting prompts: ',
             connectionError: 'Connection error: ',
             confirmResetPrompts: 'Are you sure you want to reset all prompts to default values?',
-            openaiSearchDisabled: 'OpenAI uses its own integrated search provider, it is not possible to change this option.'
+            openaiSearchDisabled: 'OpenAI uses its own integrated search provider, it is not possible to change this option.',
+            premiumUserOnly: 'This feature is only available for premium users.'
         };
         
         // Maneja los clics en las opciones de proveedor
         providerOptions.forEach(option => {
             option.addEventListener('click', function() {
-                // Si el elemento está deshabilitado, no hacer nada
+                // Primero, si el usuario es free, mostrar el toast premium y salir
+                if (isFreeUser) {
+                    toast.warning(translations.premiumUserOnly || 'Esta función solo está disponible para usuarios premium.');
+                    return;
+                }
+                // Después, si el elemento está deshabilitado por OpenAI, mostrar ese toast
                 if (this.classList.contains('disabled')) {
                     toast.warning(translations.openaiSearchDisabled);
                     return;
@@ -62,6 +74,27 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
+        // Detectar si el usuario es free
+        const isFreeUser = window.isFreeUser === true || window.isFreeUser === 'true';
+        if (isFreeUser) {
+            // Interceptar edición en textareas, inputs y selects de la sección de prompts
+            const promptsSection = document.querySelector('.prompts-section.disabled');
+            if (promptsSection) {
+                promptsSection.querySelectorAll('textarea, input, select').forEach(el => {
+                    const showPremiumToast = (e) => {
+                        toast.warning(translations.premiumUserOnly || 'Esta función solo está disponible para usuarios premium.');
+                        e.preventDefault();
+                        if (el.blur) el.blur();
+                    };
+                    el.addEventListener('focus', showPremiumToast);
+                    el.addEventListener('mousedown', showPremiumToast);
+                    el.addEventListener('keydown', showPremiumToast);
+                    el.addEventListener('input', showPremiumToast);
+                    el.addEventListener('change', showPremiumToast);
+                });
+            }
+        }
+
         // Función para actualizar preferencias en el servidor
         function updatePreference(preferenceType, value) {
             fetch('/api/user/preferences', {
@@ -71,11 +104,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 body: JSON.stringify({ [preferenceType]: value })
             })
-            .then(response => {
+            .then(async response => {
+                let data = {};
+                try { data = await response.json(); } catch {}
                 if (!response.ok) {
+                    // Si es 403, mostrar el mensaje del backend o el de premium
+                    if (response.status === 403 && data.message) {
+                        toast.warning(data.message);
+                    } else if (response.status === 403) {
+                        toast.warning(translations.premiumUserOnly || 'Esta función solo está disponible para usuarios premium.');
+                    } else {
+                        toast.error(`${translations.errorUpdatingPreference} ${data.message || response.status}`);
+                    }
                     throw new Error(`HTTP error ${response.status}`);
                 }
-                return response.json();
+                return data;
             })
             .then(data => {
                 if (data.success) {
@@ -85,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             })
             .catch(error => {
+                if (error.message && error.message.startsWith('HTTP error 403')) return; // Ya mostrado como warning
                 toast.error(`${translations.connectionError} ${error.message}`);
             });
         }
@@ -109,7 +153,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Guardar los prompts personalizados
-        savePromptsBtn.addEventListener('click', function() {
+        savePromptsBtn.addEventListener('click', function(e) {
+            if (isFreeUser) {
+                toast.warning(translations.premiumUserOnly || 'Esta función solo está disponible para usuarios premium.');
+                e.preventDefault();
+                return;
+            }
             // Recopilar los valores de los prompts
             const promptData = {
                 openai_prompt: document.getElementById('openai-prompt').value,
@@ -153,6 +202,13 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(response => {
                 if (!response.ok) {
+                    // Si es 403 (usuario free), mostrar warning en vez de error
+                    if (response.status === 403) {
+                        response.json().then(data => {
+                            toast.warning(data.message || translations.premiumUserOnly || 'Esta función solo está disponible para usuarios premium.');
+                        });
+                        throw new Error(`HTTP error ${response.status}`);
+                    }
                     throw new Error(`HTTP error ${response.status}`);
                 }
                 return response.json();
@@ -169,31 +225,69 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Restablecer los prompts a los valores predeterminados
-        resetPromptsBtn.addEventListener('click', function() {
-            if (confirm(translations.confirmResetPrompts)) {
-                fetch('/api/user/prompts/reset', {
-                    method: 'POST'
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.success) {
-                        toast.success(translations.promptsReset);
-                        // Recargar la página para mostrar los valores predeterminados
-                        window.location.reload();
-                    } else {
-                        toast.error(`${translations.errorResettingPrompts} ${data.message}`);
-                    }
-                })
-                .catch(error => {
-                    toast.error(`${translations.connectionError} ${error.message}`);
-                });
+        // Funciones para manejar el modal
+        function openModal() {
+            resetModal.classList.add('show');
+        }
+        
+        function closeModal() {
+            resetModal.classList.remove('show');
+        }
+        
+        // Cerrar el modal al hacer clic en la X
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        // Cerrar el modal al hacer clic en Cancelar
+        cancelModalBtn.addEventListener('click', closeModal);
+        
+        // Cerrar el modal al hacer clic fuera del contenido
+        resetModal.addEventListener('click', function(e) {
+            if (e.target === resetModal) {
+                closeModal();
             }
+        });
+        
+        // Función para resetear prompts
+        function resetPrompts() {
+            fetch('/api/user/prompts/reset', {
+                method: 'POST'
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.success) {
+                    toast.success(translations.promptsReset);
+                    // Recargar la página para mostrar los valores predeterminados
+                    window.location.reload();
+                } else {
+                    toast.error(`${translations.errorResettingPrompts} ${data.message}`);
+                }
+            })
+            .catch(error => {
+                toast.error(`${translations.connectionError} ${error.message}`);
+            });
+        }
+        
+        // Confirmar reset al hacer clic en el botón del modal
+        confirmModalBtn.addEventListener('click', function() {
+            closeModal();
+            resetPrompts();
+        });
+        
+        // Restablecer los prompts a los valores predeterminados
+        resetPromptsBtn.addEventListener('click', function(e) {
+            if (isFreeUser) {
+                toast.warning(translations.premiumUserOnly || 'Esta función solo está disponible para usuarios premium.');
+                e.preventDefault();
+                return;
+            }
+            
+            // Abrir el modal en lugar de usar confirm()
+            openModal();
         });
     }).catch(error => {
         console.error('Error cargando el módulo de toasts:', error);

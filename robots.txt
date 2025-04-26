@@ -19,7 +19,6 @@ Disallow: /profile
 # Reglas específicas para Google
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 # Reglas para Google Images
 User-agent: Googlebot-Image
@@ -28,12 +27,10 @@ Allow: /static/img/
 # Reglas para Bing
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
 
 # Reglas para Yahoo
 User-agent: Slurp
 Allow: /
-Crawl-delay: 2
 
 # Reglas para Facebook
 User-agent: Facebot

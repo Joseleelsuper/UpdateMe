@@ -8,6 +8,7 @@
   --color-accent: #8B5CF6;     /* Color de acento para destacados */
   --color-error: #EF4444;      /* Rojo para errores */
   --color-success: #10B981;    /* Verde para éxito */
+  --color-warning: #FBBF24;    /* Amarillo para advertencias */
   --color-text-dark: #111827;  /* Texto oscuro */
   --color-text-light: #F9FAFB; /* Texto claro */
   --color-text-muted: #6B7280; /* Texto gris */
@@ -248,6 +249,10 @@ input, button, textarea, select {
   background-color: var(--color-error) !important;
 }
 
+.toast.toast-warning {
+  background-color: var(--color-warning) !important;
+}
+
 /* Botón de cierre del toast */
 .toast-close {
   position: absolute;
@@ -276,23 +281,86 @@ input, button, textarea, select {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Responsive */
-@media (min-width: 768px) {
-  .md-flex-row {
-    flex-direction: row;
-  }
-  
-  .md-space-x-3 > * + * {
-    margin-left: 0.75rem;
-  }
-  
-  .md-space-y-0 > * + * {
-    margin-top: 0;
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  overflow: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: white;
+  margin: auto;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out forwards;
+  transform: translateY(-20px);
+}
+
+@keyframes modalSlideIn {
+  to {
+    transform: translateY(0);
   }
 }
 
-@media (max-width: 767px) {
-  .flex-col > * + * {
-    margin-top: 0.75rem;
+.modal-header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.modal-close {
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #6B7280;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--color-error);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  border-top: 1px solid #E5E7EB;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
   }
 }

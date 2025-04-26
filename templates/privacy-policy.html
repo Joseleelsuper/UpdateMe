@@ -15,15 +15,20 @@
 
 <body>
 
-    {% from 'components/header.html' import header %}
-    {{ header() }}
+    {% if 'user_id' in session %}
+        {% from 'components/headerLogued.html' import headerLogued %}
+        {{ headerLogued() }}
+    {% else %}
+        {% from 'components/header.html' import header %}
+        {{ header() }}
+    {% endif %}
 
     <main>
         <div class="container">
                         <section class="content-section">
                 <div class="content-wrapper">
                     <h1 class="page-title">{{ _('Privacy Policy') }}</h1>
-                    <p class="last-updated">{{ _('Last updated') }}: {{ _('April 22, 2025') }}</p>
+                    <p class="last-updated">{{ _('Last updated') }}: {{ _('Last updated privacy policy') }}</p>
                     
                     <div class="section-block">
                         <h2>1. {{ _('Introduction') }}</h2>
@@ -75,17 +80,55 @@
                     </div>
 
                     <div class="section-block">
-                        <h2>5. {{ _('Log Files') }}</h2>
+                        <h2>5. {{ _('Legal Basis for Processing (GDPR)') }}</h2>
+                        <p>{{ _('Legal Basis p1') }}</p>
+                        <ul class="policy-list">
+                            <li><strong>{{ _('Consent') }}:</strong> {{ _('Legal Basis Consent') }}</li>
+                            <li><strong>{{ _('Contract Performance') }}:</strong> {{ _('Legal Basis Contract') }}</li>
+                            <li><strong>{{ _('Legal Obligations') }}:</strong> {{ _('Legal Basis Obligations') }}</li>
+                            <li><strong>{{ _('Legitimate Interests') }}:</strong> {{ _('Legal Basis Legitimate') }}</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>6. {{ _('Data Retention Period') }}</h2>
+                        <p>{{ _('Data Retention p1') }}</p>
+                        <ul class="policy-list">
+                            <li><strong>{{ _('Account Information') }}:</strong> {{ _('Data Retention Account') }}</li>
+                            <li><strong>{{ _('Usage Data') }}:</strong> {{ _('Data Retention Usage') }}</li>
+                            <li><strong>{{ _('Custom Prompts') }}:</strong> {{ _('Data Retention Prompts') }}</li>
+                            <li><strong>{{ _('Communications') }}:</strong> {{ _('Data Retention Communications') }}</li>
+                        </ul>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>7. {{ _('International Data Transfers') }}</h2>
+                        <p>{{ _('International Transfers p1') }}</p>
+                        <p>{{ _('International Transfers p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>8. {{ _('Log Files') }}</h2>
                         <p>{{ _('Log Files p1') }}</p>
                     </div>
 
                     <div class="section-block">
-                        <h2>6. {{ _('Cookies and Web Beacons') }}</h2>
+                        <h2>9. {{ _('Cookies and Web Beacons') }}</h2>
                         <p>{{ _('Cookies and Web Beacons p1') }}</p>
+                        <h3>{{ _('Types of Cookies We Use') }}</h3>
+                        <p></p>
+                        <ul class="policy-list">
+                            <li><strong>{{ _('Essential Cookies') }}:</strong> {{ _('Cookies Essential') }}</li>
+                            <li><strong>{{ _('Functional Cookies') }}:</strong> {{ _('Cookies Functional') }}</li>
+                            <li><strong>{{ _('Analytical Cookies') }}:</strong> {{ _('Cookies Analytical') }}</li>
+                            <li><strong>{{ _('Marketing Cookies') }}:</strong> {{ _('Cookies Marketing') }}</li>
+                        </ul>
+                        <p>{{ _('Cookies Management p1') }}</p>
+                        <p>{{ _('Manage Cookie Settings') }}</a></p>
                     </div>
 
                     <div class="section-block">
-                        <h2>7. {{ _('Third-Party Services') }}</h2>
+                        <h2>10. {{ _('Third-Party Services') }}</h2>
                         <p>{{ _('Third-Party Services p1') }}</p>
                         <ul class="policy-list">
                             <li>{{ _('Third-Party Point1') }}</li>
@@ -97,28 +140,54 @@
                     </div>
 
                     <div class="section-block">
-                        <h2>8. {{ _('AI Providers') }}</h2>
+                        <h2>11. {{ _('AI Providers') }}</h2>
                         <p>{{ _('AI Providers p1') }}</p>
                         <p>{{ _('AI Providers p2') }}</p>
                     </div>
 
                     <div class="section-block">
-                        <h2>9. {{ _('Security') }}</h2>
+                        <h2>12. {{ _('Security') }}</h2>
                         <p>{{ _('Security p1') }}</p>
                     </div>
 
                     <div class="section-block">
-                        <h2>10. {{ _('Children\'s Privacy') }}</h2>
+                        <h2>13. {{ _('Data Breach Notifications') }}</h2>
+                        <p>{{ _('Data Breach p1') }}</p>
+                        <p>{{ _('Data Breach p2') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>14. {{ _('Children\'s Privacy') }}</h2>
                         <p>{{ _('Children\'s Privacy p1') }}</p>
                     </div>
 
                     <div class="section-block">
-                        <h2>11. {{ _('Changes to This Privacy Policy') }}</h2>
+                        <h2>15. {{ _('Automated Decision Making') }}</h2>
+                        <p>{{ _('Automated Decision p1') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>16. {{ _('Additional Rights Based on Location') }}</h2>
+                        <h3>{{ _('California Consumer Privacy Act (CCPA)') }}</h3>
+                        <p>{{ _('CCPA p1') }}</p>
+                        <ul class="policy-list">
+                            <li>{{ _('CCPA Right1') }}</li>
+                            <li>{{ _('CCPA Right2') }}</li>
+                            <li>{{ _('CCPA Right3') }}</li>
+                            <li>{{ _('CCPA Right4') }}</li>
+                        </ul>
+
+                        <h3>{{ _('Other Jurisdictions') }}</h3>
+                        <p>{{ _('Other Jurisdictions p1') }}</p>
+                    </div>
+
+                    <div class="section-block">
+                        <h2>17. {{ _('Changes to This Privacy Policy') }}</h2>
                         <p>{{ _('Changes to This Privacy Policy p1') }}</p>
                     </div>
 
                     <div class="section-block">
-                        <h2>12. {{ _('Your Rights') }}</h2>
+                        <h2>18. {{ _('Your Rights Under GDPR') }}</h2>
                         <p>{{ _('Your Rights p1') }}</p>
                         <ul class="policy-list">
                             <li>{{ _('Rights Point1') }}</li>
@@ -128,10 +197,12 @@
                             <li>{{ _('Rights Point5') }}</li>
                             <li>{{ _('Rights Point6') }}</li>
                         </ul>
+                        <p>{{ _('Exercise Rights p1') }}</p>
+                        <p>{{ _('Exercise Rights p2') }}</p>
                     </div>
                     
                     <div class="section-block">
-                        <h2>13. {{ _('Contact Us') }}</h2>
+                        <h2>19. {{ _('Contact Us') }}</h2>
                         <p>{{ _('Contact Us Policy p1') }}</p>
                         <p><a href="mailto:privacy@updateme.dev" class="contact-link">privacy@updateme.dev</a></p>
                     </div>

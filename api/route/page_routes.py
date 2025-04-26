@@ -11,6 +11,7 @@ from flask import (
 from flask_babel import gettext as _
 from api.database import users_collection, db
 from api.auth import login_required
+from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt
 
 # Crear el blueprint para las rutas de página
 page_bp = Blueprint('page', __name__)
@@ -116,7 +117,6 @@ def dashboard():
     """
     Ruta para la página del panel de control del usuario
     """
-    from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt
     
     # Obtener idioma actual
     language = g.user.get("language", "es")
@@ -137,3 +137,17 @@ def dashboard():
         user_prompts=user_prompts,
         default_prompts=default_prompts
     )
+
+@page_bp.route("/pricing")
+def pricing():
+    """
+    Renderiza la página de precios.
+    """
+    title = _('UpdateMe - Pricing')
+    # Metadatos SEO para la página de precios
+    meta = {
+        'meta_description': _('Conoce nuestros planes y precios para recibir resúmenes semanales de tecnología e IA. Escoge el que mejor se adapte a ti.'),
+        'meta_keywords': 'precios, planes, suscripción, newsletter tecnología, IA',
+        'canonical_url': url_for('main.page.pricing', _external=True),
+    }
+    return render_template('pricing.html', title=title, **meta)

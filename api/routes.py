@@ -14,13 +14,11 @@ from api.route.subscribe_routes import subscribe_bp
 from api.route.translations_routes import translations_bp
 from api.route.register_routes import register_bp
 from api.route.login_routes import login_bp
+from api.route.subscription_routes import subscription_routes  # nuevo: importar rutas de suscripción
 
 # Blueprint principal 
 # Importante: configuramos url_prefix='/' para que no afecte a las rutas base
 main_bp = Blueprint('main', __name__, url_prefix='/')
-
-# Blueprint para APIs
-api_bp = Blueprint('api', __name__, url_prefix='/api')
 
 # Registrar todos los blueprints en el principal
 main_bp.register_blueprint(page_bp)
@@ -29,16 +27,16 @@ main_bp.register_blueprint(translations_bp)
 main_bp.register_blueprint(register_bp)
 main_bp.register_blueprint(login_bp)
 
+# Blueprint para APIs
+api_bp = Blueprint('api', __name__, url_prefix='/api')
+
+# nuevo: registrar rutas de Stripe bajo api_bp para /api/subscription
+api_bp.register_blueprint(subscription_routes)
+
 # Función para registrar los blueprints en la aplicación Flask
 def register_routes(app):
     app.register_blueprint(main_bp)
     app.register_blueprint(api_bp)
-
-# Registrar blueprints en api_bp si es necesario
-# api_bp.register_blueprint(login_bp)
-# api_bp.register_blueprint(register_bp)
-# api_bp.register_blueprint(subscribe_bp)
-# api_bp.register_blueprint(translations_bp)
 
 @api_bp.route('/user/preferences', methods=['POST'])
 @login_required
@@ -46,6 +44,10 @@ def update_user_preferences():
     """
     Actualiza las preferencias del usuario
     """
+    # Restringir a usuarios free
+    if g.user.get("role") == "free":
+        return jsonify({"success": False, "message": _("This feature is only available for premium users.")}), 403
+
     data = request.get_json()
     allowed_fields = ['language', 'ai_provider', 'search_provider']
     
@@ -71,6 +73,11 @@ def update_user_prompts():
     """
     Actualiza los prompts personalizados del usuario y las configuraciones de búsqueda web
     """
+
+    # Restringir a usuarios free
+    if g.user.get("role") == "free":
+        return jsonify({"success": False, "message": _("premiumUserOnly")}), 403
+
     data = request.get_json()
     allowed_fields = [
         'openai_prompt', 'groq_prompt', 'deepseek_prompt', 
