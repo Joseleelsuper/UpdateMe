@@ -11,8 +11,8 @@ from models.stripe_customer import StripeCustomer
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 
 # Product IDs
-MONTHLY_PRODUCT_ID = 'prod_SC6np0Ybk3KOsL'
-YEARLY_PRODUCT_ID = 'prod_SC6oJcLbZURkYW'
+MONTHLY_PRODUCT_ID = os.environ.get('STRIPE_MONTHLY_PRODUCT_ID')
+YEARLY_PRODUCT_ID = os.environ.get('STRIPE_YEARLY_PRODUCT_ID')
 
 # Collection for storing Stripe customers
 stripe_customers = db['stripe_customers']
@@ -20,6 +20,9 @@ subscriptions_collection = db['subscription']
 
 def get_subscription_prices() -> Dict[str, Optional[Dict[str, Any]]]:
     """Get the current prices for subscription plans."""
+    # Ensure product IDs are set
+    if MONTHLY_PRODUCT_ID is None or YEARLY_PRODUCT_ID is None:
+        raise ValueError("Stripe product IDs are not set in environment variables.")
     # Fetch prices for our products
     monthly_prices = stripe.Price.list(product=MONTHLY_PRODUCT_ID)
     yearly_prices = stripe.Price.list(product=YEARLY_PRODUCT_ID)
