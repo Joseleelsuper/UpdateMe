@@ -32,7 +32,7 @@ def get_prices():
 def checkout():
     """Create a checkout session for subscription."""
     try:
-        data = request.json
+        data = request.get_json(silent=True) or {}
         price_id = data.get('priceId')
         
         if not price_id:
@@ -56,6 +56,8 @@ def checkout():
 def checkout_success():
     """Handle successful checkout: update user role and redirect to dashboard."""
     session_id = request.args.get('session_id')
+    if not session_id:
+        return jsonify({'success': False, 'error': 'Missing session_id parameter'}), 400
     try:
         # Retrieve the Stripe checkout session and process subscription
         checkout_session = stripe.checkout.Session.retrieve(session_id, expand=['subscription'])
@@ -110,6 +112,8 @@ def stripe_webhook():
         else:
             # For development without webhook signing
             data = request.json
+            if not data or 'data' not in data or 'type' not in data:
+                return jsonify({'status': 'error', 'message': 'Invalid webhook payload'}), 400
             event_data = data['data']
             event_type = data['type']
         

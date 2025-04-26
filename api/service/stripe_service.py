@@ -158,7 +158,7 @@ def handle_checkout_session_completed(event_data):
         items = sub.items.data if hasattr(sub, 'items') and sub.items and hasattr(sub.items, 'data') else []
         plan = items[0].plan if items else None
         interval = getattr(plan, 'interval', 'monthly')
-        price_amount = (plan.amount / 100) if plan and getattr(plan, 'amount', None) is not None else 0
+        price_amount = (plan.amount / 100) if plan and hasattr(plan, 'amount') and plan.amount is not None else 0
         # Period dates
         start = datetime.fromtimestamp(getattr(sub, 'current_period_start', 0))
         end = datetime.fromtimestamp(getattr(sub, 'current_period_end', 0))
