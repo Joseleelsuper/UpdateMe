@@ -278,6 +278,12 @@ msgstr "Are you sure you want to reset all prompts to default values?"
 msgid "openaiSearchDisabled"
 msgstr "OpenAI uses its own integrated search provider, it is not possible to change this option."
 
+msgid "Reset"
+msgstr "Reset"
+
+msgid "Cancel"
+msgstr "Cancel"
+
 # Search provider configuration translations
 msgid "Search Provider Configuration"
 msgstr "Search Provider Configuration"
@@ -1243,3 +1249,6 @@ msgstr "To exercise any of your rights, you may email us at privacy@updateme.dev
 
 msgid "Exercise Rights p2"
 msgstr "We respond to all requests we receive from individuals wishing to exercise their data protection rights in accordance with applicable data protection laws. The response timeframe is generally one month but may be extended by up to two additional months when necessary, taking into account the complexity and number of requests."
+
+msgid "premiumUserOnly"
+msgstr "This feature is only available for premium users."

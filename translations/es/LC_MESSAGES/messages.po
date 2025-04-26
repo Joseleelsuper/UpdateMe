@@ -86,6 +86,12 @@ msgstr "Los datos proporcionados no son válidos."
 msgid "Payment is required to access this feature."
 msgstr "Se requiere pago para acceder a esta función."
 
+msgid "Reset"
+msgstr "Restablecer"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
 # Registro page translations
 msgid "title_register_page"
 msgstr "UpdateMe - Registro"
@@ -1285,3 +1291,6 @@ msgstr "Para ejercer cualquiera de sus derechos, puede enviarnos un correo elect
 
 msgid "Exercise Rights p2"
 msgstr "Respondemos a todas las solicitudes que recibimos de personas que desean ejercer sus derechos de protección de datos de acuerdo con las leyes de protección de datos aplicables. El plazo de respuesta es generalmente de un mes, pero puede extenderse hasta dos meses adicionales cuando sea necesario, teniendo en cuenta la complejidad y el número de solicitudes."
+
+msgid "premiumUserOnly"
+msgstr "Esta función solo está disponible para usuarios premium."
