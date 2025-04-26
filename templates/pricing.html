@@ -11,6 +11,15 @@
 
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/pricing.css') }}">
+    
+    <!-- Stripe configuration -->
+    <meta name="stripe-public-key" content="{{ stripe_public_key }}">
+    <meta name="user-logged-in" content="{{ 'true' if 'user_id' in session else 'false' }}">
+    <script type="module" src="{{ url_for('static', filename='js/subscription.js') }}"></script>
+    <script>
+        // URL for login redirection if needed
+        const loginUrl = "{{ url_for('main.page.login') }}";
+    </script>
 </head>
 
 <body>
@@ -81,7 +90,7 @@
                             </ul>
                         </div>
                         <div class="pricing-card-footer">
-                            <a href="{{ url_for('main.page.dashboard') if 'user_id' in session else url_for('main.register.register_user') }}" class="btn-primary">{{ _('pricing.subscribe_now') }}</a>
+                            <button class="btn-primary subscribe-monthly">{{ _('pricing.subscribe_now') }}</button>
                         </div>
                     </div>
 
@@ -112,7 +121,7 @@
                             </ul>
                         </div>
                         <div class="pricing-card-footer">
-                            <a href="{{ url_for('main.page.dashboard') if 'user_id' in session else url_for('main.register.register_user') }}" class="btn-primary">{{ _('pricing.subscribe_save') }}</a>
+                            <button class="btn-primary subscribe-yearly">{{ _('pricing.subscribe_save') }}</button>
                         </div>
                     </div>
                 </div>

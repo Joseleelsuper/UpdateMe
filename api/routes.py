@@ -14,13 +14,11 @@ from api.route.subscribe_routes import subscribe_bp
 from api.route.translations_routes import translations_bp
 from api.route.register_routes import register_bp
 from api.route.login_routes import login_bp
+from api.route.subscription_routes import subscription_routes  # nuevo: importar rutas de suscripción
 
 # Blueprint principal 
 # Importante: configuramos url_prefix='/' para que no afecte a las rutas base
 main_bp = Blueprint('main', __name__, url_prefix='/')
-
-# Blueprint para APIs
-api_bp = Blueprint('api', __name__, url_prefix='/api')
 
 # Registrar todos los blueprints en el principal
 main_bp.register_blueprint(page_bp)
@@ -28,6 +26,12 @@ main_bp.register_blueprint(subscribe_bp)
 main_bp.register_blueprint(translations_bp)
 main_bp.register_blueprint(register_bp)
 main_bp.register_blueprint(login_bp)
+
+# Blueprint para APIs
+api_bp = Blueprint('api', __name__, url_prefix='/api')
+
+# nuevo: registrar rutas de Stripe bajo api_bp para /api/subscription
+api_bp.register_blueprint(subscription_routes)
 
 # Función para registrar los blueprints en la aplicación Flask
 def register_routes(app):
