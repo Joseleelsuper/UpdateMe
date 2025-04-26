@@ -1,59 +1,78 @@
-{% extends "components/baseTemplate.html" %}
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
 
-{% block title %}{{ _('Subscription Successful') }} - UpdateMe{% endblock %}
-
-{% block content %}
-<main>
-    <div class="container">
-        <section class="subscription-result">
-            <div class="subscription-message success">
-                <div class="icon-container">
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <h1>{{ _('Thank you for subscribing!') }}</h1>
-                <p>{{ _('Your subscription has been processed successfully.') }}</p>
-                <p>{{ _('You now have full access to all premium features.') }}</p>
-                
-                <div class="action-buttons">
-                    <a href="{{ url_for('main.page.dashboard') }}" class="btn-primary">{{ _('Go to Dashboard') }}</a>
-                    <button id="manage-subscription" class="btn-secondary">{{ _('Manage Subscription') }}</button>
-                </div>
-            </div>
-        </section>
-    </div>
-</main>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const sessionId = "{{ session_id }}";
-    const manageSubscriptionBtn = document.getElementById('manage-subscription');
+<head>
+    {% include 'components/seo-meta.html' %}
     
-    manageSubscriptionBtn.addEventListener('click', async function() {
-        try {
-            const response = await fetch('/api/subscription/portal', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ session_id: sessionId })
-            });
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/subscriptions.css') }}">
+    
+    <title>{{ _('Subscription Successful') }} - UpdateMe</title>
+</head>
+
+<body>
+    {% if 'user_id' in session %}
+        {% from 'components/headerLogued.html' import headerLogued %}
+        {{ headerLogued() }}
+    {% else %}
+        {% from 'components/header.html' import header %}
+        {{ header() }}
+    {% endif %}
+
+    <main>
+        <div class="subscription-message">
+            <h1>{{ _('Thank you for subscribing!') }}</h1>
+            <p>{{ _('Your subscription has been processed successfully.') }}</p>
+            <p>{{ _('You now have full access to all premium features.') }}</p>
             
-            const data = await response.json();
-            if (data.success) {
-                window.location.href = data.portalUrl;
-            } else {
+            <div class="action-buttons">
+                <a href="{{ url_for('main.page.dashboard') }}">{{ _('Go to Dashboard') }}</a>
+                <button id="manage-subscription">{{ _('Manage Subscription') }}</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sessionId = "{{ session_id }}";
+        const manageSubscriptionBtn = document.getElementById('manage-subscription');
+        
+        manageSubscriptionBtn.addEventListener('click', async function() {
+            try {
+                const response = await fetch('/api/subscription/portal', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ session_id: sessionId })
+                });
+                
+                const data = await response.json();
+                if (data.success) {
+                    window.location.href = data.portalUrl;
+                } else {
+                    // Show error using toast
+                    import('/static/js/utils/toasts.js').then(module => {
+                        module.toast.error(data.error || 'Error creating portal session');
+                    });
+                }
+            } catch (error) {
                 // Show error using toast
                 import('/static/js/utils/toasts.js').then(module => {
-                    module.toast.error(data.error || 'Error creating portal session');
+                    module.toast.error('Error connecting to server');
                 });
             }
-        } catch (error) {
-            // Show error using toast
-            import('/static/js/utils/toasts.js').then(module => {
-                module.toast.error('Error connecting to server');
-            });
-        }
+        });
     });
-});
-</script>
-{% endblock %}
+    </script>
+
+    {% from 'components/footer.html' import footer %}
+    {{ footer() }}
+</body>
+
+</html>
