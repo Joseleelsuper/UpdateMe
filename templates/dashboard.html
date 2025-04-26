@@ -53,31 +53,37 @@
                 </section>
                 
                 <!-- AI Provider selection -->
-                <section class="dashboard-card ai-provider">
+                <section class="dashboard-card ai-provider{% if user.role == 'free' %} disabled{% endif %}">
+                    {% if user.role == 'free' %}
+                    <p class="premium-only-msg">{{ _('This feature is only available for premium users.') }}</p>
+                    {% endif %}
                     <h2>{{ _('AI Provider') }}</h2>
                     <p>{{ _('Select your preferred AI provider for content generation') }}</p>
                     <div class="provider-selection">
-                        <div class="provider-option {% if user.ai_provider == 'openai' %}selected{% endif %}" data-provider="openai">
+                        <div class="provider-option {% if user.ai_provider == 'openai' %}selected{% endif %}{% if user.role == 'free' %} disabled{% endif %}" data-provider="openai" {% if user.role == 'free' %}aria-disabled="true"{% endif %}>
                             <span class="provider-name">OpenAI</span>
                         </div>
-                        <div class="provider-option {% if user.ai_provider == 'groq' %}selected{% endif %}" data-provider="groq">
+                        <div class="provider-option {% if user.ai_provider == 'groq' %}selected{% endif %}{% if user.role == 'free' %} disabled{% endif %}" data-provider="groq" {% if user.role == 'free' %}aria-disabled="true"{% endif %}>
                             <span class="provider-name">Groq</span>
                         </div>
-                        <div class="provider-option {% if user.ai_provider == 'deepseek' %}selected{% endif %}" data-provider="deepseek">
+                        <div class="provider-option {% if user.ai_provider == 'deepseek' %}selected{% endif %}{% if user.role == 'free' %} disabled{% endif %}" data-provider="deepseek" {% if user.role == 'free' %}aria-disabled="true"{% endif %}>
                             <span class="provider-name">DeepSeek</span>
                         </div>
                     </div>
                 </section>
                 
                 <!-- Search Provider selection -->
-                <section class="dashboard-card search-provider {% if user.ai_provider == 'openai' %}disabled{% endif %}">
+                <section class="dashboard-card search-provider">
+                    {% if user.role == 'free' %}
+                    <p class="premium-only-msg">{{ _('This feature is only available for premium users.') }}</p>
+                    {% endif %}
                     <h2>{{ _('Search Provider') }}</h2>
                     <p>{{ _('Select your preferred search provider for web searches') }}</p>
                     <div class="provider-selection">
-                        <div class="provider-option {% if user.search_provider == 'serpapi' %}selected{% endif %} {% if user.ai_provider == 'openai' %}disabled{% endif %}" data-provider="serpapi">
+                        <div class="provider-option {% if user.search_provider == 'serpapi' %}selected{% endif %} {% if user.ai_provider == 'openai' %}disabled{% endif %}{% if user.role == 'free' %} disabled{% endif %}" data-provider="serpapi" {% if user.role == 'free' %}aria-disabled="true"{% endif %}>
                             <span class="provider-name">SerpAPI</span>
                         </div>
-                        <div class="provider-option {% if user.search_provider == 'tavily' %}selected{% endif %} {% if user.ai_provider == 'openai' %}disabled{% endif %}" data-provider="tavily">
+                        <div class="provider-option {% if user.search_provider == 'tavily' %}selected{% endif %} {% if user.ai_provider == 'openai' %}disabled{% endif %}{% if user.role == 'free' %} disabled{% endif %}" data-provider="tavily" {% if user.role == 'free' %}aria-disabled="true"{% endif %}>
                             <span class="provider-name">Tavily</span>
                         </div>
                     </div>
@@ -90,10 +96,12 @@
             </div>
             
             <!-- Prompts customization -->
-            <section class="prompts-section">
+            <section class="prompts-section{% if user.role == 'free' %} disabled{% endif %}">
+                {% if user.role == 'free' %}
+                <p class="premium-only-msg">{{ _('This feature is only available for premium users.') }}</p>
+                {% endif %}
                 <h2>{{ _('Customize Prompts') }}</h2>
                 <p>{{ _('Personalize the prompts used by AI providers to generate content tailored to your preferences.') }}</p>
-                
                 <div class="prompt-tabs">
                     <div class="tab-headers">
                         <button class="tab-header active" data-tab="openai-tab">OpenAI</button>
@@ -102,32 +110,31 @@
                         <button class="tab-header" data-tab="tavily-tab">Tavily</button>
                         <button class="tab-header" data-tab="serpapi-tab">SerpAPI</button>
                     </div>
-                    
                     <div class="tab-content">
                         <div id="openai-tab" class="tab-pane active">
-                            <textarea id="openai-prompt" placeholder="{{ _('Enter your custom prompt for OpenAI...') }}">{{ user_prompts.openai_prompt or default_prompts.news_summary }}</textarea>
+                            <textarea id="openai-prompt" placeholder="{{ _('Enter your custom prompt for OpenAI...') }}" {% if user.role == 'free' %}disabled{% endif %}>{{ user_prompts.openai_prompt or default_prompts.news_summary }}</textarea>
                         </div>
                         <div id="groq-tab" class="tab-pane">
-                            <textarea id="groq-prompt" placeholder="{{ _('Enter your custom prompt for Groq...') }}">{{ user_prompts.groq_prompt or default_prompts.news_summary }}</textarea>
+                            <textarea id="groq-prompt" placeholder="{{ _('Enter your custom prompt for Groq...') }}" {% if user.role == 'free' %}disabled{% endif %}>{{ user_prompts.groq_prompt or default_prompts.news_summary }}</textarea>
                         </div>
                         <div id="deepseek-tab" class="tab-pane">
-                            <textarea id="deepseek-prompt" placeholder="{{ _('Enter your custom prompt for DeepSeek...') }}">{{ user_prompts.deepseek_prompt or default_prompts.news_summary }}</textarea>
+                            <textarea id="deepseek-prompt" placeholder="{{ _('Enter your custom prompt for DeepSeek...') }}" {% if user.role == 'free' %}disabled{% endif %}>{{ user_prompts.deepseek_prompt or default_prompts.news_summary }}</textarea>
                         </div>
                         <div id="tavily-tab" class="tab-pane">
                             <div class="search-config-grid">
                                 <div class="search-config-prompt">
                                     <label for="tavily-prompt">{{ _('Processing Prompt') }}</label>
-                                    <textarea id="tavily-prompt" placeholder="{{ _('Enter your custom prompt for Tavily...') }}">{{ user_prompts.tavily_prompt or default_prompts.web_search }}</textarea>
+                                    <textarea id="tavily-prompt" placeholder="{{ _('Enter your custom prompt for Tavily...') }}" {% if user.role == 'free' %}disabled{% endif %}>{{ user_prompts.tavily_prompt or default_prompts.web_search }}</textarea>
                                 </div>
                                 <div class="search-config-settings">
                                     <h3>{{ _('Search Settings') }}</h3>
                                     <div class="config-field">
                                         <label for="tavily-max-results">{{ _('Maximum Results') }}</label>
-                                        <input type="number" id="tavily-max-results" min="1" max="20" value="{{ user_prompts.tavily_config.max_results if user_prompts.tavily_config and user_prompts.tavily_config.max_results else 5 }}">
+                                        <input type="number" id="tavily-max-results" min="1" max="20" value="{{ user_prompts.tavily_config.max_results if user_prompts.tavily_config and user_prompts.tavily_config.max_results else 5 }}" {% if user.role == 'free' %}disabled{% endif %}>
                                     </div>
                                     <div class="config-field">
                                         <label for="tavily-topic">{{ _('Search Topic') }}</label>
-                                        <select id="tavily-topic">
+                                        <select id="tavily-topic" {% if user.role == 'free' %}disabled{% endif %}>
                                             <option value="news" {% if user_prompts.tavily_config and user_prompts.tavily_config.topic == 'news' %}selected{% endif %}>{{ _('News') }}</option>
                                             <option value="general" {% if user_prompts.tavily_config and user_prompts.tavily_config.topic == 'general' %}selected{% endif %}>{{ _('General') }}</option>
                                             <option value="academic" {% if user_prompts.tavily_config and user_prompts.tavily_config.topic == 'academic' %}selected{% endif %}>{{ _('Academic') }}</option>
@@ -135,7 +142,7 @@
                                     </div>
                                     <div class="config-field">
                                         <label for="tavily-search-depth">{{ _('Search Depth') }}</label>
-                                        <select id="tavily-search-depth">
+                                        <select id="tavily-search-depth" {% if user.role == 'free' %}disabled{% endif %}>
                                             <option value="basic" {% if user_prompts.tavily_config and user_prompts.tavily_config.search_depth == 'basic' %}selected{% endif %}>{{ _('Basic') }}</option>
                                             <option value="moderate" {% if not user_prompts.tavily_config or not user_prompts.tavily_config.search_depth or user_prompts.tavily_config.search_depth == 'moderate' %}selected{% endif %}>{{ _('Moderate') }}</option>
                                             <option value="comprehensive" {% if user_prompts.tavily_config and user_prompts.tavily_config.search_depth == 'comprehensive' %}selected{% endif %}>{{ _('Comprehensive') }}</option>
@@ -143,7 +150,7 @@
                                     </div>
                                     <div class="config-field">
                                         <label for="tavily-time-range">{{ _('Time Range') }}</label>
-                                        <select id="tavily-time-range">
+                                        <select id="tavily-time-range" {% if user.role == 'free' %}disabled{% endif %}>
                                             <option value="day" {% if user_prompts.tavily_config and user_prompts.tavily_config.time_range == 'day' %}selected{% endif %}>{{ _('Last 24 hours') }}</option>
                                             <option value="week" {% if not user_prompts.tavily_config or not user_prompts.tavily_config.time_range or user_prompts.tavily_config.time_range == 'week' %}selected{% endif %}>{{ _('Last week') }}</option>
                                             <option value="month" {% if user_prompts.tavily_config and user_prompts.tavily_config.time_range == 'month' %}selected{% endif %}>{{ _('Last month') }}</option>
@@ -157,24 +164,24 @@
                             <div class="search-config-grid">
                                 <div class="search-config-prompt">
                                     <label for="serpapi-prompt">{{ _('Processing Prompt') }}</label>
-                                    <textarea id="serpapi-prompt" placeholder="{{ _('Enter your custom prompt for SerpAPI...') }}">{{ user_prompts.serpapi_prompt or default_prompts.web_search }}</textarea>
+                                    <textarea id="serpapi-prompt" placeholder="{{ _('Enter your custom prompt for SerpAPI...') }}" {% if user.role == 'free' %}disabled{% endif %}>{{ user_prompts.serpapi_prompt or default_prompts.web_search }}</textarea>
                                 </div>
                                 <div class="search-config-settings">
                                     <h3>{{ _('Search Settings') }}</h3>
                                     <div class="config-field">
                                         <label for="serpapi-max-results">{{ _('Maximum Results') }}</label>
-                                        <input type="number" id="serpapi-max-results" min="1" max="20" value="{{ user_prompts.serpapi_config.max_results if user_prompts.serpapi_config and user_prompts.serpapi_config.max_results else 5 }}">
+                                        <input type="number" id="serpapi-max-results" min="1" max="20" value="{{ user_prompts.serpapi_config.max_results if user_prompts.serpapi_config and user_prompts.serpapi_config.max_results else 5 }}" {% if user.role == 'free' %}disabled{% endif %}>
                                     </div>
                                     <div class="config-field">
                                         <label for="serpapi-search-type">{{ _('Search Type') }}</label>
-                                        <select id="serpapi-search-type">
+                                        <select id="serpapi-search-type" {% if user.role == 'free' %}disabled{% endif %}>
                                             <option value="news" {% if not user_prompts.serpapi_config or not user_prompts.serpapi_config.search_type or user_prompts.serpapi_config.search_type == 'news' %}selected{% endif %}>{{ _('News') }}</option>
                                             <option value="web" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.search_type == 'web' %}selected{% endif %}>{{ _('Web') }}</option>
                                         </select>
                                     </div>
                                     <div class="config-field">
                                         <label for="serpapi-safe-search">{{ _('Safe Search') }}</label>
-                                        <select id="serpapi-safe-search">
+                                        <select id="serpapi-safe-search" {% if user.role == 'free' %}disabled{% endif %}>
                                             <option value="off" {% if not user_prompts.serpapi_config or not user_prompts.serpapi_config.safe_search or user_prompts.serpapi_config.safe_search == 'off' %}selected{% endif %}>{{ _('Off') }}</option>
                                             <option value="medium" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.safe_search == 'medium' %}selected{% endif %}>{{ _('Medium') }}</option>
                                             <option value="high" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.safe_search == 'high' %}selected{% endif %}>{{ _('High') }}</option>
@@ -182,7 +189,7 @@
                                     </div>
                                     <div class="config-field">
                                         <label for="serpapi-time-range">{{ _('Time Range') }}</label>
-                                        <select id="serpapi-time-range">
+                                        <select id="serpapi-time-range" {% if user.role == 'free' %}disabled{% endif %}>
                                             <option value="day" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.time_range == 'day' %}selected{% endif %}>{{ _('Last 24 hours') }}</option>
                                             <option value="week" {% if not user_prompts.serpapi_config or not user_prompts.serpapi_config.time_range or user_prompts.serpapi_config.time_range == 'week' %}selected{% endif %}>{{ _('Last week') }}</option>
                                             <option value="month" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.time_range == 'month' %}selected{% endif %}>{{ _('Last month') }}</option>
@@ -193,7 +200,6 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="prompt-actions">
                         <button id="reset-prompts" class="btn-secondary">{{ _('Reset to Default') }}</button>
                         <button id="save-prompts" class="btn-primary">{{ _('Save Changes') }}</button>
@@ -205,6 +211,23 @@
 
     {% from 'components/footer.html' import footer %}
     {{ footer() }}
+    
+    <!-- Modal de confirmación para resetear prompts -->
+    <div id="reset-prompts-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>{{ _('Confirm Reset') }}</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>{{ _('confirmResetPrompts') }}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary modal-cancel">{{ _('Cancel') }}</button>
+                <button class="btn-primary modal-confirm">{{ _('Reset') }}</button>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
