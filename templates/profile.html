@@ -1,0 +1,233 @@
+{% from "components/headerLogued.html" import headerLogued %}
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('UpdateMe - Profile') }}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/profile.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
+    
+    <script type="module">
+        // Traducciones globales para JavaScript
+        window.translations = {
+            'profileUpdateSuccess': "{{ _('Profile updated successfully') }}",
+            'profileUpdateError': "{{ _('Error updating profile') }}",
+            'passwordChangeSuccess': "{{ _('Password changed successfully') }}",
+            'passwordChangeError': "{{ _('Error changing password') }}",
+            'passwordMismatch': "{{ _('Passwords do not match') }}",
+            'passwordWeak': "{{ _('Password is too weak') }}",
+            'accountDeactivationSuccess': "{{ _('Account deactivated successfully') }}",
+            'accountDeactivationError': "{{ _('Error deactivating account') }}",
+            'accountReactivationSuccess': "{{ _('Account reactivated successfully') }}",
+            'accountReactivationError': "{{ _('Error reactivating account') }}",
+            'accountDeletionSuccess': "{{ _('Account deleted successfully') }}",
+            'accountDeletionError': "{{ _('Error deleting account') }}",
+            'confirmDeactivation': "{{ _('Are you sure you want to deactivate your account?') }}",
+            'confirmReactivation': "{{ _('Are you sure you want to reactivate your account?') }}",
+            'confirmDeletion': "{{ _('Are you sure you want to delete your account? This action cannot be undone.') }}",
+            'connectionError': "{{ _('Connection error') }}"
+        };
+    </script>
+    <script type="module" src="{{ url_for('static', filename='js/profile.js') }}" defer></script>
+</head>
+
+<body>
+    {{ headerLogued() }}
+    
+    <main class="profile-container">
+        <div class="container">
+            <h1>{{ _('Profile Settings') }}</h1>
+            
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-button active" data-tab="profile-info">{{ _('Account Info') }}</button>
+                    <button class="tab-button" data-tab="password">{{ _('Change Password') }}</button>
+                    <button class="tab-button" data-tab="subscription">{{ _('Subscription') }}</button>
+                    <button class="tab-button danger" data-tab="account-actions">{{ _('Account Actions') }}</button>
+                </div>
+                
+                <div class="tabs-content">
+                    <!-- Tab: Información del perfil -->
+                    <div id="profile-info" class="tab-pane active">
+                        <h2>{{ _('Account Information') }}</h2>
+                        <form id="profile-form" class="settings-form">
+                            <div class="form-group">
+                                <label for="username">{{ _('Username') }}</label>
+                                <input type="text" id="username" name="username" value="{{ user.username }}" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">{{ _('Email') }}</label>
+                                <input type="email" id="email" name="email" value="{{ user.email }}" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="language">{{ _('Language') }}</label>
+                                <select id="language" name="language" class="form-select">
+                                    <option value="es" {% if user.language == 'es' %}selected{% endif %}>{{ _('Spanish') }}</option>
+                                    <option value="en" {% if user.language == 'en' %}selected{% endif %}>{{ _('English') }}</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">{{ _('Save Changes') }}</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Tab: Cambiar contraseña -->
+                    <div id="password" class="tab-pane">
+                        <h2>{{ _('Change Password') }}</h2>
+                        <form id="password-form" class="settings-form">
+                            <div class="form-group">
+                                <label for="current-password">{{ _('Current Password') }}</label>
+                                <input type="password" id="current-password" name="current-password" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label for="new-password">{{ _('New Password') }}</label>
+                                <input type="password" id="new-password" name="new-password" class="form-input">
+                                <div class="password-requirements">
+                                    <p>{{ _('Password must contain:') }}</p>
+                                    <ul>
+                                        <li id="req-length">{{ _('At least 6 characters') }}</li>
+                                        <li id="req-uppercase">{{ _('One uppercase letter') }}</li>
+                                        <li id="req-lowercase">{{ _('One lowercase letter') }}</li>
+                                        <li id="req-number">{{ _('One number') }}</li>
+                                        <li id="req-special">{{ _('One special character') }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">{{ _('Confirm Password') }}</label>
+                                <input type="password" id="confirm-password" name="confirm-password" class="form-input">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">{{ _('Update Password') }}</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Tab: Suscripción -->
+                    <div id="subscription" class="tab-pane">
+                        <h2>{{ _('Subscription Management') }}</h2>
+                        <div class="subscription-details">
+                            <div class="detail-item">
+                                <span class="detail-label">{{ _('Current Plan') }}:</span>
+                                <span class="detail-value">{{ _('Free Plan') if user.role == 'free' else _('Premium Plan') }}</span>
+                            </div>
+                            
+                            {% if user.role == 'free' %}
+                            <p class="subscription-message">{{ _('Upgrade to premium to unlock all features') }}</p>
+                            <div class="form-actions">
+                                <a href="/pricing" class="btn btn-primary">{{ _('View Plans') }}</a>
+                            </div>
+                            {% else %}
+                            <div class="detail-item">
+                                <span class="detail-label">{{ _('Status') }}:</span>
+                                <span class="detail-value">{{ _('Active') }}</span>
+                            </div>
+                            <div class="form-actions">
+                                <button id="manage-subscription-btn" class="btn btn-secondary">{{ _('Manage Subscription') }}</button>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <!-- Tab: Acciones de cuenta -->
+                    <div id="account-actions" class="tab-pane">
+                        <h2>{{ _('Account Actions') }}</h2>
+                        <div class="danger-zone">
+                            <div class="danger-action">
+                                {% if user.account_status == 'suspended' %}
+                                <h3>{{ _('Reactivate Account') }}</h3>
+                                <p>{{ _('Your account is currently deactivated. Reactivating will enable all features and you will start receiving emails again.') }}</p>
+                                <button id="reactivate-account-btn" class="btn btn-success">{{ _('Reactivate Account') }}</button>
+                                {% else %}
+                                <h3>{{ _('Deactivate Account') }}</h3>
+                                <p>{{ _('Deactivating your account will suspend all communication. You can reactivate it later by logging in.') }}</p>
+                                <button id="deactivate-account-btn" class="btn btn-warning">{{ _('Deactivate Account') }}</button>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="danger-action">
+                                <h3>{{ _('Delete Account Permanently') }}</h3>
+                                <p>{{ _('This will permanently delete all your data, including saved preferences, subscription information, and all account details. This action cannot be undone.') }}</p>
+                                <button id="delete-account-btn" class="btn btn-danger">{{ _('Delete My Account') }}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de confirmación para desactivar cuenta -->
+    <div id="deactivate-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>{{ _('Deactivate Account') }}</h3>
+                <span class="modal-close" id="close-deactivate-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>{{ _('Are you sure you want to deactivate your account?') }}</p>
+                <p>{{ _('Your account will be suspended and you will no longer receive emails from us.') }}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-deactivate">{{ _('Cancel') }}</button>
+                <button class="btn btn-warning" id="confirm-deactivate">{{ _('Deactivate') }}</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de confirmación para reactivar cuenta -->
+    <div id="reactivate-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>{{ _('Reactivate Account') }}</h3>
+                <span class="modal-close" id="close-reactivate-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>{{ _('Are you sure you want to reactivate your account?') }}</p>
+                <p>{{ _('Your account will be set to active and you will start receiving emails again.') }}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-reactivate">{{ _('Cancel') }}</button>
+                <button class="btn btn-success" id="confirm-reactivate">{{ _('Reactivate') }}</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de confirmación para eliminar cuenta -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>{{ _('Delete Account') }}</h3>
+                <span class="modal-close" id="close-delete-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>{{ _('This action cannot be undone.') }}</strong></p>
+                <p>{{ _('All your data will be permanently deleted, including:') }}</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>{{ _('Your profile information') }}</li>
+                    <li>{{ _('Custom prompts and settings') }}</li>
+                    <li>{{ _('Subscription and payment details') }}</li>
+                    <li>{{ _('Session history') }}</li>
+                </ul>
+                <p style="margin-top: 1rem;">{{ _('Are you absolutely sure you want to delete your account?') }}</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancel-delete">{{ _('Cancel') }}</button>
+                <button class="btn btn-danger" id="confirm-delete">{{ _('Delete Permanently') }}</button>
+            </div>
+        </div>
+    </div>
+
+    {% from 'components/footer.html' import footer %}
+    {{ footer() }}
+</body>
+</html>
