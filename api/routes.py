@@ -14,7 +14,8 @@ from api.route.subscribe_routes import subscribe_bp
 from api.route.translations_routes import translations_bp
 from api.route.register_routes import register_bp
 from api.route.login_routes import login_bp
-from api.route.subscription_routes import subscription_routes  # nuevo: importar rutas de suscripción
+from api.route.subscription_routes import subscription_routes  
+from api.route.profile_routes import profile_bp  # Importar el nuevo blueprint de perfil
 
 # Blueprint principal 
 # Importante: configuramos url_prefix='/' para que no afecte a las rutas base
@@ -26,6 +27,7 @@ main_bp.register_blueprint(subscribe_bp)
 main_bp.register_blueprint(translations_bp)
 main_bp.register_blueprint(register_bp)
 main_bp.register_blueprint(login_bp)
+main_bp.register_blueprint(profile_bp)  # Registrar el blueprint de perfil
 
 # Blueprint para APIs
 api_bp = Blueprint('api', __name__, url_prefix='/api')
