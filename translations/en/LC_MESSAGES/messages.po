@@ -1252,3 +1252,132 @@ msgstr "We respond to all requests we receive from individuals wishing to exerci
 
 msgid "premiumUserOnly"
 msgstr "This feature is only available for premium users."
+
+# Translations for profile page
+msgid "Profile Settings"
+msgstr "Profile Settings"
+
+msgid "Account Info"
+msgstr "Account Info"
+
+msgid "Change Password"
+msgstr "Change Password"
+
+msgid "Subscription Management"
+msgstr "Subscription Management"
+
+msgid "Account Actions"
+msgstr "Account Actions"
+
+msgid "Profile updated successfully"
+msgstr "Profile updated successfully"
+
+msgid "Error updating profile"
+msgstr "Error updating profile"
+
+msgid "Password changed successfully"
+msgstr "Password changed successfully"
+
+msgid "Error changing password"
+msgstr "Error changing password"
+
+msgid "Passwords do not match"
+msgstr "Passwords do not match"
+
+msgid "Password is too weak"
+msgstr "Password is too weak"
+
+msgid "Account deactivated successfully"
+msgstr "Account deactivated successfully"
+
+msgid "Error deactivating account"
+msgstr "Error deactivating account"
+
+msgid "Account reactivated successfully"
+msgstr "Account reactivated successfully"
+
+msgid "Error reactivating account"
+msgstr "Error reactivating account"
+
+msgid "Account deleted successfully"
+msgstr "Account deleted successfully"
+
+msgid "Error deleting account"
+msgstr "Error deleting account"
+
+msgid "Are you sure you want to deactivate your account?"
+msgstr "Are you sure you want to deactivate your account?"
+
+msgid "Are you sure you want to reactivate your account?"
+msgstr "Are you sure you want to reactivate your account?"
+
+msgid "Are you sure you want to delete your account? This action cannot be undone."
+msgstr "Are you sure you want to delete your account? This action cannot be undone."
+
+msgid "Connection error"
+msgstr "Connection error"
+
+# Translations for subscription pages
+msgid "Subscription Successful"
+msgstr "Subscription Successful"
+
+msgid "Thank you for subscribing!"
+msgstr "Thank you for subscribing!"
+
+msgid "Your subscription has been processed successfully."
+msgstr "Your subscription has been processed successfully."
+
+msgid "You now have full access to all premium features."
+msgstr "You now have full access to all premium features."
+
+msgid "Go to Dashboard"
+msgstr "Go to Dashboard"
+
+msgid "Manage Subscription"
+msgstr "Manage Subscription"
+
+msgid "Subscription Canceled"
+msgstr "Subscription Canceled"
+
+msgid "Subscription Checkout Canceled"
+msgstr "Subscription Checkout Canceled"
+
+msgid "You have canceled the subscription checkout process."
+msgstr "You have canceled the subscription checkout process."
+
+msgid "Don't worry, you can subscribe anytime you're ready."
+msgstr "Don't worry, you can subscribe anytime you're ready."
+
+msgid "Return to Dashboard"
+msgstr "Return to Dashboard"
+
+# Translations for account actions and deletion modal
+msgid "Deactivate Account"
+msgstr "Deactivate Account"
+
+msgid "Reactivate Account"
+msgstr "Reactivate Account"
+
+msgid "Delete Account"
+msgstr "Delete Account"
+
+msgid "Delete Permanently"
+msgstr "Delete Permanently"
+
+msgid "This action cannot be undone."
+msgstr "This action cannot be undone."
+
+msgid "All your data will be permanently deleted, including:"
+msgstr "All your data will be permanently deleted, including:"
+
+msgid "Your profile information"
+msgstr "Your profile information"
+
+msgid "Custom prompts and settings"
+msgstr "Custom prompts and settings"
+
+msgid "Subscription and payment details"
+msgstr "Subscription and payment details"
+
+msgid "Session history"
+msgstr "Session history"
