@@ -55,6 +55,9 @@ msgstr "Procesando..."
 msgid "Subscription successful! We have sent you a welcome email and you will receive your first summary shortly."
 msgstr "¡Suscripción exitosa! Te hemos enviado un correo de bienvenida y en breve recibirás tu primer resumen."
 
+msgid "No changes were made"
+msgstr "No se han hecho cambios"
+
 # Traducciones para mensajes de error y excepciones
 msgid "An unexpected error occurred. Please try again."
 msgstr "Ocurrió un error inesperado. Por favor, inténtalo de nuevo."
@@ -1097,7 +1100,7 @@ msgid "The Service and its original content (excluding content provided by users
 msgstr "El Servicio y su contenido original (excluyendo el contenido proporcionado por los usuarios), características y funcionalidades son y seguirán siendo propiedad exclusiva de UpdateMe y sus licenciantes. El Servicio está protegido por derechos de autor, marcas registradas y otras leyes de España y de países extranjeros."
 
 msgid "Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of UpdateMe."
-msgstr "Nuestras marcas registradas y presentación comercial no pueden ser utilizadas en relación con ningún producto o servicio sinel consentimiento previo por escrito de UpdateMe."
+msgstr "Nuestras marcasregistradas y presentación comercial no pueden ser utilizadas en relación con ningún producto o servicio sin el consentimiento previo por escrito de UpdateMe."
 
 msgid "Our Service may contain links to third-party websites or services that are not owned or controlled by UpdateMe."
 msgstr "Nuestro Servicio puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por UpdateMe."

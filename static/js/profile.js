@@ -113,12 +113,12 @@ document.addEventListener('DOMContentLoaded', async function() {
             
             // Validación básica
             if (!username) {
-                toast.error(window.translations.profileUpdateError || 'Username cannot be empty');
+                toast.warning(window.translations.profileUpdateError || 'Username cannot be empty');
                 return;
             }
             
             if (!email || !validateEmail(email)) {
-                toast.error(window.translations.profileUpdateError || 'Please enter a valid email');
+                toast.warning(window.translations.profileUpdateError || 'Please enter a valid email');
                 return;
             }
             
@@ -135,10 +135,23 @@ document.addEventListener('DOMContentLoaded', async function() {
                     })
                 });
                 
-                const data = await response.json();
+                // Manejar específicamente el código 304
+                if (response.status === 304) {
+                    toast.warning(window.translations.noChangesMade || 'No changes were made');
+                    return;
+                }
                 
-                if (data.success) {
-                    toast.success(window.translations.profileUpdateSuccess || 'Profile updated successfully');
+                // Para otros códigos, intentar obtener datos JSON
+                let data;
+                try {
+                    data = await response.json();
+                } catch (error) {
+                    console.error('Error parsing JSON:', error);
+                    data = {};
+                }
+                
+                if (response.ok && data.success) {
+                    toast.success(data.message || window.translations.profileUpdateSuccess || 'Profile updated successfully');
                     
                     // Si el idioma ha cambiado, recargar la página
                     const currentLanguage = document.getElementById('language').getAttribute('data-current');
