@@ -72,7 +72,8 @@ export function showToast(message, type = 'success', duration = 3000) {
 export const toast = {
     success: (message, duration = 3000) => showToast(message, 'success', duration),
     error: (message, duration = 3000) => showToast(message, 'error', duration),
-    warning: (message, duration = 3000) => showToast(message, 'warning', duration)
+    warning: (message, duration = 3000) => showToast(message, 'warning', duration),
+    info: (message, duration = 3000) => showToast(message, 'info', duration)
 };
 
 // Exportamos ambas formas de usar los toasts:

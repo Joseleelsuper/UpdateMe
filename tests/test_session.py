@@ -1,5 +1,5 @@
 from datetime import datetime
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 from conftest import TestBase
 import json
 import bcrypt
@@ -21,13 +21,11 @@ class TestRegister(TestBase):
         users_collection.delete_many({"email": {"$regex": "test.*@example.com"}})
 
     @patch('resend.Emails.send')
-    def test_successful_registration(self, mock_send_email):
-        """
-        GIVEN datos de registro válidos para un usuario nuevo
-        WHEN se envía una solicitud POST a /register
-        THEN se debe recibir una respuesta 200 OK, el usuario debe ser guardado
-             en la base de datos con la contraseña hasheada, y se deben enviar
-             dos correos (bienvenida y resumen)
+    def test_successful_registration(self, mock_send_email: MagicMock):
+        """Dados datos de registro válidos, se debe crear un nuevo usuario y enviar correos de bienvenida y resumen.
+
+        Args:
+            mock_send_email (MagicMock): Mock para la función de envío de correos.
         """
         # Configurar el mock para simular envío exitoso
         mock_send_email.return_value = {"id": "123456", "status": "success"}
@@ -67,12 +65,11 @@ class TestRegister(TestBase):
         self.assertEqual(mock_send_email.call_count, 2)
 
     @patch('resend.Emails.send')
-    def test_registration_existing_subscriber(self, mock_send_email):
-        """
-        GIVEN un usuario que ya existe como suscriptor (sin contraseña)
-        WHEN se envía una solicitud de registro con ese email
-        THEN se debe actualizar el usuario existente añadiendo username y password,
-             y no se deben enviar correos nuevamente
+    def test_registration_existing_subscriber(self, mock_send_email: MagicMock):
+        """Dados datos de registro válidos, se debe actualizar el usuario existente y no enviar correos.
+
+        Args:
+            mock_send_email (MagicMock): Mock para la función de envío de correos.
         """
         # Crear usuario de prueba (suscriptor sin contraseña)
         test_email = "testsubscriber@example.com"
@@ -120,11 +117,12 @@ class TestRegister(TestBase):
         mock_send_email.assert_not_called()
 
     @patch('resend.Emails.send')
-    def test_registration_existing_user(self, mock_send_email):
-        """
-        GIVEN un usuario que ya existe con contraseña
-        WHEN se envía una solicitud de registro con ese email
-        THEN se debe recibir un código 409 y no se debe modificar el usuario existente
+    def test_registration_existing_user(self, mock_send_email: MagicMock):
+        """Dados datos de registro válidos, se debe recibir un error 409 si el email ya existe.
+        Se debe verificar que el usuario no se modifique y que no se envíen correos.
+
+        Args:
+            mock_send_email (MagicMock): Mock para la función de envío de correos.
         """
         # Crear usuario de prueba (con contraseña)
         test_email = "testexisting@example.com"
@@ -171,10 +169,8 @@ class TestRegister(TestBase):
         mock_send_email.assert_not_called()
 
     def test_invalid_username_format(self):
-        """
-        GIVEN un nombre de usuario con formato inválido (caracteres no permitidos)
-        WHEN se envía una solicitud POST a /register
-        THEN se debe recibir un código 400 y el usuario no debe guardarse
+        """Dado un nombre de usuario con caracteres especiales no permitidos,
+        se debe recibir un error 400 y el usuario no debe guardarse.
         """
         # Probar con caracteres especiales no permitidos en el nombre de usuario
         register_data = {
@@ -200,10 +196,8 @@ class TestRegister(TestBase):
         self.assertIsNone(user)
 
     def test_invalid_email_format(self):
-        """
-        GIVEN un correo con formato inválido
-        WHEN se envía una solicitud POST a /register
-        THEN se debe recibir un código 400 y el usuario no debe guardarse
+        """Dado un email con formato inválido,
+        se debe recibir un error 400 y el usuario no debe guardarse.
         """
         register_data = {
             "username": "validuser",
@@ -228,10 +222,8 @@ class TestRegister(TestBase):
         self.assertIsNone(user)
 
     def test_password_too_short(self):
-        """
-        GIVEN una contraseña demasiado corta (menos de 6 caracteres)
-        WHEN se envía una solicitud POST a /register
-        THEN se debe recibir un código 400 y el usuario no debe guardarse
+        """Dado una contraseña demasiado corta (menos de 6 caracteres),
+        se debe recibir un error 400 y el usuario no debe guardarse.
         """
         register_data = {
             "username": "validuser",
@@ -256,10 +248,8 @@ class TestRegister(TestBase):
         self.assertIsNone(user)
 
     def test_password_no_uppercase(self):
-        """
-        GIVEN una contraseña sin letra mayúscula
-        WHEN se envía una solicitud POST a /register
-        THEN se debe recibir un código 400 y el usuario no debe guardarse
+        """Dado una contraseña sin letras mayúsculas,
+        se debe recibir un error 400 y el usuario no debe guardarse.
         """
         register_data = {
             "username": "validuser",
@@ -284,10 +274,8 @@ class TestRegister(TestBase):
         self.assertIsNone(user)
 
     def test_password_no_lowercase(self):
-        """
-        GIVEN una contraseña sin letras minúsculas
-        WHEN se envía una solicitud POST a /register
-        THEN se debe recibir un código 400 y el usuario no debe guardarse
+        """Dado una contraseña sin letras minúsculas,
+        se debe recibir un error 400 y el usuario no debe guardarse.
         """
         register_data = {
             "username": "validuser",
@@ -309,10 +297,8 @@ class TestRegister(TestBase):
         self.assertIsNone(user)
 
     def test_password_no_number(self):
-        """
-        GIVEN una contraseña sin números
-        WHEN se envía una solicitud POST a /register
-        THEN se debe recibir un código 400 y el usuario no debe guardarse
+        """Dado una contraseña sin números,
+        se debe recibir un error 400 y el usuario no debe guardarse.
         """
         register_data = {
             "username": "validuser",
@@ -334,10 +320,8 @@ class TestRegister(TestBase):
         self.assertIsNone(user)
 
     def test_password_no_special_char(self):
-        """
-        GIVEN una contraseña sin caracteres especiales
-        WHEN se envía una solicitud POST a /register
-        THEN se debe recibir un código 400 y el usuario no debe guardarse
+        """Dado una contraseña sin caracteres especiales,
+        se debe recibir un error 400 y el usuario no debe guardarse.
         """
         register_data = {
             "username": "validuser",
@@ -359,11 +343,12 @@ class TestRegister(TestBase):
         self.assertIsNone(user)
 
     @patch('resend.Emails.send')
-    def test_email_sending_failure(self, mock_send_email):
-        """
-        GIVEN datos de registro válidos
-        WHEN el servicio de envío de correo falla
-        THEN se debe recibir un código 500 y el usuario no debe guardarse
+    def test_email_sending_failure(self, mock_send_email: MagicMock):
+        """Dados datos de registro válidos, si ocurre un error al enviar el correo,
+        se debe recibir un error 500 y el usuario no debe guardarse.
+
+        Args:
+            mock_send_email (MagicMock): Mock para la función de envío de correos.
         """
         # Configurar el mock para simular un error de envío
         mock_send_email.side_effect = Exception("Error de envío simulado")
@@ -391,11 +376,11 @@ class TestRegister(TestBase):
         self.assertIsNone(user)
         
     @patch('api.service.user_services.create_user_document')
-    def test_database_error(self, mock_create_user):
-        """
-        GIVEN datos de registro válidos
-        WHEN ocurre un error al crear el documento de usuario
-        THEN se debe recibir un código 500 y el usuario no debe guardarse
+    def test_database_error(self, mock_create_user: MagicMock):
+        """Dados datos de registro válidos, si ocurre un error en la base de datos,
+
+        Args:
+            mock_create_user (MagicMock): Mock para la función de creación de usuario en la base de datos.
         """
         # Simular error en la creación del documento
         mock_create_user.side_effect = Exception("Error de base de datos simulado")
@@ -454,10 +439,8 @@ class TestLogin(TestBase):
         users_collection.delete_many({"email": {"$regex": "test.*@example.com"}})
 
     def test_successful_login(self):
-        """
-        GIVEN credenciales válidas para un usuario existente
-        WHEN se envía una solicitud POST a /login
-        THEN se debe recibir una respuesta 200 OK y un token JWT
+        """Dado un email y contraseña válidos,
+        se debe recibir un código 200 y un token JWT en la respuesta.
         """
         # Mock para crear_session
         with patch('api.route.login_routes.create_session') as mock_create_session:
@@ -500,10 +483,8 @@ class TestLogin(TestBase):
                 mock_create_session.assert_called_once_with(self.test_user_id)
 
     def test_login_wrong_password(self):
-        """
-        GIVEN un email válido pero contraseña incorrecta
-        WHEN se envía una solicitud POST a /login
-        THEN se debe recibir un código 401 y no se debe crear una sesión
+        """Dado un email y una contraseña incorrectos,
+        se debe recibir un código 401 y un mensaje de error adecuado.
         """
         login_data = {
             "email": self.test_email,
@@ -526,10 +507,8 @@ class TestLogin(TestBase):
             self.assertEqual(data['message'], 'Email or password incorrect.')
 
     def test_login_nonexistent_user(self):
-        """
-        GIVEN credenciales con un email que no existe en la base de datos
-        WHEN se envía una solicitud POST a /login
-        THEN se debe recibir un código 401 y no se debe crear una sesión
+        """Dado un email que no existe en la base de datos,
+        se debe recibir un código 401 y un mensaje de error adecuado.
         """
         login_data = {
             "email": "nonexistent@example.com",  # Email que no existe
@@ -553,9 +532,8 @@ class TestLogin(TestBase):
 
     def test_login_subscriber_no_password(self):
         """
-        GIVEN un usuario que solo es suscriptor (sin contraseña)
-        WHEN se envía una solicitud POST a /login
-        THEN se debe recibir un código 401 y no se debe crear una sesión
+        Dado un email de suscriptor sin contraseña,
+        se debe recibir un código 401 y un mensaje de error adecuado.
         """
         
         subscriber_email = "test_subscriber@example.com"
@@ -591,10 +569,8 @@ class TestLogin(TestBase):
             self.assertEqual(data['message'], 'Email or password incorrect.')
 
     def test_login_missing_fields(self):
-        """
-        GIVEN datos de login incompletos (falta email o contraseña)
-        WHEN se envía una solicitud POST a /login
-        THEN se debe recibir un código 400 y un mensaje de error adecuado
+        """Dado un email o contraseña faltantes,
+        se debe recibir un código 400 y un mensaje de error adecuado.
         """
         # Mock de _() para asegurar respuestas en inglés durante las pruebas
         with patch('api.route.login_routes._') as mock_gettext:
@@ -633,11 +609,12 @@ class TestLogin(TestBase):
             self.assertEqual(data['message'], 'Invalid request data.')
 
     @patch('bcrypt.checkpw')
-    def test_login_bcrypt_error(self, mock_checkpw):
-        """
-        GIVEN un error durante la verificación de la contraseña con bcrypt
-        WHEN se envía una solicitud POST a /login
-        THEN se debe recibir un código 500 y un mensaje de error adecuado
+    def test_login_bcrypt_error(self, mock_checkpw: MagicMock):
+        """Dado un error en bcrypt al verificar la contraseña,
+        se debe recibir un código 500 y un mensaje de error adecuado.
+
+        Args:
+            mock_checkpw (MagicMock): Mock para la poder verificar la contraseña.
         """
         # Simular un error en bcrypt.checkpw
         mock_checkpw.side_effect = Exception("Error de bcrypt simulado")
@@ -663,11 +640,7 @@ class TestLogin(TestBase):
             self.assertEqual(data['message'], 'An error occurred during login. Please try again.')
 
     def test_logout(self):
-        """
-        GIVEN un usuario con una sesión activa
-        WHEN se hace una solicitud GET a /logout
-        THEN la sesión debe ser invalidada y se debe redirigir a la página principal
-        """
+        """Dada una sesión activa, se debe recibir un código 200 y redirigir a la página de inicio."""
         with self.client.session_transaction() as flask_session:
             flask_session['user_id'] = str(ObjectId())
             flask_session['session_token'] = "test_session_token"

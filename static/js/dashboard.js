@@ -29,20 +29,28 @@ document.addEventListener('DOMContentLoaded', function() {
             premiumUserOnly: 'This feature is only available for premium users.'
         };
         
-        // Maneja los clics en las opciones de proveedor
+        // Detectar si el usuario es free
+        const isFreeUser = window.isFreeUser === true || window.isFreeUser === 'true';
+        
+        // Maneja los clics en las opciones de proveedor - SOLUCIÓN SIMPLIFICADA
         providerOptions.forEach(option => {
             option.addEventListener('click', function() {
-                // Primero, si el usuario es free, mostrar el toast premium y salir
-                if (isFreeUser) {
-                    toast.warning(translations.premiumUserOnly || 'Esta función solo está disponible para usuarios premium.');
+                const isPremiumFeature = option.closest('section').classList.contains('disabled') || 
+                                         !!option.closest('section').querySelector('.premium-only-msg');
+                                         
+                const isOpenAIDisabled = this.classList.contains('disabled') && 
+                                        option.closest('section').classList.contains('search-provider') && 
+                                        !isPremiumFeature;
+                
+                if (isPremiumFeature) {
+                    toast.warning(translations.premiumUserOnly);
                     return;
-                }
-                // Después, si el elemento está deshabilitado por OpenAI, mostrar ese toast
-                if (this.classList.contains('disabled')) {
+                } else if (isOpenAIDisabled) {
                     toast.warning(translations.openaiSearchDisabled);
                     return;
                 }
                 
+                // El resto del manejo de eventos continúa aquí
                 const parentSection = this.closest('section');
                 const providerType = parentSection.classList.contains('ai-provider') ? 'ai_provider' : 'search_provider';
                 const provider = this.dataset.provider;
@@ -74,8 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Detectar si el usuario es free
-        const isFreeUser = window.isFreeUser === true || window.isFreeUser === 'true';
         if (isFreeUser) {
             // Interceptar edición en textareas, inputs y selects de la sección de prompts
             const promptsSection = document.querySelector('.prompts-section.disabled');

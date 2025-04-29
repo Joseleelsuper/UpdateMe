@@ -10,12 +10,5 @@ class Prompts:
     deepseek_prompt: Optional[str] = None
     tavily_prompt: Optional[str] = None 
     serpapi_prompt: Optional[str] = None
-    
-    # Configuraciones adicionales para proveedores de búsqueda
     tavily_config: Optional[Dict[str, Any]] = None
     serpapi_config: Optional[Dict[str, Any]] = None
-    
-    def to_dict(self):
-        """Convert the dataclass to a dictionary for database storage"""
-        result = self.__dict__.copy()
-        return result

@@ -1,0 +1,319 @@
+@import url("../global.css");
+
+.profile-container {
+  padding: 2rem 0;
+  min-height: calc(100vh - 200px); /* Ajustar según altura del header/footer */
+}
+
+.profile-container h1 {
+  color: #3B82F6;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilos para las pestañas */
+.tabs-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.tabs-header {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.tab-button {
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #6B7280;
+  transition: all 0.2s ease;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.tab-button:hover {
+  color: #3B82F6;
+  background-color: #F9FAFB;
+}
+
+.tab-button.active {
+  color: #3B82F6;
+  border-bottom: 2px solid #3B82F6;
+  background-color: #F3F4F6;
+}
+
+.tab-button.danger {
+  color: #DC2626;
+}
+
+.tab-button.danger:hover {
+  color: #B91C1C;
+  background-color: #FEF2F2;
+}
+
+.tab-button.danger.active {
+  color: #B91C1C;
+  border-bottom: 2px solid #DC2626;
+  background-color: #FEF2F2;
+}
+
+.tabs-content {
+  padding: 1rem;
+}
+
+.tab-pane {
+  display: none;
+  padding: 1rem;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.tab-pane h2 {
+  color: #3B82F6;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilos del formulario */
+.settings-form {
+  max-width: 600px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #4B5563;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #1F2937;
+  transition: border 0.2s ease;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: #3B82F6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.form-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+/* Estilos de botones */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: var(--font-primary);
+}
+
+.btn-primary {
+  background-color: #3B82F6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2563EB;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  background-color: #E5E7EB;
+  color: #4B5563;
+}
+
+.btn-secondary:hover {
+  background-color: #D1D5DB;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-warning {
+  background-color: #FBBF24;
+  color: #7C2D12;
+}
+
+.btn-warning:hover {
+  background-color: #F59E0B;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger {
+  background-color: #EF4444;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #DC2626;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón para reactivar cuenta - Colores más atractivos */
+.btn-success {
+  background-color: #10B981;
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para requisitos de contraseña */
+.password-requirements {
+  background-color: #F3F4F6;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.password-requirements p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.password-requirements ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.password-requirements li {
+  margin-bottom: 0.25rem;
+}
+
+.password-requirements li.valid {
+  color: #10B981;
+}
+
+.password-requirements li.valid::before {
+  content: "✓ ";
+}
+
+/* Detalles de suscripción */
+.subscription-details {
+  background-color: #F9FAFB;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #E5E7EB;
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #F3F4F6;
+  padding-bottom: 0.5rem;
+}
+
+.detail-label {
+  font-weight: 500;
+  color: #6B7280;
+}
+
+.detail-value {
+  color: #111827;
+}
+
+.subscription-message {
+  color: #4B5563;
+  margin-bottom: 1.5rem;
+}
+
+/* Zona de peligro */
+.danger-zone {
+  border: 1px solid #FEE2E2;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #FEF2F2;
+}
+
+.danger-action {
+  padding: 1.5rem;
+  border-bottom: 1px solid #FECACA;
+}
+
+.danger-action:last-child {
+  border-bottom: none;
+}
+
+.danger-action h3 {
+  color: #DC2626;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.danger-action p {
+  color: #4B5563;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .tabs-header {
+    flex-direction: column;
+  }
+  
+  .tab-button {
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid #E5E7EB;
+  }
+  
+  .tab-button.active {
+    border-bottom: 1px solid #E5E7EB;
+    border-left: 4px solid #3B82F6;
+  }
+  
+  .tab-button.danger.active {
+    border-left: 4px solid #DC2626;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .detail-item {
+    flex-direction: column;
+  }
+}

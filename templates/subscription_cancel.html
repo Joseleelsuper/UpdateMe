@@ -1,25 +1,43 @@
-{% extends "components/baseTemplate.html" %}
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
 
-{% block title %}{{ _('Subscription Canceled') }} - UpdateMe{% endblock %}
+<head>
+    {% include 'components/seo-meta.html' %}
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-{% block content %}
-<main>
-    <div class="container">
-        <section class="subscription-result">
-            <div class="subscription-message cancel">
-                <div class="icon-container">
-                    <i class="fas fa-times-circle"></i>
-                </div>
-                <h1>{{ _('Subscription Checkout Canceled') }}</h1>
-                <p>{{ _('You have canceled the subscription checkout process.') }}</p>
-                <p>{{ _('Don\'t worry, you can subscribe anytime you\'re ready.') }}</p>
-                
-                <div class="action-buttons">
-                    <a href="{{ url_for('main.page.pricing') }}" class="btn-primary">{{ _('Subscription Plans') }}</a>
-                    <a href="{{ url_for('main.page.dashboard') }}" class="btn-secondary">{{ _('Return to Dashboard') }}</a>
-                </div>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/subscriptions.css') }}">
+    
+    <title>{{ _('Subscription Canceled') }} - UpdateMe</title>
+</head>
+
+<body>
+    {% if 'user_id' in session %}
+        {% from 'components/headerLogued.html' import headerLogued %}
+        {{ headerLogued() }}
+    {% else %}
+        {% from 'components/header.html' import header %}
+        {{ header() }}
+    {% endif %}
+
+    <main>
+        <div class="subscription-message">
+            <h1>{{ _('Subscription Checkout Canceled') }}</h1>
+            <p>{{ _('You have canceled the subscription checkout process.') }}</p>
+            <p>{{ _('Don\'t worry, you can subscribe anytime you\'re ready.') }}</p>
+            
+            <div class="action-buttons">
+                <a href="{{ url_for('main.page.dashboard') }}">{{ _('Return to Dashboard') }}</a>
             </div>
-        </section>
-    </div>
-</main>
-{% endblock %}
+        </div>
+    </main>
+
+    {% from 'components/footer.html' import footer %}
+    {{ footer() }}
+</body>
+
+</html>
