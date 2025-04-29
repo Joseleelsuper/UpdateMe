@@ -35,11 +35,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Maneja los clics en las opciones de proveedor - SOLUCIÓN SIMPLIFICADA
         providerOptions.forEach(option => {
             option.addEventListener('click', function() {
-                // Comprobación simplificada: si el elemento tiene la clase 'disabled'
-                // pero NO tiene la clase para elemento desactivado por OpenAI (podríamos añadir una clase específica)
-                // entonces es porque el usuario es gratuito
                 const isPremiumFeature = option.closest('section').classList.contains('disabled') || 
-                                         option.closest('section').querySelector('.premium-only-msg');
+                                         !!option.closest('section').querySelector('.premium-only-msg');
                                          
                 const isOpenAIDisabled = this.classList.contains('disabled') && 
                                         option.closest('section').classList.contains('search-provider') && 
