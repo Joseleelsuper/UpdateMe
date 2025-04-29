@@ -90,7 +90,7 @@ def send_weekly_email(user):
         logger.error(f"Error enviando correo a {user['email']}: {str(e)}")
         return False
 
-def process_pending_emails(days_interval=7):
+def process_pending_emails(days_interval=6):
     """
     Procesa todos los usuarios que necesitan recibir su correo semanal.
     
