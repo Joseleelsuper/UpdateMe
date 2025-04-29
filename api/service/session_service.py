@@ -4,6 +4,7 @@ from bson import ObjectId
 import secrets
 from models.session import Session
 from api.database import db
+from api.utils import session_to_dict
 
 # Colección para las sesiones
 sessions_collection = db["sessions"]
@@ -43,7 +44,7 @@ def create_session(user_id, session_duration_minutes=300):
     
     # Crear documento de sesión
     session_id = ObjectId()
-    session_doc = Session(
+    session_obj = Session(
         _id=session_id,
         user_id=ObjectId(user_id),
         token=token,
@@ -51,7 +52,8 @@ def create_session(user_id, session_duration_minutes=300):
         expires_at=expires_at,
         user_agent=request.user_agent.string if request.user_agent else None,
         ip_address=request.remote_addr
-    ).to_dict()
+    )
+    session_doc = session_to_dict(session_obj)
     
     # Guardar en MongoDB
     sessions_collection.insert_one(session_doc)

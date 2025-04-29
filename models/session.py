@@ -13,7 +13,3 @@ class Session:
     user_agent: Optional[str] = None  # Información del navegador/dispositivo
     ip_address: Optional[str] = None  # Dirección IP del usuario
     is_active: bool = True  # Si la sesión está activa o ha sido invalidada manualmente
-    
-    def to_dict(self):
-        """Convierte la instancia a un diccionario para almacenar en MongoDB"""
-        return self.__dict__
