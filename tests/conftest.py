@@ -2,7 +2,12 @@ import unittest
 from app import app
 
 class TestBase(unittest.TestCase):
-    """Clase base para todas las pruebas de la aplicación Flask."""
+    """Clase base para las pruebas unitarias de la aplicación Flask.
+    Esta clase configura la aplicación para pruebas y proporciona un cliente de prueba.
+
+    Args:
+        unittest (unittest.TestCase): Clase base de unittest para crear pruebas unitarias.
+    """
     
     def setUp(self):
         """Configurar para cada prueba."""
