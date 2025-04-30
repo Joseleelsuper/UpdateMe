@@ -184,23 +184,13 @@ def get_web_search_prompt(language="es"):
         str: Prompt para procesamiento de resultados de búsqueda web
     """
     return f"""
-    Combina y resume los resultados de búsqueda web a continuación para proporcionar
-    una respuesta completa y coherente a la consulta del usuario.
-    
-    Debes:
-    1. Extraer información relevante y actualizada de los resultados proporcionados
-    2. Citar las fuentes correctamente cuando menciones información específica
-    3. Asegurarte de que la información proporcionada sea precisa y esté respaldada por los resultados
-    4. Organizar la respuesta de manera lógica y coherente
-    
-    Utiliza un tono informativo y objetivo. Cuando corresponda, incluye fechas para mostrar
-    la actualidad de la información.
-    
-    Si los resultados de la búsqueda no contienen información suficiente para responder
-    a la consulta, indica claramente las limitaciones de la respuesta.
-    
-    IMPORTANTE: Genera el contenido en {language.upper()} ({"español" if language.lower() == "es" else "inglés"}).
-    """
+Analiza y sintetiza los resultados de búsqueda web para proporcionar una respuesta completa, coherente y actualizada.
+
+Extrae datos contextuales clave, cita correctamente cada fuente, asegura la precisión y organiza lógicamente el contenido en
+{"inglés" if language.lower() == "en" else "español"}.
+
+Incluye fechas. Utiliza un tono informativo y objetivo.
+Además, busca e incorpora noticias tecnológicas relevantes."""
 
 # Configuraciones predeterminadas para los servicios de búsqueda web
 def get_default_search_configs():
