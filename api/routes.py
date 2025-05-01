@@ -93,6 +93,10 @@ def update_user_prompts():
     if not update_data:
         return jsonify({"success": False, "message": _("No valid prompts to update")}), 400
     
+    # Validar el límite de caracteres para el prompt de Tavily
+    if 'tavily_prompt' in update_data and len(update_data['tavily_prompt']) > 400:
+        return jsonify({"success": False, "message": _("Tavily prompt exceeds the 400 character limit")}), 400
+    
     try:
         # Obtener el usuario de g.user (ya establecido por el decorador login_required)
         user = g.user
@@ -123,10 +127,11 @@ def reset_user_prompts():
             return jsonify({"success": False, "message": _("User or prompts not found")}), 404
         
         # Obtener los prompts predeterminados según el idioma del usuario
-        from api.serviceAi.prompts import get_news_summary_prompt, get_web_search_prompt, get_default_search_configs
+        from api.serviceAi.prompts import get_news_summary_prompt, get_tavily_search_prompt, get_serpapi_search_prompt, get_default_search_configs
         language = user.get("language", "es")
         news_summary = get_news_summary_prompt(language)
-        web_search = get_web_search_prompt(language)
+        tavily_prompt = get_tavily_search_prompt(language)
+        serpapi_prompt = get_serpapi_search_prompt(language)
         default_configs = get_default_search_configs()
         
         # Restablecer todos los prompts y configuraciones a valores predeterminados
@@ -134,8 +139,8 @@ def reset_user_prompts():
             "openai_prompt": news_summary,
             "groq_prompt": news_summary,
             "deepseek_prompt": news_summary,
-            "tavily_prompt": web_search,
-            "serpapi_prompt": web_search,
+            "tavily_prompt": tavily_prompt,
+            "serpapi_prompt": serpapi_prompt,
             "tavily_config": default_configs["tavily"],
             "serpapi_config": default_configs["serpapi"]
         }
