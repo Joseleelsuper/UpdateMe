@@ -124,8 +124,9 @@
                         <div id="tavily-tab" class="tab-pane">
                             <div class="search-config-grid">
                                 <div class="search-config-prompt">
-                                    <label for="tavily-prompt">{{ _('Processing Prompt') }}</label>
-                                    <textarea id="tavily-prompt" placeholder="{{ _('Enter your custom prompt for Tavily...') }}" {% if user.role == 'free' %}disabled{% endif %}>{{ user_prompts.tavily_prompt or default_prompts.web_search }}</textarea>
+                                    <label for="tavily-prompt">{{ _('Processing Prompt') }} <span class="character-limit">({{ _('Max 400 characters') }})</span></label>
+                                    <textarea id="tavily-prompt" placeholder="{{ _('Enter your custom prompt for Tavily...') }}" maxlength="400" {% if user.role == 'free' %}disabled{% endif %}>{{ user_prompts.tavily_prompt or default_prompts.tavily_search }}</textarea>
+                                    <div class="char-counter"><span id="tavily-char-count">0</span>/400</div>
                                 </div>
                                 <div class="search-config-settings">
                                     <h3>{{ _('Search Settings') }}</h3>
@@ -138,15 +139,14 @@
                                         <select id="tavily-topic" {% if user.role == 'free' %}disabled{% endif %}>
                                             <option value="news" {% if user_prompts.tavily_config and user_prompts.tavily_config.topic == 'news' %}selected{% endif %}>{{ _('News') }}</option>
                                             <option value="general" {% if user_prompts.tavily_config and user_prompts.tavily_config.topic == 'general' %}selected{% endif %}>{{ _('General') }}</option>
-                                            <option value="academic" {% if user_prompts.tavily_config and user_prompts.tavily_config.topic == 'academic' %}selected{% endif %}>{{ _('Academic') }}</option>
+                                            <option value="finance" {% if user_prompts.tavily_config and user_prompts.tavily_config.topic == 'finance' %}selected{% endif %}>{{ _('Finance') }}</option>
                                         </select>
                                     </div>
                                     <div class="config-field">
                                         <label for="tavily-search-depth">{{ _('Search Depth') }}</label>
                                         <select id="tavily-search-depth" {% if user.role == 'free' %}disabled{% endif %}>
                                             <option value="basic" {% if user_prompts.tavily_config and user_prompts.tavily_config.search_depth == 'basic' %}selected{% endif %}>{{ _('Basic') }}</option>
-                                            <option value="moderate" {% if not user_prompts.tavily_config or not user_prompts.tavily_config.search_depth or user_prompts.tavily_config.search_depth == 'moderate' %}selected{% endif %}>{{ _('Moderate') }}</option>
-                                            <option value="comprehensive" {% if user_prompts.tavily_config and user_prompts.tavily_config.search_depth == 'comprehensive' %}selected{% endif %}>{{ _('Comprehensive') }}</option>
+                                            <option value="advanced" {% if user_prompts.tavily_config and user_prompts.tavily_config.search_depth == 'advanced' %}selected{% endif %}>{{ _('Advanced') }}</option>
                                         </select>
                                     </div>
                                     <div class="config-field">
@@ -165,13 +165,13 @@
                             <div class="search-config-grid">
                                 <div class="search-config-prompt">
                                     <label for="serpapi-prompt">{{ _('Processing Prompt') }}</label>
-                                    <textarea id="serpapi-prompt" placeholder="{{ _('Enter your custom prompt for SerpAPI...') }}" {% if user.role == 'free' %}disabled{% endif %}>{{ user_prompts.serpapi_prompt or default_prompts.web_search }}</textarea>
+                                    <textarea id="serpapi-prompt" placeholder="{{ _('Enter your custom prompt for SerpAPI...') }}" {% if user.role == 'free' %}disabled{% endif %}>{{ user_prompts.serpapi_prompt or default_prompts.serpapi_search }}</textarea>
                                 </div>
                                 <div class="search-config-settings">
                                     <h3>{{ _('Search Settings') }}</h3>
                                     <div class="config-field">
                                         <label for="serpapi-max-results">{{ _('Maximum Results') }}</label>
-                                        <input type="number" id="serpapi-max-results" min="1" max="20" value="{{ user_prompts.serpapi_config.max_results if user_prompts.serpapi_config and user_prompts.serpapi_config.max_results else 5 }}" {% if user.role == 'free' %}disabled{% endif %}>
+                                        <input type="number" id="serpapi-max-results" min="1" max="20" value="{{ user_prompts.serpapi_config.max_results if user_prompts.serpapi_config and user_prompts.serpapi_config.max_results else 10 }}" {% if user.role == 'free' %}disabled{% endif %}>
                                     </div>
                                     <div class="config-field">
                                         <label for="serpapi-search-type">{{ _('Search Type') }}</label>
@@ -195,6 +195,37 @@
                                             <option value="week" {% if not user_prompts.serpapi_config or not user_prompts.serpapi_config.time_range or user_prompts.serpapi_config.time_range == 'week' %}selected{% endif %}>{{ _('Last week') }}</option>
                                             <option value="month" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.time_range == 'month' %}selected{% endif %}>{{ _('Last month') }}</option>
                                             <option value="year" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.time_range == 'year' %}selected{% endif %}>{{ _('Last year') }}</option>
+                                        </select>
+                                    </div>
+                                    <div class="config-field">
+                                        <label for="serpapi-location">{{ _('Location') }}</label>
+                                        <input type="text" id="serpapi-location" value="{{ user_prompts.serpapi_config.location if user_prompts.serpapi_config and user_prompts.serpapi_config.location else 'Austin, Texas, United States' }}" {% if user.role == 'free' %}disabled{% endif %}>
+                                    </div>
+                                    <div class="config-field">
+                                        <label for="serpapi-gl">{{ _('Country Code') }} (GL)</label>
+                                        <select id="serpapi-gl" {% if user.role == 'free' %}disabled{% endif %}>
+                                            <option value="us" {% if not user_prompts.serpapi_config or not user_prompts.serpapi_config.gl or user_prompts.serpapi_config.gl == 'us' %}selected{% endif %}>US</option>
+                                            <option value="es" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.gl == 'es' %}selected{% endif %}>ES</option>
+                                            <option value="gb" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.gl == 'gb' %}selected{% endif %}>GB</option>
+                                            <option value="fr" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.gl == 'fr' %}selected{% endif %}>FR</option>
+                                            <option value="de" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.gl == 'de' %}selected{% endif %}>DE</option>
+                                        </select>
+                                    </div>
+                                    <div class="config-field">
+                                        <label for="serpapi-hl">{{ _('Interface Language') }} (HL)</label>
+                                        <select id="serpapi-hl" {% if user.role == 'free' %}disabled{% endif %}>
+                                            <option value="en" {% if not user_prompts.serpapi_config or not user_prompts.serpapi_config.hl or user_prompts.serpapi_config.hl == 'en' %}selected{% endif %}>English</option>
+                                            <option value="es" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.hl == 'es' %}selected{% endif %}>Español</option>
+                                            <option value="fr" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.hl == 'fr' %}selected{% endif %}>Français</option>
+                                            <option value="de" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.hl == 'de' %}selected{% endif %}>Deutsch</option>
+                                        </select>
+                                    </div>
+                                    <div class="config-field">
+                                        <label for="serpapi-device">{{ _('Device Type') }}</label>
+                                        <select id="serpapi-device" {% if user.role == 'free' %}disabled{% endif %}>
+                                            <option value="desktop" {% if not user_prompts.serpapi_config or not user_prompts.serpapi_config.device or user_prompts.serpapi_config.device == 'desktop' %}selected{% endif %}>{{ _('Desktop') }}</option>
+                                            <option value="mobile" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.device == 'mobile' %}selected{% endif %}>{{ _('Mobile') }}</option>
+                                            <option value="tablet" {% if user_prompts.serpapi_config and user_prompts.serpapi_config.device == 'tablet' %}selected{% endif %}>{{ _('Tablet') }}</option>
                                         </select>
                                     </div>
                                 </div>

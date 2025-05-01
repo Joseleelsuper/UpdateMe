@@ -17,7 +17,7 @@ class TavilyProvider:
     def __init__(
         self, 
         api_key: str, 
-        search_depth: str = "moderate", 
+        search_depth: str = "advanced", 
         topic: str = "news", 
         time_range: str = "week", 
         include_raw_content: bool = True
@@ -27,8 +27,8 @@ class TavilyProvider:
         
         Args:
             api_key: Clave API de Tavily
-            search_depth: Profundidad de la búsqueda ('basic', 'moderate', 'comprehensive')
-            topic: Tema de búsqueda ('general', 'news', 'coding', 'academic', 'legal', 'medical', etc.)
+            search_depth: Profundidad de la búsqueda ('basic', 'advanced')
+            topic: Tema de búsqueda ('general', 'news', 'finance')
             time_range: Rango de tiempo para resultados ('day', 'week', 'month', 'year')
             include_raw_content: Si se debe incluir el contenido completo de las páginas
         """

@@ -170,12 +170,51 @@ def get_news_summary_prompt(language="es"):
     IMPORTANTE: Genera el contenido en {language.upper()} ({"español" if language.lower() == "es" else "English"}).
     """
 
-# Prompt para la búsqueda web simulada
+# Prompt para la búsqueda web usando Tavily (basado en IA)
+def get_tavily_search_prompt(language="es"):
+    """
+    Obtiene el prompt para el procesamiento de resultados de búsqueda web usando Tavily.
+    Este prompt está optimizado para trabajar con la API de Tavily, que ya integra IA.
+    
+    Args:
+        language: Idioma del prompt ('es' o 'en')
+        
+    Returns:
+        str: Prompt para procesamiento de resultados de búsqueda web de Tavily
+    """
+    return f"""
+Analiza y sintetiza los resultados de búsqueda web para proporcionar una respuesta completa, coherente y actualizada.
+
+Extrae datos contextuales clave, cita correctamente cada fuente, asegura la precisión y organiza lógicamente el contenido en
+{"inglés" if language.lower() == "en" else "español"}.
+
+Incluye fechas. Utiliza un tono informativo y objetivo.
+Además, busca e incorpora noticias tecnológicas relevantes.
+"""
+
+# Prompt para la búsqueda web usando SerpAPI (resultados crudos)
+def get_serpapi_search_prompt(language="es"):
+    """
+    Obtiene el prompt para el procesamiento de resultados de búsqueda web usando SerpAPI.
+    Este prompt está optimizado para trabajar con resultados crudos de motores de búsqueda.
+    
+    Args:
+        language: Idioma del prompt ('es' o 'en')
+        
+    Returns:
+        str: Prompt para procesamiento de resultados de búsqueda web de SerpAPI
+    """
+    return """
+("noticias tecnología" OR "noticias inteligencia artificial" OR "AI news" OR "machine learning news")
+(site:techcrunch.com OR site:theverge.com OR site:wired.com OR site:engadget.com OR site:thenextweb.com OR related:techcrunch.com OR related:theverge.com)
+-site:quora.com -site:reddit.com
+"""
+
+# Prompt para la búsqueda web simulada (versión genérica anterior)
 def get_web_search_prompt(language="es"):
     """
     Obtiene el prompt para el procesamiento de resultados de búsqueda web.
-    Este prompt se utiliza para dar formato a los resultados de búsqueda
-    y no para realizar la búsqueda en sí.
+    Este prompt se utiliza como opción genérica/fallback.
     
     Args:
         language: Idioma del prompt ('es' o 'en')
@@ -184,23 +223,13 @@ def get_web_search_prompt(language="es"):
         str: Prompt para procesamiento de resultados de búsqueda web
     """
     return f"""
-    Combina y resume los resultados de búsqueda web a continuación para proporcionar
-    una respuesta completa y coherente a la consulta del usuario.
-    
-    Debes:
-    1. Extraer información relevante y actualizada de los resultados proporcionados
-    2. Citar las fuentes correctamente cuando menciones información específica
-    3. Asegurarte de que la información proporcionada sea precisa y esté respaldada por los resultados
-    4. Organizar la respuesta de manera lógica y coherente
-    
-    Utiliza un tono informativo y objetivo. Cuando corresponda, incluye fechas para mostrar
-    la actualidad de la información.
-    
-    Si los resultados de la búsqueda no contienen información suficiente para responder
-    a la consulta, indica claramente las limitaciones de la respuesta.
-    
-    IMPORTANTE: Genera el contenido en {language.upper()} ({"español" if language.lower() == "es" else "inglés"}).
-    """
+Analiza y sintetiza los resultados de búsqueda web para proporcionar una respuesta completa, coherente y actualizada.
+
+Extrae datos contextuales clave, cita correctamente cada fuente, asegura la precisión y organiza lógicamente el contenido en
+{"inglés" if language.lower() == "en" else "español"}.
+
+Incluye fechas. Utiliza un tono informativo y objetivo.
+Además, busca e incorpora noticias tecnológicas relevantes."""
 
 # Configuraciones predeterminadas para los servicios de búsqueda web
 def get_default_search_configs():
@@ -214,18 +243,21 @@ def get_default_search_configs():
         "tavily": {
             "max_results": 5,
             "topic": "news",
-            "search_depth": "moderate",  # "basic", "moderate", o "comprehensive"
+            "search_depth": "advanced",  # "basic" o "advanced"
             "time_range": "week",        # "day", "week", "month", o "year"
             "include_raw_content": True,
             "include_domains": [],
-            "exclude_domains": [],
-            "days": 7,                # Número de días para buscar en el pasado
+            "exclude_domains": []
         },
         "serpapi": {
-            "max_results": 5,
+            "max_results": 10,
             "search_type": "news",       # "news", "web", "images", o "videos"
-            "safe_search": "off",
+            "safe_search": "off",        # "off", "medium", "high"
             "time_range": "week",        # "day", "week", "month", o "year"
+            "location": "Austin, Texas, United States",
+            "gl": "us",                  # País de búsqueda (Google Local)
+            "hl": "en",                  # Idioma de la interfaz de búsqueda
+            "device": "desktop",         # "desktop", "mobile", o "tablet"
             "include_domains": [],
             "exclude_domains": []
         }

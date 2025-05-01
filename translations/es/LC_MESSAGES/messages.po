@@ -1781,3 +1781,23 @@ msgstr "Cerrar sesión"
 
 msgid "Dashboard"
 msgstr "Panel de Control"
+
+# Nuevas traducciones para límites y etiquetas de UI
+msgid "Max 400 characters"
+msgstr "Máximo 400 caracteres"
+
+msgid "Tavily prompt exceeds the 400 character limit."
+msgstr "El prompt de Tavily excede el límite de 400 caracteres."
+
+# Etiquetas de configuración avanzadas para SerpAPI
+msgid "Location"
+msgstr "Ubicación"
+
+msgid "Country Code"
+msgstr "Código de país"
+
+msgid "Interface Language"
+msgstr "Idioma de la interfaz"
+
+msgid "Device Type"
+msgstr "Tipo de dispositivo"
