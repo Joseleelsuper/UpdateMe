@@ -404,6 +404,26 @@ msgstr "High"
 msgid "Include only trusted sources"
 msgstr "Include only trusted sources"
 
+# Nuevas traducciones para límites y etiquetas de UI
+msgid "Max 400 characters"
+msgstr "Max 400 characters"
+
+msgid "Tavily prompt exceeds the 400 character limit."
+msgstr "Tavily prompt exceeds the 400 character limit."
+
+# Etiquetas de configuración avanzadas para SerpAPI
+msgid "Location"
+msgstr "Location"
+
+msgid "Country Code"
+msgstr "Country Code"
+
+msgid "Interface Language"
+msgstr "Interface Language"
+
+msgid "Device Type"
+msgstr "Device Type"
+
 # API messages
 msgid "No valid fields to update"
 msgstr "No valid fields to update"
