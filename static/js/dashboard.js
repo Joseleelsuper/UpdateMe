@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const savePromptsBtn = document.getElementById('save-prompts');
         const resetPromptsBtn = document.getElementById('reset-prompts');
         const tabHeaders = document.querySelectorAll('.tab-header');
+        const tavilyPrompt = document.getElementById('tavily-prompt');
+        const tavilyCharCount = document.getElementById('tavily-char-count');
         
         // Referencias al modal y sus elementos
         const resetModal = document.getElementById('reset-prompts-modal');
@@ -26,11 +28,34 @@ document.addEventListener('DOMContentLoaded', function() {
             connectionError: 'Connection error: ',
             confirmResetPrompts: 'Are you sure you want to reset all prompts to default values?',
             openaiSearchDisabled: 'OpenAI uses its own integrated search provider, it is not possible to change this option.',
-            premiumUserOnly: 'This feature is only available for premium users.'
+            premiumUserOnly: 'This feature is only available for premium users.',
+            tavilyPromptTooLong: 'Tavily prompt exceeds the 400 character limit.'
         };
         
         // Detectar si el usuario es free
         const isFreeUser = window.isFreeUser === true || window.isFreeUser === 'true';
+        
+        // Inicializar contador de caracteres para Tavily
+        if (tavilyPrompt && tavilyCharCount) {
+            // Actualizar contador inicial
+            updateCharacterCount();
+            
+            // Escuchar cambios en el prompt
+            tavilyPrompt.addEventListener('input', updateCharacterCount);
+            
+            function updateCharacterCount() {
+                const count = tavilyPrompt.value.length;
+                tavilyCharCount.textContent = count;
+                
+                // Actualizar estilo según si se acerca al límite
+                const charCounter = tavilyCharCount.parentElement;
+                if (count > 380) {
+                    charCounter.classList.add('limit-reached');
+                } else {
+                    charCounter.classList.remove('limit-reached');
+                }
+            }
+        }
         
         // Maneja los clics en las opciones de proveedor - SOLUCIÓN SIMPLIFICADA
         providerOptions.forEach(option => {
@@ -165,12 +190,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 return;
             }
+            
+            // Verificar el límite de caracteres para el prompt de Tavily
+            const tavilyPromptValue = document.getElementById('tavily-prompt').value;
+            if (tavilyPromptValue.length > 400) {
+                toast.warning(translations.tavilyPromptTooLong || 'El prompt de Tavily excede el límite de 400 caracteres.');
+                e.preventDefault();
+                return;
+            }
+            
             // Recopilar los valores de los prompts
             const promptData = {
                 openai_prompt: document.getElementById('openai-prompt').value,
                 groq_prompt: document.getElementById('groq-prompt').value,
                 deepseek_prompt: document.getElementById('deepseek-prompt').value,
-                tavily_prompt: document.getElementById('tavily-prompt').value,
+                tavily_prompt: tavilyPromptValue,
                 serpapi_prompt: document.getElementById('serpapi-prompt').value
             };
             
@@ -189,10 +223,14 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (document.getElementById('serpapi-max-results')) {
                 promptData.serpapi_config = {
-                    max_results: parseInt(document.getElementById('serpapi-max-results').value) || 5,
+                    max_results: parseInt(document.getElementById('serpapi-max-results').value) || 10,
                     search_type: document.getElementById('serpapi-search-type').value,
                     safe_search: document.getElementById('serpapi-safe-search').value,
                     time_range: document.getElementById('serpapi-time-range').value,
+                    location: document.getElementById('serpapi-location').value,
+                    gl: document.getElementById('serpapi-gl').value,
+                    hl: document.getElementById('serpapi-hl').value,
+                    device: document.getElementById('serpapi-device').value,
                     include_domains: [],
                     exclude_domains: []
                 };
