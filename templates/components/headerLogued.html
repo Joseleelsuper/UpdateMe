@@ -22,7 +22,9 @@
             <div class="auth-links">
                 <!-- Reemplazamos los botones de login/register con el icono de perfil -->
                 <div class="profile-menu">
-                    <span class="material-symbols-rounded profile-icon" id="profile-icon">account_circle</span>
+                    <a href="/profile" class="profile-icon-link">
+                        <img src="{{ url_for('static', filename='img/header/account_circle_120dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.svg') }}" alt="Account Circle" class="profile-icon" id="profile-icon">
+                    </a>
                     <div class="profile-dropdown" id="profile-dropdown">
                         <a href="/profile">{{ _('Profile') }}</a>
                         <hr>
