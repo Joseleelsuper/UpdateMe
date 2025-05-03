@@ -109,7 +109,7 @@ def create_checkout_session(user_id: ObjectId, price_id: str, success_url: str, 
     try:
         session = stripe.checkout.Session.create(
             customer=customer_id,
-            payment_method_types=['card'],
+            payment_method_types=['card', 'paypal', 'revolut_pay', 'link', 'amazon_pay'],
             line_items=[
                 {
                     'price': price_id,
@@ -121,6 +121,12 @@ def create_checkout_session(user_id: ObjectId, price_id: str, success_url: str, 
             cancel_url=cancel_url,
             metadata={
                 'user_id': str(user_id)
+            },
+            # Configurar para usar el dominio personalizado
+            custom_text={
+                'submit': {
+                    'message': 'Estamos procesando tu suscripción con updateme.dev'
+                }
             }
         )
         
@@ -133,13 +139,63 @@ def create_checkout_session(user_id: ObjectId, price_id: str, success_url: str, 
         print(f"Error creating checkout session: {e}")
         raise
 
+def setup_custom_branding():
+    """
+    Configura el branding personalizado para el dominio de Stripe.
+    Esta función debe ejecutarse una sola vez para configurar tu dominio personalizado.
+    Guarda el ID de configuración como variable de entorno.
+    """
+    try:
+        # Crea la configuración personalizada para el portal de facturación
+        configuration = stripe.billing_portal.Configuration.create(
+            business_profile={
+                "headline": "UpdateMe - Gestiona tu suscripción",
+                "privacy_policy_url": "https://updateme.dev/privacy-policy",
+                "terms_of_service_url": "https://updateme.dev/terms-and-conditions",
+            },
+            features={
+                "customer_update": {
+                    "allowed_updates": ["email", "address", "shipping", "phone", "tax_id"],
+                    "enabled": True,
+                },
+                "invoice_history": {"enabled": True},
+                "payment_method_update": {"enabled": True},
+            },
+        )
+        
+        print(f"Configuración de portal creada con ID: {configuration.id}")
+        return configuration.id
+    except Exception as e:
+        print(f"Error al configurar el branding personalizado: {e}")
+        raise
+
 def create_portal_session(customer_id: str, return_url: str) -> str:
     """Create a Stripe customer portal session."""
     try:
-        session = stripe.billing_portal.Session.create(
-            customer=customer_id,
-            return_url=return_url,
-        )
+        # Intenta obtener la configuración del portal desde las variables de entorno
+        configuration_id = os.environ.get('STRIPE_PORTAL_CONFIGURATION_ID')
+        
+        session_params = {
+            "customer": customer_id,
+            "return_url": return_url,
+        }
+        
+        # Añadir la configuración personalizada si está disponible
+        if configuration_id:
+            session_params["configuration"] = configuration_id
+            
+        # Create billing portal session with explicit keyword args to satisfy type checker
+        if "configuration" in session_params:
+            session = stripe.billing_portal.Session.create(
+                customer=session_params["customer"],
+                return_url=session_params["return_url"],
+                configuration=session_params["configuration"],
+            )
+        else:
+            session = stripe.billing_portal.Session.create(
+                customer=session_params["customer"],
+                return_url=session_params["return_url"],
+            )
         
         return session.url
     except Exception as e:

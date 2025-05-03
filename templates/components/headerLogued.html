@@ -1,13 +1,6 @@
 {% macro headerLogued() %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/components/headerLogued.css') }}">
-<!-- Importamos la misma fuente de iconos que en el header original -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<!-- Importamos las mismas fuentes de texto para garantizar consistencia -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Scripts necesarios -->
 <script src="{{ url_for('static', filename='js/header-menu.js') }}"></script>
 <script src="{{ url_for('static', filename='js/profile-menu.js') }}"></script>
 
@@ -29,7 +22,9 @@
             <div class="auth-links">
                 <!-- Reemplazamos los botones de login/register con el icono de perfil -->
                 <div class="profile-menu">
-                    <span class="material-symbols-rounded profile-icon" id="profile-icon">account_circle</span>
+                    <a href="/profile" class="profile-icon-link">
+                        <img src="{{ url_for('static', filename='img/header/account_circle_120dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.svg') }}" alt="Account Circle" class="profile-icon" id="profile-icon">
+                    </a>
                     <div class="profile-dropdown" id="profile-dropdown">
                         <a href="/profile">{{ _('Profile') }}</a>
                         <hr>
