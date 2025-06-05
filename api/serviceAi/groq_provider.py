@@ -28,7 +28,7 @@ class GroqProvider(BaseAIProvider):
             kwargs: Parámetros adicionales como modelo y clave API de búsqueda
         """
         super().__init__(api_key, **kwargs)
-        self.model = kwargs.get("model", "llama3-70b-8192")
+        self.model = kwargs.get("model", "llama-3.3-70b-versatile")
 
         # Configurar el proveedor de búsqueda seleccionado
         if self.search_provider_type.lower() == "tavily" and self.tavily_key:
