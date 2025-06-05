@@ -58,14 +58,14 @@ if GROQ_API_KEY:
     if TAVILY_API_KEY:
         ai_providers["groq"] = GroqProvider(
             GROQ_API_KEY, 
-            model="llama3-70b-8192", 
+            model="llama-3.3-70b-versatile", 
             tavily_key=TAVILY_API_KEY,
             search_provider="tavily"
         )
     elif SERPAPI_API_KEY:
         ai_providers["groq"] = GroqProvider(
             GROQ_API_KEY, 
-            model="llama3-70b-8192", 
+            model="llama-3.3-70b-versatile", 
             serpapi_key=SERPAPI_API_KEY
         )
 
