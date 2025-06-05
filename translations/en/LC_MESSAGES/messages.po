@@ -1401,3 +1401,66 @@ msgstr "Subscription and payment details"
 
 msgid "Session history"
 msgstr "Session history"
+
+msgid "Deactivating your account will suspend all communication. You can reactivate it later by logging in."
+msgstr "Deactivating your account will suspend all communication. You can reactivate it later by logging in."
+
+msgid "Your account will be suspended and you will no longer receive emails from us."
+msgstr "Your account will be suspended and you will no longer receive emails from us."
+
+msgid "Delete Account Permanently"
+msgstr "Delete Account Permanently"
+
+msgid "This will permanently delete all your data, including saved preferences, subscription information, and all account details. This action cannot be undone."
+msgstr "This will permanently delete all your data, including saved preferences, subscription information, and all account details. This action cannot be undone."
+
+msgid "Delete My Account"
+msgstr "Delete My Account"
+
+msgid "Deactivate"
+msgstr "Deactivate"
+
+msgid "Are you absolutely sure you want to delete your account?"
+msgstr "Are you absolutely sure you want to delete your account?"
+
+msgid "Current Plan"
+msgstr "Current Plan"
+
+msgid "Upgrade to premium to unlock all features"
+msgstr "Upgrade to premium to unlock all features"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Current Password"
+msgstr "Current Password"
+
+msgid "New Password"
+msgstr "New Password"
+
+msgid "Password must contain:"
+msgstr "Password must contain:"
+
+msgid "At least 6 characters"
+msgstr "At least 6 characters"
+
+msgid "One uppercase letter"
+msgstr "One uppercase letter"
+
+msgid "One lowercase letter"
+msgstr "One lowercase letter"
+
+msgid "One number"
+msgstr "One number"
+
+msgid "One special character"
+msgstr "One special character"
+
+msgid "Confirm Password"
+msgstr "Confirm Password"
+
+msgid "Update Password"
+msgstr "Update Password"

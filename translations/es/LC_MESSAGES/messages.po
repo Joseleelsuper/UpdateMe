@@ -1401,3 +1401,66 @@ msgstr "Detalles de suscripción y pago"
 
 msgid "Session history"
 msgstr "Historial de sesiones"
+
+msgid "Deactivating your account will suspend all communication. You can reactivate it later by logging in."
+msgstr "Desactivar tu cuenta suspenderá toda comunicación. Puedes reactivarla más tarde iniciando sesión."
+
+msgid "Your account will be suspended and you will no longer receive emails from us."
+msgstr "Tu cuenta será suspendida y ya no recibirás correos electrónicos de nuestra parte."
+
+msgid "Delete Account Permanently"
+msgstr "Eliminar cuenta permanentemente"
+
+msgid "This will permanently delete all your data, including saved preferences, subscription information, and all account details. This action cannot be undone."
+msgstr "Esto eliminará permanentemente todos tus datos, incluidas las preferencias guardadas, la información de suscripción y todos los detalles de la cuenta. Esta acción no se puede deshacer."
+
+msgid "Delete My Account"
+msgstr "Eliminar mi cuenta"
+
+msgid "Deactivate"
+msgstr "Desactivar"
+
+msgid "Are you absolutely sure you want to delete your account?"
+msgstr "¿Estás completamente seguro de que quieres eliminar tu cuenta?"
+
+msgid "Current Plan"
+msgstr "Plan actual"
+
+msgid "Upgrade to premium to unlock all features"
+msgstr "Actualiza a premium para desbloquear todas las funciones"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Active"
+msgstr "Activo"
+
+msgid "Current Password"
+msgstr "Contraseña actual"
+
+msgid "New Password"
+msgstr "Nueva contraseña"
+
+msgid "Password must contain:"
+msgstr "La contraseña debe contener:"
+
+msgid "At least 6 characters"
+msgstr "Al menos 6 caracteres"
+
+msgid "One uppercase letter"
+msgstr "Una letra mayúscula"
+
+msgid "One lowercase letter"
+msgstr "Una letra minúscula"
+
+msgid "One number"
+msgstr "Un número"
+
+msgid "One special character"
+msgstr "Un carácter especial"
+
+msgid "Confirm Password"
+msgstr "Confirmar contraseña"
+
+msgid "Update Password"
+msgstr "Actualizar contraseña"
