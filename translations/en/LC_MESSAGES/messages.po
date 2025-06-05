@@ -560,10 +560,10 @@ msgid "Your Rights"
 msgstr "Your Rights"
 
 msgid "Last updated terms and conditions"
-msgstr "April 23, 2025"
+msgstr "June 5, 2025"
 
 msgid "Last updated privacy policy"
-msgstr "April 23, 2025"
+msgstr "June 5, 2025"
 
 msgid "An initiative of"
 msgstr "An initiative of"

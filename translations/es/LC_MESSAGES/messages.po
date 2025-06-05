@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "UpdateMe - Weekly Tech & AI Newsletter"
-msgstr "UpdateMe - Boletín Semanal de Tecnología e IA"
+msgstr "UpdateMe - Boletín semanal de tecnología e IA"
 
 msgid "Do you want to receive technology and AI content on a weekly basis?"
 msgstr "¿Quieres recibir contenido de tecnología e IA semanalmente?"
@@ -22,7 +22,7 @@ msgid "Subscribe to the newsletter for free"
 msgstr "Suscríbete al boletín gratis"
 
 msgid "Introduce email..."
-msgstr "Introduce tu email..."
+msgstr "Introduce tu correo electrónico..."
 
 msgid "Subscribe"
 msgstr "Suscribirse"
@@ -33,40 +33,37 @@ msgstr "Una iniciativa de"
 msgid "Pricing"
 msgstr "Precios"
 
-msgid "Login/Register"
-msgstr "Iniciar sesión/Registrarse"
-
 msgid "Login"
 msgstr "Iniciar sesión"
 
 msgid "Register"
-msgstr "Regístrate"
+msgstr "Registrarse"
 
-# Nuevas traducciones para mensajes JavaScript
+msgid "Login/Register"
+msgstr "Iniciar sesión/Registrarse"
+
+# New translations for JavaScript messages
 msgid "Please enter a valid email."
-msgstr "Por favor, introduce un correo válido."
+msgstr "Por favor, introduce un correo electrónico válido."
 
 msgid "Network error. Please try again later."
-msgstr "Error de red. Inténtalo de nuevo más tarde."
+msgstr "Error de red. Por favor, inténtalo de nuevo más tarde."
 
 msgid "Processing..."
 msgstr "Procesando..."
 
 msgid "Subscription successful! We have sent you a welcome email and you will receive your first summary shortly."
-msgstr "¡Suscripción exitosa! Te hemos enviado un correo de bienvenida y en breve recibirás tu primer resumen."
+msgstr "¡Suscripción exitosa! Te hemos enviado un correo de bienvenida y recibirás tu primer resumen en breve."
 
-msgid "No changes were made"
-msgstr "No se han hecho cambios"
-
-# Traducciones para mensajes de error y excepciones
+# Error and exception message translations
 msgid "An unexpected error occurred. Please try again."
 msgstr "Ocurrió un error inesperado. Por favor, inténtalo de nuevo."
 
 msgid "The requested resource was not found."
-msgstr "El recurso solicitado no se ha encontrado."
+msgstr "El recurso solicitado no fue encontrado."
 
 msgid "Server error. Please try again later."
-msgstr "Error del servidor. Por favor, inténtalo más tarde."
+msgstr "Error del servidor. Por favor, inténtalo de nuevo más tarde."
 
 msgid "You are not authorized to perform this action."
 msgstr "No estás autorizado para realizar esta acción."
@@ -75,13 +72,13 @@ msgid "Access forbidden."
 msgstr "Acceso prohibido."
 
 msgid "Please check the form for errors."
-msgstr "Por favor, revisa el formulario para encontrar errores."
+msgstr "Por favor, revisa el formulario en busca de errores."
 
 msgid "This email is already subscribed."
-msgstr "Este correo ya está suscrito."
+msgstr "Este correo electrónico ya está suscrito."
 
 msgid "The request timed out. Please try again."
-msgstr "La solicitud ha excedido el tiempo de espera. Por favor, inténtalo de nuevo."
+msgstr "La solicitud ha expirado. Por favor, inténtalo de nuevo."
 
 msgid "The provided data is invalid."
 msgstr "Los datos proporcionados no son válidos."
@@ -89,13 +86,7 @@ msgstr "Los datos proporcionados no son válidos."
 msgid "Payment is required to access this feature."
 msgstr "Se requiere pago para acceder a esta función."
 
-msgid "Reset"
-msgstr "Restablecer"
-
-msgid "Cancel"
-msgstr "Cancelar"
-
-# Registro page translations
+# Register page translations
 msgid "title_register_page"
 msgstr "UpdateMe - Registro"
 
@@ -116,7 +107,7 @@ msgid "invalidUsername"
 msgstr "El nombre de usuario solo puede contener letras, números y espacios."
 
 msgid "invalidEmail"
-msgstr "Por favor, introduce un correo electrónico válido."
+msgstr "Por favor, introduce una dirección de correo electrónico válida."
 
 msgid "passwordLength"
 msgstr "La contraseña debe tener al menos 6 caracteres."
@@ -134,15 +125,15 @@ msgid "passwordSpecial"
 msgstr "La contraseña debe contener al menos un carácter especial (_,.!@#$%^&*)."
 
 msgid "networkError"
-msgstr "Error de red. Inténtalo de nuevo más tarde."
+msgstr "Error de red. Por favor, inténtalo de nuevo más tarde."
 
 msgid "registrationSuccessful"
-msgstr "¡Registro exitoso! Ya puedes iniciar sesión con tus credenciales."
+msgstr "¡Registro exitoso! Ahora puedes iniciar sesión con tus credenciales."
 
 msgid "emailExists"
 msgstr "Este correo electrónico ya está registrado."
 
-# Traducciones para la página de login
+# Login page translations
 msgid "title_login_page"
 msgstr "UpdateMe - Iniciar sesión"
 
@@ -153,10 +144,13 @@ msgid "Login"
 msgstr "Iniciar sesión"
 
 msgid "Sign in to access your weekly updates"
-msgstr "Inicia sesión para acceder a tus actualizaciones semanales"
+msgstr "Inicia sesión para acceder a tus actualizaciones semanales."
 
 msgid "Email"
 msgstr "Correo electrónico"
+
+msgid "Password"
+msgstr "Contraseña"
 
 msgid "Sign in"
 msgstr "Iniciar sesión"
@@ -167,7 +161,7 @@ msgstr "¿Necesitas una cuenta? Regístrate"
 msgid "Forgot password?"
 msgstr "¿Olvidaste tu contraseña?"
 
-# Mensajes de validación del formulario de login
+# Login form validation messages
 msgid "emptyPassword"
 msgstr "Por favor, introduce tu contraseña."
 
@@ -192,24 +186,24 @@ msgstr "Ocurrió un error durante el inicio de sesión. Por favor, inténtalo de
 msgid "UpdateMe - Login"
 msgstr "UpdateMe - Iniciar sesión"
 
-# Traducciones para el Dashboard
+# Dashboard translations
 msgid "UpdateMe - Dashboard"
-msgstr "UpdateMe - Panel de Control"
+msgstr "UpdateMe - Panel de control"
 
 msgid "Welcome"
-msgstr "¡Bienvenido"
+msgstr "Bienvenido"
 
 msgid "Account Summary"
-msgstr "Resumen de Cuenta"
+msgstr "Resumen de cuenta"
 
 msgid "Subscription"
 msgstr "Suscripción"
 
 msgid "Free Plan"
-msgstr "Plan Gratuito"
+msgstr "Plan gratuito"
 
 msgid "Premium Plan"
-msgstr "Plan Premium"
+msgstr "Plan premium"
 
 msgid "Spanish"
 msgstr "Español"
@@ -224,67 +218,213 @@ msgid "Select your preferred AI provider for content generation"
 msgstr "Selecciona tu proveedor de IA preferido para la generación de contenido"
 
 msgid "Search Provider"
-msgstr "Proveedor de Búsqueda"
+msgstr "Proveedor de búsqueda"
 
 msgid "Select your preferred search provider for web searches"
 msgstr "Selecciona tu proveedor de búsqueda preferido para búsquedas web"
 
 msgid "Customize Prompts"
-msgstr "Personalizar Prompts"
+msgstr "Personalizar prompts"
 
 msgid "Personalize the prompts used by AI providers to generate content tailored to your preferences."
 msgstr "Personaliza los prompts utilizados por los proveedores de IA para generar contenido adaptado a tus preferencias."
 
 msgid "Enter your custom prompt for OpenAI..."
-msgstr "Ingresa tu prompt personalizado para OpenAI..."
+msgstr "Introduce tu prompt personalizado para OpenAI..."
 
 msgid "Enter your custom prompt for Groq..."
-msgstr "Ingresa tu prompt personalizado para Groq..."
+msgstr "Introduce tu prompt personalizado para Groq..."
 
 msgid "Enter your custom prompt for DeepSeek..."
-msgstr "Ingresa tu prompt personalizado para DeepSeek..."
+msgstr "Introduce tu prompt personalizado para DeepSeek..."
 
 msgid "Enter your custom prompt for Tavily..."
-msgstr "Ingresa tu prompt personalizado para Tavily..."
+msgstr "Introduce tu prompt personalizado para Tavily..."
 
 msgid "Enter your custom prompt for SerpAPI..."
-msgstr "Ingresa tu prompt personalizado para SerpAPI..."
+msgstr "Introduce tu prompt personalizado para SerpAPI..."
 
 msgid "Reset to Default"
-msgstr "Restablecer a Valores Predeterminados"
+msgstr "Restablecer a valores predeterminados"
 
 msgid "Save Changes"
-msgstr "Guardar Cambios"
+msgstr "Guardar cambios"
 
-# Mensajes para toasts y notificaciones
+# Toast and notification messages
 msgid "preferenceUpdated"
 msgstr "Preferencia actualizada correctamente"
 
 msgid "errorUpdatingPreference"
-msgstr "Error actualizando preferencia: "
+msgstr "Error al actualizar la preferencia: "
 
 msgid "promptsSaved"
 msgstr "Prompts guardados correctamente"
 
 msgid "errorSavingPrompts"
-msgstr "Error guardando prompts: "
+msgstr "Error al guardar los prompts: "
 
 msgid "promptsReset"
 msgstr "Prompts restablecidos correctamente"
 
 msgid "errorResettingPrompts"
-msgstr "Error restableciendo prompts: "
+msgstr "Error al restablecer los prompts: "
 
 msgid "connectionError"
 msgstr "Error de conexión: "
 
 msgid "confirmResetPrompts"
-msgstr "¿Estás seguro de que quieres restablecer todos los prompts a los valores predeterminados?"
+msgstr "¿Estás seguro de que deseas restablecer todos los prompts a los valores predeterminados?"
 
 msgid "openaiSearchDisabled"
 msgstr "OpenAI utiliza su propio proveedor de búsqueda integrado, no es posible cambiar esta opción."
 
-# Mensajes para API
+msgid "Reset"
+msgstr "Restablecer"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+# Search provider configuration translations
+msgid "Search Provider Configuration"
+msgstr "Configuración del proveedor de búsqueda"
+
+msgid "Configure your search provider settings to customize your search results"
+msgstr "Configura los ajustes de tu proveedor de búsqueda para personalizar tus resultados"
+
+# Tavily specific translations
+msgid "Tavily Configuration"
+msgstr "Configuración de Tavily"
+
+msgid "Maximum Results"
+msgstr "Resultados máximos"
+
+msgid "Number of search results to return (1-10)"
+msgstr "Número de resultados de búsqueda a devolver (1-10)"
+
+msgid "Search Topic"
+msgstr "Tema de búsqueda"
+
+msgid "General"
+msgstr "General"
+
+msgid "Tech"
+msgstr "Tecnología"
+
+msgid "Finance"
+msgstr "Finanzas"
+
+msgid "Healthcare"
+msgstr "Salud"
+
+msgid "Science"
+msgstr "Ciencia"
+
+msgid "Search Depth"
+msgstr "Profundidad de búsqueda"
+
+msgid "Basic"
+msgstr "Básico"
+
+msgid "Moderate"
+msgstr "Moderado"
+
+msgid "Comprehensive"
+msgstr "Exhaustivo"
+
+msgid "Advanced"
+msgstr "Avanzado"
+
+msgid "Time Range"
+msgstr "Rango de tiempo"
+
+msgid "Last hour"
+msgstr "Última hora"
+
+msgid "Last day"
+msgstr "Último día"
+
+msgid "Last week"
+msgstr "Última semana"
+
+msgid "Last month"
+msgstr "Último mes"
+
+msgid "Last year"
+msgstr "Último año"
+
+msgid "Any time"
+msgstr "Cualquier momento"
+
+msgid "Include Raw Content"
+msgstr "Incluir contenido sin procesar"
+
+msgid "Include Domains"
+msgstr "Incluir dominios"
+
+msgid "Add domains to include in search (comma separated)"
+msgstr "Agrega dominios para incluir en la búsqueda (separados por comas)"
+
+msgid "Exclude Domains"
+msgstr "Excluir dominios"
+
+msgid "Add domains to exclude from search (comma separated)"
+msgstr "Agrega dominios para excluir de la búsqueda (separados por comas)"
+
+# SerpAPI specific translations
+msgid "SerpAPI Configuration"
+msgstr "Configuración de SerpAPI"
+
+msgid "Search Type"
+msgstr "Tipo de búsqueda"
+
+msgid "All"
+msgstr "Todo"
+
+msgid "News"
+msgstr "Noticias"
+
+msgid "Images"
+msgstr "Imágenes"
+
+msgid "Videos"
+msgstr "Videos"
+
+msgid "Safe Search"
+msgstr "Búsqueda segura"
+
+msgid "Off"
+msgstr "Desactivado"
+
+msgid "Medium"
+msgstr "Medio"
+
+msgid "High"
+msgstr "Alto"
+
+msgid "Include only trusted sources"
+msgstr "Incluir solo fuentes confiables"
+
+# Nuevas traducciones para límites y etiquetas de UI
+msgid "Max 400 characters"
+msgstr "Máx. 400 caracteres"
+
+msgid "Tavily prompt exceeds the 400 character limit."
+msgstr "El prompt de Tavily supera el límite de 400 caracteres."
+
+# Etiquetas de configuración avanzadas para SerpAPI
+msgid "Location"
+msgstr "Ubicación"
+
+msgid "Country Code"
+msgstr "Código de país"
+
+msgid "Interface Language"
+msgstr "Idioma de la interfaz"
+
+msgid "Device Type"
+msgstr "Tipo de dispositivo"
+
+# API messages
 msgid "No valid fields to update"
 msgstr "No hay campos válidos para actualizar"
 
@@ -303,17 +443,37 @@ msgstr "Prompts actualizados correctamente"
 msgid "Language"
 msgstr "Idioma"
 
+# English translations for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-03-24 22:49+0100\n"
+"PO-Revision-Date: 2023-03-24 22:49+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
 msgid "Terms & Conditions"
-msgstr "Términos y Condiciones"
+msgstr "Términos y condiciones"
 
 msgid "Privacy Policy"
-msgstr "Política de Privacidad"
+msgstr "Política de privacidad"
 
 msgid "UpdateMe - Privacy Policy"
-msgstr "UpdateMe - Política de Privacidad"
+msgstr "UpdateMe - Política de privacidad"
 
 msgid "UpdateMe - Terms & Conditions"
-msgstr "UpdateMe - Términos y Condiciones"
+msgstr "UpdateMe - Términos y condiciones"
 
 msgid "Last updated"
 msgstr "Última actualización"
@@ -322,7 +482,7 @@ msgid "Introduction"
 msgstr "Introducción"
 
 msgid "Definitions and Key Terms"
-msgstr "Definiciones y Términos Clave"
+msgstr "Definiciones y términos clave"
 
 msgid "Communications"
 msgstr "Comunicaciones"
@@ -334,10 +494,10 @@ msgid "Content"
 msgstr "Contenido"
 
 msgid "Free Trial"
-msgstr "Prueba Gratuita"
+msgstr "Prueba gratuita"
 
 msgid "Fee Changes"
-msgstr "Cambios en las Tarifas"
+msgstr "Cambios de tarifa"
 
 msgid "Refunds"
 msgstr "Reembolsos"
@@ -346,43 +506,43 @@ msgid "Accounts"
 msgstr "Cuentas"
 
 msgid "Intellectual Property"
-msgstr "Propiedad Intelectual"
+msgstr "Propiedad intelectual"
 
 msgid "Links To Other Web Sites"
-msgstr "Enlaces a Otros Sitios Web"
+msgstr "Enlaces a otros sitios web"
 
 msgid "Termination"
 msgstr "Terminación"
 
 msgid "Limitation Of Liability"
-msgstr "Limitación de Responsabilidad"
+msgstr "Limitación de responsabilidad"
 
 msgid "Disclaimer"
-msgstr "Descargo de Responsabilidad"
+msgstr "Descargo de responsabilidad"
 
 msgid "Governing Law"
-msgstr "Ley Aplicable"
+msgstr "Ley aplicable"
 
 msgid "Changes to Terms"
-msgstr "Cambios en los Términos"
+msgstr "Cambios en los términos"
 
 msgid "Contact Us"
 msgstr "Contáctanos"
 
 msgid "Information We Collect"
-msgstr "Información que Recopilamos"
+msgstr "Información que recopilamos"
 
 msgid "How We Use Your Information"
-msgstr "Cómo Usamos tu Información"
+msgstr "Cómo usamos tu información"
 
 msgid "Log Files"
-msgstr "Archivos de Registro"
+msgstr "Archivos de registro"
 
 msgid "Cookies and Web Beacons"
-msgstr "Cookies y Balizas Web"
+msgstr "Cookies y balizas web"
 
 msgid "Third-Party Services"
-msgstr "Servicios de Terceros"
+msgstr "Servicios de terceros"
 
 msgid "AI Providers"
 msgstr "Proveedores de IA"
@@ -391,52 +551,46 @@ msgid "Security"
 msgstr "Seguridad"
 
 msgid "Children's Privacy"
-msgstr "Privacidad de los Niños"
+msgstr "Privacidad de los niños"
 
 msgid "Changes to This Privacy Policy"
-msgstr "Cambios en Esta Política de Privacidad"
+msgstr "Cambios en esta política de privacidad"
 
 msgid "Your Rights"
-msgstr "Tus Derechos"
+msgstr "Tus derechos"
 
 msgid "Last updated terms and conditions"
-msgstr "23 de abril de 2025"
+msgstr "5 de junio de 2025"
 
 msgid "Last updated privacy policy"
-msgstr "23 de abril de 2025"
+msgstr "5 de junio de 2025"
 
 msgid "An initiative of"
 msgstr "Una iniciativa de"
 
 # Traducciones específicas para términos y condiciones
 msgid "Welcome to UpdateMe (\"we\", \"our\", \"us\"). These Terms and Conditions govern your use of our website located at updatemeai.vercel.app (the \"Service\") and any related services offered by UpdateMe."
-msgstr "Bienvenido a UpdateMe (\"nosotros\", \"nuestro\", \"nos\"). Estos Términos y Condiciones rigen tu uso de nuestro sitio web ubicado en updatemeai.vercel.app (el \"Servicio\") y cualquier servicio relacionado ofrecido por UpdateMe."
+msgstr "Bienvenido a UpdateMe (\"nosotros\", \"nuestro\", \"nos\"). Estos Términos y Condiciones rigen el uso de nuestro sitio web ubicado en updatemeai.vercel.app (el \"Servicio\") y cualquier servicio relacionado ofrecido por UpdateMe."
 
 msgid "By accessing or using our Service, you agree to be bound by these Terms. If you disagree with any part of the terms, you do not have permission to access the Service."
 msgstr "Al acceder o utilizar nuestro Servicio, aceptas estar sujeto a estos Términos. Si no estás de acuerdo con alguna parte de los términos, no tienes permiso para acceder al Servicio."
 
 msgid "By creating an account on our service, you agree to subscribe to newsletters, marketing or promotional materials, and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link in any email we send."
-msgstr "Al crear una cuenta en nuestro servicio, aceptas suscribirte a boletines informativos, materiales de marketing o promocionales y otra información que podamos enviar. Sin embargo, puedes optar por no recibir ninguna o todas estas comunicaciones de nuestra parte siguiendo el enlace de cancelación de suscripción en cualquier correo electrónico que enviemos."
-
-msgid "UpdateMe (\"we\", \"our\", or \"us\") is committed to protecting your privacy. This Privacy Policy explains how your personal information is collected, used, and disclosed by UpdateMe."
-msgstr "UpdateMe (\"nosotros\", \"nuestro\" o \"nos\") está comprometido con la protección de tu privacidad. Esta Política de Privacidad explica cómo UpdateMe recopila, utiliza y divulga tu información personal."
-
-msgid "This Privacy Policy applies to our website, and its associated subdomains (collectively, our \"Service\") alongside our application, UpdateMe. By accessing or using our Service, you signify that you have read, understood, and agree to our collection, storage, use, and disclosure of your personal information as described in this Privacy Policy."
-msgstr "Esta Política de Privacidad se aplica a nuestro sitio web y sus subdominios asociados (colectivamente, nuestro \"Servicio\") junto con nuestra aplicación, UpdateMe. Al acceder o utilizar nuestro Servicio, indicas que has leído, entendido y aceptas nuestra recopilación, almacenamiento, uso y divulgación de tu información personal como se describe en esta Política de Privacidad."
+msgstr "Al crear una cuenta en nuestro servicio, aceptas suscribirte a boletines, materiales de marketing o promocionales y otra información que podamos enviar. Sin embargo, puedes optar por no recibir ninguna o todas estas comunicaciones siguiendo el enlace para cancelar la suscripción en cualquier correo electrónico que enviemos."
 
 # Nuevas traducciones para meta etiquetas
 msgid "Terms and conditions for using UpdateMe newsletter service"
-msgstr "Términos y condiciones para el uso del servicio de boletines de UpdateMe"
+msgstr "Términos y condiciones para el uso del servicio de boletín UpdateMe"
 
 msgid "Privacy policy for UpdateMe newsletter service"
-msgstr "Política de privacidad para el servicio de boletines de UpdateMe"
+msgstr "Política de privacidad para el servicio de boletín UpdateMe"
 
 # Traducciones para elementos de las páginas de términos y condiciones y política de privacidad
 msgid "Cookie"
 msgstr "Cookie"
 
 msgid "Company"
-msgstr "Empresa"
+msgstr "Compañía"
 
 msgid "Country"
 msgstr "País"
@@ -451,7 +605,7 @@ msgid "IP address"
 msgstr "Dirección IP"
 
 msgid "Personal Data"
-msgstr "Datos Personales"
+msgstr "Datos personales"
 
 msgid "Service"
 msgstr "Servicio"
@@ -460,878 +614,137 @@ msgid "Third-party service"
 msgstr "Servicio de terceros"
 
 msgid "Website"
-msgstr "Sitio Web"
+msgstr "Sitio web"
 
 msgid "You"
 msgstr "Tú"
 
 msgid "Personal Information"
-msgstr "Información Personal"
+msgstr "Información personal"
 
 msgid "Usage Data"
-msgstr "Datos de Uso"
+msgstr "Datos de uso"
 
 msgid "Tracking & Cookies Data"
-msgstr "Datos de Seguimiento y Cookies"
+msgstr "Datos de seguimiento y cookies"
 
 msgid "Custom Prompt Data"
-msgstr "Datos de Prompt Personalizados"
+msgstr "Datos de prompts personalizados"
 
 msgid "For this Privacy Policy:"
 msgstr "Para esta Política de Privacidad:"
 
 msgid "A small amount of data generated by a website and saved by your web browser. It is used to identify your browser, provide analytics, and remember information about you such as your language preference or login information."
-msgstr "Una pequeña cantidad de datos generados por un sitio web y guardados por tu navegador web. Se utiliza para identificar tu navegador, proporcionar análisis y recordar información sobre ti, como tus preferencias de idioma o información de inicio de sesión."
+msgstr "Una pequeña cantidad de datos generados por un sitio web y guardados por tu navegador. Se utiliza para identificar tu navegador, proporcionar análisis y recordar información sobre ti, como tu preferencia de idioma o información de inicio de sesión."
 
 msgid "when this policy mentions \"Company,\" \"we,\" \"us,\" or \"our,\" it refers to UpdateMe, which is responsible for your information under this Privacy Policy."
-msgstr "cuando esta política menciona \"Empresa\", \"nosotros\" o \"nuestro\", se refiere a UpdateMe, que es responsable de tu información bajo esta Política de Privacidad."
+msgstr "cuando esta política menciona \"Compañía\", \"nosotros\", \"nos\" o \"nuestro\", se refiere a UpdateMe, que es responsable de tu información bajo esta Política de Privacidad."
 
 msgid "where UpdateMe or the owners/founders of UpdateMe are based, in this case is Spain."
-msgstr "donde UpdateMe o los propietarios/fundadores de UpdateMe están establecidos, en este caso es España."
+msgstr "donde UpdateMe o los propietarios/fundadores de UpdateMe tienen su sede, en este caso es España."
 
 msgid "refers to the company, organization, or person that signs up to use the UpdateMe Service."
-msgstr "se refiere a la empresa, organización o persona que se suscribe para utilizar el Servicio de UpdateMe."
+msgstr "se refiere a la empresa, organización o persona que se registra para usar el Servicio de UpdateMe."
 
 msgid "any internet-connected device such as a phone, tablet, computer, or any other device that can be used to visit UpdateMe and use the services."
-msgstr "cualquier dispositivo conectado a Internet como un teléfono, tableta, ordenador o cualquier otro dispositivo que pueda utilizarse para visitar UpdateMe y usar los servicios."
+msgstr "cualquier dispositivo conectado a Internet, como un teléfono, tableta, ordenador o cualquier otro dispositivo que pueda usarse para visitar UpdateMe y utilizar los servicios."
 
 msgid "Every device connected to the Internet is assigned a number known as an Internet protocol (IP) address. These numbers are usually assigned in geographic blocks. An IP address can often be used to identify the location from which a device is connecting to the Internet."
 msgstr "A cada dispositivo conectado a Internet se le asigna un número conocido como dirección de protocolo de Internet (IP). Estos números suelen asignarse en bloques geográficos. Una dirección IP a menudo puede usarse para identificar la ubicación desde la que un dispositivo se conecta a Internet."
 
 msgid "any information that directly, indirectly, or in connection with other information — including a personal identification number — allows for the identification or identifiability of a natural person."
-msgstr "cualquier información que directa, indirectamente o en conexión con otra información — incluyendo un número de identificación personal — permite la identificación o identificabilidad de una persona física."
+msgstr "cualquier información que directa o indirectamente, o en conexión con otra información —incluido un número de identificación personal— permita la identificación o identificabilidad de una persona física."
 
 msgid "refers to the website, application, and any related services offered by UpdateMe."
-msgstr "se refiere al sitio web, aplicación y cualquier servicio relacionado ofrecido por UpdateMe."
+msgstr "se refiere al sitio web, la aplicación y cualquier servicio relacionado ofrecido por UpdateMe."
 
 msgid "refers to advertisers, contest sponsors, promotional and marketing partners, and others who provide our content or whose products or services we think may interest you."
 msgstr "se refiere a anunciantes, patrocinadores de concursos, socios promocionales y de marketing, y otros que proporcionan nuestro contenido o cuyos productos o servicios creemos que pueden interesarte."
 
 msgid "UpdateMe's site, which can be accessed via this URL: updateme.dev"
-msgstr "El sitio de UpdateMe, al que se puede acceder a través de esta URL: updateme.dev"
+msgstr "El sitio de UpdateMe, al que se puede acceder mediante esta URL: updateme.dev"
 
 msgid "a person or entity that is registered with UpdateMe to use the Services."
 msgstr "una persona o entidad que está registrada en UpdateMe para usar los Servicios."
 
 msgid "support@updateme.dev"
-msgstr "soporte@updateme.dev"
+msgstr "support@updateme.dev"
 
 msgid "privacy@updateme.dev"
-msgstr "privacidad@updateme.dev"
+msgstr "privacy@updateme.dev"
 
 # Traducciones para textos específicos de Your Rights
 msgid "The right to access – You have the right to request copies of your personal data."
-msgstr "El derecho de acceso – Tienes derecho a solicitar copias de tus datos personales."
+msgstr "El derecho de acceso: tienes derecho a solicitar copias de tus datos personales."
 
 msgid "The right to rectification – You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete information you believe is incomplete."
-msgstr "El derecho de rectificación – Tienes derecho a solicitar que corrijamos cualquier información que consideres incorrecta. También tienes derecho a solicitar que completemos la información que creas que está incompleta."
+msgstr "El derecho de rectificación: tienes derecho a solicitar que corrijamos cualquier información que consideres inexacta. También tienes derecho a solicitar que completemos la información que consideres incompleta."
 
 msgid "The right to erasure – You have the right to request that we erase your personal data, under certain conditions."
-msgstr "El derecho de supresión – Tienes derecho a solicitar que eliminemos tus datos personales, bajo ciertas condiciones."
+msgstr "El derecho de supresión: tienes derecho a solicitar que eliminemos tus datos personales, bajo ciertas condiciones."
 
 msgid "The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions."
-msgstr "El derecho a restringir el procesamiento – Tienes derecho a solicitar que restrinjamos el procesamiento de tus datos personales, bajo ciertas condiciones."
+msgstr "El derecho a restringir el tratamiento: tienes derecho a solicitar que restrinjamos el tratamiento de tus datos personales, bajo ciertas condiciones."
 
 msgid "The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions."
-msgstr "El derecho a objetar el procesamiento – Tienes derecho a oponerte a nuestro procesamiento de tus datos personales, bajo ciertas condiciones."
+msgstr "El derecho de oposición: tienes derecho a oponerte al tratamiento de tus datos personales, bajo ciertas condiciones."
 
 msgid "The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions."
-msgstr "El derecho a la portabilidad de datos – Tienes derecho a solicitar que transfiramos los datos que hemos recopilado a otra organización, o directamente a ti, bajo ciertas condiciones."
+msgstr "El derecho a la portabilidad de los datos: tienes derecho a solicitar que transfiramos los datos que hemos recopilado a otra organización, o directamente a ti, bajo ciertas condiciones."
 
 msgid "If you are a European citizen, you have the following rights under GDPR:"
-msgstr "Si eres ciudadano europeo, tienes los siguientes derechos bajo el RGPD:"
+msgstr "Si eres ciudadano europeo, tienes los siguientes derechos según el RGPD:"
 
 msgid "We collect information from you when you visit our website, register on our site, subscribe to our newsletter, respond to a survey, or fill out a form."
-msgstr "Recopilamos información cuando visitas nuestro sitio web, te registras en nuestro sitio, te suscribes a nuestro boletín, respondes a una encuesta o rellenas un formulario."
+msgstr "Recopilamos información de ti cuando visitas nuestro sitio web, te registras, te suscribes a nuestro boletín, respondes a una encuesta o completas un formulario."
 
 msgid "Name, Email address, Username."
-msgstr "Nombre, Dirección de correo electrónico, Nombre de usuario."
+msgstr "Nombre, dirección de correo electrónico, nombre de usuario."
 
 msgid "Information about how you use our website, such as the pages you visit, the time and date of your visit, the time spent on those pages, and other diagnostic data."
-msgstr "Información sobre cómo utilizas nuestro sitio web, como las páginas que visitas, la fecha y hora de tu visita, el tiempo que pasas en esas páginas y otros datos de diagnóstico."
+msgstr "Información sobre cómo usas nuestro sitio web, como las páginas que visitas, la fecha y hora de tu visita, el tiempo que pasas en esas páginas y otros datos de diagnóstico."
 
 msgid "We use cookies and similar tracking technologies to track activity on our Service and hold certain information."
 msgstr "Utilizamos cookies y tecnologías de seguimiento similares para rastrear la actividad en nuestro Servicio y almacenar cierta información."
 
 msgid "The prompts you create and save for AI content generation."
-msgstr "Los prompts que creas y guardas para la generación de contenido mediante IA."
+msgstr "Los prompts que creas y guardas para la generación de contenido con IA."
 
 msgid "We use the information we collect in various ways, including to:"
-msgstr "Utilizamos la información que recopilamos de varias formas, incluyendo para:"
+msgstr "Usamos la información que recopilamos de varias formas, incluyendo para:"
 
 msgid "Provide, operate, and maintain our website"
 msgstr "Proporcionar, operar y mantener nuestro sitio web"
 
 msgid "Improve, personalize, and expand our website"
-msgstr "Mejorar, personalizar y expandir nuestro sitio web"
+msgstr "Mejorar, personalizar y ampliar nuestro sitio web"
 
 msgid "Understand and analyze how you use our website"
-msgstr "Entender y analizar cómo utilizas nuestro sitio web"
+msgstr "Entender y analizar cómo usas nuestro sitio web"
 
 msgid "Develop new products, services, features, and functionality"
-msgstr "Desarrollar nuevos productos, servicios, características y funcionalidades"
+msgstr "Desarrollar nuevos productos, servicios, funciones y características"
 
 msgid "Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes"
-msgstr "Comunicarnos contigo, ya sea directamente o a través de uno de nuestros socios, incluyendo para servicio al cliente, para proporcionarte actualizaciones y otra información relacionada con el sitio web, y para fines de marketing y promoción"
+msgstr "Comunicarnos contigo, ya sea directamente o a través de uno de nuestros socios, incluso para atención al cliente, para proporcionarte actualizaciones y otra información relacionada con el sitio web, y con fines de marketing y promoción"
 
 msgid "Send you the weekly newsletter based on your preferences"
-msgstr "Enviarte el boletín semanal basado en tus preferencias"
+msgstr "Enviarte el boletín semanal según tus preferencias"
 
 msgid "Find and prevent fraud"
-msgstr "Encontrar y prevenir fraudes"
+msgstr "Detectar y prevenir fraudes"
 
 msgid "If you have any questions about these Terms, please contact us at:"
-msgstr "Si tienes alguna pregunta sobre estos Términos, por favor contáctanos en:"
+msgstr "Si tienes alguna pregunta sobre estos Términos, contáctanos en:"
 
 msgid "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:"
 msgstr "Si tienes alguna pregunta o sugerencia sobre nuestra Política de Privacidad, no dudes en contactarnos en:"
 
 msgid "Some parts of the Service are offered on a subscription basis. You will be billed in advance on a recurring and periodic basis (weekly, monthly, or annually), depending on the type of subscription plan you select."
-msgstr "Algunas partes del Servicio se ofrecen mediante suscripción. Se te cobrará por adelantado de forma recurrente y periódica (semanal, mensual o anual), dependiendo del tipo de plan de suscripción que selecciones."
+msgstr "Algunas partes del Servicio se ofrecen por suscripción. Se te facturará por adelantado de forma recurrente y periódica (semanal, mensual o anual), según el tipo de plan de suscripción que elijas."
 
 msgid "At the end of each period, your subscription will automatically renew under the same conditions unless you cancel it or UpdateMe cancels it."
-msgstr "Al final de cada período, tu suscripción se renovará automáticamente bajo las mismas condiciones a menos que la canceles o UpdateMe la cancele."
-
-# Traducciones adicionales para Términos y Condiciones
-msgid "Our Service allows you to customize prompts that generate content using artificial intelligence technologies. You understand that you are responsible for any prompts you create, and that UpdateMe has no responsibility for the nature or content of those prompts."
-msgstr "Nuestro Servicio te permite personalizar prompts que generan contenido mediante tecnologías de inteligencia artificial. Entiendes que eres responsable de cualquier prompt que crees, y que UpdateMe no tiene responsabilidad por la naturaleza o contenido de esos prompts."
-
-msgid "The content generated by our AI providers is for informational purposes only. We do not guarantee its accuracy, completeness, or reliability."
-msgstr "El contenido generado por nuestros proveedores de IA es solo para fines informativos. No garantizamos su precisión, exhaustividad o fiabilidad."
-
-msgid "UpdateMe may, at its sole discretion, offer a subscription with a free trial for a limited period."
-msgstr "UpdateMe puede, a su entera discreción, ofrecer una suscripción con una prueba gratuita por un período limitado."
-
-msgid "At any time and without notice, UpdateMe reserves the right to (i) modify the terms and conditions of the free trial offer, or (ii) cancel such free trial offer."
-msgstr "En cualquier momento y sin previo aviso, UpdateMe se reserva el derecho de (i) modificar los términos y condiciones de la oferta de prueba gratuita, o (ii) cancelar dicha oferta de prueba gratuita."
-
-msgid "UpdateMe, in its sole discretion and at any time, may modify the subscription fees. Any subscription fee change will become effective at the end of the then-current billing cycle."
-msgstr "UpdateMe, a su entera discreción y en cualquier momento, puede modificar las tarifas de suscripción. Cualquier cambio en la tarifa de suscripción entrará en vigor al final del ciclo de facturación actual."
-
-msgid "UpdateMe will provide you with reasonable prior notice of any change in subscription fees to give you an opportunity to terminate your subscription before such change becomes effective."
-msgstr "UpdateMe te proporcionará un aviso previo razonable de cualquier cambio en las tarifas de suscripción para darte la oportunidad de cancelar tu suscripción antes de que dicho cambio entre en vigor."
-
-msgid "Certain refund requests may be considered by UpdateMe on a case-by-case basis and granted at the sole discretion of UpdateMe."
-msgstr "Ciertas solicitudes de reembolso pueden ser consideradas por UpdateMe caso por caso y concedidas a la entera discreción de UpdateMe."
-
-msgid "When you create an account with us, you guarantee that the information you provide us is accurate, complete, and current at all times. Inaccurate, incomplete, or obsolete information may result in the immediate termination of your account on the Service."
-msgstr "Cuando creas una cuenta con nosotros, garantizas que la información que nos proporcionas es precisa, completa y actual en todo momento. La información inexacta, incompleta u obsoleta puede resultar en la terminación inmediata de tu cuenta en el Servicio."
-
-msgid "You are responsible for maintaining the confidentiality of your account and password, including but not limited to the restriction of access to your computer and/or account. You agree to accept responsibility for any and all activities or actions that occur under your account and/or password."
-msgstr "Eres responsable de mantener la confidencialidad de tu cuenta y contraseña, incluyendo pero no limitado a la restricción de acceso a tu ordenador y/o cuenta. Aceptas asumir la responsabilidad por todas y cada una de las actividades o acciones que ocurran bajo tu cuenta y/o contraseña."
-
-msgid "The Service and its original content (excluding content provided by users), features, and functionality are and will remain the exclusive property of UpdateMe and its licensors. The Service is protected by copyright, trademark, and other laws of both Spain and foreign countries."
-msgstr "El Servicio y su contenido original (excluyendo el contenido proporcionado por los usuarios), características y funcionalidades son y seguirán siendo propiedad exclusiva de UpdateMe y sus licenciantes. El Servicio está protegido por derechos de autor, marcas registradas y otras leyes de España y de países extranjeros."
-
-msgid "Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of UpdateMe."
-msgstr "Nuestras marcas registradas y presentación comercial no pueden ser utilizadas en relación con ningún producto o servicio sin el consentimiento previo por escrito de UpdateMe."
-
-msgid "Our Service may contain links to third-party websites or services that are not owned or controlled by UpdateMe."
-msgstr "Nuestro Servicio puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por UpdateMe."
-
-msgid "UpdateMe has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third-party websites or services. We do not warrant the offerings of any of these entities/individuals or their websites."
-msgstr "UpdateMe no tiene control sobre, y no asume ninguna responsabilidad por el contenido, las políticas de privacidad o las prácticas de cualquier sitio web o servicio de terceros. No garantizamos las ofertas de ninguna de estas entidades/individuos o sus sitios web."
-
-msgid "We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms."
-msgstr "Podemos terminar o suspender tu cuenta y prohibir el acceso al Servicio de inmediato, sin previo aviso o responsabilidad, a nuestra entera discreción, por cualquier motivo y sin limitación, incluyendo pero no limitándose a un incumplimiento de los Términos."
-
-msgid "If you wish to terminate your account, you may simply discontinue using the Service, or contact us for account deletion."
-msgstr "Si deseas cancelar tu cuenta, puedes simplemente dejar de usar el Servicio, o contactarnos para la eliminación de la cuenta."
-
-msgid "In no event shall UpdateMe, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage."
-msgstr "En ningún caso UpdateMe, ni sus directores, empleados, socios, agentes, proveedores o afiliados, serán responsables por cualquier daño indirecto, incidental, especial, consecuente o punitivo, incluyendo sin limitación, pérdida de beneficios, datos, uso, buena voluntad u otras pérdidas intangibles, resultantes de (i) tu acceso o uso o incapacidad para acceder o usar el Servicio; (ii) cualquier conducta o contenido de terceros en el Servicio; (iii) cualquier contenido obtenido del Servicio; y (iv) acceso no autorizado, uso o alteración de tus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluyendo negligencia) o cualquier otra teoría legal, incluso si hemos sido informados de la posibilidad de tal daño."
-
-msgid "Your use of the Service is at your sole risk. The Service is provided on an \"AS IS\" and \"AS AVAILABLE\" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance."
-msgstr "El uso del Servicio es bajo tu propio riesgo. El Servicio se proporciona \"TAL CUAL\" y \"SEGÚN DISPONIBILIDAD\". El Servicio se proporciona sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo, pero no limitado a, garantías implícitas de comerciabilidad, idoneidad para un propósito particular, no infracción o curso de rendimiento."
-
-msgid "These Terms shall be governed and construed in accordance with the laws of Spain, without regard to its conflict of law provisions."
-msgstr "Estos Términos se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflictos de leyes."
-
-msgid "Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect."
-msgstr "Nuestra falta de cumplimiento de cualquier derecho o disposición de estos Términos no se considerará una renuncia a esos derechos. Si alguna disposición de estos Términos es considerada inválida o inaplicable por un tribunal, las disposiciones restantes de estos Términos seguirán en vigor."
-
-msgid "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion."
-msgstr "Nos reservamos el derecho, a nuestra sola discreción, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, proporcionaremos al menos 30 días de aviso antes de que los nuevos términos entren en vigor. Lo que constituye un cambio material será determinado a nuestra sola discreción."
-
-msgid "By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Service."
-msgstr "Al continuar accediendo o utilizando nuestro Servicio después de que cualquier revisión se haga efectiva, aceptas estar sujeto a los términos revisados. Si no estás de acuerdo con los nuevos términos, ya no estás autorizado a usar el Servicio."
-
-msgid "Introduction p1"
-msgstr "Bienvenido a UpdateMe (\"nosotros\", \"nuestro\", \"nos\"). Estos Términos y Condiciones rigen tu uso de nuestro sitio web ubicado en updateme.dev (el \"Servicio\") y cualquier servicio relacionado ofrecido por UpdateMe."
-
-msgid "Introduction p2"
-msgstr "Al acceder o utilizar nuestro Servicio, aceptas estar sujeto a estos Términos. Si no estás de acuerdo con alguna parte de los términos, no tienes permiso para acceder al Servicio."
-
-msgid "Communications p1"
-msgstr "Al crear una cuenta en nuestro servicio, aceptas suscribirte a boletines informativos, materiales de marketing o promocionales y otra información que podamos enviar. Sin embargo, puedes optar por no recibir ninguna o todas estas comunicaciones de nuestra parte siguiendo el enlace de cancelación de suscripción en cualquier correo electrónico que enviemos."
-
-msgid "Subscriptions p1"
-msgstr "Algunas partes del Servicio se ofrecen mediante suscripción. Se te cobrará por adelantado de forma recurrente y periódica (semanal, mensual o anual), dependiendo del tipo de plan de suscripción que selecciones."
-
-msgid "Subscriptions p2"
-msgstr "Al final de cada período, tu suscripción se renovará automáticamente bajo las mismas condiciones a menos que la canceles o UpdateMe la cancele."
-
-msgid "Content p1"
-msgstr "Nuestro Servicio te permite personalizar prompts que generan contenido mediante tecnologías de inteligencia artificial. Entiendes que eres responsable de cualquier prompt que crees, y que UpdateMe no tiene responsabilidad por la naturaleza o contenido de esos prompts."
-
-msgid "Content p2"
-msgstr "El contenido generado por nuestros proveedores de IA es solo para fines informativos. No garantizamos su precisión, exhaustividad o fiabilidad."
-
-msgid "Free Trial p1"
-msgstr "UpdateMe puede, a su entera discreción, ofrecer una suscripción con una prueba gratuita por un período limitado."
-
-msgid "Free Trial p2"
-msgstr "En cualquier momento y sin previo aviso, UpdateMe se reserva el derecho de (i) modificar los términos y condiciones de la oferta de prueba gratuita, o (ii) cancelar dicha oferta de prueba gratuita."
-
-msgid "Fee Changes p1"
-msgstr "UpdateMe, a su entera discreción y en cualquier momento, puede modificar las tarifas de suscripción. Cualquier cambio en la tarifa de suscripción entrará en vigor al final del ciclo de facturación actual."
-
-msgid "Fee Changes p2"
-msgstr "UpdateMe te proporcionará un aviso previo razonable de cualquier cambio en las tarifas de suscripción para darte la oportunidad de cancelar tu suscripción antes de que dicho cambio entre en vigor."
-
-msgid "Refunds p1"
-msgstr "Ciertas solicitudes de reembolso pueden ser consideradas por UpdateMe caso por caso y concedidas a la entera discreción de UpdateMe."
-
-msgid "Accounts p1"
-msgstr "Cuando creas una cuenta con nosotros, garantizas que la información que nos proporcionas es precisa, completa y actual en todo momento. La información inexacta, incompleta u obsoleta puede resultar en la terminación inmediata de tu cuenta en el Servicio."
-
-msgid "Accounts p2"
-msgstr "Eres responsable de mantener la confidencialidad de tu cuenta y contraseña, incluyendo pero no limitado a la restricción de acceso a tu ordenador y/o cuenta. Aceptas asumir la responsabilidad por todas y cada una de las actividades o acciones que ocurran bajo tu cuenta y/o contraseña."
-
-msgid "Intellectual Property p1"
-msgstr "El Servicio y su contenido original (excluyendo el contenido proporcionado por los usuarios), características y funcionalidades son y seguirán siendo propiedad exclusiva de UpdateMe y sus licenciantes. El Servicio está protegido por derechos de autor, marcas registradas y otras leyes de España y de países extranjeros."
-
-msgid "Intellectual Property p2"
-msgstr "Nuestras marcas registradas y presentación comercial no pueden ser utilizadas en relación con ningún producto o servicio sin el consentimiento previo por escrito de UpdateMe."
-
-msgid "Links To Other Web Sites p1"
-msgstr "Nuestro Servicio puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por UpdateMe."
-
-msgid "Links To Other Web Sites p2"
-msgstr "UpdateMe no tiene control sobre, y no asume ninguna responsabilidad por el contenido, las políticas de privacidad o las prácticas de cualquier sitio web o servicio de terceros. No garantizamos las ofertas de ninguna de estas entidades/individuos o sus sitios web."
-
-msgid "Termination p1"
-msgstr "Podemos terminar o suspender tu cuenta y prohibir el acceso al Servicio de inmediato, sin previo aviso o responsabilidad, a nuestra entera discreción, por cualquier motivo y sin limitación, incluyendo pero no limitándose a un incumplimiento de los Términos."
-
-msgid "Termination p2"
-msgstr "Si deseas cancelar tu cuenta, puedes simplemente dejar de usar el Servicio, o contactarnos para la eliminación de la cuenta."
-
-msgid "Limitation Of Liability p1"
-msgstr "En ningún caso UpdateMe, ni sus directores, empleados, socios, agentes, proveedores o afiliados, serán responsables por cualquier daño indirecto, incidental, especial, consecuente o punitivo, incluyendo sin limitación, pérdida de beneficios, datos, uso, buena voluntad u otras pérdidas intangibles, resultantes de (i) tu acceso o uso o incapacidad para acceder o usar el Servicio; (ii) cualquier conducta o contenido de terceros en el Servicio; (iii) cualquier contenido obtenido del Servicio; y (iv) acceso no autorizado, uso o alteración de tus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluyendo negligencia) o cualquier otra teoría legal, incluso si hemos sido informados de la posibilidad de tal daño."
-
-msgid "Disclaimer p1"
-msgstr "El uso del Servicio es bajo tu propio riesgo. El Servicio se proporciona \"TAL CUAL\" y \"SEGÚN DISPONIBILIDAD\". El Servicio se proporciona sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo, pero no limitado a, garantías implícitas de comerciabilidad, idoneidad para un propósito particular, no infracción o curso de rendimiento."
-
-msgid "Governing Law p1"
-msgstr "Estos Términos se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflictos de leyes."
-
-msgid "Governing Law p2"
-msgstr "Nuestra falta de cumplimiento de cualquier derecho o disposición de estos Términos no se considerará una renuncia a esos derechos. Si alguna disposición de estos Términos es considerada inválida o inaplicable por un tribunal, las disposiciones restantes de estos Términos seguirán en vigor."
-
-msgid "Changes to Terms p1"
-msgstr "Nos reservamos el derecho, a nuestra sola discreción, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, proporcionaremos al menos 30 días de aviso antes de que los nuevos términos entren en vigor. Lo que constituye un cambio material será determinado a nuestra sola discreción."
-
-msgid "Changes to Terms p2"
-msgstr "Al continuar accediendo o utilizando nuestro Servicio después de que cualquier revisión se haga efectiva, aceptas estar sujeto a los términos revisados. Si no estás de acuerdo con los nuevos términos, ya no estás autorizado a usar el Servicio."
-
-msgid "Contact Us p1"
-msgstr "Si tienes alguna pregunta sobre estos Términos, por favor contáctanos en:"
-
-msgid "Introduction Policy p1"
-msgstr "UpdateMe (\"nosotros\", \"nuestro\" o \"nos\") está comprometido con la protección de tu privacidad. Esta Política de Privacidad explica cómo UpdateMe recopila, utiliza y divulga tu información personal."
-
-msgid "Introduction Policy p2"
-msgstr "Esta Política de Privacidad se aplica a nuestro sitio web y sus subdominios asociados (colectivamente, nuestro \"Servicio\") junto con nuestra aplicación, UpdateMe. Al acceder o utilizar nuestro Servicio, indicas que has leído, entendido y aceptas nuestra recopilación, almacenamiento, uso y divulgación de tu información personal como se describe en esta Política de Privacidad."
-
-msgid "Definitions and Key Terms p1"
-msgstr "Para esta Política de Privacidad:"
-
-msgid "Definitions Cookie"
-msgstr "Una pequeña cantidad de datos generados por un sitio web y guardados por tu navegador web. Se utiliza para identificar tu navegador, proporcionar análisis y recordar información sobre ti, como tus preferencias de idioma o información de inicio de sesión."
-
-msgid "Definitions Company"
-msgstr "cuando esta política menciona \"Empresa\", \"nosotros\" o \"nuestro\", se refiere a UpdateMe, que es responsable de tu información bajo esta Política de Privacidad."
-
-msgid "Definitions Country"
-msgstr "donde UpdateMe o los propietarios/fundadores de UpdateMe están establecidos, en este caso es España."
-
-msgid "Definitions Customer"
-msgstr "se refiere a la empresa, organización o persona que se suscribe para utilizar el Servicio de UpdateMe."
-
-msgid "Definitions Device"
-msgstr "cualquier dispositivo conectado a Internet como un teléfono, tableta, ordenador o cualquier otro dispositivo que pueda utilizarse para visitar UpdateMe y usar los servicios."
-
-msgid "Definitions IP address"
-msgstr "A cada dispositivo conectado a Internet se le asigna un número conocido como dirección de protocolo de Internet (IP). Estos números suelen asignarse en bloques geográficos. Una dirección IP a menudo puede usarse para identificar la ubicación desde la que un dispositivo se conecta a Internet."
-
-msgid "Definitions Personal Data"
-msgstr "cualquier información que directa, indirectamente o en conexión con otra información — incluyendo un número de identificación personal — permite la identificación o identificabilidad de una persona física."
-
-msgid "Definitions Service"
-msgstr "se refiere al sitio web, aplicación y cualquier servicio relacionado ofrecido por UpdateMe."
-
-msgid "Definitions Third-party service"
-msgstr "se refiere a anunciantes, patrocinadores de concursos, socios promocionales y de marketing, y otros que proporcionan nuestro contenido o cuyos productos o servicios creemos que pueden interesarte."
-
-msgid "Definitions Website"
-msgstr "El sitio de UpdateMe, al que se puede acceder a través de esta URL: updateme.dev"
-
-msgid "Definitions You"
-msgstr "una persona o entidad que está registrada en UpdateMe para usar los Servicios."
-
-msgid "Information We Collect p1"
-msgstr "Recopilamos información cuando visitas nuestro sitio web, te registras en nuestro sitio, te suscribes a nuestro boletín, respondes a una encuesta o rellenas un formulario."
-
-msgid "Information Personal"
-msgstr "Nombre, Dirección de correo electrónico, Nombre de usuario."
-
-msgid "Information Usage"
-msgstr "Información sobre cómo utilizas nuestro sitio web, como las páginas que visitas, la fecha y hora de tu visita, el tiempo que pasas en esas páginas y otros datos de diagnóstico."
-
-msgid "Information Tracking"
-msgstr "Utilizamos cookies y tecnologías de seguimiento similares para rastrear la actividad en nuestro Servicio y almacenar cierta información."
-
-msgid "Information Custom"
-msgstr "Los prompts que creas y guardas para la generación de contenido mediante IA."
-
-msgid "How We Use Your Information p1"
-msgstr "Utilizamos la información que recopilamos de varias formas, incluyendo para:"
-
-msgid "Use Info Point1"
-msgstr "Proporcionar, operar y mantener nuestro sitio web"
-
-msgid "Use Info Point2"
-msgstr "Mejorar, personalizar y expandir nuestro sitio web"
-
-msgid "Use Info Point3"
-msgstr "Entender y analizar cómo utilizas nuestro sitio web"
-
-msgid "Use Info Point4"
-msgstr "Desarrollar nuevos productos, servicios, características y funcionalidades"
-
-msgid "Use Info Point5"
-msgstr "Comunicarnos contigo, ya sea directamente o a través de uno de nuestros socios, incluyendo para servicio al cliente, para proporcionarte actualizaciones y otra información relacionada con el sitio web, y para fines de marketing y promoción"
-
-msgid "Use Info Point6"
-msgstr "Enviarte el boletín semanal basado en tus preferencias"
-
-msgid "Use Info Point7"
-msgstr "Encontrar y prevenir fraudes"
-
-msgid "If you have any questions about these Terms, please contact us at:"
-msgstr "Si tienes alguna pregunta sobre estos Términos, por favor contáctanos en:"
-
-msgid "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:"
-msgstr "Si tienes alguna pregunta o sugerencia sobre nuestra Política de Privacidad, no dudes en contactarnos en:"
-
-msgid "Some parts of the Service are offered on a subscription basis. You will be billed in advance on a recurring and periodic basis (weekly, monthly, or annually), depending on the type of subscription plan you select."
-msgstr "Algunas partes del Servicio se ofrecen mediante suscripción. Se te cobrará por adelantado de forma recurrente y periódica (semanal, mensual o anual), dependiendo del tipo de plan de suscripción que selecciones."
-
-msgid "At the end of each period, your subscription will automatically renew under the same conditions unless you cancel it or UpdateMe cancels it."
-msgstr "Al final de cada período, tu suscripción se renovará automáticamente bajo las mismas condiciones a menos que la canceles o UpdateMe la cancele."
-
-# Traducciones adicionales para Términos y Condiciones
-msgid "Our Service allows you to customize prompts that generate content using artificial intelligence technologies. You understand that you are responsible for any prompts you create, and that UpdateMe has no responsibility for the nature or content of those prompts."
-msgstr "Nuestro Servicio te permite personalizar prompts que generan contenido mediante tecnologías de inteligencia artificial. Entiendes que eres responsable de cualquier prompt que crees, y que UpdateMe no tiene responsabilidad por la naturaleza o contenido de esos prompts."
-
-msgid "The content generated by our AI providers is for informational purposes only. We do not guarantee its accuracy, completeness, or reliability."
-msgstr "El contenido generado por nuestros proveedores de IA es solo para fines informativos. No garantizamos su precisión, exhaustividad o fiabilidad."
-
-msgid "UpdateMe may, at its sole discretion, offer a subscription with a free trial for a limited period."
-msgstr "UpdateMe puede, a su entera discreción, ofrecer una suscripción con una prueba gratuita por un período limitado."
-
-msgid "At any time and without notice, UpdateMe reserves the right to (i) modify the terms and conditions of the free trial offer, or (ii) cancel such free trial offer."
-msgstr "En cualquier momento y sin previo aviso, UpdateMe se reserva el derecho de (i) modificar los términos y condiciones de la oferta de prueba gratuita, o (ii) cancelar dicha oferta de prueba gratuita."
-
-msgid "UpdateMe, in its sole discretion and at any time, may modify the subscription fees. Any subscription fee change will become effective at the end of the then-current billing cycle."
-msgstr "UpdateMe, a su entera discreción y en cualquier momento, puede modificar las tarifas de suscripción. Cualquier cambio en la tarifa de suscripción entrará en vigor al final del ciclo de facturación actual."
-
-msgid "UpdateMe will provide you with reasonable prior notice of any change in subscription fees to give you an opportunity to terminate your subscription before such change becomes effective."
-msgstr "UpdateMe te proporcionará un aviso previo razonable de cualquier cambio en las tarifas de suscripción para darte la oportunidad de cancelar tu suscripción antes de que dicho cambio entre en vigor."
-
-msgid "Certain refund requests may be considered by UpdateMe on a case-by-case basis and granted at the sole discretion of UpdateMe."
-msgstr "Ciertas solicitudes de reembolso pueden ser consideradas por UpdateMe caso por caso y concedidas a la entera discreción de UpdateMe."
-
-msgid "When you create an account with us, you guarantee that the information you provide us is accurate, complete, and current at all times. Inaccurate, incomplete, or obsolete information may result in the immediate termination of your account on the Service."
-msgstr "Cuando creas una cuenta con nosotros, garantizas que la información que nos proporcionas es precisa, completa y actual en todo momento. La información inexacta, incompleta u obsoleta puede resultar en la terminación inmediata de tu cuenta en el Servicio."
-
-msgid "You are responsible for maintaining the confidentiality of your account and password, including but not limited to the restriction of access to your computer and/or account. You agree to accept responsibility for any and all activities or actions that occur under your account and/or password."
-msgstr "Eres responsable de mantener la confidencialidad de tu cuenta y contraseña, incluyendo pero no limitado a la restricción de acceso a tu ordenador y/o cuenta. Aceptas asumir la responsabilidad por todas y cada una de las actividades o acciones que ocurran bajo tu cuenta y/o contraseña."
-
-msgid "The Service and its original content (excluding content provided by users), features, and functionality are and will remain the exclusive property of UpdateMe and its licensors. The Service is protected by copyright, trademark, and other laws of both Spain and foreign countries."
-msgstr "El Servicio y su contenido original (excluyendo el contenido proporcionado por los usuarios), características y funcionalidades son y seguirán siendo propiedad exclusiva de UpdateMe y sus licenciantes. El Servicio está protegido por derechos de autor, marcas registradas y otras leyes de España y de países extranjeros."
-
-msgid "Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of UpdateMe."
-msgstr "Nuestras marcas registradas y presentación comercial no pueden ser utilizadas en relación con ningún producto o servicio sin el consentimiento previo por escrito de UpdateMe."
-
-msgid "Our Service may contain links to third-party websites or services that are not owned or controlled by UpdateMe."
-msgstr "Nuestro Servicio puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por UpdateMe."
-
-msgid "UpdateMe has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third-party websites or services. We do not warrant the offerings of any of these entities/individuals or their websites."
-msgstr "UpdateMe no tiene control sobre, y no asume ninguna responsabilidad por el contenido, las políticas de privacidad o las prácticas de cualquier sitio web o servicio de terceros. No garantizamos las ofertas de ninguna de estas entidades/individuos o sus sitios web."
-
-msgid "We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms."
-msgstr "Podemos terminar o suspender tu cuenta y prohibir el acceso al Servicio de inmediato, sin previo aviso o responsabilidad, a nuestra entera discreción, por cualquier motivo y sin limitación, incluyendo pero no limitándose a un incumplimiento de los Términos."
-
-msgid "If you wish to terminate your account, you may simply discontinue using the Service, or contact us for account deletion."
-msgstr "Si deseas cancelar tu cuenta, puedes simplemente dejar de usar el Servicio, o contactarnos para la eliminación de la cuenta."
-
-msgid "In no event shall UpdateMe, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage."
-msgstr "En ningún caso UpdateMe, ni sus directores, empleados, socios, agentes, proveedores o afiliados, serán responsables por cualquier daño indirecto, incidental, especial, consecuente o punitivo, incluyendo sin limitación, pérdida de beneficios, datos, uso, buena voluntad u otras pérdidas intangibles, resultantes de (i) tu acceso o uso o incapacidad para acceder o usar el Servicio; (ii) cualquier conducta o contenido de terceros en el Servicio; (iii) cualquier contenido obtenido del Servicio; y (iv) acceso no autorizado, uso o alteración de tus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluyendo negligencia) o cualquier otra teoría legal, incluso si hemos sido informados de la posibilidad de tal daño."
-
-msgid "Your use of the Service is at your sole risk. The Service is provided on an \"AS IS\" and \"AS AVAILABLE\" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance."
-msgstr "El uso del Servicio es bajo tu propio riesgo. El Servicio se proporciona \"TAL CUAL\" y \"SEGÚN DISPONIBILIDAD\". El Servicio se proporciona sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo, pero no limitado a, garantías implícitas de comerciabilidad, idoneidad para un propósito particular, no infracción o curso de rendimiento."
-
-msgid "These Terms shall be governed and construed in accordance with the laws of Spain, without regard to its conflict of law provisions."
-msgstr "Estos Términos se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflictos de leyes."
-
-msgid "Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect."
-msgstr "Nuestra falta de cumplimiento de cualquier derecho o disposición de estos Términos no se considerará una renuncia a esos derechos. Si alguna disposición de estos Términos es considerada inválida o inaplicable por un tribunal, las disposiciones restantes de estos Términos seguirán en vigor."
-
-msgid "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion."
-msgstr "Nos reservamos el derecho, a nuestra sola discreción, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, proporcionaremos al menos 30 días de aviso antes de que los nuevos términos entren en vigor. Lo que constituye un cambio material será determinado a nuestra sola discreción."
-
-msgid "By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Service."
-msgstr "Al continuar accediendo o utilizando nuestro Servicio después de que cualquier revisión se haga efectiva, aceptas estar sujeto a los términos revisados. Si no estás de acuerdo con los nuevos términos, ya no estás autorizado a usar el Servicio."
-
-msgid "Introduction p1"
-msgstr "Bienvenido a UpdateMe (\"nosotros\", \"nuestro\", \"nos\"). Estos Términos y Condiciones rigen tu uso de nuestro sitio web ubicado en updateme.dev (el \"Servicio\") y cualquier servicio relacionado ofrecido por UpdateMe."
-
-msgid "Introduction p2"
-msgstr "Al acceder o utilizar nuestro Servicio, aceptas estar sujeto a estos Términos. Si no estás de acuerdo con alguna parte de los términos, no tienes permiso para acceder al Servicio."
-
-msgid "Communications p1"
-msgstr "Al crear una cuenta en nuestro servicio, aceptas suscribirte a boletines informativos, materiales de marketing o promocionales y otra información que podamos enviar. Sin embargo, puedes optar por no recibir ninguna o todas estas comunicaciones de nuestra parte siguiendo el enlace de cancelación de suscripción en cualquier correo electrónico que enviemos."
-
-msgid "Subscriptions p1"
-msgstr "Algunas partes del Servicio se ofrecen mediante suscripción. Se te cobrará por adelantado de forma recurrente y periódica (semanal, mensual o anual), dependiendo del tipo de plan de suscripción que selecciones."
-
-msgid "Subscriptions p2"
-msgstr "Al final de cada período, tu suscripción se renovará automáticamente bajo las mismas condiciones a menos que la canceles o UpdateMe la cancele."
-
-msgid "Content p1"
-msgstr "Nuestro Servicio te permite personalizar prompts que generan contenido mediante tecnologías de inteligencia artificial. Entiendes que eres responsable de cualquier prompt que crees, y que UpdateMe no tiene responsabilidad por la naturaleza o contenido de esos prompts."
-
-msgid "Content p2"
-msgstr "El contenido generado por nuestros proveedores de IA es solo para fines informativos. No garantizamos su precisión, exhaustividad o fiabilidad."
-
-msgid "Free Trial p1"
-msgstr "UpdateMe puede, a su entera discreción, ofrecer una suscripción con una prueba gratuita por un período limitado."
-
-msgid "Free Trial p2"
-msgstr "En cualquier momento y sin previo aviso, UpdateMe se reserva el derecho de (i) modificar los términos y condiciones de la oferta de prueba gratuita, o (ii) cancelar dicha oferta de prueba gratuita."
-
-msgid "Fee Changes p1"
-msgstr "UpdateMe, a su entera discreción y en cualquier momento, puede modificar las tarifas de suscripción. Cualquier cambio en la tarifa de suscripción entrará en vigor al final del ciclo de facturación actual."
-
-msgid "Fee Changes p2"
-msgstr "UpdateMe te proporcionará un aviso previo razonable de cualquier cambio en las tarifas de suscripción para darte la oportunidad de cancelar tu suscripción antes de que dicho cambio entre en vigor."
-
-msgid "Refunds p1"
-msgstr "Ciertas solicitudes de reembolso pueden ser consideradas por UpdateMe caso por caso y concedidas a la entera discreción de UpdateMe."
-
-msgid "Accounts p1"
-msgstr "Cuando creas una cuenta con nosotros, garantizas que la información que nos proporcionas es precisa, completa y actual en todo momento. La información inexacta, incompleta u obsoleta puede resultar en la terminación inmediata de tu cuenta en el Servicio."
-
-msgid "Accounts p2"
-msgstr "Eres responsable de mantener la confidencialidad de tu cuenta y contraseña, incluyendo pero no limitado a la restricción de acceso a tu ordenador y/o cuenta. Aceptas asumir la responsabilidad por todas y cada una de las actividades o acciones que ocurran bajo tu cuenta y/o contraseña."
-
-msgid "Intellectual Property p1"
-msgstr "El Servicio y su contenido original (excluyendo el contenido proporcionado por los usuarios), características y funcionalidades son y seguirán siendo propiedad exclusiva de UpdateMe y sus licenciantes. El Servicio está protegido por derechos de autor, marcas registradas y otras leyes de España y de países extranjeros."
-
-msgid "Intellectual Property p2"
-msgstr "Nuestras marcas registradas y presentación comercial no pueden ser utilizadas en relación con ningún producto o servicio sin el consentimiento previo por escrito de UpdateMe."
-
-msgid "Links To Other Web Sites p1"
-msgstr "Nuestro Servicio puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por UpdateMe."
-
-msgid "Links To Other Web Sites p2"
-msgstr "UpdateMe no tiene control sobre, y no asume ninguna responsabilidad por el contenido, las políticas de privacidad o las prácticas de cualquier sitio web o servicio de terceros. No garantizamos las ofertas de ninguna de estas entidades/individuos o sus sitios web."
-
-msgid "Termination p1"
-msgstr "Podemos terminar o suspender tu cuenta y prohibir el acceso al Servicio de inmediato, sin previo aviso o responsabilidad, a nuestra entera discreción, por cualquier motivo y sin limitación, incluyendo pero no limitándose a un incumplimiento de los Términos."
-
-msgid "Termination p2"
-msgstr "Si deseas cancelar tu cuenta, puedes simplemente dejar de usar el Servicio, o contactarnos para la eliminación de la cuenta."
-
-msgid "Limitation Of Liability p1"
-msgstr "En ningún caso UpdateMe, ni sus directores, empleados, socios, agentes, proveedores o afiliados, serán responsables por cualquier daño indirecto, incidental, especial, consecuente o punitivo, incluyendo sin limitación, pérdida de beneficios, datos, uso, buena voluntad u otras pérdidas intangibles, resultantes de (i) tu acceso o uso o incapacidad para acceder o usar el Servicio; (ii) cualquier conducta o contenido de terceros en el Servicio; (iii) cualquier contenido obtenido del Servicio; y (iv) acceso no autorizado, uso o alteración de tus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluyendo negligencia) o cualquier otra teoría legal, incluso si hemos sido informados de la posibilidad de tal daño."
-
-msgid "Disclaimer p1"
-msgstr "El uso del Servicio es bajo tu propio riesgo. El Servicio se proporciona \"TAL CUAL\" y \"SEGÚN DISPONIBILIDAD\". El Servicio se proporciona sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo, pero no limitado a, garantías implícitas de comerciabilidad, idoneidad para un propósito particular, no infracción o curso de rendimiento."
-
-msgid "Governing Law p1"
-msgstr "Estos Términos se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflictos de leyes."
-
-msgid "Governing Law p2"
-msgstr "Nuestra falta de cumplimiento de cualquier derecho o disposición de estos Términos no se considerará una renuncia a esos derechos. Si alguna disposición de estos Términos es considerada inválida o inaplicable por un tribunal, las disposiciones restantes de estos Términos seguirán en vigor."
-
-msgid "Changes to Terms p1"
-msgstr "Nos reservamos el derecho, a nuestra sola discreción, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, proporcionaremos al menos 30 días de aviso antes de que los nuevos términos entren en vigor. Lo que constituye un cambio material será determinado a nuestra sola discreción."
-
-msgid "Changes to Terms p2"
-msgstr "Al continuar accediendo o utilizando nuestro Servicio después de que cualquier revisión se haga efectiva, aceptas estar sujeto a los términos revisados. Si no estás de acuerdo con los nuevos términos, ya no estás autorizado a usar el Servicio."
-
-msgid "Contact Us p1"
-msgstr "Si tienes alguna pregunta sobre estos Términos, por favor contáctanos en:"
-
-msgid "Introduction Policy p1"
-msgstr "UpdateMe (\"nosotros\", \"nuestro\" o \"nos\") está comprometido con la protección de tu privacidad. Esta Política de Privacidad explica cómo UpdateMe recopila, utiliza y divulga tu información personal."
-
-msgid "Introduction Policy p2"
-msgstr "Esta Política de Privacidad se aplica a nuestro sitio web y sus subdominios asociados (colectivamente, nuestro \"Servicio\") junto con nuestra aplicación, UpdateMe. Al acceder o utilizar nuestro Servicio, indicas que has leído, entendido y aceptas nuestra recopilación, almacenamiento, uso y divulgación de tu información personal como se describe en esta Política de Privacidad."
-
-msgid "Definitions and Key Terms p1"
-msgstr "Para esta Política de Privacidad:"
-
-msgid "Definitions Cookie"
-msgstr "Una pequeña cantidad de datos generados por un sitio web y guardados por tu navegador web. Se utiliza para identificar tu navegador, proporcionar análisis y recordar información sobre ti, como tus preferencias de idioma o información de inicio de sesión."
-
-msgid "Definitions Company"
-msgstr "cuando esta política menciona \"Empresa\", \"nosotros\" o \"nuestro\", se refiere a UpdateMe, que es responsable de tu información bajo esta Política de Privacidad."
-
-msgid "Definitions Country"
-msgstr "donde UpdateMe o los propietarios/fundadores de UpdateMe están establecidos, en este caso es España."
-
-msgid "Definitions Customer"
-msgstr "se refiere a la empresa, organización o persona que se suscribe para utilizar el Servicio de UpdateMe."
-
-msgid "Definitions Device"
-msgstr "cualquier dispositivo conectado a Internet como un teléfono, tableta, ordenador o cualquier otro dispositivo que pueda utilizarse para visitar UpdateMe y usar los servicios."
-
-msgid "Definitions IP address"
-msgstr "A cada dispositivo conectado a Internet se le asigna un número conocido como dirección de protocolo de Internet (IP). Estos números suelen asignarse en bloques geográficos. Una dirección IP a menudo puede usarse para identificar la ubicación desde la que un dispositivo se conecta a Internet."
-
-msgid "Definitions Personal Data"
-msgstr "cualquier información que directa, indirectamente o en conexión con otra información — incluyendo un número de identificación personal — permite la identificación o identificabilidad de una persona física."
-
-msgid "Definitions Service"
-msgstr "se refiere al sitio web, aplicación y cualquier servicio relacionado ofrecido por UpdateMe."
-
-msgid "Definitions Third-party service"
-msgstr "se refiere a anunciantes, patrocinadores de concursos, socios promocionales y de marketing, y otros que proporcionan nuestro contenido o cuyos productos o servicios creemos que pueden interesarte."
-
-msgid "Definitions Website"
-msgstr "El sitio de UpdateMe, al que se puede acceder a través de esta URL: updateme.dev"
-
-msgid "Definitions You"
-msgstr "una persona o entidad que está registrada en UpdateMe para usar los Servicios."
-
-msgid "Information We Collect p1"
-msgstr "Recopilamos información cuando visitas nuestro sitio web, te registras en nuestro sitio, te suscribes a nuestro boletín, respondes a una encuesta o rellenas un formulario."
-
-msgid "Information Personal"
-msgstr "Nombre, Dirección de correo electrónico, Nombre de usuario."
-
-msgid "Information Usage"
-msgstr "Información sobre cómo utilizas nuestro sitio web, como las páginas que visitas, la fecha y hora de tu visita, el tiempo que pasas en esas páginas y otros datos de diagnóstico."
-
-msgid "Information Tracking"
-msgstr "Utilizamos cookies y tecnologías de seguimiento similares para rastrear la actividad en nuestro Servicio y almacenar cierta información."
-
-msgid "Information Custom"
-msgstr "Los prompts que creas y guardas para la generación de contenido mediante IA."
-
-msgid "How We Use Your Information p1"
-msgstr "Utilizamos la información que recopilamos de varias formas, incluyendo para:"
-
-msgid "Use Info Point1"
-msgstr "Proporcionar, operar y mantener nuestro sitio web"
-
-msgid "Use Info Point2"
-msgstr "Mejorar, personalizar y expandir nuestro sitio web"
-
-msgid "Use Info Point3"
-msgstr "Entender y analizar cómo utilizas nuestro sitio web"
-
-msgid "Use Info Point4"
-msgstr "Desarrollar nuevos productos, servicios, características y funcionalidades"
-
-msgid "Use Info Point5"
-msgstr "Comunicarnos contigo, ya sea directamente o a través de uno de nuestros socios, incluyendo para servicio al cliente, para proporcionarte actualizaciones y otra información relacionada con el sitio web, y para fines de marketing y promoción"
-
-msgid "Use Info Point6"
-msgstr "Enviarte el boletín semanal basado en tus preferencias"
-
-msgid "Use Info Point7"
-msgstr "Encontrar y prevenir fraudes"
-
-msgid "If you have any questions about these Terms, please contact us at:"
-msgstr "Si tienes alguna pregunta sobre estos Términos, por favor contáctanos en:"
-
-msgid "If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at:"
-msgstr "Si tienes alguna pregunta o sugerencia sobre nuestra Política de Privacidad, no dudes en contactarnos en:"
-
-msgid "Some parts of the Service are offered on a subscription basis. You will be billed in advance on a recurring and periodic basis (weekly, monthly, or annually), depending on the type of subscription plan you select."
-msgstr "Algunas partes del Servicio se ofrecen mediante suscripción. Se te cobrará por adelantado de forma recurrente y periódica (semanal, mensual o anual), dependiendo del tipo de plan de suscripción que selecciones."
-
-msgid "At the end of each period, your subscription will automatically renew under the same conditions unless you cancel it or UpdateMe cancels it."
-msgstr "Al final de cada período, tu suscripción se renovará automáticamente bajo las mismas condiciones a menos que la canceles o UpdateMe la cancele."
-
-# Traducciones adicionales para Términos y Condiciones
-msgid "Our Service allows you to customize prompts that generate content using artificial intelligence technologies. You understand that you are responsible for any prompts you create, and that UpdateMe has no responsibility for the nature or content of those prompts."
-msgstr "Nuestro Servicio te permite personalizar prompts que generan contenido mediante tecnologías de inteligencia artificial. Entiendes que eres responsable de cualquier prompt que crees, y que UpdateMe no tiene responsabilidad por la naturaleza o contenido de esos prompts."
-
-msgid "The content generated by our AI providers is for informational purposes only. We do not guarantee its accuracy, completeness, or reliability."
-msgstr "El contenido generado por nuestros proveedores de IA es solo para fines informativos. No garantizamos su precisión, exhaustividad o fiabilidad."
-
-msgid "UpdateMe may, at its sole discretion, offer a subscription with a free trial for a limited period."
-msgstr "UpdateMe puede, a su entera discreción, ofrecer una suscripción con una prueba gratuita por un período limitado."
-
-msgid "At any time and without notice, UpdateMe reserves the right to (i) modify the terms and conditions of the free trial offer, or (ii) cancel such free trial offer."
-msgstr "En cualquier momento y sin previo aviso, UpdateMe se reserva el derecho de (i) modificar los términos y condiciones de la oferta de prueba gratuita, o (ii) cancelar dicha oferta de prueba gratuita."
-
-msgid "UpdateMe, in its sole discretion and at any time, may modify the subscription fees. Any subscription fee change will become effective at the end of the then-current billing cycle."
-msgstr "UpdateMe, a su entera discreción y en cualquier momento, puede modificar las tarifas de suscripción. Cualquier cambio en la tarifa de suscripción entrará en vigor al final del ciclo de facturación actual."
-
-msgid "UpdateMe will provide you with reasonable prior notice of any change in subscription fees to give you an opportunity to terminate your subscription before such change becomes effective."
-msgstr "UpdateMe te proporcionará un aviso previo razonable de cualquier cambio en las tarifas de suscripción para darte la oportunidad de cancelar tu suscripción antes de que dicho cambio entre en vigor."
-
-msgid "Certain refund requests may be considered by UpdateMe on a case-by-case basis and granted at the sole discretion of UpdateMe."
-msgstr "Ciertas solicitudes de reembolso pueden ser consideradas por UpdateMe caso por caso y concedidas a la entera discreción de UpdateMe."
-
-msgid "When you create an account with us, you guarantee that the information you provide us is accurate, complete, and current at all times. Inaccurate, incomplete, or obsolete information may result in the immediate termination of your account on the Service."
-msgstr "Cuando creas una cuenta con nosotros, garantizas que la información que nos proporcionas es precisa, completa y actual en todo momento. La información inexacta, incompleta u obsoleta puede resultar en la terminación inmediata de tu cuenta en el Servicio."
-
-msgid "You are responsible for maintaining the confidentiality of your account and password, including but not limited to the restriction of access to your computer and/or account. You agree to accept responsibility for any and all activities or actions that occur under your account and/or password."
-msgstr "Eres responsable de mantener la confidencialidad de tu cuenta y contraseña, incluyendo pero no limitado a la restricción de acceso a tu ordenador y/o cuenta. Aceptas asumir la responsabilidad por todas y cada una de las actividades o acciones que ocurran bajo tu cuenta y/o contraseña."
-
-msgid "The Service and its original content (excluding content provided by users), features, and functionality are and will remain the exclusive property of UpdateMe and its licensors. The Service is protected by copyright, trademark, and other laws of both Spain and foreign countries."
-msgstr "El Servicio y su contenido original (excluyendo el contenido proporcionado por los usuarios), características y funcionalidades son y seguirán siendo propiedad exclusiva de UpdateMe y sus licenciantes. El Servicio está protegido por derechos de autor, marcas registradas y otras leyes de España y de países extranjeros."
-
-msgid "Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of UpdateMe."
-msgstr "Nuestras marcasregistradas y presentación comercial no pueden ser utilizadas en relación con ningún producto o servicio sin el consentimiento previo por escrito de UpdateMe."
-
-msgid "Our Service may contain links to third-party websites or services that are not owned or controlled by UpdateMe."
-msgstr "Nuestro Servicio puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por UpdateMe."
-
-msgid "UpdateMe has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third-party websites or services. We do not warrant the offerings of any of these entities/individuals or their websites."
-msgstr "UpdateMe no tiene control sobre, y no asume ninguna responsabilidad por el contenido, las políticas de privacidad o las prácticas de cualquier sitio web o servicio de terceros. No garantizamos las ofertas de ninguna de estas entidades/individuos o sus sitios web."
-
-msgid "We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of the Terms."
-msgstr "Podemos terminar o suspender tu cuenta y prohibir el acceso al Servicio de inmediato, sin previo aviso o responsabilidad, a nuestra entera discreción, por cualquier motivo y sin limitación, incluyendo pero no limitándose a un incumplimiento de los Términos."
-
-msgid "If you wish to terminate your account, you may simply discontinue using the Service, or contact us for account deletion."
-msgstr "Si deseas cancelar tu cuenta, puedes simplemente dejar de usar el Servicio, o contactarnos para la eliminación de la cuenta."
-
-msgid "In no event shall UpdateMe, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from (i) your access to or use of or inability to access or use the Service; (ii) any conduct or content of any third party on the Service; (iii) any content obtained from the Service; and (iv) unauthorized access, use or alteration of your transmissions or content, whether based on warranty, contract, tort (including negligence) or any other legal theory, whether or not we have been informed of the possibility of such damage."
-msgstr "En ningún caso UpdateMe, ni sus directores, empleados, socios, agentes, proveedores o afiliados, serán responsables por cualquier daño indirecto, incidental, especial, consecuente o punitivo, incluyendo sin limitación, pérdida de beneficios, datos, uso, buena voluntad u otras pérdidas intangibles, resultantes de (i) tu acceso o uso o incapacidad para acceder o usar el Servicio; (ii) cualquier conducta o contenido de terceros en el Servicio; (iii) cualquier contenido obtenido del Servicio; y (iv) acceso no autorizado, uso o alteración de tus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluyendo negligencia) o cualquier otra teoría legal, incluso si hemos sido informados de la posibilidad de tal daño."
-
-msgid "Your use of the Service is at your sole risk. The Service is provided on an \"AS IS\" and \"AS AVAILABLE\" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement or course of performance."
-msgstr "El uso del Servicio es bajo tu propio riesgo. El Servicio se proporciona \"TAL CUAL\" y \"SEGÚN DISPONIBILIDAD\". El Servicio se proporciona sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo, pero no limitado a, garantías implícitas de comerciabilidad, idoneidad para un propósito particular, no infracción o curso de rendimiento."
-
-msgid "These Terms shall be governed and construed in accordance with the laws of Spain, without regard to its conflict of law provisions."
-msgstr "Estos Términos se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflictos de leyes."
-
-msgid "Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect."
-msgstr "Nuestra falta de cumplimiento de cualquier derecho o disposición de estos Términos no se considerará una renuncia a esos derechos. Si alguna disposición de estos Términos es considerada inválida o inaplicable por un tribunal, las disposiciones restantes de estos Términos seguirán en vigor."
-
-msgid "We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will provide at least 30 days notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion."
-msgstr "Nos reservamos el derecho, a nuestra sola discreción, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, proporcionaremos al menos 30 días de aviso antes de que los nuevos términos entren en vigor. Lo que constituye un cambio material será determinado a nuestra sola discreción."
-
-msgid "By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use the Service."
-msgstr "Al continuar accediendo o utilizando nuestro Servicio después de que cualquier revisión se haga efectiva, aceptas estar sujeto a los términos revisados. Si no estás de acuerdo con los nuevos términos, ya no estás autorizado a usar el Servicio."
-
-msgid "Introduction p1"
-msgstr "Bienvenido a UpdateMe (\"nosotros\", \"nuestro\", \"nos\"). Estos Términos y Condiciones rigen tu uso de nuestro sitio web ubicado en updateme.dev (el \"Servicio\") y cualquier servicio relacionado ofrecido por UpdateMe."
-
-msgid "Introduction p2"
-msgstr "Al acceder o utilizar nuestro Servicio, aceptas estar sujeto a estos Términos. Si no estás de acuerdo con alguna parte de los términos, no tienes permiso para acceder al Servicio."
-
-msgid "Communications p1"
-msgstr "Al crear una cuenta en nuestro servicio, aceptas suscribirte a boletines informativos, materiales de marketing o promocionales y otra información que podamos enviar. Sin embargo, puedes optar por no recibir ninguna o todas estas comunicaciones de nuestra parte siguiendo el enlace de cancelación de suscripción en cualquier correo electrónico que enviemos."
-
-msgid "Subscriptions p1"
-msgstr "Algunas partes del Servicio se ofrecen mediante suscripción. Se te cobrará por adelantado de forma recurrente y periódica (semanal, mensual o anual), dependiendo del tipo de plan de suscripción que selecciones."
-
-msgid "Subscriptions p2"
-msgstr "Al final de cada período, tu suscripción se renovará automáticamente bajo las mismas condiciones a menos que la canceles o UpdateMe la cancele."
-
-msgid "Content p1"
-msgstr "Nuestro Servicio te permite personalizar prompts que generan contenido mediante tecnologías de inteligencia artificial. Entiendes que eres responsable de cualquier prompt que crees, y que UpdateMe no tiene responsabilidad por la naturaleza o contenido de esos prompts."
-
-msgid "Content p2"
-msgstr "El contenido generado por nuestros proveedores de IA es solo para fines informativos. No garantizamos su precisión, exhaustividad o fiabilidad."
-
-msgid "Free Trial p1"
-msgstr "UpdateMe puede, a su entera discreción, ofrecer una suscripción con una prueba gratuita por un período limitado."
-
-msgid "Free Trial p2"
-msgstr "En cualquier momento y sin previo aviso, UpdateMe se reserva el derecho de (i) modificar los términos y condiciones de la oferta de prueba gratuita, o (ii) cancelar dicha oferta de prueba gratuita."
-
-msgid "Fee Changes p1"
-msgstr "UpdateMe, a su entera discreción y en cualquier momento, puede modificar las tarifas de suscripción. Cualquier cambio en la tarifa de suscripción entrará en vigor al final del ciclo de facturación actual."
-
-msgid "Fee Changes p2"
-msgstr "UpdateMe te proporcionará un aviso previo razonable de cualquier cambio en las tarifas de suscripción para darte la oportunidad de cancelar tu suscripción antes de que dicho cambio entre en vigor."
-
-msgid "Refunds p1"
-msgstr "Ciertas solicitudes de reembolso pueden ser consideradas por UpdateMe caso por caso y concedidas a la entera discreción de UpdateMe."
-
-msgid "Accounts p1"
-msgstr "Cuando creas una cuenta con nosotros, garantizas que la información que nos proporcionas es precisa, completa y actual en todo momento. La información inexacta, incompleta u obsoleta puede resultar en la terminación inmediata de tu cuenta en el Servicio."
-
-msgid "Accounts p2"
-msgstr "Eres responsable de mantener la confidencialidad de tu cuenta y contraseña, incluyendo pero no limitado a la restricción de acceso a tu ordenador y/o cuenta. Aceptas asumir la responsabilidad por todas y cada una de las actividades o acciones que ocurran bajo tu cuenta y/o contraseña."
-
-msgid "Intellectual Property p1"
-msgstr "El Servicio y su contenido original (excluyendo el contenido proporcionado por los usuarios), características y funcionalidades son y seguirán siendo propiedad exclusiva de UpdateMe y sus licenciantes. El Servicio está protegido por derechos de autor, marcas registradas y otras leyes de España y de países extranjeros."
-
-msgid "Intellectual Property p2"
-msgstr "Nuestras marcas registradas y presentación comercial no pueden ser utilizadas en relación con ningún producto o servicio sin el consentimiento previo por escrito de UpdateMe."
-
-msgid "Links To Other Web Sites p1"
-msgstr "Nuestro Servicio puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por UpdateMe."
-
-msgid "Links To Other Web Sites p2"
-msgstr "UpdateMe no tiene control sobre, y no asume ninguna responsabilidad por el contenido, las políticas de privacidad o las prácticas de cualquier sitio web o servicio de terceros. No garantizamos las ofertas de ninguna de estas entidades/individuos o sus sitios web."
-
-msgid "Termination p1"
-msgstr "Podemos terminar o suspender tu cuenta y prohibir el acceso al Servicio de inmediato, sin previo aviso o responsabilidad, a nuestra entera discreción, por cualquier motivo y sin limitación, incluyendo pero no limitándose a un incumplimiento de los Términos."
-
-msgid "Termination p2"
-msgstr "Si deseas cancelar tu cuenta, puedes simplemente dejar de usar el Servicio, o contactarnos para la eliminación de la cuenta."
-
-msgid "Limitation Of Liability p1"
-msgstr "En ningún caso UpdateMe, ni sus directores, empleados, socios, agentes, proveedores o afiliados, serán responsables por cualquier daño indirecto, incidental, especial, consecuente o punitivo, incluyendo sin limitación, pérdida de beneficios, datos, uso, buena voluntad u otras pérdidas intangibles, resultantes de (i) tu acceso o uso o incapacidad para acceder o usar el Servicio; (ii) cualquier conducta o contenido de terceros en el Servicio; (iii) cualquier contenido obtenido del Servicio; y (iv) acceso no autorizado, uso o alteración de tus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluyendo negligencia) o cualquier otra teoría legal, incluso si hemos sido informados de la posibilidad de tal daño."
-
-msgid "Disclaimer p1"
-msgstr "El uso del Servicio es bajo tu propio riesgo. El Servicio se proporciona \"TAL CUAL\" y \"SEGÚN DISPONIBILIDAD\". El Servicio se proporciona sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo, pero no limitado a, garantías implícitas de comerciabilidad, idoneidad para un propósito particular, no infracción o curso de rendimiento."
-
-msgid "Governing Law p1"
-msgstr "Estos Términos se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflictos de leyes."
-
-msgid "Governing Law p2"
-msgstr "Nuestra falta de cumplimiento de cualquier derecho o disposición de estos Términos no se considerará una renuncia a esos derechos. Si alguna disposición de estos Términos es considerada inválida o inaplicable por un tribunal, las disposiciones restantes de estos Términos seguirán en vigor."
-
-msgid "Changes to Terms p1"
-msgstr "Nos reservamos el derecho, a nuestra sola discreción, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, proporcionaremos al menos 30 días de aviso antes de que los nuevos términos entren en vigor. Lo que constituye un cambio material será determinado a nuestra sola discreción."
-
-msgid "Changes to Terms p2"
-msgstr "Al continuar accediendo o utilizando nuestro Servicio después de que cualquier revisión se haga efectiva, aceptas estar sujeto a los términos revisados. Si no estás de acuerdo con los nuevos términos, ya no estás autorizado a usar el Servicio."
-
-msgid "Contact Us Policy p1"
-msgstr "Si tienes alguna pregunta o sugerencia sobre nuestra Política de Privacidad, no dudes en contactarnos en:"
-
-# Traducciones para configuración de proveedores de búsqueda
-msgid "Search Provider Configuration"
-msgstr "Configuración del Proveedor de Búsqueda"
-
-msgid "Configure your search provider settings to customize your search results"
-msgstr "Configura los ajustes de tu proveedor de búsqueda para personalizar tus resultados de búsqueda"
-
-# Traducciones específicas para Tavily
-msgid "Tavily Configuration"
-msgstr "Configuración de Tavily"
-
-msgid "Maximum Results"
-msgstr "Resultados Máximos"
-
-msgid "Number of search results to return (1-10)"
-msgstr "Número de resultados de búsqueda a devolver (1-10)"
-
-msgid "Search Topic"
-msgstr "Tema de Búsqueda"
-
-msgid "General"
-msgstr "General"
-
-msgid "Tech"
-msgstr "Tecnología"
-
-msgid "Finance"
-msgstr "Finanzas"
-
-msgid "Healthcare"
-msgstr "Salud"
-
-msgid "Science"
-msgstr "Ciencia"
-
-msgid "Search Depth"
-msgstr "Profundidad de Búsqueda"
-
-msgid "Basic"
-msgstr "Básica"
-
-msgid "Moderate"
-msgstr "Moderada"
-
-msgid "Comprehensive"
-msgstr "Exhaustiva"
-
-msgid "Advanced"
-msgstr "Avanzada"
-
-msgid "Time Range"
-msgstr "Rango de Tiempo"
-
-msgid "Last hour"
-msgstr "Última hora"
-
-msgid "Last day"
-msgstr "Último día"
-
-msgid "Last week"
-msgstr "Última semana"
-
-msgid "Last month"
-msgstr "Último mes"
-
-msgid "Last year"
-msgstr "Último año"
-
-msgid "Any time"
-msgstr "Cualquier tiempo"
-
-msgid "Include Raw Content"
-msgstr "Incluir Contenido Sin Procesar"
-
-msgid "Include Domains"
-msgstr "Incluir Dominios"
-
-msgid "Add domains to include in search (comma separated)"
-msgstr "Añadir dominios a incluir en la búsqueda (separados por comas)"
-
-msgid "Exclude Domains"
-msgstr "Excluir Dominios"
-
-msgid "Add domains to exclude from search (comma separated)"
-msgstr "Añadir dominios a excluir de la búsqueda (separados por comas)"
-
-# Traducciones específicas para SerpAPI
-msgid "SerpAPI Configuration"
-msgstr "Configuración de SerpAPI"
-
-msgid "Search Type"
-msgstr "Tipo de Búsqueda"
-
-msgid "All"
-msgstr "Todo"
-
-msgid "News"
-msgstr "Noticias"
-
-msgid "Images"
-msgstr "Imágenes"
-
-msgid "Videos"
-msgstr "Vídeos"
-
-msgid "Safe Search"
-msgstr "Búsqueda Segura"
-
-msgid "Off"
-msgstr "Desactivado"
-
-msgid "Medium"
-msgstr "Medio"
-
-msgid "High"
-msgstr "Alto"
-
-msgid "Include only trusted sources"
-msgstr "Incluir solo fuentes confiables"
+msgstr "Al final de cada período, tu suscripción se renovará automáticamente en las mismas condiciones a menos que la canceles o UpdateMe la cancele."
 
 # Traducciones para la página de precios
 msgid "pricing.choose_plan"
@@ -1341,7 +754,7 @@ msgid "pricing.select_plan"
 msgstr "Selecciona el plan que mejor se adapte a tus necesidades y saca el máximo provecho de UpdateMe."
 
 msgid "pricing.free"
-msgstr "Gratuito"
+msgstr "Gratis"
 
 msgid "pricing.month"
 msgstr "mes"
@@ -1359,10 +772,10 @@ msgid "pricing.full_access_yearly"
 msgstr "Acceso completo con facturación anual"
 
 msgid "pricing.weekly_newsletter"
-msgstr "Boletín semanal de tecnología generado por IA"
+msgstr "Boletín semanal de tecnología e IA generado por IA"
 
 msgid "pricing.default_ai_provider"
-msgstr "Proveedor de IA predeterminado para procesamiento"
+msgstr "Proveedor de IA predeterminado para el procesamiento"
 
 msgid "pricing.default_search_settings"
 msgstr "Configuración de búsqueda predeterminada"
@@ -1383,7 +796,7 @@ msgid "pricing.sign_up_free"
 msgstr "Regístrate gratis"
 
 msgid "pricing.subscribe_now"
-msgstr "Suscríbete ahora"
+msgstr "Suscribirse ahora"
 
 msgid "pricing.subscribe_save"
 msgstr "Suscríbete y ahorra"
@@ -1395,7 +808,7 @@ msgid "pricing.best_value"
 msgstr "Mejor valor"
 
 msgid "pricing.save"
-msgstr "Ahorro"
+msgstr "Ahorra"
 
 msgid "pricing.monthly"
 msgstr "Mensual"
@@ -1407,253 +820,486 @@ msgid "pricing.faq_title"
 msgstr "Preguntas frecuentes"
 
 msgid "pricing.faq_what_included"
-msgstr "¿Qué incluyen todos los planes?"
+msgstr "¿Qué está incluido en todos los planes?"
 
 msgid "pricing.faq_included_answer"
-msgstr "Todos los planes incluyen nuestro boletín semanal de noticias de tecnología e IA curado por IA y entregado en tu bandeja de entrada."
+msgstr "Todos los planes incluyen nuestro boletín semanal de noticias de tecnología e IA seleccionadas por IA, entregado en tu bandeja de entrada."
 
 msgid "pricing.faq_differences"
 msgstr "¿Cuáles son las diferencias entre los planes?"
 
 msgid "pricing.faq_differences_answer"
-msgstr "Los planes Premium (Mensual y Anual) te permiten personalizar completamente tu experiencia seleccionando diferentes proveedores de IA, personalizando prompts y configurando ajustes de búsqueda para adaptar tu boletín exactamente como quieres."
+msgstr "Los planes premium (Mensual y Anual) te permiten personalizar completamente tu experiencia seleccionando diferentes proveedores de IA, personalizando prompts y configurando la búsqueda para adaptar el boletín exactamente a tu gusto."
 
 msgid "pricing.faq_upgrade"
 msgstr "¿Puedo actualizar en cualquier momento?"
 
 msgid "pricing.faq_upgrade_answer"
-msgstr "Sí, puedes actualizar de un plan Gratuito a un plan Premium en cualquier momento desde tu panel de control."
+msgstr "Sí, puedes pasar de un plan gratuito a uno premium en cualquier momento desde tu panel de control."
 
 msgid "pricing.faq_cancel"
 msgstr "¿Cómo cancelo mi suscripción?"
 
 msgid "pricing.faq_cancel_answer"
-msgstr "Puedes cancelar tu suscripción en cualquier momento desde la configuración de tu cuenta. Tus características premium seguirán activas hasta el final de tu período de facturación actual."
+msgstr "Puedes cancelar tu suscripción en cualquier momento desde la configuración de tu cuenta. Tus funciones premium seguirán activas hasta el final de tu periodo de facturación actual."
 
 msgid "UpdateMe - Pricing"
 msgstr "UpdateMe - Precios"
 
-# Nuevas traducciones para términos y condiciones adicionales
+# Traducciones para párrafos de términos y condiciones siguiendo el nuevo formato
+msgid "Introduction p1"
+msgstr "Bienvenido a UpdateMe (\"nosotros\", \"nuestro\", \"nos\"). Estos Términos y Condiciones rigen el uso de nuestro sitio web ubicado en updateme.dev (el \"Servicio\") y cualquier servicio relacionado ofrecido por UpdateMe."
+
+msgid "Introduction p2"
+msgstr "Al acceder o utilizar nuestro Servicio, aceptas estar sujeto a estos Términos. Si no estás de acuerdo con alguna parte de los términos, no tienes permiso para acceder al Servicio."
+
+msgid "Communications p1"
+msgstr "Al crear una cuenta en nuestro servicio, aceptas suscribirte a boletines, materiales de marketing o promocionales y otra información que podamos enviar. Sin embargo, puedes optar por no recibir ninguna o todas estas comunicaciones siguiendo el enlace para cancelar la suscripción en cualquier correo electrónico que enviemos."
+
+msgid "Subscriptions p1"
+msgstr "Algunas partes del Servicio se ofrecen por suscripción. Se te facturará por adelantado de forma recurrente y periódica (semanal, mensual o anual), según el tipo de plan de suscripción que elijas."
+
+msgid "Subscriptions p2"
+msgstr "Al final de cada período, tu suscripción se renovará automáticamente en las mismas condiciones a menos que la canceles o UpdateMe la cancele."
+
+msgid "Content p1"
+msgstr "Nuestro Servicio te permite personalizar prompts que generan contenido utilizando tecnologías de inteligencia artificial. Entiendes que eres responsable de cualquier prompt que crees y que UpdateMe no tiene responsabilidad sobre la naturaleza o el contenido de esos prompts."
+
+msgid "Content p2"
+msgstr "El contenido generado por nuestros proveedores de IA es solo para fines informativos. No garantizamos su exactitud, integridad o fiabilidad."
+
+msgid "Free Trial p1"
+msgstr "UpdateMe puede, a su entera discreción, ofrecer una suscripción con prueba gratuita por un período limitado."
+
+msgid "Free Trial p2"
+msgstr "En cualquier momento y sin previo aviso, UpdateMe se reserva el derecho de (i) modificar los términos y condiciones de la oferta de prueba gratuita, o (ii) cancelar dicha oferta de prueba gratuita."
+
+msgid "Fee Changes p1"
+msgstr "UpdateMe, a su entera discreción y en cualquier momento, puede modificar las tarifas de suscripción. Cualquier cambio en la tarifa de suscripción entrará en vigor al final del ciclo de facturación vigente."
+
+msgid "Fee Changes p2"
+msgstr "UpdateMe te proporcionará un aviso previo razonable de cualquier cambio en las tarifas de suscripción para darte la oportunidad de cancelar tu suscripción antes de que dicho cambio entre en vigor."
+
+msgid "Refunds p1"
+msgstr "Ciertas solicitudes de reembolso pueden ser consideradas por UpdateMe caso por caso y concedidas a la entera discreción de UpdateMe."
+
+msgid "Accounts p1"
+msgstr "Cuando creas una cuenta con nosotros, garantizas que la información que nos proporcionas es precisa, completa y actual en todo momento. La información inexacta, incompleta u obsoleta puede resultar en la terminación inmediata de tu cuenta en el Servicio."
+
+msgid "Accounts p2"
+msgstr "Eres responsable de mantener la confidencialidad de tu cuenta y contraseña, incluyendo, entre otros, la restricción de acceso a tu ordenador y/o cuenta. Aceptas asumir la responsabilidad de todas las actividades o acciones que ocurran bajo tu cuenta y/o contraseña."
+
+msgid "Intellectual Property p1"
+msgstr "El Servicio y su contenido original (excluyendo el contenido proporcionado por los usuarios), características y funcionalidades son y seguirán siendo propiedad exclusiva de UpdateMe y sus licenciantes. El Servicio está protegido por derechos de autor, marcas registradas y otras leyes de España y de países extranjeros."
+
+msgid "Intellectual Property p2"
+msgstr "Nuestras marcas y la imagen comercial no pueden ser utilizadas en relación con ningún producto o servicio sin el consentimiento previo por escrito de UpdateMe."
+
+msgid "Links To Other Web Sites p1"
+msgstr "Nuestro Servicio puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por UpdateMe."
+
+msgid "Links To Other Web Sites p2"
+msgstr "UpdateMe no tiene control ni asume responsabilidad por el contenido, las políticas de privacidad o las prácticas de sitios web o servicios de terceros. No garantizamos las ofertas de ninguna de estas entidades/individuos ni de sus sitios web."
+
+msgid "Termination p1"
+msgstr "Podemos terminar o suspender tu cuenta y prohibir el acceso al Servicio de inmediato, sin previo aviso ni responsabilidad, a nuestra entera discreción, por cualquier motivo y sin limitación, incluyendo, entre otros, el incumplimiento de los Términos."
+
+msgid "Termination p2"
+msgstr "Si deseas terminar tu cuenta, simplemente puedes dejar de usar el Servicio o contactarnos para eliminar tu cuenta."
+
+msgid "Limitation Of Liability p1"
+msgstr "En ningún caso UpdateMe, ni sus directores, empleados, socios, agentes, proveedores o afiliados, serán responsables por daños indirectos, incidentales, especiales, consecuentes o punitivos, incluyendo, entre otros, la pérdida de beneficios, datos, uso, buena voluntad u otras pérdidas intangibles, resultantes de (i) tu acceso o uso o incapacidad de acceder o usar el Servicio; (ii) cualquier conducta o contenido de un tercero en el Servicio; (iii) cualquier contenido obtenido del Servicio; y (iv) acceso, uso o alteración no autorizados de tus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluida la negligencia) o cualquier otra teoría legal, haya o no sido informado de la posibilidad de tales daños."
+
+msgid "Disclaimer p1"
+msgstr "El uso del Servicio es bajo tu propio riesgo. El Servicio se proporciona "TAL CUAL" y "SEGÚN DISPONIBILIDAD". El Servicio se proporciona sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo, entre otras, garantías implícitas de comerciabilidad, idoneidad para un propósito particular, no infracción o curso de desempeño."
+
+msgid "Governing Law p1"
+msgstr "Estos Términos se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflicto de leyes."
+
+msgid "Governing Law p2"
+msgstr "Nuestra falta de aplicación de cualquier derecho o disposición de estos Términos no se considerará una renuncia a esos derechos. Si alguna disposición de estos Términos es considerada inválida o inaplicable por un tribunal, las disposiciones restantes de estos Términos permanecerán en vigor."
+
+msgid "Changes to Terms p1"
+msgstr "Nos reservamos el derecho, a nuestra entera discreción, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, te proporcionaremos al menos 30 días de aviso antes de que entren en vigor los nuevos términos. Qué constituye un cambio material será determinado a nuestra entera discreción."
+
+msgid "Changes to Terms p2"
+msgstr "Al continuar accediendo o utilizando nuestro Servicio después de que cualquier revisión entre en vigor, aceptas estar sujeto a los términos revisados. Si no estás de acuerdo con los nuevos términos, ya no estás autorizado a usar el Servicio."
+
+msgid "Contact Us p1"
+msgstr "Si tienes alguna pregunta sobre estos Términos, contáctanos en:"
+
+# Traducciones para párrafos de política de privacidad siguiendo el nuevo formato
+msgid "Introduction Policy p1"
+msgstr "UpdateMe (\"nosotros\", \"nuestro\" o \"nos\") se compromete a proteger tu privacidad. Esta Política de Privacidad explica cómo UpdateMe recopila, utiliza y divulga tu información personal."
+
+msgid "Introduction Policy p2"
+msgstr "Esta Política de Privacidad se aplica a nuestro sitio web y sus subdominios asociados (colectivamente, nuestro \"Servicio\") junto con nuestra aplicación, UpdateMe. Al acceder o utilizar nuestro Servicio, declaras que has leído, entendido y aceptas la recopilación, almacenamiento, uso y divulgación de tu información personal según se describe en esta Política de Privacidad."
+
+msgid "Definitions and Key Terms p1"
+msgstr "Para esta Política de Privacidad:"
+
+msgid "Definitions Cookie"
+msgstr "Una pequeña cantidad de datos generados por un sitio web y guardados por tu navegador. Se utiliza para identificar tu navegador, proporcionar análisis y recordar información sobre ti, como tu preferencia de idioma o información de inicio de sesión."
+
+msgid "Definitions Company"
+msgstr "Cuando esta política menciona \"Compañía\", \"nosotros\", \"nos\" o \"nuestro\", se refiere a UpdateMe, que es responsable de tu información bajo esta Política de Privacidad."
+
+msgid "Definitions Country"
+msgstr "Donde UpdateMe o los propietarios/fundadores de UpdateMe tienen su sede, en este caso es España."
+
+msgid "Definitions Customer"
+msgstr "Se refiere a la empresa, organización o persona que se registra para usar el Servicio de UpdateMe."
+
+msgid "Definitions Device"
+msgstr "Cualquier dispositivo conectado a Internet, como un teléfono, tableta, ordenador o cualquier otro dispositivo que pueda usarse para visitar UpdateMe y utilizar los servicios."
+
+msgid "Definitions IP address"
+msgstr "A cada dispositivo conectado a Internet se le asigna un número conocido como dirección de protocolo de Internet (IP). Estos números suelen asignarse en bloques geográficos. Una dirección IP a menudo puede usarse para identificar la ubicación desde la que un dispositivo se conecta a Internet."
+
+msgid "Definitions Personal Data"
+msgstr "Cualquier información que directa o indirectamente, o en conexión con otra información —incluido un número de identificación personal— permita la identificación o identifiabilidad de una persona física."
+
+msgid "Definitions Service"
+msgstr "Se refiere al sitio web, la aplicación y cualquier servicio relacionado ofrecido por UpdateMe."
+
+msgid "Definitions Third-party service"
+msgstr "Se refiere a anunciantes, patrocinadores de concursos, socios promocionales y de marketing, y otros que proporcionan nuestro contenido o cuyos productos o servicios creemos que pueden interesarte."
+
+msgid "Definitions Website"
+msgstr "El sitio de UpdateMe, al que se puede acceder mediante esta URL: updateme.dev"
+
+msgid "Definitions You"
+msgstr "Una persona o entidad que está registrada en UpdateMe para usar los Servicios."
+
+msgid "Information We Collect p1"
+msgstr "Recopilamos información de ti cuando visitas nuestro sitio web, te registras, te suscribes a nuestro boletín, respondes a una encuesta o completas un formulario."
+
+msgid "Information Personal"
+msgstr "Nombre, dirección de correo electrónico, nombre de usuario."
+
+msgid "Information Usage"
+msgstr "Información sobre cómo usas nuestro sitio web, como las páginas que visitas, la fecha y hora de tu visita, el tiempo que pasas en esas páginas y otros datos de diagnóstico."
+
+msgid "Information Tracking"
+msgstr "Utilizamos cookies y tecnologías de seguimiento similares para rastrear la actividad en nuestro Servicio y almacenar cierta información."
+
+msgid "Information Custom"
+msgstr "Los prompts que creas y guardas para la generación de contenido con IA."
+
+msgid "How We Use Your Information p1"
+msgstr "Usamos la información que recopilamos de varias formas, incluyendo para:"
+
+msgid "Use Info Point1"
+msgstr "Proporcionar, operar y mantener nuestro sitio web"
+
+msgid "Use Info Point2"
+msgstr "Mejorar, personalizar y ampliar nuestro sitio web"
+
+msgid "Use Info Point3"
+msgstr "Entender y analizar cómo usas nuestro sitio web"
+
+msgid "Use Info Point4"
+msgstr "Desarrollar nuevos productos, servicios, funciones y características"
+
+msgid "Use Info Point5"
+msgstr "Comunicarnos contigo, ya sea directamente o a través de uno de nuestros socios, incluso para atención al cliente, para proporcionarte actualizaciones y otra información relacionada con el sitio web, y con fines de marketing y promoción"
+
+msgid "Use Info Point6"
+msgstr "Enviarte el boletín semanal según tus preferencias"
+
+msgid "Use Info Point7"
+msgstr "Detectar y prevenir fraudes"
+
+msgid "Log Files p1"
+msgstr "UpdateMe sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando visitan sitios web. Todas las empresas de alojamiento hacen esto como parte de los servicios de análisis de alojamiento. La información recopilada por los archivos de registro incluye direcciones IP, tipo de navegador, proveedor de servicios de Internet (ISP), fecha y hora, páginas de referencia/salida y posiblemente el número de clics. Estos datos no están vinculados a ninguna información que sea personalmente identificable. El propósito de la información es analizar tendencias, administrar el sitio, rastrear el movimiento de los usuarios en el sitio web y recopilar información demográfica."
+
+msgid "Cookies and Web Beacons p1"
+msgstr "Como cualquier otro sitio web, UpdateMe utiliza \"cookies\". Estas cookies se utilizan para almacenar información, incluidas las preferencias de los visitantes y las páginas del sitio web que el visitante accedió o visitó. La información se utiliza para optimizar la experiencia de los usuarios personalizando el contenido de nuestra página web según el tipo de navegador de los visitantes y/u otra información."
+
+msgid "Third-Party Services p1"
+msgstr "Podemos emplear empresas e individuos de terceros por las siguientes razones:"
+
+msgid "Third-Party Point1"
+msgstr "Para facilitar nuestro Servicio;"
+
+msgid "Third-Party Point2"
+msgstr "Para prestar el Servicio en nuestro nombre;"
+
+msgid "Third-Party Point3"
+msgstr "Para realizar servicios relacionados con el Servicio; o"
+
+msgid "Third-Party Point4"
+msgstr "Para ayudarnos a analizar cómo se utiliza nuestro Servicio."
+
+msgid "Third-Party Services p2"
+msgstr "Queremos informar a los usuarios de este Servicio que estos terceros tienen acceso a tu Información Personal. La razón es realizar las tareas que se les asignan en nuestro nombre. Sin embargo, están obligados a no divulgar ni utilizar la información para ningún otro propósito."
+
+msgid "AI Providers p1"
+msgstr "Nuestro servicio se integra con varios proveedores de IA como OpenAI, Groq, DeepSeek, Tavily y SerpAPI para generar contenido. Aunque transmitimos tus prompts personalizados a estos servicios, nos aseguramos de que no se incluya información personal identificable a menos que tú la proporciones explícitamente en el texto del prompt."
+
+msgid "AI Providers p2"
+msgstr "Estos servicios de IA de terceros pueden tener sus propias políticas de privacidad, y te animamos a revisarlas. No tenemos responsabilidad ni obligación por el contenido y las actividades de estos proveedores de IA."
+
+msgid "Security p1"
+msgstr "Valoramos tu confianza al proporcionarnos tu Información Personal, por lo que nos esforzamos en utilizar medios comercialmente aceptables para protegerla. Pero recuerda que ningún método de transmisión por Internet o de almacenamiento electrónico es 100% seguro y fiable, y no podemos garantizar su seguridad absoluta."
+
+msgid "Children's Privacy p1"
+msgstr "Nuestros Servicios no están destinados a menores de 13 años (\"Niños\"). No recopilamos conscientemente información personal identificable de niños menores de 13 años. Si tienes conocimiento de que un niño nos ha proporcionado Información Personal, contáctanos. Si nos damos cuenta de que hemos recopilado Información Personal de niños sin verificación del consentimiento parental, tomaremos medidas para eliminar esa información de nuestros servidores."
+
+msgid "Changes to This Privacy Policy p1"
+msgstr "Podemos actualizar nuestra Política de Privacidad de vez en cuando. Por ello, te aconsejamos que revises esta página periódicamente para ver si hay cambios. Te notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página y actualizando la fecha de \"Última actualización\" en la parte superior de esta Política de Privacidad. Estos cambios entran en vigor inmediatamente después de su publicación en esta página."
+
+msgid "Your Rights Under GDPR"
+msgstr "Tus derechos bajo el RGPD"
+
+msgid "Your Rights p1"
+msgstr "Si eres ciudadano europeo, tienes los siguientes derechos según el RGPD:"
+
+msgid "Rights Point1"
+msgstr "El derecho de acceso: tienes derecho a solicitar copias de tus datos personales."
+
+msgid "Rights Point2"
+msgstr "El derecho de rectificación: tienes derecho a solicitar que corrijamos cualquier información que consideres inexacta. También tienes derecho a solicitar que completemos la información que consideres incompleta."
+
+msgid "Rights Point3"
+msgstr "El derecho de supresión: tienes derecho a solicitar que eliminemos tus datos personales, bajo ciertas condiciones."
+
+msgid "Rights Point4"
+msgstr "El derecho a restringir el tratamiento: tienes derecho a solicitar que restrinjamos el tratamiento de tus datos personales, bajo ciertas condiciones."
+
+msgid "Rights Point5"
+msgstr "El derecho de oposición: tienes derecho a oponerte al tratamiento de tus datos personales, bajo ciertas condiciones."
+
+msgid "Rights Point6"
+msgstr "El derecho a la portabilidad de los datos: tienes derecho a solicitar que transfiramos los datos que hemos recopilado a otra organización, o directamente a ti, bajo ciertas condiciones."
+
+msgid "Contact Us Policy p1"
+msgstr "Si tienes alguna pregunta o sugerencia sobre nuestra Política de Privacidad, no dudes en contactarnos en:"
+
+# Añadiendo las nuevas traducciones para términos y condiciones
 msgid "Indemnification"
 msgstr "Indemnización"
 
 msgid "Force Majeure"
-msgstr "Fuerza Mayor"
+msgstr "Fuerza mayor"
 
 msgid "Age and Legal Requirements"
-msgstr "Requisitos de Edad y Uso Legal"
+msgstr "Edad y requisitos legales"
 
 msgid "Assignment"
 msgstr "Cesión"
 
 msgid "Dispute Resolution"
-msgstr "Resolución de Disputas"
+msgstr "Resolución de disputas"
 
 msgid "Indemnification p1"
-msgstr "Usted acepta defender, indemnizar y mantener indemne a UpdateMe y a sus licenciantes, afiliados, funcionarios, agentes, empleados, coautores, licenciatarios y proveedores de cualquier reclamo, responsabilidad, daño, pérdida y gasto, incluidos, entre otros, honorarios y costos legales razonables, que surjan o estén relacionados con su uso del Servicio o su violación de estos Términos."
+msgstr "Aceptas defender, indemnizar y eximir de responsabilidad a UpdateMe y sus licenciantes, afiliados, directivos, agentes, empleados, coautores, licenciatarios y proveedores de cualquier reclamación, responsabilidad, daño, pérdida y gasto, incluidos, entre otros, honorarios legales y contables razonables, que surjan de o estén relacionados de cualquier manera con tu uso del Servicio o tu incumplimiento de estos Términos."
 
 msgid "Force Majeure p1"
-msgstr "Ni UpdateMe ni usted será responsable ante la otra parte por cualquier retraso o falta de cumplimiento de cualquier obligación bajo estos Términos si dicho retraso o falta de cumplimiento se debe a eventos que están fuera del control razonable de esa parte, incluyendo pero no limitado a, actos de Dios, huelgas, bloqueos, disturbios, actos de guerra, epidemias, pandemias, leyes o acciones gubernamentales, desastres naturales o cualquier otra eventualidad fuera del control de dicha parte."
+msgstr "Ni UpdateMe ni tú seréis responsables ante la otra parte por cualquier retraso o incumplimiento de cualquier obligación bajo estos Términos si dicho retraso o incumplimiento se debe a eventos fuera del control razonable de dicha parte, incluyendo, entre otros, causas de fuerza mayor, huelgas, cierres patronales, disturbios, actos de guerra, epidemias, pandemias, leyes o acciones gubernamentales, desastres naturales o cualquier otra contingencia fuera del control de dicha parte."
 
 msgid "Age and Legal Requirements p1"
-msgstr "Al utilizar este Servicio, usted declara y garantiza que tiene al menos 18 años de edad o la mayoría de edad legal en su jurisdicción, lo que sea mayor, o que tiene el consentimiento de un padre o tutor legal. También garantiza que su uso del Servicio no violará ninguna ley o regulación aplicable."
+msgstr "Al utilizar este Servicio, declaras y garantizas que tienes al menos 18 años de edad o la mayoría de edad legal en tu jurisdicción, la que sea mayor, o que cuentas con el consentimiento de tus padres o tutores. También garantizas que tu uso del Servicio no violará ninguna ley o regulación aplicable."
 
 msgid "Age and Legal Requirements p2"
-msgstr "Si representas a una entidad, organización o empresa, garantizas que tienes la autoridad para vincular a dicha organización a estos Términos y aceptas estos Términos en nombre de dicha organización."
+msgstr "Si representas a una entidad, organización o empresa, garantizas que tienes autoridad para obligar a esa organización a estos Términos y aceptas estos Términos en nombre de dicha organización."
 
 msgid "Assignment p1"
-msgstr "UpdateMe puede asignar o transferir estos Términos y Condiciones, en su totalidad o en parte, sin restricciones. Usted no puede asignar o transferir sus derechos bajo estos Términos, o subcontratar sus obligaciones, sin el consentimiento previo por escrito de UpdateMe."
+msgstr "UpdateMe puede ceder o transferir estos Términos y Condiciones, total o parcialmente, sin restricción. No puedes ceder o transferir tus derechos bajo estos Términos, ni subcontratar tus obligaciones, sin el consentimiento previo por escrito de UpdateMe."
 
 msgid "Assignment p2"
-msgstr "UpdateMe también puede, sin restricciones, subcontratar cualquiera de sus obligaciones bajo estos Términos a terceros o afiliados."
+msgstr "UpdateMe también puede, sin restricción, subcontratar cualquiera de sus obligaciones bajo estos Términos a terceros o afiliados."
 
 msgid "Dispute Resolution p1"
-msgstr "Cualquier disputa, controversia o reclamo que surja de o en relación con estos Términos, incluida su validez, interpretación, ejecución, violación, terminación o nulidad, será sometida primero a mediación de acuerdo con las reglas de mediación de la Cámara de Comercio Internacional. Si dicha disputa no ha sido resuelta dentro de los 60 días siguientes a la solicitud de mediación, será finalmente resuelta por los tribunales competentes de Madrid, España."
+msgstr "Cualquier disputa, controversia o reclamación que surja de o esté relacionada con estos Términos, incluida su validez, interpretación, cumplimiento, incumplimiento, terminación o nulidad, se someterá primero a mediación de acuerdo con las reglas de mediación de la Cámara de Comercio Internacional. Si dicha disputa no se resuelve en un plazo de 60 días tras la solicitud de mediación, se resolverá finalmente por los tribunales competentes de Madrid, España."
 
 msgid "Dispute Resolution p2"
-msgstr "No obstante, en caso de que la ley aplicable no permita restricciones sobre un tribunal o foro para resolver disputas, estas disposiciones serán aplicables en la máxima medida permitida por la ley."
+msgstr "Sin embargo, en caso de que la ley aplicable no permita restricciones sobre un tribunal o foro para la resolución de disputas, estas disposiciones serán aplicables en la máxima medida permitida por la ley."
 
-# Nuevas traducciones para la política de privacidad mejorada
+# New translations for enhanced privacy policy
+msgid "April 24, 2025"
+msgstr "24 de abril de 2025"
+
 msgid "Legal Basis for Processing (GDPR)"
-msgstr "Base Legal para el Procesamiento (RGPD)"
+msgstr "Base legal para el tratamiento (RGPD)"
 
 msgid "Legal Basis p1"
-msgstr "Para cumplir con el Reglamento General de Protección de Datos (RGPD), procesamos sus datos personales bajo las siguientes bases legales:"
+msgstr "Para cumplir con el Reglamento General de Protección de Datos (RGPD), tratamos tus datos personales bajo las siguientes bases legales:"
 
 msgid "Consent"
 msgstr "Consentimiento"
 
 msgid "Legal Basis Consent"
-msgstr "Procesamos datos personales cuando usted ha dado su consentimiento explícito para que los usemos con fines específicos, como el envío de boletines informativos o la personalización de contenido."
+msgstr "Tratamos datos personales cuando has dado tu consentimiento explícito para que los usemos con fines específicos, como el envío de boletines o la personalización de contenido."
 
 msgid "Contract Performance"
-msgstr "Ejecución de Contrato"
+msgstr "Ejecución de contrato"
 
 msgid "Legal Basis Contract"
-msgstr "Procesamos sus datos personales cuando es necesario para cumplir con un contrato al que usted es parte, como cuando se suscribe a nuestro servicio premium."
+msgstr "Tratamos tus datos personales cuando es necesario para la ejecución de un contrato en el que eres parte, como cuando te suscribes a nuestro servicio premium."
 
 msgid "Legal Obligations"
-msgstr "Obligaciones Legales"
+msgstr "Obligaciones legales"
 
 msgid "Legal Basis Obligations"
-msgstr "Procesamos sus datos cuando es necesario para cumplir con una obligación legal, como obligaciones fiscales o requisitos de retención de registros."
+msgstr "Tratamos tus datos cuando es necesario para cumplir con una obligación legal, como obligaciones fiscales o requisitos de registro."
 
 msgid "Legitimate Interests"
-msgstr "Intereses Legítimos"
+msgstr "Intereses legítimos"
 
 msgid "Legal Basis Legitimate"
-msgstr "Procesamos sus datos cuando es necesario para nuestros intereses legítimos y sus intereses, derechos fundamentales y libertades no prevalecen sobre esos intereses, como la mejora de nuestros servicios y la prevención del fraude."
+msgstr "Tratamos tus datos cuando es necesario para nuestros intereses legítimos y tus intereses, derechos y libertades fundamentales no prevalecen sobre esos intereses, como mejorar nuestros servicios y prevenir fraudes."
 
 msgid "Data Retention Period"
-msgstr "Período de Conservación de Datos"
+msgstr "Periodo de retención de datos"
 
 msgid "Data Retention p1"
-msgstr "Conservamos sus datos personales solo durante el tiempo necesario para cumplir con los fines para los que fueron recopilados, incluidos los requisitos legales, contables y de informes. Los períodos de retención para diferentes tipos de datos son los siguientes:"
+msgstr "Conservamos tus datos personales solo durante el tiempo necesario para cumplir con los fines para los que fueron recopilados, incluyendo requisitos legales, contables o de informes. Los periodos de retención para los diferentes tipos de datos son los siguientes:"
 
 msgid "Account Information"
-msgstr "Información de Cuenta"
+msgstr "Información de la cuenta"
 
 msgid "Data Retention Account"
-msgstr "Conservamos su información de cuenta mientras mantenga una cuenta activa con nosotros. Si solicita la eliminación de su cuenta, eliminaremos sus datos personales dentro de los 30 días, excepto la información que debamos conservar por obligaciones legales."
+msgstr "Conservamos la información de tu cuenta mientras mantengas una cuenta activa con nosotros. Si solicitas la eliminación de tu cuenta, eliminaremos tus datos personales en un plazo de 30 días, excepto la información que debamos conservar por obligaciones legales."
 
 msgid "Usage Data"
-msgstr "Datos de Uso"
+msgstr "Datos de uso"
 
 msgid "Data Retention Usage"
-msgstr "Los datos de uso se conservan por un máximo de 12 meses desde su recopilación, después de lo cual se anonimizan para análisis estadísticos."
+msgstr "Los datos de uso se conservan durante un máximo de 12 meses desde su recopilación, tras lo cual se anonimizan para análisis estadísticos."
 
 msgid "Custom Prompts"
-msgstr "Prompts Personalizados"
+msgstr "Prompts personalizados"
 
 msgid "Data Retention Prompts"
-msgstr "Sus prompts personalizados se almacenan mientras mantenga una cuenta activa y se eliminan cuando se elimina su cuenta."
+msgstr "Tus prompts personalizados se almacenan mientras mantengas una cuenta activa y se eliminan cuando tu cuenta es eliminada."
 
 msgid "Communications"
 msgstr "Comunicaciones"
 
 msgid "Data Retention Communications"
-msgstr "Las comunicaciones por correo electrónico y otras correspondencias se conservan por un período de hasta 2 años después de nuestra última interacción."
+msgstr "Las comunicaciones por correo electrónico y otras correspondencias se conservan hasta 2 años después de nuestra última interacción."
 
 msgid "International Data Transfers"
-msgstr "Transferencias Internacionales de Datos"
+msgstr "Transferencias internacionales de datos"
 
 msgid "International Transfers p1"
-msgstr "Podemos transferir, almacenar y procesar su información en países distintos a su país de residencia. Nuestros servidores están ubicados principalmente en la Unión Europea, pero algunos de nuestros proveedores de servicios y socios pueden procesar datos fuera del Espacio Económico Europeo (EEE)."
+msgstr "Podemos transferir, almacenar y procesar tu información en países distintos al de tu residencia. Nuestros servidores están principalmente en la Unión Europea, pero algunos de nuestros proveedores y socios pueden procesar datos fuera del Espacio Económico Europeo (EEE)."
 
 msgid "International Transfers p2"
-msgstr "Cuando transferimos datos personales desde el EEE a países que la Comisión Europea no ha reconocido como que proporcionan un nivel adecuado de protección de datos, nos aseguramos de que existan garantías adecuadas, como la inclusión de cláusulas contractuales estándar aprobadas por la UE en nuestros acuerdos con esos terceros, o nos basamos en otros mecanismos de transferencia válidos según el RGPD."
+msgstr "Cuando transferimos datos personales desde el EEE a países que la Comisión Europea no considera que ofrecen un nivel adecuado de protección de datos, garantizamos que existan las salvaguardas adecuadas, como la inclusión de Cláusulas Contractuales Tipo aprobadas por la UE en nuestros acuerdos con esos terceros, o recurrimos a otros mecanismos de transferencia válidos según el RGPD."
 
 msgid "Types of Cookies We Use"
-msgstr "Tipos de Cookies que Utilizamos"
+msgstr "Tipos de cookies que utilizamos"
 
 msgid "Essential Cookies"
-msgstr "Cookies Esenciales"
+msgstr "Cookies esenciales"
 
 msgid "Cookies Essential"
-msgstr "Necesarias para el funcionamiento básico del sitio web. Estas cookies no almacenan ninguna información de identificación personal."
+msgstr "Necesarias para el funcionamiento básico del sitio web. Estas cookies no almacenan información personal identificable."
 
 msgid "Functional Cookies"
-msgstr "Cookies Funcionales"
+msgstr "Cookies funcionales"
 
 msgid "Cookies Functional"
-msgstr "Estas cookies permiten que el sitio web recuerde elecciones que usted realiza (como su nombre de usuario, idioma o la región en la que se encuentra) y proporcionan características mejoradas y más personalizadas."
+msgstr "Estas cookies permiten que el sitio web recuerde las elecciones que realizas (como tu nombre de usuario, idioma o región) y proporcionan funciones mejoradas y más personalizadas."
 
 msgid "Analytical Cookies"
-msgstr "Cookies Analíticas"
+msgstr "Cookies analíticas"
 
 msgid "Cookies Analytical"
-msgstr "Estas cookies nos permiten contar visitas y fuentes de tráfico para medir y mejorar el rendimiento de nuestro sitio. Nos ayudan a saber qué páginas son las más y menos populares y a ver cómo se mueven los visitantes por el sitio."
+msgstr "Estas cookies nos permiten contar visitas y fuentes de tráfico para medir y mejorar el rendimiento de nuestro sitio. Nos ayudan a saber qué páginas son las más y menos populares y ver cómo se mueven los visitantes por el sitio."
 
 msgid "Marketing Cookies"
-msgstr "Cookies de Marketing"
+msgstr "Cookies de marketing"
 
 msgid "Cookies Marketing"
-msgstr "Estas cookies rastrean a los visitantes en los sitios web y recopilan información para proporcionar anuncios personalizados. UpdateMe no utiliza cookies de marketing de terceros sin su consentimiento explícito."
+msgstr "Estas cookies rastrean a los visitantes en los sitios web y recopilan información para ofrecer anuncios personalizados. UpdateMe no utiliza cookies de marketing de terceros sin tu consentimiento explícito."
 
 msgid "Cookies Management p1"
-msgstr "Puede configurar su navegador para rechazar todas o algunas cookies, o para alertarle cuando los sitios web establezcan o accedan a las cookies. Si deshabilita o rechaza las cookies, tenga en cuenta que algunas partes de este sitio web pueden volverse inaccesibles o no funcionar correctamente."
+msgstr "Puedes configurar tu navegador para rechazar todas o algunas cookies, o para avisarte cuando los sitios web establecen o acceden a cookies. Si deshabilitas o rechazas las cookies, algunas partes de este sitio web pueden volverse inaccesibles o no funcionar correctamente."
 
 msgid "Manage Cookie Settings"
-msgstr "Administrar Configuración de Cookies"
+msgstr "Gestionar la configuración de cookies"
 
 msgid "Data Breach Notifications"
-msgstr "Notificaciones de Brechas de Datos"
+msgstr "Notificaciones de violación de datos"
 
 msgid "Data Breach p1"
-msgstr "En caso de una violación de seguridad que conduzca a la destrucción, pérdida, alteración, divulgación no autorizada o acceso accidental o ilegal a sus datos personales, seguiremos todos los requisitos aplicables de notificación de violación de datos."
+msgstr "En caso de una violación de seguridad que provoque la destrucción, pérdida, alteración, divulgación no autorizada o acceso a tus datos personales, seguiremos todos los requisitos legales aplicables de notificación de violaciones de datos."
 
 msgid "Data Breach p2"
-msgstr "Si se determina que la violación es probable que resulte en un alto riesgo para sus derechos y libertades, se lo notificaremos directamente sin demora indebida, pero no más tarde de 72 horas después de conocer la violación, con información sobre las medidas tomadas para mitigar los posibles efectos adversos."
+msgstr "Si la violación puede suponer un alto riesgo para tus derechos y libertades, te notificaremos directamente sin demora indebida, y a más tardar 72 horas después de tener conocimiento de la violación, con información sobre las medidas tomadas para mitigar los posibles efectos adversos."
 
 msgid "Automated Decision Making"
-msgstr "Toma de Decisiones Automatizada"
+msgstr "Toma de decisiones automatizada"
 
 msgid "Automated Decision p1"
-msgstr "No utilizamos procesos automatizados, incluida la elaboración de perfiles, para tomar decisiones que tengan efectos legales o significativos similares sobre usted. Nuestro servicio utiliza algoritmos para generar contenido basado en sus preferencias, pero estos no dan lugar a decisiones automatizadas que afecten sus derechos y libertades."
+msgstr "No utilizamos procesos automatizados, incluido el perfilado, para tomar decisiones que tengan efectos legales o similares sobre ti. Nuestro servicio utiliza algoritmos para generar contenido según tus preferencias, pero esto no da lugar a decisiones automatizadas que afecten tus derechos y libertades."
 
 msgid "Additional Rights Based on Location"
-msgstr "Derechos Adicionales Según la Ubicación"
+msgstr "Derechos adicionales según la ubicación"
 
 msgid "California Consumer Privacy Act (CCPA)"
 msgstr "Ley de Privacidad del Consumidor de California (CCPA)"
 
 msgid "CCPA p1"
-msgstr "Si es residente de California, la Ley de Privacidad del Consumidor de California (CCPA) le otorga derechos específicos con respecto a sus datos personales, incluidos:"
+msgstr "Si eres residente de California, la Ley de Privacidad del Consumidor de California (CCPA) te otorga derechos específicos sobre tus datos personales, incluyendo:"
 
 msgid "CCPA Right1"
-msgstr "Derecho a saber qué información personal recopilamos, utilizamos, compartimos o vendemos."
+msgstr "Derecho a saber qué información personal recopilamos, usamos, compartimos o vendemos."
 
 msgid "CCPA Right2"
-msgstr "Derecho a eliminar información personal almacenada por nosotros."
+msgstr "Derecho a eliminar la información personal almacenada por nosotros."
 
 msgid "CCPA Right3"
-msgstr "Derecho a excluirse de la venta de información personal."
+msgstr "Derecho a optar por no vender información personal."
 
 msgid "CCPA Right4"
-msgstr "Derecho a la no discriminación por ejercer sus derechos de privacidad."
+msgstr "Derecho a no ser discriminado por ejercer tus derechos de privacidad."
 
 msgid "Other Jurisdictions"
-msgstr "Otras Jurisdicciones"
+msgstr "Otras jurisdicciones"
 
 msgid "Other Jurisdictions p1"
-msgstr "Si reside en otras jurisdicciones con leyes específicas de privacidad (como Brasil con la LGPD o Canadá con PIPEDA), también puede tener derechos adicionales específicos. Por favor contáctenos si necesita información sobre cómo cumplimos con las leyes de privacidad en su jurisdicción específica."
+msgstr "Si resides en otras jurisdicciones con leyes de privacidad específicas (como Brasil con la LGPD o Canadá con la PIPEDA), también puedes tener derechos adicionales. Contáctanos si necesitas información sobre cómo cumplimos con las leyes de privacidad en tu jurisdicción específica."
 
 msgid "Exercise Rights p1"
-msgstr "Para ejercer cualquiera de sus derechos, puede enviarnos un correo electrónico a privacy@updateme.dev o utilizar el formulario de contacto disponible en nuestro sitio web. Para proteger su privacidad y seguridad, podemos tomar medidas razonables para verificar su identidad antes de conceder acceso o hacer correcciones."
+msgstr "Para ejercer cualquiera de tus derechos, puedes enviarnos un correo a privacy@updateme.dev o usar el formulario de contacto disponible en nuestro sitio web. Para proteger tu privacidad y seguridad, podemos tomar medidas razonables para verificar tu identidad antes de conceder acceso o realizar correcciones."
 
 msgid "Exercise Rights p2"
-msgstr "Respondemos a todas las solicitudes que recibimos de personas que desean ejercer sus derechos de protección de datos de acuerdo con las leyes de protección de datos aplicables. El plazo de respuesta es generalmente de un mes, pero puede extenderse hasta dos meses adicionales cuando sea necesario, teniendo en cuenta la complejidad y el número de solicitudes."
+msgstr "Respondemos a todas las solicitudes que recibimos de personas que desean ejercer sus derechos de protección de datos de acuerdo con las leyes de protección de datos aplicables. El plazo de respuesta es generalmente de un mes, pero puede ampliarse hasta dos meses adicionales cuando sea necesario, teniendo en cuenta la complejidad y el número de solicitudes."
 
 msgid "premiumUserOnly"
 msgstr "Esta función solo está disponible para usuarios premium."
 
-# Traducciones para página de perfil
+# Traducciones para profile page
 msgid "Profile Settings"
-msgstr "Configuración de Perfil"
+msgstr "Configuración de perfil"
 
 msgid "Account Info"
-msgstr "Información de Cuenta"
+msgstr "Información de la cuenta"
 
 msgid "Change Password"
-msgstr "Cambiar Contraseña"
+msgstr "Cambiar contraseña"
 
 msgid "Subscription Management"
-msgstr "Gestión de Suscripción"
+msgstr "Gestión de suscripción"
 
 msgid "Account Actions"
-msgstr "Acciones de Cuenta"
+msgstr "Acciones de la cuenta"
 
 msgid "Profile updated successfully"
 msgstr "Perfil actualizado correctamente"
 
 msgid "Error updating profile"
-msgstr "Error actualizando perfil"
+msgstr "Error al actualizar el perfil"
 
 msgid "Password changed successfully"
 msgstr "Contraseña cambiada correctamente"
 
 msgid "Error changing password"
-msgstr "Error cambiando contraseña"
+msgstr "Error al cambiar la contraseña"
 
 msgid "Passwords do not match"
 msgstr "Las contraseñas no coinciden"
@@ -1665,33 +1311,33 @@ msgid "Account deactivated successfully"
 msgstr "Cuenta desactivada correctamente"
 
 msgid "Error deactivating account"
-msgstr "Error al desactivar cuenta"
+msgstr "Error al desactivar la cuenta"
 
 msgid "Account reactivated successfully"
 msgstr "Cuenta reactivada correctamente"
 
 msgid "Error reactivating account"
-msgstr "Error al reactivar cuenta"
+msgstr "Error al reactivar la cuenta"
 
 msgid "Account deleted successfully"
 msgstr "Cuenta eliminada correctamente"
 
 msgid "Error deleting account"
-msgstr "Error al eliminar cuenta"
+msgstr "Error al eliminar la cuenta"
 
 msgid "Are you sure you want to deactivate your account?"
-msgstr "¿Estás seguro de que quieres desactivar tu cuenta?"
+msgstr "¿Estás seguro de que deseas desactivar tu cuenta?"
 
 msgid "Are you sure you want to reactivate your account?"
-msgstr "¿Estás seguro de que quieres reactivar tu cuenta?"
+msgstr "¿Estás seguro de que deseas reactivar tu cuenta?"
 
 msgid "Are you sure you want to delete your account? This action cannot be undone."
-msgstr "¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer."
+msgstr "¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer."
 
 msgid "Connection error"
 msgstr "Error de conexión"
 
-# Traducciones para páginas de suscripción
+# Translations for subscription pages
 msgid "Subscription Successful"
 msgstr "Suscripción exitosa"
 
@@ -1705,99 +1351,53 @@ msgid "You now have full access to all premium features."
 msgstr "Ahora tienes acceso completo a todas las funciones premium."
 
 msgid "Go to Dashboard"
-msgstr "Ir al Panel de Control"
+msgstr "Ir al panel de control"
 
 msgid "Manage Subscription"
-msgstr "Gestionar Suscripción"
+msgstr "Gestionar suscripción"
 
 msgid "Subscription Canceled"
 msgstr "Suscripción cancelada"
 
 msgid "Subscription Checkout Canceled"
-msgstr "Proceso de suscripción cancelado"
+msgstr "Pago de suscripción cancelado"
 
 msgid "You have canceled the subscription checkout process."
-msgstr "Has cancelado el proceso de suscripción."
+msgstr "Has cancelado el proceso de pago de la suscripción."
 
 msgid "Don't worry, you can subscribe anytime you're ready."
 msgstr "No te preocupes, puedes suscribirte cuando quieras."
 
 msgid "Return to Dashboard"
-msgstr "Volver al Panel de Control"
+msgstr "Volver al panel de control"
 
-# Etiquetas y mensajes de cambio de contraseña
-msgid "Current Password"
-msgstr "Contraseña Actual"
+# Translations for account actions and deletion modal
+msgid "Deactivate Account"
+msgstr "Desactivar cuenta"
 
-msgid "New Password"
-msgstr "Nueva Contraseña"
+msgid "Reactivate Account"
+msgstr "Reactivar cuenta"
 
-msgid "Confirm Password"
-msgstr "Confirmar Contraseña"
+msgid "Delete Account"
+msgstr "Eliminar cuenta"
 
-msgid "Password must contain:"
-msgstr "La contraseña debe contener:"
+msgid "Delete Permanently"
+msgstr "Eliminar permanentemente"
 
-msgid "At least 6 characters"
-msgstr "Al menos 6 caracteres"
+msgid "This action cannot be undone."
+msgstr "Esta acción no se puede deshacer."
 
-msgid "One uppercase letter"
-msgstr "Una letra mayúscula"
+msgid "All your data will be permanently deleted, including:"
+msgstr "Todos tus datos serán eliminados permanentemente, incluyendo:"
 
-msgid "One lowercase letter"
-msgstr "Una letra minúscula"
+msgid "Your profile information"
+msgstr "Tu información de perfil"
 
-msgid "One number"
-msgstr "Un número"
+msgid "Custom prompts and settings"
+msgstr "Prompts y configuraciones personalizadas"
 
-msgid "One special character"
-msgstr "Un carácter especial"
+msgid "Subscription and payment details"
+msgstr "Detalles de suscripción y pago"
 
-msgid "Update Password"
-msgstr "Actualizar Contraseña"
-
-# Claves de suscripción en perfil
-msgid "Current Plan"
-msgstr "Plan Actual"
-
-msgid "Status"
-msgstr "Estado"
-
-msgid "Upgrade to premium to unlock all features"
-msgstr "Actualiza a premium para desbloquear todas las funciones"
-
-msgid "View Plans"
-msgstr "Ver Planes"
-
-msgid "Active"
-msgstr "Activo"
-
-# Traducciones para headerLogued
-msgid "Profile"
-msgstr "Perfil"
-
-msgid "Logout"
-msgstr "Cerrar sesión"
-
-msgid "Dashboard"
-msgstr "Panel de Control"
-
-# Nuevas traducciones para límites y etiquetas de UI
-msgid "Max 400 characters"
-msgstr "Máximo 400 caracteres"
-
-msgid "Tavily prompt exceeds the 400 character limit."
-msgstr "El prompt de Tavily excede el límite de 400 caracteres."
-
-# Etiquetas de configuración avanzadas para SerpAPI
-msgid "Location"
-msgstr "Ubicación"
-
-msgid "Country Code"
-msgstr "Código de país"
-
-msgid "Interface Language"
-msgstr "Idioma de la interfaz"
-
-msgid "Device Type"
-msgstr "Tipo de dispositivo"
+msgid "Session history"
+msgstr "Historial de sesiones"
