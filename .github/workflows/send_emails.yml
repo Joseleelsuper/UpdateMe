@@ -8,9 +8,21 @@ on:
 jobs:
   send-emails:
     runs-on: ubuntu-latest
+    env:
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
     steps:
-      - name: Trigger email sending
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
         run: |
-          curl -X POST \
-            https://updateme.dev/api/maintenance/send-weekly-emails \
-            -H "X-API-Key: ${{ secrets.MAINTENANCE_API_KEY }}"
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run maintenance script
+        run: python maintenance.py
