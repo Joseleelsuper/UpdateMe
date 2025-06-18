@@ -24,12 +24,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-
+          
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install -r requirements.txt      - name: Debug environment
-        shell: bash
+          pip install -r requirements.txt
 
       - name: Run maintenance script
         run: python maintenance.py
