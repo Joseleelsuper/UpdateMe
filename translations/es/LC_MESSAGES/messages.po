@@ -911,7 +911,7 @@ msgid "Limitation Of Liability p1"
 msgstr "En ningún caso UpdateMe, ni sus directores, empleados, socios, agentes, proveedores o afiliados, serán responsables por daños indirectos, incidentales, especiales, consecuentes o punitivos, incluyendo, entre otros, la pérdida de beneficios, datos, uso, buena voluntad u otras pérdidas intangibles, resultantes de (i) tu acceso o uso o incapacidad de acceder o usar el Servicio; (ii) cualquier conducta o contenido de un tercero en el Servicio; (iii) cualquier contenido obtenido del Servicio; y (iv) acceso, uso o alteración no autorizados de tus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluida la negligencia) o cualquier otra teoría legal, haya o no sido informado de la posibilidad de tales daños."
 
 msgid "Disclaimer p1"
-msgstr "El uso del Servicio es bajo tu propio riesgo. El Servicio se proporciona "TAL CUAL" y "SEGÚN DISPONIBILIDAD". El Servicio se proporciona sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo, entre otras, garantías implícitas de comerciabilidad, idoneidad para un propósito particular, no infracción o curso de desempeño."
+msgstr "El uso del Servicio es bajo tu propio riesgo. El Servicio se proporciona \"TAL CUAL\" y \"SEGÚN DISPONIBILIDAD\". El Servicio se proporciona sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo, entre otras, garantías implícitas de comerciabilidad, idoneidad para un propósito particular, no infracción o curso de desempeño."
 
 msgid "Governing Law p1"
 msgstr "Estos Términos se regirán e interpretarán de acuerdo con las leyes de España, sin tener en cuenta sus disposiciones sobre conflicto de leyes."
