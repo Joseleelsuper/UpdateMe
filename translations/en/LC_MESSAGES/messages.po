@@ -1483,3 +1483,24 @@ msgstr "AI Newsletter"
 
 msgid "Stay updated with our weekly AI newsletter"
 msgstr "Stay updated with our weekly AI newsletter"
+
+msgid "Featured content carousel"
+msgstr "Featured content carousel"
+
+msgid "Previous slide"
+msgstr "Previous slide"
+
+msgid "Next slide"
+msgstr "Next slide"
+
+msgid "Slide"
+msgstr "Slide"
+
+msgid "of"
+msgstr "of"
+
+msgid "Go to slide"
+msgstr "Go to slide"
+
+msgid "Close image"
+msgstr "Close image"

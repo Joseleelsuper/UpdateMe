@@ -1483,3 +1483,24 @@ msgstr "Boletín de IA"
 
 msgid "Stay updated with our weekly AI newsletter"
 msgstr "Mantente actualizado con nuestro boletín semanal de IA"
+
+msgid "Featured content carousel"
+msgstr "Carrusel de contenido destacado"
+
+msgid "Previous slide"
+msgstr "Diapositiva anterior"
+
+msgid "Next slide"
+msgstr "Siguiente diapositiva"
+
+msgid "Slide"
+msgstr "Diapositiva"
+
+msgid "of"
+msgstr "de"
+
+msgid "Go to slide"
+msgstr "Ir a diapositiva"
+
+msgid "Close image"
+msgstr "Cerrar imagen"
