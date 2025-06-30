@@ -91,7 +91,7 @@ def send_weekly_email(user: dict) -> bool:
         return False
 
 
-def process_pending_emails(days_interval: int = 6) -> tuple:
+def process_pending_emails(days_interval: int = 7) -> tuple:
     """Procesa los correos pendientes de los usuarios, enviándolos si es necesario.
     Si no hay correos pendientes, no hace nada.
 

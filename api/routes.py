@@ -166,7 +166,7 @@ def trigger_weekly_emails():
     
     try:
         # Procesar correos pendientes con un intervalo de 7 días
-        total, success, errors = process_pending_emails(days_interval=6)
+        total, success, errors = process_pending_emails(days_interval=7)
         
         return jsonify({
             "success": True,
