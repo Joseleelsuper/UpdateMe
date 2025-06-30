@@ -957,7 +957,7 @@ msgid "Definitions IP address"
 msgstr "A cada dispositivo conectado a Internet se le asigna un número conocido como dirección de protocolo de Internet (IP). Estos números suelen asignarse en bloques geográficos. Una dirección IP a menudo puede usarse para identificar la ubicación desde la que un dispositivo se conecta a Internet."
 
 msgid "Definitions Personal Data"
-msgstr "Cualquier información que directa o indirectamente, o en conexión con otra información —incluido un número de identificación personal— permita la identificación o identifiabilidad de una persona física."
+msgstr "Cualquier información que directa o indirectamente, o en conexión con otra información —incluido un número de identificación personal— permita la identificación o identificabilidad de una persona física."
 
 msgid "Definitions Service"
 msgstr "Se refiere al sitio web, la aplicación y cualquier servicio relacionado ofrecido por UpdateMe."
@@ -1464,3 +1464,49 @@ msgstr "Confirmar contraseña"
 
 msgid "Update Password"
 msgstr "Actualizar contraseña"
+
+# Traducciones del carrusel
+msgid "Groq AI Prompt"
+msgstr "Prompt de IA Groq"
+
+msgid "Optimize your AI prompts with Groq"
+msgstr "Optimiza tus prompts de IA con Groq"
+
+msgid "Tavily AI Search"
+msgstr "Búsqueda de IA Tavily"
+
+msgid "Enhance your research with Tavily AI"
+msgstr "Mejora tu investigación con IA Tavily"
+
+msgid "AI Newsletter"
+msgstr "Boletín de IA"
+
+msgid "Stay updated with our weekly AI newsletter"
+msgstr "Mantente actualizado con nuestro boletín semanal de IA"
+
+msgid "Featured content carousel"
+msgstr "Carrusel de contenido destacado"
+
+msgid "Previous slide"
+msgstr "Diapositiva anterior"
+
+msgid "Next slide"
+msgstr "Siguiente diapositiva"
+
+msgid "Slide"
+msgstr "Diapositiva"
+
+msgid "of"
+msgstr "de"
+
+msgid "Go to slide"
+msgstr "Ir a diapositiva"
+
+msgid "Close image"
+msgstr "Cerrar imagen"
+
+msgid "Previous image"
+msgstr "Imagen anterior"
+
+msgid "Next image"
+msgstr "Imagen siguiente"

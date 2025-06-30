@@ -1464,3 +1464,49 @@ msgstr "Confirm Password"
 
 msgid "Update Password"
 msgstr "Update Password"
+
+# Traducciones para el carrusel
+msgid "Groq AI Prompt"
+msgstr "Groq AI Prompt"
+
+msgid "Optimize your AI prompts with Groq"
+msgstr "Optimize your AI prompts with Groq"
+
+msgid "Tavily AI Search"
+msgstr "Tavily AI Search"
+
+msgid "Enhance your research with Tavily AI"
+msgstr "Enhance your research with Tavily AI"
+
+msgid "AI Newsletter"
+msgstr "AI Newsletter"
+
+msgid "Stay updated with our weekly AI newsletter"
+msgstr "Stay updated with our weekly AI newsletter"
+
+msgid "Featured content carousel"
+msgstr "Featured content carousel"
+
+msgid "Previous slide"
+msgstr "Previous slide"
+
+msgid "Next slide"
+msgstr "Next slide"
+
+msgid "Slide"
+msgstr "Slide"
+
+msgid "of"
+msgstr "of"
+
+msgid "Go to slide"
+msgstr "Go to slide"
+
+msgid "Close image"
+msgstr "Close image"
+
+msgid "Previous image"
+msgstr "Previous image"
+
+msgid "Next image"
+msgstr "Next image"

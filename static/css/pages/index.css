@@ -91,8 +91,347 @@
   font-size: 1.125rem;
 }
 
+/* Carousel Styles */
+.carousel-container {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  width: calc(100% - 40px); /* Reducir el ancho para dejar espacio a las flechas */
+  max-width: 760px; /* Reducido para mantener espacio para las flechas */
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  border-radius: 8px;
+  padding: 0 20px; /* Añadir padding lateral para las flechas */
+}
+
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Botones de navegación */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: white;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.carousel-button-prev {
+  left: -20px; /* Colocar fuera del rango de la imagen */
+}
+
+.carousel-button-next {
+  right: -20px; /* Colocar fuera del rango de la imagen */
+}
+
+.carousel-button svg {
+  width: 20px;
+  height: 20px;
+  fill: #333;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+  height: 300px; /* Altura fija para todas las diapositivas */
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene la relación de aspecto y recorta si es necesario */
+  object-position: center; /* Centra la imagen */
+  display: block;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.carousel-dots {
+  display: grid;
+  grid-auto-columns: 20px;
+  grid-auto-flow: column;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.carousel-dot {
+  width: 20px;
+  height: 6px; /* Forma rectangular para los marcadores */
+  border-radius: 3px;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+  opacity: 0.6;
+}
+
+.carousel-dot:hover {
+  opacity: 0.9;
+}
+
+.carousel-dot.active {
+  background-color: var(--color-primary);
+  opacity: 1;
+  width: 30px; /* Más ancho cuando está activo */
+}
+
+/* Estilos modernos para scroll markers */
+@supports (scroll-snap-type: x mandatory) {
+  .carousel-wrapper {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .carousel-slide {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+}
+
+/* Soporte para navegadores modernos con variable CSS */
+@supports (--custom: property) {
+  .carousel-container {
+    --accent: var(--color-primary);
+    position: relative;
+  }
+  
+  .carousel-dots {
+    margin-top: 15px;
+  }
+  
+  .carousel-dot {
+    position: relative;
+    height: 4px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .carousel-dot::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    background: transparent;
+  }
+  
+  .carousel-dot.active {
+    background-color: var(--accent, var(--color-primary));
+  }
+}
+
 @media (min-width: 1024px) {
   .hero-title {
     font-size: 2.75rem;
+  }
+}
+
+/* Animación para botones */
+@keyframes button-pulse {
+  0% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.05); }
+  100% { transform: translateY(-50%) scale(1); }
+}
+
+.button-pulse {
+  animation: button-pulse 0.3s ease;
+}
+
+/* Clase de utilidad para ocultar visualmente pero mantener accesible para lectores de pantalla */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Estilos para el overlay de imágenes */
+.image-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.image-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.image-overlay-content {
+  position: relative;
+  width: 80%;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overlay-image {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+/* Mejoras para pantallas grandes */
+@media (min-width: 768px) {
+  .image-overlay-content {
+    width: 85%;
+    max-width: 1200px;
+  }
+  
+  .overlay-image {
+    max-height: 80vh;
+  }
+  
+  /* Efecto de zoom suave al hacer hover en pantallas grandes */
+  .overlay-image:hover {
+    transform: scale(1.02);
+  }
+}
+
+.overlay-caption {
+  color: white;
+  margin-top: 15px;
+  font-size: 1.1rem;
+  text-align: center;
+  max-width: 100%;
+  padding: 0 20px;
+}
+
+.overlay-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.overlay-close:hover {
+  opacity: 0.8;
+}
+
+/* Hacer el cursor de las imágenes del carrusel como de "clickable" */
+.carousel-slide {
+  cursor: pointer;
+}
+
+/* Botones de navegación para el overlay */
+.overlay-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+.overlay-nav:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.overlay-prev {
+  left: -60px;
+}
+
+.overlay-next {
+  right: -60px;
+}
+
+.overlay-nav svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  .overlay-nav {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .overlay-prev {
+    left: 10px;
+  }
+  
+  .overlay-next {
+    right: 10px;
   }
 }
