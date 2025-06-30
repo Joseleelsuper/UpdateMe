@@ -1504,3 +1504,9 @@ msgstr "Ir a diapositiva"
 
 msgid "Close image"
 msgstr "Cerrar imagen"
+
+msgid "Previous image"
+msgstr "Imagen anterior"
+
+msgid "Next image"
+msgstr "Imagen siguiente"

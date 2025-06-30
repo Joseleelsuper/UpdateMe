@@ -84,27 +84,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlayImage = overlay.querySelector('.overlay-image');
     const overlayCaption = overlay.querySelector('.overlay-caption');
     const closeButton = overlay.querySelector('.overlay-close');
+    const prevButton = overlay.querySelector('.overlay-prev');
+    const nextButton = overlay.querySelector('.overlay-next');
+    
+    let currentOverlayIndex = 0;
     
     // Hacer clicables las imágenes del carrusel
-    slides.forEach(slide => {
+    slides.forEach((slide, index) => {
       const img = slide.querySelector('img');
       const caption = slide.querySelector('.carousel-caption');
       
       slide.addEventListener('click', () => {
-        // Comprobar si estamos en móvil o pantalla pequeña
-        if (window.innerWidth < 768) {
-          // Actualizar overlay con la imagen y texto actuales
-          overlayImage.src = img.src;
-          overlayImage.alt = img.alt;
-          overlayCaption.textContent = caption.textContent;
-          
-          // Mostrar overlay
-          overlay.classList.add('active');
-          
-          // Desactivar scroll en el body
-          document.body.style.overflow = 'hidden';
-        }
+        // Guardar el índice de la imagen actual
+        currentOverlayIndex = index;
+        
+        // Actualizar overlay con la imagen y texto actuales
+        updateOverlayContent(currentOverlayIndex);
+        
+        // Mostrar overlay
+        overlay.classList.add('active');
+        
+        // Desactivar scroll en el body
+        document.body.style.overflow = 'hidden';
       });
+    });
+    
+    // Navegar a la imagen anterior
+    prevButton.addEventListener('click', (e) => {
+      e.stopPropagation(); // Evitar que el clic se propague al overlay
+      currentOverlayIndex = (currentOverlayIndex - 1 + slides.length) % slides.length;
+      updateOverlayContent(currentOverlayIndex);
+    });
+    
+    // Navegar a la siguiente imagen
+    nextButton.addEventListener('click', (e) => {
+      e.stopPropagation(); // Evitar que el clic se propague al overlay
+      currentOverlayIndex = (currentOverlayIndex + 1) % slides.length;
+      updateOverlayContent(currentOverlayIndex);
     });
     
     // Cerrar overlay al hacer clic en el botón o fuera de la imagen
@@ -115,12 +131,38 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     
-    // Cerrar con tecla ESC
+    // Navegación con teclado
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && overlay.classList.contains('active')) {
+      if (!overlay.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') {
         closeOverlay();
+      } else if (e.key === 'ArrowLeft') {
+        currentOverlayIndex = (currentOverlayIndex - 1 + slides.length) % slides.length;
+        updateOverlayContent(currentOverlayIndex);
+        e.preventDefault();
+      } else if (e.key === 'ArrowRight') {
+        currentOverlayIndex = (currentOverlayIndex + 1) % slides.length;
+        updateOverlayContent(currentOverlayIndex);
+        e.preventDefault();
       }
     });
+    
+    // Actualizar contenido del overlay
+    function updateOverlayContent(index) {
+      const slide = slides[index];
+      const img = slide.querySelector('img');
+      const caption = slide.querySelector('.carousel-caption');
+      
+      // Añadir una pequeña animación de transición
+      overlayImage.style.opacity = '0';
+      setTimeout(() => {
+        overlayImage.src = img.src;
+        overlayImage.alt = img.alt;
+        overlayCaption.textContent = caption.textContent;
+        overlayImage.style.opacity = '1';
+      }, 300);
+    }
     
     function closeOverlay() {
       overlay.classList.remove('active');

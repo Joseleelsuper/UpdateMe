@@ -1504,3 +1504,9 @@ msgstr "Go to slide"
 
 msgid "Close image"
 msgstr "Close image"
+
+msgid "Previous image"
+msgstr "Previous image"
+
+msgid "Next image"
+msgstr "Next image"
