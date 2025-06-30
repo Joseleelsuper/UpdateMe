@@ -39,25 +39,49 @@
                     <div id="subscribe-message" class="subscribe-message"></div>
 
                     <!-- Carousel Section -->
-                    <div class="carousel-container">
-                        <div class="carousel">
-                            <div class="carousel-slide">
-                                <img src="{{ url_for('static', filename='img/index/groq_prompt.webp') }}" alt="{{ _('Groq AI Prompt') }}">
-                                <div class="carousel-caption">{{ _('Optimize your AI prompts with Groq') }}</div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="{{ url_for('static', filename='img/index/tavily_prompt.webp') }}" alt="{{ _('Tavily AI Search') }}">
-                                <div class="carousel-caption">{{ _('Enhance your research with Tavily AI') }}</div>
-                            </div>
-                            <div class="carousel-slide">
-                                <img src="{{ url_for('static', filename='img/index/newsletter.webp') }}" alt="{{ _('AI Newsletter') }}">
-                                <div class="carousel-caption">{{ _('Stay updated with our weekly AI newsletter') }}</div>
+                    <div class="carousel-container" role="region" aria-label="{{ _('Featured content carousel') }}" id="featured-carousel">
+                        <!-- Botones de navegación -->
+                        <button class="carousel-button carousel-button-prev" aria-label="{{ _('Previous slide') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                            </svg>
+                        </button>
+                        <button class="carousel-button carousel-button-next" aria-label="{{ _('Next slide') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="carousel-wrapper">
+                            <div class="carousel" data-auto-scroll="true" data-scroll-interval="5000">
+                                <div class="carousel-slide" aria-label="{{ _('Slide') }} 1 {{ _('of') }} 3" data-active="true">
+                                    <img src="{{ url_for('static', filename='img/index/groq_prompt.webp') }}" alt="{{ _('Groq AI Prompt') }}">
+                                    <div class="carousel-caption">{{ _('Optimize your AI prompts with Groq') }}</div>
+                                </div>
+                                <div class="carousel-slide" aria-label="{{ _('Slide') }} 2 {{ _('of') }} 3" data-active="false" inert>
+                                    <img src="{{ url_for('static', filename='img/index/tavily_prompt.webp') }}" alt="{{ _('Tavily AI Search') }}">
+                                    <div class="carousel-caption">{{ _('Enhance your research with Tavily AI') }}</div>
+                                </div>
+                                <div class="carousel-slide" aria-label="{{ _('Slide') }} 3 {{ _('of') }} 3" data-active="false" inert>
+                                    <img src="{{ url_for('static', filename='img/index/newsletter.webp') }}" alt="{{ _('AI Newsletter') }}">
+                                    <div class="carousel-caption">{{ _('Stay updated with our weekly AI newsletter') }}</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="carousel-dots">
-                            <div class="carousel-dot active"></div>
-                            <div class="carousel-dot"></div>
-                            <div class="carousel-dot"></div>
+                        
+                        <div class="carousel-dots" role="tablist">
+                            <button class="carousel-dot active" role="tab" aria-selected="true" aria-label="{{ _('Go to slide') }} 1"></button>
+                            <button class="carousel-dot" role="tab" aria-selected="false" aria-label="{{ _('Go to slide') }} 2"></button>
+                            <button class="carousel-dot" role="tab" aria-selected="false" aria-label="{{ _('Go to slide') }} 3"></button>
+                        </div>
+                        
+                        <!-- Overlay para imágenes ampliadas -->
+                        <div class="image-overlay" id="image-overlay">
+                            <div class="image-overlay-content">
+                                <button class="overlay-close" aria-label="{{ _('Close image') }}">×</button>
+                                <img class="overlay-image" src="" alt="">
+                                <div class="overlay-caption"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
