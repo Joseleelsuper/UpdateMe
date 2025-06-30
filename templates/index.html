@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/index.css') }}">
     <script type="module" src="{{ url_for('static', filename='js/subscribe-form.js') }}" defer></script>
+    <script src="{{ url_for('static', filename='js/carousel.js') }}" defer></script>
 </head>
 
 <body>
@@ -36,6 +37,29 @@
                         </button>
                     </div>
                     <div id="subscribe-message" class="subscribe-message"></div>
+
+                    <!-- Carousel Section -->
+                    <div class="carousel-container">
+                        <div class="carousel">
+                            <div class="carousel-slide">
+                                <img src="{{ url_for('static', filename='img/index/groq_prompt.webp') }}" alt="{{ _('Groq AI Prompt') }}">
+                                <div class="carousel-caption">{{ _('Optimize your AI prompts with Groq') }}</div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="{{ url_for('static', filename='img/index/tavily_prompt.webp') }}" alt="{{ _('Tavily AI Search') }}">
+                                <div class="carousel-caption">{{ _('Enhance your research with Tavily AI') }}</div>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="{{ url_for('static', filename='img/index/newsletter.webp') }}" alt="{{ _('AI Newsletter') }}">
+                                <div class="carousel-caption">{{ _('Stay updated with our weekly AI newsletter') }}</div>
+                            </div>
+                        </div>
+                        <div class="carousel-dots">
+                            <div class="carousel-dot active"></div>
+                            <div class="carousel-dot"></div>
+                            <div class="carousel-dot"></div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
