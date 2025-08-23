@@ -135,7 +135,6 @@ document.addEventListener('DOMContentLoaded', async function() {
                     })
                 });
                 
-                // Manejar específicamente el código 304
                 if (response.status === 304) {
                     toast.warning(window.translations.noChangesMade || 'No changes were made');
                     return;
